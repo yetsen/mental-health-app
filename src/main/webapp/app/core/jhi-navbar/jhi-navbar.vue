@@ -2,63 +2,63 @@
   <!-- TODO: change 0 to 50 -->
     <b-navbar toggleable="md" type="light" :class="{'fixed-top': (isInHomePage() & scrollPosition < 0), 'bg-light sticky-top': !(isInHomePage() & scrollPosition < 0)}">
         <b-navbar-brand class="logo" b-link to="/">
-            <span class="logo-img"></span>
-            <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp</span>
-        </b-navbar-brand>
-        <b-navbar-toggle
-        right
-        class="jh-navbar-toggler d-lg-none"
-        href="javascript:void(0);"
-        data-toggle="collapse"
-        target="header-tabs"
-        aria-expanded="false"
-        aria-label="Toggle navigation">
-            <font-awesome-icon icon="bars" />
-        </b-navbar-toggle>
+          <!-- <span class="logo-img"></span> -->
+          <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp</span>
+      </b-navbar-brand>
+      <b-navbar-toggle
+      right
+      class="jh-navbar-toggler d-lg-none"
+      href="javascript:void(0);"
+      data-toggle="collapse"
+      target="header-tabs"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+          <font-awesome-icon icon="bars" />
+      </b-navbar-toggle>
 
-        <b-collapse is-nav id="header-tabs">
-            <b-navbar-nav class="ml-auto">
-                <b-nav-item to="/" exact>
-                    <a v-if="isInHomePage()" v-smooth-scroll href="#app">
-                        <font-awesome-icon icon="home" />
-                        <span v-text="$t('global.menu.home')">Home</span>
-                    </a>
-                    <span v-else to="/" exact>
-                        <font-awesome-icon icon="home" />
-                        <span v-text="$t('global.menu.home')">Home</span>
-                    </span>
-                </b-nav-item>
-                <b-nav-item v-if="isInHomePage()" @click="onAssessmentClick" exact>
-                    <span>
-                        <font-awesome-icon icon="pen" />
-                        <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
-                    </span>
-                </b-nav-item>
-                <b-nav-item v-if="isInHomePage()">
-                    <a v-smooth-scroll href="#aboutModel">
-                        <span v-text="$t('global.menu.aboutModel')">About The Model</span>
-                    </a>
-                </b-nav-item>
-                <b-nav-item v-if="isInHomePage()">
-                    <a v-smooth-scroll href="#teamVideos">
-                        <span v-text="$t('global.menu.projectTeam')">Project Team</span>
-                    </a>
-                </b-nav-item>
-                <b-nav-item v-if="isInHomePage()">
-                    <a v-smooth-scroll href="#contact">
-                        <span v-text="$t('global.menu.contact')">Contact</span>
-                    </a>
-                </b-nav-item>
-                <b-nav-item-dropdown
-                    right
-                    id="entity-menu"
-                    v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated"
-                    active-class="active" class="pointer">
-                    <span slot="button-content" class="navbar-dropdown-menu">
-                        <font-awesome-icon icon="th-list" />
-                        <span v-text="$t('global.menu.entities.main')">Entities</span>
-                    </span>
-                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+      <b-collapse is-nav id="header-tabs">
+          <b-navbar-nav class="ml-auto">
+              <b-nav-item to="/" exact>
+                  <a v-if="isInHomePage()" v-smooth-scroll href="#app">
+                      <font-awesome-icon icon="home" />
+                      <span v-text="$t('global.menu.home')">Home</span>
+                  </a>
+                  <span v-else to="/" exact>
+                      <font-awesome-icon icon="home" />
+                      <span v-text="$t('global.menu.home')">Home</span>
+                  </span>
+              </b-nav-item>
+              <b-nav-item v-if="isInHomePage()" @click="onAssessmentClick" exact>
+                  <span>
+                      <font-awesome-icon icon="pen" />
+                      <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
+                  </span>
+              </b-nav-item>
+              <b-nav-item v-if="isInHomePage()">
+                  <a v-smooth-scroll href="#aboutModel">
+                      <span v-text="$t('global.menu.aboutModel')">About The Model</span>
+                  </a>
+              </b-nav-item>
+              <b-nav-item v-if="isInHomePage()">
+                  <a v-smooth-scroll href="#teamVideos">
+                      <span v-text="$t('global.menu.projectTeam')">Project Team</span>
+                  </a>
+              </b-nav-item>
+              <b-nav-item v-if="isInHomePage()">
+                  <a v-smooth-scroll href="#contact">
+                      <span v-text="$t('global.menu.contact')">Contact</span>
+                  </a>
+              </b-nav-item>
+              <b-nav-item-dropdown
+                  right
+                  id="entity-menu"
+                  v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated"
+                  active-class="active" class="pointer">
+                  <span slot="button-content" class="navbar-dropdown-menu">
+                      <font-awesome-icon icon="th-list" />
+                      <span v-text="$t('global.menu.entities.main')">Entities</span>
+                  </span>
+                  <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </b-nav-item-dropdown>
                 <b-nav-item-dropdown
                     right
