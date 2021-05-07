@@ -15,7 +15,7 @@ public class SurveyDTO {
     private List<PageDTO> pages;
 
     public SurveyDTO (List<Block> blocks) {
-        this.title = "Circular Economy Assessment";
+        this.title = "Mental Health Assessment";
         this.showProgressBar = "top";
         this.pages = blocks.stream()
             .sorted(Comparator.comparing(Block::getId))
