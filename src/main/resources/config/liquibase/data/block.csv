@@ -1,16 +1,5 @@
 id;description;name;title;created_by;last_modified_by
-1;Aim of the study is to understand the circular economy practices employed in your organisation. Please answer the following questions based on your views and perspectives about your organisational practices and policies.  The collected data will be used only for the research purposes and will not be shared. Thank you for your time and valuable insights.;Introduction;Introduction;system;system
-2;;Screening;Screening;system;system
-3;;SmeScreening;SmeScreening;system;system
-4;;Turnover;Turnover;system;system
-5;;Employment;Employment;system;system
-6;;Design, Procure, Manufacture and Consume;Design, Procure, Manufacture and Consume;system;system
-7;;Reduce Reuse Recycle;Reduce Reuse Recycle;system;system
-8;;Performance - OP, EC, EN;Performance - OP, EC, EN;system;system
-9;;Performance - SO, MK, OG;Performance - SO, MK, OG;system;system
-10;;Culture, Job Satisfaction;Culture, Job Satisfaction;system;system
-11;;Influencers, Analytics, Dynamism;Influencers, Analytics, Dynamism;system;system
-12;;Innovation, Regulation, Skills, Conditions;Innovation, Regulation, Skills, Conditions;system;system
-13;;Resilience and SDGs;Resilience and SDGs;system;system
-14;;Risk, Partnerships, Maturity;Risk, Partnerships, Maturity;system;system
-15;;Recommendation;Recommendation;system;system
+1;;Introduction;Introduction;system;system
+2;;Personality;Personality;system;system
+3;;Mental Health;Mental Health;system;system
+4;;Well-Being;Well-Being;system;system
