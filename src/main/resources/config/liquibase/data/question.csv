@@ -4,14 +4,14 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 3;3;What is your level of education?;DROPDOWN;system;system;1;
 4;4;Marital status;DROPDOWN;system;system;1;
 5;5;Do you have caring responsibilities?;DROPDOWN;system;system;1;
-6;6;Please indicate, how well do the following statements describe your personality? (I see myself as someone who…);MATRIX;system;system;2;
-7;7;1)…is reserved;SUB_MATRIX;system;system;2;6
-8;8;2)…is generally trusting;SUB_MATRIX;system;system;2;6
-9;9;3)…tends to be lazy;SUB_MATRIX;system;system;2;6
-10;10;4)…is relaxed, handles stress well;SUB_MATRIX;system;system;2;6
-11;11;5)…has few artistic interests;SUB_MATRIX;system;system;2;6
-12;12;6)…is outgoing, sociable;SUB_MATRIX;system;system;2;6
-13;13;7)…tends to Wnd fault with others;SUB_MATRIX;system;system;2;6
-14;14;8)…does a thorough job;SUB_MATRIX;system;system;2;6
-15;15;9)…gets nervous easily;SUB_MATRIX;system;system;2;6
-16;16;10)…has an active imagination;SUB_MATRIX;system;system;2;6
+6;6;Please indicate, how well do the following statements describe your personality? (I see myself as someone who ...);MATRIX;system;system;2;
+7;7;...is reserved;SUB_MATRIX;system;system;2;6
+8;8;...is generally trusting;SUB_MATRIX;system;system;2;6
+9;9;...tends to be lazy;SUB_MATRIX;system;system;2;6
+10;10;...is relaxed, handles stress well;SUB_MATRIX;system;system;2;6
+11;11;...has few artistic interests;SUB_MATRIX;system;system;2;6
+12;12;...is outgoing, sociable;SUB_MATRIX;system;system;2;6
+13;13;...tends to Wnd fault with others;SUB_MATRIX;system;system;2;6
+14;14;...does a thorough job;SUB_MATRIX;system;system;2;6
+15;15;...gets nervous easily;SUB_MATRIX;system;system;2;6
+16;16;...has an active imagination;SUB_MATRIX;system;system;2;6

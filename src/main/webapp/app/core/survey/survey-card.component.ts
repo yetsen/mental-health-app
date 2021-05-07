@@ -89,7 +89,8 @@ export default class SurveyCardComponent extends Vue {
   }
 
   userId() {
-    return this.$store.getters.account.id;
+    //TODO: remove it
+    return this.$store.getters.account !== null ? this.$store.getters.account.id : "as";
   }
 
   pushCurrentSurveyData(surveyData: any) {
