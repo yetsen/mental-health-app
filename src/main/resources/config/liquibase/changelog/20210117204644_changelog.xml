@@ -1,0 +1,71 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Developer (generated)" id="1610916409657-2">
+        <createTable tableName="block">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="blockPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="description" type="VARCHAR(4000)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610916409657-3">
+        <createTable tableName="choice">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="choicePK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="text" type="VARCHAR(4000)"/>
+            <column name="value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610916409657-4">
+        <createTable tableName="question">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="questionPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(4000)"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="block_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610916409657-5">
+        <createTable tableName="question_choices">
+            <column name="question_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="choices_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610916409657-6">
+        <addForeignKeyConstraint baseColumnNames="choices_id" baseTableName="question_choices" constraintName="FK4cygmiuxya64qd1mkhrxsbloo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="choice" validate="true"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610916409657-7">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="question_choices" constraintName="FKifc0cyjdk3ijjhtju0fual7a6" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="question" validate="true"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610916409657-8">
+        <addForeignKeyConstraint baseColumnNames="block_id" baseTableName="question" constraintName="FKmhk9099ri44jdkcfo9wguccxq" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="block" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

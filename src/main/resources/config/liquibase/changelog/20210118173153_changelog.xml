@@ -1,0 +1,22 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Developer (generated)" id="1610991119068-2">
+        <createTable tableName="answer">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="answerPK"/>
+            </column>
+            <column name="choice_id" type="BIGINT"/>
+            <column name="question_id" type="BIGINT"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610991119068-3">
+        <addForeignKeyConstraint baseColumnNames="choice_id" baseTableName="answer" constraintName="FK87jfa0drr2wricwtg8pdab2na" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="choice" validate="true"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610991119068-4">
+        <addForeignKeyConstraint baseColumnNames="question_id" baseTableName="answer" constraintName="FK8frr4bcabmmeyyu60qt7iiblo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="question" validate="true"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1610991119068-5">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="answer" constraintName="FKpt5nm9lm7lr62sbxlsqa0qj3l" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
