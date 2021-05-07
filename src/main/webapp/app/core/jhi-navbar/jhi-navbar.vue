@@ -30,7 +30,7 @@
                 <b-nav-item v-if="isInHomePage()" @click="onCEAssessmentClick" exact>
                     <span>
                         <font-awesome-icon icon="pen" />
-                        <span v-text="$t('global.menu.startTest')">Mental Health App</span>
+                        <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
                     </span>
                 </b-nav-item>
                 <b-nav-item v-if="isInHomePage()">
