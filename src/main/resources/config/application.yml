@@ -141,7 +141,7 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: info@circulareconomyknowledgehub.com
+    from: info@mentalhealthapp.com
   swagger:
     default-include-pattern: /api/.*
     title: mentalHealthApp API

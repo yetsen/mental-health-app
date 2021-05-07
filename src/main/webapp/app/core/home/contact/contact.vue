@@ -9,7 +9,7 @@
                         <h2>Get In Touch Using The Form</h2>
                         <p>You can get in touch using the form for any questions and inquiries.</p>
                         <p>We can contact you as soon as possible.</p>
-                        <font-awesome-icon icon="envelope" /><a href="mailto:info@circulareconomyknowledgehub.com">info@circulareconomyknowledgehub.com</a>
+                        <font-awesome-icon icon="envelope" /><a href="mailto:info@mentalhealthapp.com">info@mentalhealthapp.com</a>
                     </div> <!-- end of text-container -->
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
