@@ -3,3 +3,17 @@ id;description;name;title;created_by;last_modified_by
 2;;Personality;Personality;system;system
 3;;Mental Health;Mental Health;system;system
 4;;Well-Being;Well-Being;system;system
+5;;Psychological Demand;Psychological Demand;system;system
+6;;Physical Demand;Physical Demand;system;system
+7;;Job Insecurity;Job Insecurity;system;system
+8;;Job Promotion;Job Promotion;system;system
+9;;Recognition;Recognition;system;system
+10;;Social Support from Supervisor;Social Support from Supervisor;system;system
+11;;Social Support from Coworkers;Social Support from Coworkers;system;system
+12;;Skill Utilization;Skill Utilization;system;system
+13;;Decision Authority;Decision Authority;system;system
+14;;Work to Family Conflict;Work to Family Conflict;system;system
+15;;Family to Work Conflict;Family to Work Conflict;system;system
+16;;Techno-Overload;Techno-Overload;system;system
+17;;Techno-Complexity;Techno-Complexity;system;system
+18;;COVID-19 Related Questions;COVID-19 Related Questions;system;system

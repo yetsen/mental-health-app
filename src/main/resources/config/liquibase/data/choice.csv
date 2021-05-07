@@ -21,3 +21,21 @@ id;name;text;value;created_by;last_modified_by
 20;;Neither agree nor disagree;3;system;system
 21;;Agree a little;4;system;system
 22;;Agree strongly;5;system;system
+23;;Not at all;1;system;system
+24;;Several Days;2;system;system
+25;;More than half the days;3;system;system
+26;;Nearly every day;4;system;system
+27;;None of the time;1;system;system
+28;;Rarely;2;system;system
+29;;Some of the time;3;system;system
+30;;Often;4;system;system
+31;;All of the time;5;system;system
+32;;Strongly Disagree;1;system;system
+33;;Disagree;2;system;system
+34;;Agree;3;system;system
+35;;Strongly Agree;4;system;system
+36;;Strongly Disagree;1;system;system
+37;;Disagree;2;system;system
+38;;Neither;3;system;system
+39;;Agree;4;system;system
+40;;Strongly Agree;5;system;system
