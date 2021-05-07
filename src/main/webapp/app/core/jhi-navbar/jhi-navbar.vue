@@ -1,5 +1,6 @@
 <template>
-    <b-navbar toggleable="md" type="light" :class="{'fixed-top': (isInHomePage() & scrollPosition < 50), 'bg-light sticky-top': !(isInHomePage() & scrollPosition < 50)}">
+  <!-- TODO: change 0 to 50 -->
+    <b-navbar toggleable="md" type="light" :class="{'fixed-top': (isInHomePage() & scrollPosition < 0), 'bg-light sticky-top': !(isInHomePage() & scrollPosition < 0)}">
         <b-navbar-brand class="logo" b-link to="/">
             <span class="logo-img"></span>
             <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp</span>
