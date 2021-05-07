@@ -57,13 +57,13 @@ spring:
     basename: i18n/messages
   task:
     execution:
-      thread-name-prefix: survey-chart-app-task-
+      thread-name-prefix: mental-health-app-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: survey-chart-app-scheduling-
+      thread-name-prefix: mental-health-app-scheduling-
       pool:
         size: 1
   thymeleaf:
