@@ -41,6 +41,41 @@
                     </p>
                 </div>
             </div>
+          <br>
+          <div class="row">
+            <div class="col-md-2 col-xs-1">
+
+            </div>
+            <div class="col-md-2 col-xs-2">
+              <img src="https://research.aston.ac.uk/files-asset/29292135/Sian_Joel_Edgar.jpg" width="120" height="150" class="img-responsive">
+            </div>
+            <div class="col-md-8 col-xs-9">
+              <h4>Sian Joel Edgar</h4>
+              <p><strong>Aston Business School</strong>
+                <br>Dr
+                <br>Email: <a href="mailto:s.joel-edgar@aston.ac.uk">s.joel-edgar@aston.ac.uk</a>
+                <br>Phone: +44 (0) 121 204 3437
+              </p>
+            </div>
+          </div>
+
+          <br>
+          <div class="row">
+            <div class="col-md-2 col-xs-1">
+
+            </div>
+            <div class="col-md-2 col-xs-2">
+              <img src="/content/images/nur_gundogdu_resized.jpg" width="120" height="150" class="img-responsive">
+            </div>
+            <div class="col-md-8 col-xs-9">
+              <h4>Nur Gundogdu</h4>
+              <p><strong>Aston Business School</strong>
+                <br>Dr
+                <br>Email: <a href="mailto:n.gundogdu@aston.ac.uk">n.gundogdu@aston.ac.uk</a>
+                <br>Phone: +44(0)775 312 8019
+              </p>
+            </div>
+          </div>
         </div>
     </section>
 </template>
