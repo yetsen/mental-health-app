@@ -5,10 +5,9 @@ import SurveyService from '@/core/survey.service.ts';
 import { Answer } from '@/shared/model/answer.model.ts';
 import Showdown from 'showdown';
 
-SurveyVue.StylesManager.applyTheme('modern');
+SurveyVue.StylesManager.applyTheme('bootstrap');
 
 let Survey = SurveyVue.Survey;
-Survey['cssType'] = 'bootstrap';
 
 @Component({
   name: 'surveyCard',
