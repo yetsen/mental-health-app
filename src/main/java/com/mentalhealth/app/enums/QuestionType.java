@@ -9,11 +9,13 @@ public enum QuestionType {
     RADIOGROUP("radiogroup"),
     MATRIX("matrix"),
     SUB_MATRIX("submatrix"),
+    RATING("rating"),
+    MATRIX_DROPDOWN("matrixdropdown"),
     TEXT("text");
 
     private String value;
 
-    QuestionType (String checkbox) {
-        this.value = checkbox;
+    QuestionType (String value) {
+        this.value = value;
     }
 }

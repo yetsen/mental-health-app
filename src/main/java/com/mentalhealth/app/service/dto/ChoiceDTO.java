@@ -9,6 +9,8 @@ public class ChoiceDTO {
 
     private String value;
     private String text;
+    private String title;
+    private String cellType;
 
     ChoiceDTO(Choice choice) {
         this.value = choice.getValue();
@@ -18,5 +20,15 @@ public class ChoiceDTO {
     ChoiceDTO(Question question) {
         this.text = question.getTitle();
         this.value = question.getName();
+    }
+
+    ChoiceDTO(Choice choice, boolean isMatrixDropdown) {
+        if (isMatrixDropdown) {
+            this.title = choice.getText();
+            this.cellType = choice.getName();
+        } else {
+            this.value = choice.getValue();
+            this.text = choice.getText();
+        }
     }
 }

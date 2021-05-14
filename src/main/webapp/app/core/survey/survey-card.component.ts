@@ -77,7 +77,7 @@ export default class SurveyCardComponent extends Vue {
       if (options.value.length < 4) {
         options.error = 'Your consent is required to go on survey.';
       }
-    } else if (options.question.getType() === 'matrix') {
+    } else if (options.question.getType() === 'matrix' || options.question.getType() === 'matrixdropdowm') {
       if (
         !options.question.rows.every(function (row) {
           return (options.value || {})[row.itemValue] !== undefined;

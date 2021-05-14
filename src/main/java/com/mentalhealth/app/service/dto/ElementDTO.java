@@ -19,6 +19,10 @@ public class ElementDTO {
     private boolean hideNumber;
     @JsonProperty (value="isRequired")
     private boolean isRequired;
+    private Integer rateMin;
+    private Integer rateMax;
+    private String minRateDescription;
+    private String maxRateDescription;
     List<ChoiceDTO> choices;
     List<ChoiceDTO> columns;
     List<ChoiceDTO> rows;
@@ -31,7 +35,8 @@ public class ElementDTO {
         this.hideNumber = true;
         this.isRequired = true;
         if (!QuestionType.SUB_MATRIX.equals(question.getType())
-            && !QuestionType.MATRIX.equals(question.getType())) {
+            && !QuestionType.MATRIX.equals(question.getType())
+            && !QuestionType.MATRIX_DROPDOWN.equals(question.getType())) {
             this.choices = question.getChoices().stream()
                 .sorted(Comparator.comparing(Choice::getId))
                 .map(ChoiceDTO::new).collect(Collectors.toList());
@@ -42,6 +47,21 @@ public class ElementDTO {
             this.rows = question.getChildren().stream()
                 .sorted(Comparator.comparing(Question::getId))
                 .map(ChoiceDTO::new).collect(Collectors.toList());
+        } else if (QuestionType.MATRIX_DROPDOWN.equals(question.getType())) {
+            this.rows = question.getChildren().stream()
+                    .sorted(Comparator.comparing(Question::getId))
+                    .map(ChoiceDTO::new).collect(Collectors.toList());
+            this.columns = question.getChoices().stream()
+                    .sorted(Comparator.comparing(Choice::getId))
+                    .map(choice -> new ChoiceDTO(choice, true)).collect(Collectors.toList());
+        }
+
+        //TODO: should be in DB
+        if (QuestionType.RATING.equals(question.getType())) {
+            rateMin = 0;
+            rateMax = 10;
+            maxRateDescription = "(Top Performance)";
+            minRateDescription = "(Worst Performance)";
         }
 
     }

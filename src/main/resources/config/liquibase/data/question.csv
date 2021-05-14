@@ -24,105 +24,117 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 23;23;Becoming easily annoyed or irritable?;SUB_MATRIX;system;system;3;17
 24;24;Feeling afraid as if something awful might;SUB_MATRIX;system;system;3;17
 25;25;Please indicate for each of the 14 statements which is closest to how you have been feeling over the past 2 weeks?;MATRIX;system;system;4;
-26;26;I’ve been feeling optimistic about the future;SUB_MATRIX;system;system;4;25
-27;27;I’ve been feeling useful;SUB_MATRIX;system;system;4;25
-28;28;I’ve been feeling relaxed;SUB_MATRIX;system;system;4;25
-29;29;I’ve been feeling interested in other people;SUB_MATRIX;system;system;4;25
-30;30;I’ve had energy to spare;SUB_MATRIX;system;system;4;25
-31;31;I’ve been dealing with problems well;SUB_MATRIX;system;system;4;25
-32;32;I’ve been thinking clearly;SUB_MATRIX;system;system;4;25
-33;33;I’ve been feeling good about myself;SUB_MATRIX;system;system;4;25
-34;34;I’ve been feeling close to other people;SUB_MATRIX;system;system;4;25
-35;35;I’ve been feeling confident;SUB_MATRIX;system;system;4;25
-36;36;I’ve been able to make up my own mind about things;SUB_MATRIX;system;system;4;25
-37;37;I’ve been feeling loved;SUB_MATRIX;system;system;4;25
-38;38;I’ve been interested in new things;SUB_MATRIX;system;system;4;25
-39;39;I’ve been feeling cheerful;SUB_MATRIX;system;system;4;25
-40;40;Please indicate your level of agreement with the following statements;MATRIX;system;system;5;
-41;41;My job requires working very fast;SUB_MATRIX;system;system;5;40
-42;42;My job requires working very hard;SUB_MATRIX;system;system;5;40
-43;43;I am not asked to do an excessive amount of work;SUB_MATRIX;system;system;5;40
-44;44;I have enough time to get the job done;SUB_MATRIX;system;system;5;40
-45;45;I am free from conflicting demands that others make;SUB_MATRIX;system;system;5;40
-46;46;My job requires long periods of intense concentration on the task;SUB_MATRIX;system;system;5;40
-47;47;My tasks are often interrupted before they can be completed, requiring attention at a later time;SUB_MATRIX;system;system;5;40
-48;48;My job is very hectic;SUB_MATRIX;system;system;5;40
-49;49;Waiting on work from other people or departments often slows me down on my job;SUB_MATRIX;system;system;5;40
-50;50;Please indicate your level of agreement with the following statement;MATRIX;system;system;6;
-51;51;My job requires physical effort;SUB_MATRIX;system;system;6;50
-52;52;Please indicate your level of agreement with the following statements;MATRIX;system;system;7;
-53;53;I have experienced or I expect to experience an undesirable change in my work situation;SUB_MATRIX;system;system;7;52
-54;54;My employment security is poor;SUB_MATRIX;system;system;7;52
-55;55;Please indicate your level of agreement with the following statements;MATRIX;system;system;8;
-56;56;My job promotion prospects are poor;SUB_MATRIX;system;system;8;55
-57;57;My current occupational position adequately reflects my education and training;SUB_MATRIX;system;system;8;55
-58;58;Considering all my efforts and achievements, my job promotion prospects are adequate;SUB_MATRIX;system;system;8;55
-59;59;Considering all my efforts and achievements, my salary/income is adequate;SUB_MATRIX;system;system;8;55
-60;60;Please indicate your level of agreement with the following statements;MATRIX;system;system;9;
-61;61;I receive the respect and prestige I deserve at work;SUB_MATRIX;system;system;9;60
-62;62;I receive the respect I deserve from my superiors;SUB_MATRIX;system;system;9;60
-63;63;I receive the respect I deserve from my colleagues;SUB_MATRIX;system;system;9;60
-64;64;I am treated unfairly at work;SUB_MATRIX;system;system;9;60
-65;65;I experience adequate support in difficult situations;SUB_MATRIX;system;system;9;60
-66;66;Please indicate your level of agreement with the following statements;MATRIX;system;system;10;
-67;67;My supervisor is concerned about the welfare of those under him;SUB_MATRIX;system;system;10;66
-68;68;My supervisor pays attention to what I’m saying;SUB_MATRIX;system;system;10;66
-69;69;My supervisor is helpful in getting the job done;SUB_MATRIX;system;system;10;66
-70;70;My supervisor is successful in getting people to work together;SUB_MATRIX;system;system;10;66
-71;71;Please indicate your level of agreement with the following statements;MATRIX;system;system;11;
-72;72;The people I work with are competent in doing their jobs;SUB_MATRIX;system;system;11;71
-73;73;The people I work with take a personal interest in me;SUB_MATRIX;system;system;11;71
-74;74;The people I work with are friendly;SUB_MATRIX;system;system;11;71
-75;75;The people I work with are helpful in getting the job done;SUB_MATRIX;system;system;11;71
-76;76;Please indicate your level of agreement with the following statements;MATRIX;system;system;12;
-77;77;My job requires that I learn new things;SUB_MATRIX;system;system;12;76
-78;78;My job requires a high level of skill;SUB_MATRIX;system;system;12;76
-79;79;My job requires me to be creative;SUB_MATRIX;system;system;12;76
-80;80;My job involves a lot of repetitive work;SUB_MATRIX;system;system;12;76
-81;81;I get to do a variety of different things on my job;SUB_MATRIX;system;system;12;76
-82;82;I have the opportunity to develop my own special abilities;SUB_MATRIX;system;system;12;76
-83;83;Please indicate your level of agreement with the following statements;MATRIX;system;system;13;
-84;84;On my job I have the freedom to decide how I do my work;SUB_MATRIX;system;system;13;83
-85;85;My job allows me to make a lot of decisions on my own;SUB_MATRIX;system;system;13;83
-86;86;I have a lot to say about what happens on my job;SUB_MATRIX;system;system;13;83
-87;87;Please indicate your level of agreement with the following statements;MATRIX;system;system;14;
-88;88;The demands of my work interfere with my family or personal time;SUB_MATRIX;system;system;14;87
-89;89;The amount of time my job takes up makes it difficult to fulfill my family or personal responsibilities;SUB_MATRIX;system;system;14;87
-90;90;Things I want to do at home do not get done because of the demands my job puts on me;SUB_MATRIX;system;system;14;87
-91;91;My job produces strain that makes it difficult to fulfill my family or personal duties;SUB_MATRIX;system;system;14;87
-92;92;Due to my work-related duties, I have to make changes to my plans for family or personal activities;SUB_MATRIX;system;system;14;87
-93;93;Please indicate your level of agreement with the following statements;MATRIX;system;system;15;
-94;94;The demands of my family or personal relationships interfere with work-related activities;SUB_MATRIX;system;system;15;93
-95;95;I have to put off doing things at work because of demands on my time at home;SUB_MATRIX;system;system;15;93
-96;96;Things I want to do at work don’t get done because of the demands of my family or personal life;SUB_MATRIX;system;system;15;93
-97;97;My home life interferes with my responsibilities at work, such as getting to work on time, accomplishing daily tasks, and working overtime;SUB_MATRIX;system;system;15;93
-98;98;Family-related strain interferes with my ability to perform job- related duties;SUB_MATRIX;system;system;15;93
-99;99;Please indicate your level of agreement with the following statements (The technology refers to the technology you use to do your job);MATRIX;system;system;16;
-100;100;I am forced by the technology to work much faster;SUB_MATRIX;system;system;16;99
-101;101;I am forced by the technology to do more work than I can handle;SUB_MATRIX;system;system;16;99
-102;102;I am forced by the technology to work with very tight time schedules;SUB_MATRIX;system;system;16;99
-103;103;I am forced to change my work habits to adap to new technologies;SUB_MATRIX;system;system;16;99
-104;104;I have a higher workload because of increased technology complexity;SUB_MATRIX;system;system;16;99
-105;105;Please indicate your level of agreement with the following statements;MATRIX;system;system;17;
-106;106;I do not know enough about the technology to handle my job satisfactorily;SUB_MATRIX;system;system;17;105
-107;107;I need a long time to understand and use new technologies;SUB_MATRIX;system;system;17;105
-108;108;I do not find enough time to study and upgrade my technology skills;SUB_MATRIX;system;system;17;105
-109;109;I find new recruits to this organization know more about computer technology than I do;SUB_MATRIX;system;system;17;105
-110;110;I often find it too complex for me to understand and use new techonologies;SUB_MATRIX;system;system;17;105
-111;111;Please indicate your level of agreement with the following statements in the context of Covid-19;MATRIX;system;system;18;
-112;112;My organisation has applied the government’s rules(social distance, providing personal protective equipments and etc.) during covid-19 pandemic tomaintain healty and safety;SUB_MATRIX;system;system;18;111
-113;113;My organisation has supported mental health and well-being of employees during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-114;114;My organisation has informed me about mental health risks and symptoms during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-115;115;My organisation has provided me necessary trainings/tools about stress management and coping strategies during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-116;116;My organisation has provided me trainings/tools about healthy life habits during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-117;117;My organisation has provided me  timely, transparent and effective communication during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-118;118;My organisation has addressed issues on the job and financial security in its communication during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-119;119;My organisation has provided me remote working guidelines to enhance my performance during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-120;120;My organisation has provided me clear guidelines around email usage during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-121;121;My organisation has provided me appropriate equipment and skills to use technology effectively during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-122;122;My organisation has provided me necessary resources such as ergonomic work equipment during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-123;123;My organisation has provided me a guidance/toolkit for returning to workplaces after Covid-19 lockdown;SUB_MATRIX;system;system;18;111
-124;124;Flexible working has negatively affect my work-life balance during covid-19 pandemic;SUB_MATRIX;system;system;18;111
-125;125;I have had more job demands than before covid-19 pandemic;SUB_MATRIX;system;system;18;111
-126;126;I have less job resources than before covid-19 pandemic;SUB_MATRIX;system;system;18;111
-127;127;I have more experienced technostress during covid-19 pandemic;SUB_MATRIX;system;system;18;111
+26;26;I've been feeling optimistic about the future;SUB_MATRIX;system;system;4;25
+27;27;I've been feeling useful;SUB_MATRIX;system;system;4;25
+28;28;I've been feeling relaxed;SUB_MATRIX;system;system;4;25
+29;29;I've been feeling interested in other people;SUB_MATRIX;system;system;4;25
+30;30;I've had energy to spare;SUB_MATRIX;system;system;4;25
+31;31;I've been dealing with problems well;SUB_MATRIX;system;system;4;25
+32;32;I've been thinking clearly;SUB_MATRIX;system;system;4;25
+33;33;I've been feeling good about myself;SUB_MATRIX;system;system;4;25
+34;34;I've been feeling close to other people;SUB_MATRIX;system;system;4;25
+35;35;I've been feeling confident;SUB_MATRIX;system;system;4;25
+36;36;I've been able to make up my own mind about things;SUB_MATRIX;system;system;4;25
+37;37;I've been feeling loved;SUB_MATRIX;system;system;4;25
+38;38;I've been interested in new things;SUB_MATRIX;system;system;4;25
+39;39;I've been feeling cheerful;SUB_MATRIX;system;system;4;25
+40;40;Please indicate your level of agreement with the following statements;MATRIX;system;system;6;
+41;41;My job requires working very fast;SUB_MATRIX;system;system;6;40
+42;42;My job requires working very hard;SUB_MATRIX;system;system;6;40
+43;43;I am not asked to do an excessive amount of work;SUB_MATRIX;system;system;6;40
+44;44;I have enough time to get the job done;SUB_MATRIX;system;system;6;40
+45;45;I am free from conflicting demands that others make;SUB_MATRIX;system;system;6;40
+46;46;My job requires long periods of intense concentration on the task;SUB_MATRIX;system;system;6;40
+47;47;My tasks are often interrupted before they can be completed, requiring attention at a later time;SUB_MATRIX;system;system;6;40
+48;48;My job is very hectic;SUB_MATRIX;system;system;6;40
+49;49;Waiting on work from other people or departments often slows me down on my job;SUB_MATRIX;system;system;6;40
+50;50;Please indicate your level of agreement with the following statement;MATRIX;system;system;7;
+51;51;My job requires physical effort;SUB_MATRIX;system;system;7;50
+52;52;Please indicate your level of agreement with the following statements;MATRIX;system;system;8;
+53;53;I have experienced or I expect to experience an undesirable change in my work situation;SUB_MATRIX;system;system;8;52
+54;54;My employment security is poor;SUB_MATRIX;system;system;8;52
+55;55;Please indicate your level of agreement with the following statements;MATRIX;system;system;9;
+56;56;My job promotion prospects are poor;SUB_MATRIX;system;system;9;55
+57;57;My current occupational position adequately reflects my education and training;SUB_MATRIX;system;system;9;55
+58;58;Considering all my efforts and achievements, my job promotion prospects are adequate;SUB_MATRIX;system;system;9;55
+59;59;Considering all my efforts and achievements, my salary/income is adequate;SUB_MATRIX;system;system;9;55
+60;60;Please indicate your level of agreement with the following statements;MATRIX;system;system;10;
+61;61;I receive the respect and prestige I deserve at work;SUB_MATRIX;system;system;10;60
+62;62;I receive the respect I deserve from my superiors;SUB_MATRIX;system;system;10;60
+63;63;I receive the respect I deserve from my colleagues;SUB_MATRIX;system;system;10;60
+64;64;I am treated unfairly at work;SUB_MATRIX;system;system;10;60
+65;65;I experience adequate support in difficult situations;SUB_MATRIX;system;system;10;60
+66;66;Please indicate your level of agreement with the following statements;MATRIX;system;system;11;
+67;67;My supervisor is concerned about the welfare of those under him;SUB_MATRIX;system;system;11;66
+68;68;My supervisor pays attention to what I'm saying;SUB_MATRIX;system;system;11;66
+69;69;My supervisor is helpful in getting the job done;SUB_MATRIX;system;system;11;66
+70;70;My supervisor is successful in getting people to work together;SUB_MATRIX;system;system;11;66
+71;71;Please indicate your level of agreement with the following statements;MATRIX;system;system;12;
+72;72;The people I work with are competent in doing their jobs;SUB_MATRIX;system;system;12;71
+73;73;The people I work with take a personal interest in me;SUB_MATRIX;system;system;12;71
+74;74;The people I work with are friendly;SUB_MATRIX;system;system;12;71
+75;75;The people I work with are helpful in getting the job done;SUB_MATRIX;system;system;12;71
+76;76;Please indicate your level of agreement with the following statements;MATRIX;system;system;13;
+77;77;My job requires that I learn new things;SUB_MATRIX;system;system;13;76
+78;78;My job requires a high level of skill;SUB_MATRIX;system;system;13;76
+79;79;My job requires me to be creative;SUB_MATRIX;system;system;13;76
+80;80;My job involves a lot of repetitive work;SUB_MATRIX;system;system;13;76
+81;81;I get to do a variety of different things on my job;SUB_MATRIX;system;system;13;76
+82;82;I have the opportunity to develop my own special abilities;SUB_MATRIX;system;system;13;76
+83;83;Please indicate your level of agreement with the following statements;MATRIX;system;system;14;
+84;84;On my job I have the freedom to decide how I do my work;SUB_MATRIX;system;system;14;83
+85;85;My job allows me to make a lot of decisions on my own;SUB_MATRIX;system;system;14;83
+86;86;I have a lot to say about what happens on my job;SUB_MATRIX;system;system;14;83
+87;87;Please indicate your level of agreement with the following statements;MATRIX;system;system;15;
+88;88;The demands of my work interfere with my family or personal time;SUB_MATRIX;system;system;15;87
+89;89;The amount of time my job takes up makes it difficult to fulfill my family or personal responsibilities;SUB_MATRIX;system;system;15;87
+90;90;Things I want to do at home do not get done because of the demands my job puts on me;SUB_MATRIX;system;system;15;87
+91;91;My job produces strain that makes it difficult to fulfill my family or personal duties;SUB_MATRIX;system;system;15;87
+92;92;Due to my work-related duties, I have to make changes to my plans for family or personal activities;SUB_MATRIX;system;system;15;87
+93;93;Please indicate your level of agreement with the following statements;MATRIX;system;system;16;
+94;94;The demands of my family or personal relationships interfere with work-related activities;SUB_MATRIX;system;system;16;93
+95;95;I have to put off doing things at work because of demands on my time at home;SUB_MATRIX;system;system;16;93
+96;96;Things I want to do at work don't get done because of the demands of my family or personal life;SUB_MATRIX;system;system;16;93
+97;97;My home life interferes with my responsibilities at work, such as getting to work on time, accomplishing daily tasks, and working overtime;SUB_MATRIX;system;system;16;93
+98;98;Family-related strain interferes with my ability to perform job- related duties;SUB_MATRIX;system;system;16;93
+99;99;Please indicate your level of agreement with the following statements (The technology refers to the technology you use to do your job);MATRIX;system;system;17;
+100;100;I am forced by the technology to work much faster;SUB_MATRIX;system;system;17;99
+101;101;I am forced by the technology to do more work than I can handle;SUB_MATRIX;system;system;17;99
+102;102;I am forced by the technology to work with very tight time schedules;SUB_MATRIX;system;system;17;99
+103;103;I am forced to change my work habits to adap to new technologies;SUB_MATRIX;system;system;17;99
+104;104;I have a higher workload because of increased technology complexity;SUB_MATRIX;system;system;17;99
+105;105;Please indicate your level of agreement with the following statements;MATRIX;system;system;18;
+106;106;I do not know enough about the technology to handle my job satisfactorily;SUB_MATRIX;system;system;18;105
+107;107;I need a long time to understand and use new technologies;SUB_MATRIX;system;system;18;105
+108;108;I do not find enough time to study and upgrade my technology skills;SUB_MATRIX;system;system;18;105
+109;109;I find new recruits to this organization know more about computer technology than I do;SUB_MATRIX;system;system;18;105
+110;110;I often find it too complex for me to understand and use new techonologies;SUB_MATRIX;system;system;18;105
+111;111;Please indicate your level of agreement with the following statements in the context of Covid-19;MATRIX;system;system;19;
+112;112;My organisation has applied the government's rules(social distance, providing personal protective equipments and etc.) during covid-19 pandemic tomaintain healty and safety;SUB_MATRIX;system;system;19;111
+113;113;My organisation has supported mental health and well-being of employees during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+114;114;My organisation has informed me about mental health risks and symptoms during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+115;115;My organisation has provided me necessary trainings/tools about stress management and coping strategies during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+116;116;My organisation has provided me trainings/tools about healthy life habits during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+117;117;My organisation has provided me  timely, transparent and effective communication during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+118;118;My organisation has addressed issues on the job and financial security in its communication during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+119;119;My organisation has provided me remote working guidelines to enhance my performance during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+120;120;My organisation has provided me clear guidelines around email usage during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+121;121;My organisation has provided me appropriate equipment and skills to use technology effectively during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+122;122;My organisation has provided me necessary resources such as ergonomic work equipment during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+123;123;My organisation has provided me a guidance/toolkit for returning to workplaces after Covid-19 lockdown;SUB_MATRIX;system;system;19;111
+124;124;Flexible working has negatively affect my work-life balance during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+125;125;I have had more job demands than before covid-19 pandemic;SUB_MATRIX;system;system;19;111
+126;126;I have less job resources than before covid-19 pandemic;SUB_MATRIX;system;system;19;111
+127;127;I have more experienced technostress during covid-19 pandemic;SUB_MATRIX;system;system;19;111
+128;128;About how many hours altgether did you work in the past 7 days? (If more than 97, enter 97);TEXT;system;system;5;
+129;129;How many hours does your employer expect you to work in a typical 7-day week? (If it varies, estimate the average. If more than 97, enter 97.);TEXT;system;system;5;
+130;130;Now please think of your work experiences over the past 4 weeks (28 days). In the spaces provided below, write the number of days you spent in each of the following work situations. (In the past 4 weeks (28 days), how many days did you...);MATRIX_DROPDOWN;system;system;5;
+131;131;...miss an entire work day because of problems with your physical or mental health? (Please include only days missed for your own health, not someone else's health.);SUB_MATRIX;system;system;5;130
+132;132;...miss an entire work day for any other reason (including vacation)?;SUB_MATRIX;system;system;5;130
+133;133;...miss part of a work day because of problems with your physical or mental health? (Please include only days missed for your own health, not someone else's health.);SUB_MATRIX;system;system;5;130
+134;134;...miss part of a work day for any other reason (including vacation)?;SUB_MATRIX;system;system;5;130
+135;135;...come in early, go home late, or work on your day off?;SUB_MATRIX;system;system;5;130
+136;136;About how many hours altogether did you work in the past 4 weeks (28 days)?;TEXT;system;system;5;
+137;137;On a scale from 0 to 10 where 0 is the worst job performance anyone could have at your job and 10 is the performance of a top worker, how would you rate the usual performance of most workers in a job similar to yours?;RATING;system;system;5;
+138;138;Using the same 0-to-10 scale, how would you rate your usual job performance over the past year or two?;RATING;system;system;5;
+139;139;Using the same 0-to-10 scale, how would you rate your overall job performance on the days you worked during the past 4 weeks (28 days)?;RATING;system;system;5;
