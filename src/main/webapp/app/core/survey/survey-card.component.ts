@@ -59,7 +59,7 @@ export default class SurveyCardComponent extends Vue {
     this.surveyService()
       .getAnswer(this.userId())
       .then(res => {
-        let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'] };
+        let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
         (window as any).survey.data = result;
       });
 
@@ -89,7 +89,7 @@ export default class SurveyCardComponent extends Vue {
 
   userId() {
     //TODO: remove it
-    return this.$store.getters.account !== null ? this.$store.getters.account.id : "as";
+    return this.$store.getters.account.id;
   }
 
   pushCurrentSurveyData(surveyData: any) {
@@ -125,7 +125,7 @@ export default class SurveyCardComponent extends Vue {
     let that = this;
     Object.keys(surveyData).forEach(function (key, index) {
       let value = surveyData[key];
-      if (typeof value === 'string') {
+      if (typeof value === 'string' || typeof value === 'number') {
         let ans = new Answer();
         ans.userId = that.userId();
         ans.questionName = key;
@@ -144,7 +144,11 @@ export default class SurveyCardComponent extends Vue {
           let ans = new Answer();
           ans.userId = that.userId();
           ans.questionName = key;
-          ans.choiceValue = value[key];
+          if (typeof value[key] === 'string') {
+            ans.choiceValue = value[key];
+          } else {
+            ans.choiceValue = String(Object.values(value[key])[0]);
+          }
           answers.push(ans);
         });
       }

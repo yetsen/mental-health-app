@@ -12,6 +12,7 @@ import com.mentalhealth.app.service.dto.SurveyDTO;
 import com.mentalhealth.app.service.dto.SurveyResultDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -71,7 +72,8 @@ public class SurveyService {
                 : answerRepository.findByUserAndQuestion(user, question)
                     .orElse(new Answer(user, question));
 
-            if (question.getType().equals(QuestionType.TEXT)) {
+            if (question.getType().equals(QuestionType.TEXT) || question.getType().equals(QuestionType.RATING) ||
+                    (!ObjectUtils.isEmpty(question.getParent()) && QuestionType.MATRIX_DROPDOWN.equals(question.getParent().getType()))) {
                 answer.setCustomAnswer(answerDTO.getChoiceValue());
                 return answer;
             }

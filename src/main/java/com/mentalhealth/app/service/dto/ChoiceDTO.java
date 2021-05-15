@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class ChoiceDTO {
 
+    private String name;
     private String value;
     private String text;
     private String title;
@@ -24,8 +25,10 @@ public class ChoiceDTO {
 
     ChoiceDTO(Choice choice, boolean isMatrixDropdown) {
         if (isMatrixDropdown) {
+            this.name = choice.getName();
             this.title = choice.getText();
-            this.cellType = choice.getName();
+            this.cellType = choice.getValue();
+            this.text = choice.getText();
         } else {
             this.value = choice.getValue();
             this.text = choice.getText();

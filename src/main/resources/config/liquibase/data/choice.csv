@@ -1,42 +1,42 @@
 id;name;text;value;created_by;last_modified_by
-1;;Female;1;system;system
-2;;Male;2;system;system
-3;;None;1;system;system
-4;;Primary;2;system;system
-5;;Secondary;3;system;system
-6;;High School;4;system;system
-7;;University;5;system;system
-8;;Master;6;system;system
-9;;PhD;7;system;system
-10;;Single;1;system;system
-11;;Civil Partnership;2;system;system
-12;;Marriage;3;system;system
-13;;Widowed;4;system;system
-14;;Divorced;5;system;system
-15;;Seperated;6;system;system
-16;;Yes;1;system;system
-17;;No;2;system;system
-18;;Disagree strongly;1;system;system
-19;;Disagree a little;2;system;system
-20;;Neither agree nor disagree;3;system;system
-21;;Agree a little;4;system;system
-22;;Agree strongly;5;system;system
-23;;Not at all;1;system;system
-24;;Several Days;2;system;system
-25;;More than half the days;3;system;system
-26;;Nearly every day;4;system;system
-27;;None of the time;1;system;system
-28;;Rarely;2;system;system
-29;;Some of the time;3;system;system
-30;;Often;4;system;system
-31;;All of the time;5;system;system
-32;;Strongly Disagree;1;system;system
-33;;Disagree;2;system;system
-34;;Agree;3;system;system
-35;;Strongly Agree;4;system;system
-36;;Strongly Disagree;1;system;system
-37;;Disagree;2;system;system
-38;;Neither;3;system;system
-39;;Agree;4;system;system
-40;;Strongly Agree;5;system;system
-41;text;Number of days (00-28);Number of days (00-28);system;system
+1;Female;Female;1;system;system
+2;Male;Male;2;system;system
+3;None;None;1;system;system
+4;Primary;Primary;2;system;system
+5;Secondary;Secondary;3;system;system
+6;High School;High School;4;system;system
+7;University;University;5;system;system
+8;Master;Master;6;system;system
+9;PhD;PhD;7;system;system
+10;Single;Single;1;system;system
+11;Civil Partnership;Civil Partnership;2;system;system
+12;Marriage;Marriage;3;system;system
+13;Widowed;Widowed;4;system;system
+14;Divorced;Divorced;5;system;system
+15;Seperated;Seperated;6;system;system
+16;Yes;Yes;1;system;system
+17;No;No;2;system;system
+18;Disagree strongly;Disagree strongly;1;system;system
+19;Disagree a little;Disagree a little;2;system;system
+20;Neither agree nor disagree;Neither agree nor disagree;3;system;system
+21;Agree a little;Agree a little;4;system;system
+22;Agree strongly;Agree strongly;5;system;system
+23;Not at all;Not at all;1;system;system
+24;Several Days;Several Days;2;system;system
+25;More than half the days;More than half the days;3;system;system
+26;Nearly every day;Nearly every day;4;system;system
+27;None of the time;None of the time;1;system;system
+28;Rarely;Rarely;2;system;system
+29;Some of the time;Some of the time;3;system;system
+30;Often;Often;4;system;system
+31;All of the time;All of the time;5;system;system
+32;Strongly Disagree;Strongly Disagree;1;system;system
+33;Disagree;Disagree;2;system;system
+34;Agree;Agree;3;system;system
+35;Strongly Agree;Strongly Agree;4;system;system
+36;Strongly Disagree;Strongly Disagree;1;system;system
+37;Disagree;Disagree;2;system;system
+38;Neither;Neither;3;system;system
+39;Agree;Agree;4;system;system
+40;Strongly Agree;Strongly Agree;5;system;system
+41;Number of days (00-28);Number of days (00-28);text;system;system
