@@ -94,7 +94,7 @@ jhipster:
       # security key (this key should be unique for your application, and kept secret)
       key: 13ae2bd800206a52feee6c5e445f7a4a423219491e365ac718faffeebca82c011935e37d11b16113fc6a016c7a2d53af2da3
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    base-url: http://www.mentalhealthapp.com # Modify according to your server's URL
+    base-url: https://mentalhealthapp.herokuapp.com/ # Modify according to your server's URL
   metrics:
     logs: # Reports metrics in the logs
       enabled: false
