@@ -30,6 +30,7 @@ import VueSmoothScroll from 'vue2-smooth-scroll';
 import VueYouTubeEmbed from 'vue-youtube-embed';
 import SurveyService from '@/core/survey.service';
 import VueApexCharts from 'vue-apexcharts';
+import HighchartsVue from 'highcharts-vue'
 
 /* tslint:disable */
 
@@ -47,6 +48,7 @@ Vue.use(VueSmoothScroll, {
 });
 Vue.use(VueYouTubeEmbed);
 Vue.use(VueApexCharts);
+Vue.use(HighchartsVue);
 
 Vue.component('apexchart', VueApexCharts);
 Vue.component('font-awesome-icon', FontAwesomeIcon);

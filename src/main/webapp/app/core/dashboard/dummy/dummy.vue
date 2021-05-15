@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title text-center">Special title treatment</h5>
-            <apexchart type="bar" :options="chartOptions" :series="series"></apexchart>
+            <highcharts :options="chartOptions"></highcharts>
         </div>
     </div>
 </template>
