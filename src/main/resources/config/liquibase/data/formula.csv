@@ -1,0 +1,7 @@
+id;name;formula;variables;created_by;last_modified_by
+1;Extraversion;(-?+?)/2;7,12;system;system
+2;Agreeableness;(-?+?)/2;8,13;system;system
+3;Conscientiousness;(-?+?)/2;9,14;system;system
+4;Neuroticism;(-?+?)/2;10,15;system;system
+5;Openness to Experience;(-?+?)/2;11,16;system;system
+6;Mental Health;(?+?+?+?+?+?+?)/7;18,19,20,21,22,23,24;system;system

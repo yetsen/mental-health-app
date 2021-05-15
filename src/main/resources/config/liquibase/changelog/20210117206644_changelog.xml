@@ -21,5 +21,10 @@
             separator=";"
             tableName="question_choices">
         </loadData>
+        <loadData
+            file="config/liquibase/data/formula.csv"
+            separator=";"
+            tableName="formula">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

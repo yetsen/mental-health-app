@@ -7,7 +7,7 @@
     <artifactId>mental-health-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Survey Chart App</name>
+    <name>Mental Health App</name>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->
@@ -297,6 +297,11 @@
             <scope>provided</scope>
         </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
+        <dependency>
+            <groupId>org.mariuszgromada.math</groupId>
+            <artifactId>MathParser.org-mXparser</artifactId>
+            <version>4.4.2</version>
+        </dependency>
     </dependencies>
 
     <build>
