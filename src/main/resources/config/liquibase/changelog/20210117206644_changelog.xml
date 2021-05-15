@@ -26,5 +26,10 @@
             separator=";"
             tableName="formula">
         </loadData>
+        <loadData
+            file="config/liquibase/data/chart.csv"
+            separator=";"
+            tableName="chart">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

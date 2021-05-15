@@ -25,7 +25,7 @@ public class Formula extends AbstractAuditingEntity implements Serializable {
 
     @Size (max = 4000)
     @Column(name = "formula", length = 4000)
-    private String value;
+    private String formula;
 
     @Size (max = 4000)
     @Column (name = "variables", length = 4000)

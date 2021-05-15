@@ -3,83 +3,16 @@ import { Vue } from 'vue-property-decorator';
 import offlineExporting from "highcharts/modules/offline-exporting";
 import exportingInit from "highcharts/modules/exporting";
 import Highcharts from 'highcharts';
+import More from 'highcharts/highcharts-more'
 
 exportingInit(Highcharts);
 offlineExporting(Highcharts);
+More(Highcharts);
 @Component
 export default class DummyComponent extends Vue {
   data() {
     return {
-      chartOptions: {
-        chart: {
-          type: 'bar'
-        },
-        title: {
-          text: 'Historic World Population by Region'
-        },
-        subtitle: {
-          text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-        },
-        xAxis: {
-          categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-          title: {
-            text: null
-          }
-        },
-        yAxis: {
-          min: 0,
-          title: {
-            text: 'Population (millions)',
-            align: 'high'
-          },
-          labels: {
-            overflow: 'justify'
-          }
-        },
-        tooltip: {
-          valueSuffix: ' millions'
-        },
-        plotOptions: {
-          bar: {
-            dataLabels: {
-              enabled: true
-            }
-          }
-        },
-        legend: {
-          layout: 'vertical',
-          align: 'right',
-          verticalAlign: 'top',
-          x: -40,
-          y: 80,
-          floating: true,
-          borderWidth: 1,
-          shadow: true
-        },
-        credits: {
-          enabled: false
-        },
-        series: [{
-          name: 'Year 1800',
-          data: [107, 31, 635, 203, 2]
-        }, {
-          name: 'Year 1900',
-          data: [133, 156, 947, 408, 6]
-        }, {
-          name: 'Year 2000',
-          data: [814, 841, 3714, 727, 31]
-        }, {
-          name: 'Year 2016',
-          data: [1216, 1001, 4436, 738, 40]
-        }],
-        exporting: {
-          buttons: {
-            contextButton: {
-              menuItems: ['viewFullscreen', 'downloadPNG', 'downloadJPEG', 'downloadPDF']
-            }
-          }
-        }
-      }
+      chartOptions: {chart:{polar:true,type:'line'},title:{text:'Personality',x:-80},pane:{size:'80%'},xAxis:{categories:['Extraversion','Agreeableness','Conscientiousness','Neuroticism','OpennesstoExperience'],tickmarkPlacement:'on',lineWidth:0},yAxis:{gridLineInterpolation:'polygon',lineWidth:0,min:0},tooltip:{shared:true,pointFormat:'<spanstyle=\"color:{series.color}\">{series.name}:<b>{point.y}</b><br/>'},legend:{align:'right',verticalAlign:'middle',layout:'vertical'},series:[{name:'Results',data:[1.5,0.5,1.5,1.5,0.0],pointPlacement:'on'}],responsive:{rules:[{condition:{maxWidth:500},chartOptions:{legend:{align:'center',verticalAlign:'bottom',layout:'horizontal'},pane:{size:'70%'}}}]},exporting:{buttons:{contextButton:{menuItems:['viewFullscreen','downloadPNG','downloadJPEG','downloadPDF']}}}}
     };
   }
 }
