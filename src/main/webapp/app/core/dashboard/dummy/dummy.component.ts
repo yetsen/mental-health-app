@@ -1,6 +1,11 @@
 import Component from 'vue-class-component';
 import { Vue } from 'vue-property-decorator';
+import offlineExporting from "highcharts/modules/offline-exporting";
+import exportingInit from "highcharts/modules/exporting";
+import Highcharts from 'highcharts';
 
+exportingInit(Highcharts);
+offlineExporting(Highcharts);
 @Component
 export default class DummyComponent extends Vue {
   data() {
@@ -66,7 +71,14 @@ export default class DummyComponent extends Vue {
         }, {
           name: 'Year 2016',
           data: [1216, 1001, 4436, 738, 40]
-        }]
+        }],
+        exporting: {
+          buttons: {
+            contextButton: {
+              menuItems: ['viewFullscreen', 'downloadPNG', 'downloadJPEG', 'downloadPDF']
+            }
+          }
+        }
       }
     };
   }
