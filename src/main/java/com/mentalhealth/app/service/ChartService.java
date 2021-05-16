@@ -12,10 +12,8 @@ import org.mariuszgromada.math.mxparser.Expression;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,7 +49,9 @@ public class ChartService {
 			formulas.forEach(formula -> {
 				List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
 				List<Answer> answerList = answerRepository.findByUser_IdAndQuestion_IdIn(userId, questionIds).orElseThrow(RuntimeException::new);
-				String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(answerList));
+				Map<Long, Answer> questionAnswerList = answerList.stream().collect(Collectors.toMap(answer -> answer.getQuestion().getId(), Function
+						.identity()));
+				String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
 				double result = new Expression(expression).calculate();
 				results.add(String.valueOf(result));
 			});
@@ -62,8 +62,11 @@ public class ChartService {
 		return chartDTOList;
 	}
 
-	private String [] getAnswerTexts(List<Answer> answerList) {
-		return answerList.stream().map(answer -> Optional.ofNullable(answer.getCustomAnswer()).orElse(answer.getChoice().getValue())).toArray(String[]::new);
+	private String [] getAnswerTexts(Map<Long, Answer> questionAnswerList, List<Long> questionIds) {
+		return questionIds.stream()
+				.map(questionAnswerList::get)
+				.map(answer -> Optional.ofNullable(answer.getCustomAnswer())
+						.orElse(answer.getChoice().getValue())).toArray(String[]::new);
 	}
 
 	private String replaceQuestionMark(String str, String [] array) {
