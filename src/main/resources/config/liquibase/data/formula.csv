@@ -1,6 +1,6 @@
 id;name;formula;variables;created_by;last_modified_by
 1;Extraversion;(6-?+?)/2;7,12;system;system
-2;Agreeableness;(6-?+?)/2;8,13;system;system
+2;Agreeableness;(?+6-?)/2;8,13;system;system
 3;Conscientiousness;(6-?+?)/2;9,14;system;system
 4;Neuroticism;(6-?+?)/2;10,15;system;system
 5;Openness to Experience;(6-?+?)/2;11,16;system;system

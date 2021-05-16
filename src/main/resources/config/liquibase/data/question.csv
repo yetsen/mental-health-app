@@ -11,7 +11,7 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 10;10;...is relaxed, handles stress well;SUB_MATRIX;system;system;2;6
 11;11;...has few artistic interests;SUB_MATRIX;system;system;2;6
 12;12;...is outgoing, sociable;SUB_MATRIX;system;system;2;6
-13;13;...tends to Wnd fault with others;SUB_MATRIX;system;system;2;6
+13;13;...tends to find fault with others;SUB_MATRIX;system;system;2;6
 14;14;...does a thorough job;SUB_MATRIX;system;system;2;6
 15;15;...gets nervous easily;SUB_MATRIX;system;system;2;6
 16;16;...has an active imagination;SUB_MATRIX;system;system;2;6
@@ -22,7 +22,7 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 21;21;Trouble relaxing?;SUB_MATRIX;system;system;3;17
 22;22;Being so restless that it is hard to sit still?;SUB_MATRIX;system;system;3;17
 23;23;Becoming easily annoyed or irritable?;SUB_MATRIX;system;system;3;17
-24;24;Feeling afraid as if something awful might;SUB_MATRIX;system;system;3;17
+24;24;Feeling afraid as if something awful might happen?;SUB_MATRIX;system;system;3;17
 25;25;Please indicate for each of the 14 statements which is closest to how you have been feeling over the past 2 weeks?;MATRIX;system;system;4;
 26;26;I've been feeling optimistic about the future;SUB_MATRIX;system;system;4;25
 27;27;I've been feeling useful;SUB_MATRIX;system;system;4;25
@@ -110,7 +110,7 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 109;109;I find new recruits to this organization know more about computer technology than I do;SUB_MATRIX;system;system;18;105
 110;110;I often find it too complex for me to understand and use new techonologies;SUB_MATRIX;system;system;18;105
 111;111;Please indicate your level of agreement with the following statements in the context of Covid-19;MATRIX;system;system;19;
-112;112;My organisation has applied the government's rules(social distance, providing personal protective equipments and etc.) during covid-19 pandemic tomaintain healty and safety;SUB_MATRIX;system;system;19;111
+112;112;My organisation has applied the government's rules(social distance, providing personal protective equipments and etc.) during covid-19 pandemic to maintain healty and safety;SUB_MATRIX;system;system;19;111
 113;113;My organisation has supported mental health and well-being of employees during covid-19 pandemic;SUB_MATRIX;system;system;19;111
 114;114;My organisation has informed me about mental health risks and symptoms during covid-19 pandemic;SUB_MATRIX;system;system;19;111
 115;115;My organisation has provided me necessary trainings/tools about stress management and coping strategies during covid-19 pandemic;SUB_MATRIX;system;system;19;111
@@ -126,7 +126,7 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 125;125;I have had more job demands than before covid-19 pandemic;SUB_MATRIX;system;system;19;111
 126;126;I have less job resources than before covid-19 pandemic;SUB_MATRIX;system;system;19;111
 127;127;I have more experienced technostress during covid-19 pandemic;SUB_MATRIX;system;system;19;111
-128;128;About how many hours altgether did you work in the past 7 days? (If more than 97, enter 97);TEXT;system;system;5;
+128;128;About how many hours altogether did you work in the past 7 days? (If more than 97, enter 97);TEXT;system;system;5;
 129;129;How many hours does your employer expect you to work in a typical 7-day week? (If it varies, estimate the average. If more than 97, enter 97.);TEXT;system;system;5;
 130;130;Now please think of your work experiences over the past 4 weeks (28 days). In the spaces provided below, write the number of days you spent in each of the following work situations. (In the past 4 weeks (28 days), how many days did you...);MATRIX_DROPDOWN;system;system;5;
 131;131;...miss an entire work day because of problems with your physical or mental health? (Please include only days missed for your own health, not someone else's health.);SUB_MATRIX;system;system;5;130
