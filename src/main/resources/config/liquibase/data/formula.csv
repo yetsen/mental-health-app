@@ -8,7 +8,7 @@ id;name;formula;variables;created_by;last_modified_by
 7;Well-Being;(?+?+?+?+?+?+?+?+?+?+?+?+?+?);26,27,28,29,30,31,32,33,34,35,36,37,38,39;system;system
 8;Productivity;(((100-((?-?)/?)*100)/100)*((100-((?-?)/10)*100)/100)-1)*100;129,128,129,137,139;system;system
 9;Psychological Demand;(?+?+6-?+6-?+6-?+?+?+?+?)/9;41,42,43,44,45,46,47,48,49;system;system
-10;Physical Demand;?;51;system;system
+10;Physical Demand;?+0;51;system;system
 11;Job Insecurity;(?+?)/2;53,54;system;system
 12;Job Promotion;(6-?+?+?+?)/4;56,57,58,59;system;system
 13;Recognition;(?+?+?+6-?+?)/5;61,62,63,64,65;system;system

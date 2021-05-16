@@ -11,6 +11,7 @@ import com.mentalhealth.app.service.dto.ChartDTO;
 import org.mariuszgromada.math.mxparser.Expression;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.*;
 import java.util.function.Function;
@@ -45,7 +46,7 @@ public class ChartService {
 			ChartDTO chartDTO = new ChartDTO();
 			List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
 			List<Formula> formulas = formulaRepository.findByIdIn(formulaIds);
-			List<String> results = new ArrayList<>();
+			Map<Long, String> resultMap = new HashMap<>();
 			formulas.forEach(formula -> {
 				List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
 				List<Answer> answerList = answerRepository.findByUser_IdAndQuestion_IdIn(userId, questionIds).orElseThrow(RuntimeException::new);
@@ -53,9 +54,10 @@ public class ChartService {
 						.identity()));
 				String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
 				double result = new Expression(expression).calculate();
-				results.add(String.valueOf(result));
+				resultMap.put(formula.getId(), String.valueOf(result));
 			});
-			String chartOptions = replaceQuestionMark(chart.getChartOptions(), results.toArray(new String[0]));
+			String chartOptions = replaceQuestionMark(chart.getChartOptions(),
+					formulaIds.stream().map(resultMap::get).toArray(String[]::new));
 			chartDTO.setChartOptions(chartOptions);
 			chartDTOList.add(chartDTO);
 		});
@@ -65,8 +67,9 @@ public class ChartService {
 	private String [] getAnswerTexts(Map<Long, Answer> questionAnswerList, List<Long> questionIds) {
 		return questionIds.stream()
 				.map(questionAnswerList::get)
-				.map(answer -> Optional.ofNullable(answer.getCustomAnswer())
-						.orElse(answer.getChoice().getValue())).toArray(String[]::new);
+				.map(answer ->
+						!StringUtils.isEmpty(answer.getCustomAnswer()) ?
+								answer.getCustomAnswer() : answer.getChoice().getValue()).toArray(String[]::new);
 	}
 
 	private String replaceQuestionMark(String str, String [] array) {
