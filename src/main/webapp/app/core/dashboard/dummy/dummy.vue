@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="card-body">
-            <highcharts :options="chartOptions"></highcharts>
+            <highcharts :options="chartOptionsObject"></highcharts>
         </div>
     </div>
 </template>
