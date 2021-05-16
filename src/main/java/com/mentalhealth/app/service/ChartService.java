@@ -54,7 +54,7 @@ public class ChartService {
 						.identity()));
 				String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
 				double result = new Expression(expression).calculate();
-				resultMap.put(formula.getId(), String.valueOf(result));
+				resultMap.put(formula.getId(), String.format("%.2f", result));
 			});
 			String chartOptions = replaceQuestionMark(chart.getChartOptions(),
 					formulaIds.stream().map(resultMap::get).toArray(String[]::new));
