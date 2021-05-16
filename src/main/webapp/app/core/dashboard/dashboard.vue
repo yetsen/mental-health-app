@@ -5,7 +5,7 @@
                 <dummyComponent :chartOptions="chartList[0].chartOptions"></dummyComponent>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-                <dummyComponent :chartOptions="chartList[0].chartOptions"></dummyComponent>
+                <dummyComponent :chartOptions="chartList[1].chartOptions"></dummyComponent>
             </div>
         </div>
         <div class="row">

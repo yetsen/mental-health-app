@@ -131,9 +131,8 @@
                         <font-awesome-icon icon="lock" />
                         <span v-text="$t('global.menu.account.password')">Password</span>
                     </b-dropdown-item>
-                    <b-dropdown-item to="/account/sessions" tag="b-dropdown-item" v-if="authenticated" active-class="active">
-                        <font-awesome-icon icon="cloud" />
-                        <span v-text="$t('global.menu.account.sessions')">Sessions</span>
+                    <b-dropdown-item to="/dashboard" tag="b-dropdown-item" v-if="authenticated" active-class="active">
+                        <span v-text="$t('global.menu.dashboard')">Dashboard</span>
                     </b-dropdown-item>
                     <b-dropdown-item v-if="authenticated"  v-on:click="logout()" id="logout" active-class="active">
                         <font-awesome-icon icon="sign-out-alt" />
