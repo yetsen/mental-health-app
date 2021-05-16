@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-12 col-xs-12">
-                <dummyComponent :chartOptions="chartList[0].chartOptions"></dummyComponent>
+                <dummyComponent :chartOptions="chartList[2].chartOptions"></dummyComponent>
             </div>
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <dummyComponent :chartOptions="chartList[0].chartOptions"></dummyComponent>
