@@ -21,3 +21,5 @@ id;name;formula;variables;created_by;last_modified_by
 20;Techno-Overload;(?+?+?+?+?)/5;100,101,102,103,104;system;system
 21;Techno-Complexity;(?+?+?+?+?)/5;106,107,108,109,110;system;system
 22;Covid-19 Related Questions;(?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)/16;112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127;system;system
+23;Covid-19 Organization Ability;(?+?+?+?+?+?+?+?+?+?+?+?)/12;112,113,114,115,116,117,118,119,120,121,122,123;system;system
+24;Covid-19 Impact;(?+?+?+?)/4;124,125,126,127;system;system

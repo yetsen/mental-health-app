@@ -40,3 +40,8 @@ id;name;text;value;created_by;last_modified_by
 39;Agree;Agree;4;system;system
 40;Strongly Agree;Strongly Agree;5;system;system
 41;Number of days (00-28);Number of days (00-28);text;system;system
+42;20-30;20-30;20-30;system;system
+43;20-30;31-40;31-40;system;system
+44;20-30;41-50;41-50;system;system
+45;20-30;51-60;51-60;system;system
+46;20-30;61-70;61-70;system;system
