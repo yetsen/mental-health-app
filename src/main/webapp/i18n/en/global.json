@@ -58,7 +58,10 @@
       "confirmpassword.label": "New password confirmation",
       "confirmpassword.placeholder": "Confirm the new password",
       "email.label": "Email",
-      "email.placeholder": "Your email"
+      "email.placeholder": "Your email",
+      "companycode.label": "Company Code",
+      "companycode.placeholder": "Your Company Code",
+      "isemployer.label": "Are you employer of the company?"
     },
     "messages": {
       "info": {
@@ -93,6 +96,12 @@
           "invalid": "Your email is invalid.",
           "minlength": "Your email is required to be at least 5 characters.",
           "maxlength": "Your email cannot be longer than 50 characters."
+        },
+        "companycode": {
+          "required": "Your company code is required.",
+          "invalid": "Your company code is invalid.",
+          "minlength": "Your company code is required to be at least 1 characters.",
+          "maxlength": "Your company code cannot be longer than 50 characters."
         }
       }
     },

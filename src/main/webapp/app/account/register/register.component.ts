@@ -3,7 +3,7 @@ import { Component, Inject } from 'vue-property-decorator';
 import { email, helpers, maxLength, minLength, required, sameAs } from 'vuelidate/lib/validators';
 import LoginService from '@/account/login.service';
 import RegisterService from '@/account/register/register.service';
-import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE } from '@/constants';
+import { EMAIL_ALREADY_USED_TYPE, LOGIN_ALREADY_USED_TYPE, COMPANY_CODE_NOT_FOUND } from '@/constants';
 
 const loginPattern = helpers.regex('alpha', /^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$/);
 const validations: any = {
@@ -31,6 +31,11 @@ const validations: any = {
         return containsUppercase && containsLowercase && containsNumber;
       },
     },
+    companyCode: {
+      required,
+      minLength: minLength(1),
+      maxLength: maxLength(50),
+    }
   },
   confirmPassword: {
     required,
@@ -53,18 +58,29 @@ export default class Register extends Vue {
     login: undefined,
     email: undefined,
     password: undefined,
+    companyCode: undefined,
+    isEmployer: undefined
   };
   public confirmPassword: any = null;
   public error = '';
   public errorEmailExists = '';
   public errorUserExists = '';
+  public errorCompanyCodeNotFound = '';
   public success = false;
+  public isEmployer: boolean;
+
+  constructor() {
+    super();
+    this.isEmployer = false
+  }
 
   public register(): void {
     this.error = null;
     this.errorUserExists = null;
     this.errorEmailExists = null;
+    this.errorCompanyCodeNotFound = null;
     this.registerAccount.langKey = this.$store.getters.currentLanguage;
+    this.registerAccount.isEmployer = this.isEmployer;
     this.registerService()
       .processRegistration(this.registerAccount)
       .then(() => {
@@ -76,6 +92,8 @@ export default class Register extends Vue {
           this.errorUserExists = 'ERROR';
         } else if (error.response.status === 400 && error.response.data.type === EMAIL_ALREADY_USED_TYPE) {
           this.errorEmailExists = 'ERROR';
+        } else if (error.response.status === 400 && error.response.data.type === COMPANY_CODE_NOT_FOUND) {
+          this.errorCompanyCodeNotFound = 'ERROR';
         } else {
           this.error = 'ERROR';
         }

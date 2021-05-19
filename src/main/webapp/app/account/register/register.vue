@@ -21,6 +21,10 @@
                         <div class="alert alert-danger" role="alert" v-if="errorEmailExists" v-html="$t('register.messages.error.emailexists')">
                             <strong>Email is already in use!</strong> Please choose another one.
                         </div>
+
+                        <div class="alert alert-danger" role="alert" v-if="errorCompanyCodeNotFound" v-html="$t('register.messages.error.companycodenotfound')">
+                            <strong>Email is already in use!</strong> Please choose another one.
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
@@ -122,6 +126,27 @@
                                         The password and its confirmation do not match!
                                     </small>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="form-control-label" for="companyCode" v-text="$t('global.form[\'companycode.label\']')">Company Code</label>
+                              <input type="text" class="form-control" v-model="$v.registerAccount.companyCode.$model" id="companyCode" name="companyCode"
+                                     :class="{'valid': !$v.registerAccount.companyCode.$invalid, 'invalid': $v.registerAccount.companyCode.$invalid }"
+                                     required minlength="1" v-bind:placeholder="$t('global.form[\'companycode.placeholder\']')">
+                              <div v-if="$v.registerAccount.companyCode.$anyDirty && $v.registerAccount.companyCode.$invalid">
+                                <small class="form-text text-danger" v-if="!$v.registerAccount.companyCode.required"
+                                       v-text="$t('global.messages.validate.companycode.required')">
+                                  Your company code is required.
+                                </small>
+                                <small class="form-text text-danger" v-if="!$v.registerAccount.companyCode.minLength"
+                                       v-text="$t('global.messages.validate.companycode.minlength')">
+                                  Your company code is required to be at least 1 character.
+                                </small>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label class="form-control-label" for="isEmployer" v-text="$t('global.form[\'isemployer.label\']')">Are you employer of the company?</label>
+                              <input type="checkbox" class="custom-checkbox" v-model="isEmployer" id="isEmployer" name="isEmployer">
                             </div>
 
                             <button type="submit" class="btn btn-primary" v-text="$t('register.form.button')">Register</button>

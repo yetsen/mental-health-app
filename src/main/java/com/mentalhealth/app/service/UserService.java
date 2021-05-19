@@ -2,8 +2,10 @@ package com.mentalhealth.app.service;
 
 import com.mentalhealth.app.config.Constants;
 import com.mentalhealth.app.domain.Authority;
+import com.mentalhealth.app.domain.Company;
 import com.mentalhealth.app.domain.User;
 import com.mentalhealth.app.repository.AuthorityRepository;
+import com.mentalhealth.app.repository.CompanyRepository;
 import com.mentalhealth.app.repository.PersistentTokenRepository;
 import com.mentalhealth.app.repository.UserRepository;
 import com.mentalhealth.app.security.AuthoritiesConstants;
@@ -44,11 +46,15 @@ public class UserService {
 
     private final AuthorityRepository authorityRepository;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, PersistentTokenRepository persistentTokenRepository, AuthorityRepository authorityRepository) {
+    private final CompanyRepository companyRepository;
+
+    public UserService (UserRepository userRepository, PasswordEncoder passwordEncoder, PersistentTokenRepository persistentTokenRepository, AuthorityRepository authorityRepository,
+            CompanyRepository companyRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.persistentTokenRepository = persistentTokenRepository;
         this.authorityRepository = authorityRepository;
+        this.companyRepository = companyRepository;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -98,6 +104,10 @@ public class UserService {
                 throw new EmailAlreadyUsedException();
             }
         });
+        Optional<Company> companyOptional = companyRepository.findByCode(userDTO.getCompanyCode());
+        if (!companyOptional.isPresent()) {
+            throw new CompanyCodeNotFoundException();
+        }
         User newUser = new User();
         String encryptedPassword = passwordEncoder.encode(password);
         newUser.setLogin(userDTO.getLogin().toLowerCase());
@@ -117,6 +127,8 @@ public class UserService {
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
+        newUser.setEmployer(userDTO.getIsEmployer());
+        newUser.setCompany(companyOptional.get());
         userRepository.save(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
