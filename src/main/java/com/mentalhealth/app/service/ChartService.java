@@ -50,6 +50,7 @@ public class ChartService {
 		List<ChartDTO> chartDTOList = new ArrayList<>();
 
 		List<Chart> charts = chartRepository.findAll();
+		charts.sort(Comparator.comparing(Chart::getId));
 		charts.forEach(chart -> {
 			ChartDTO chartDTO = getChartDTO(userId, chart);
 			chartDTOList.add(chartDTO);
