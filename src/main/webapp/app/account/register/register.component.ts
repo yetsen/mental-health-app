@@ -58,8 +58,7 @@ export default class Register extends Vue {
     login: undefined,
     email: undefined,
     password: undefined,
-    companyCode: undefined,
-    isEmployer: undefined
+    companyCode: undefined
   };
   public confirmPassword: any = null;
   public error = '';
@@ -67,12 +66,7 @@ export default class Register extends Vue {
   public errorUserExists = '';
   public errorCompanyCodeNotFound = '';
   public success = false;
-  public isEmployer: boolean;
 
-  constructor() {
-    super();
-    this.isEmployer = false
-  }
 
   public register(): void {
     this.error = null;
@@ -80,7 +74,6 @@ export default class Register extends Vue {
     this.errorEmailExists = null;
     this.errorCompanyCodeNotFound = null;
     this.registerAccount.langKey = this.$store.getters.currentLanguage;
-    this.registerAccount.isEmployer = this.isEmployer;
     this.registerService()
       .processRegistration(this.registerAccount)
       .then(() => {

@@ -144,11 +144,6 @@
                               </div>
                             </div>
 
-                            <div class="form-group">
-                              <label class="form-control-label" for="isEmployer" v-text="$t('global.form[\'isemployer.label\']')">Are you employer of the company?</label>
-                              <input type="checkbox" class="custom-checkbox" v-model="isEmployer" id="isEmployer" name="isEmployer">
-                            </div>
-
                             <button type="submit" class="btn btn-primary" v-text="$t('register.form.button')">Register</button>
                         </form>
                     </div>

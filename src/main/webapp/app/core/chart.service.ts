@@ -11,4 +11,8 @@ export default class ChartService {
     return axios.get('api/chart/' + userId);
   }
 
+  public getCompanyCharts(companyId): AxiosPromise<any> {
+    return axios.get('api/chart/company/' + companyId);
+  }
+
 }

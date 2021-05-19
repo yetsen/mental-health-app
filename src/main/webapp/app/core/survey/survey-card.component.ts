@@ -41,6 +41,7 @@ export default class SurveyCardComponent extends Vue {
     (window as any).survey.onComplete.add(function (model, options) {
       that.pushCurrentSurveyData(model.data);
       that['isCompletionPage'] = true;
+      (<any>this).$router.push('/dashboard');
     });
 
     let converter = new Showdown.Converter();

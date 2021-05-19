@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -48,9 +49,9 @@ public class SurveyService {
     }
 
     public SurveyResultDTO getSurveyAnswers(Long userId) {
-        return convert(answerRepository.findByUser(
-            userRepository.findById(userId).orElseThrow(RuntimeException::new)
-        ).orElseThrow(RuntimeException::new));
+        User user = userRepository.findById(userId).orElseThrow(RuntimeException::new);
+        checkUserForAnsweringAllQuestions(user);
+        return convert(answerRepository.findByUser(user).orElseThrow(RuntimeException::new));
     }
 
     private List<Block> getAllBlocks() {
@@ -58,10 +59,13 @@ public class SurveyService {
     }
 
     public void putAnswers(List<AnswerDTO> answers) {
-        answerRepository.saveAll(answers.stream().map(answerDTO -> {
-            User user = Optional.of(userRepository
-                .findById(answerDTO.getUserId())).get().orElseThrow(RuntimeException::new);
+        if (answers.isEmpty()) {
+            return;
+        }
+        User user = Optional.of(userRepository
+                .findById(answers.get(0).getUserId())).get().orElseThrow(RuntimeException::new);
 
+        answerRepository.saveAll(answers.stream().map(answerDTO -> {
             Question question = Optional.of(questionRepository
                 .findByName(answerDTO.getQuestionName())).get().orElseThrow(RuntimeException::new);
 
@@ -85,6 +89,29 @@ public class SurveyService {
 
             return answer;
         }).collect(Collectors.toList()));
+
+        checkUserForAnsweringAllQuestions(user);
+    }
+
+    public boolean checkUserForAnsweringAllQuestions(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(RuntimeException::new);
+        if (user.getSurveyFinished())
+            return true;
+        return checkUserForAnsweringAllQuestions(user);
+    }
+
+    public boolean checkUserForAnsweringAllQuestions (User user) {
+        if (user.getSurveyFinished())
+            return true;
+        long answeredQuestionsSize = answerRepository.countAnswersByUser(user);
+        long allQuestionsSize = questionRepository.countAllByTypeNotIn(Arrays.asList(QuestionType.MATRIX_DROPDOWN, QuestionType.MATRIX));
+
+        if (allQuestionsSize == answeredQuestionsSize) {
+            user.setSurveyFinished(true);
+            userRepository.save(user);
+            return true;
+        }
+        return false;
     }
 
     public SurveyResultDTO convert(List<Answer> answers) {
@@ -92,8 +119,9 @@ public class SurveyService {
     }
 
     public void clearAnswers (Long userId) {
-        answerRepository.deleteAnswersByUser(
-            userRepository.findById(userId).orElseThrow(RuntimeException::new)
-        );
+        User user = userRepository.findById(userId).orElseThrow(RuntimeException::new);
+        answerRepository.deleteAnswersByUser(user);
+        user.setSurveyFinished(false);
+        userRepository.save(user);
     }
 }

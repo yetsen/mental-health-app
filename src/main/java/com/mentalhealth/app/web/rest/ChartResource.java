@@ -25,4 +25,11 @@ public class ChartResource {
         List<ChartDTO> chartDTOs = chartService.generateCharts(userId);
         return new ResponseEntity<>(chartDTOs, HttpStatus.OK);
     }
+
+    @GetMapping("/company/{companyId}")
+    //@PreAuthorize ("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
+    public ResponseEntity<List<ChartDTO>> getCompanyCharts(@PathVariable Long companyId) {
+        List<ChartDTO> chartDTOs = chartService.generateCompanyCharts(companyId);
+        return new ResponseEntity<>(chartDTOs, HttpStatus.OK);
+    }
 }

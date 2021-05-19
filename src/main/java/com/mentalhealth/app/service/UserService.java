@@ -91,7 +91,7 @@ public class UserService {
             });
     }
 
-    public User registerUser(UserDTO userDTO, String password) {
+    public User registerUser (UserDTO userDTO, String password, String companyCode) {
         userRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
@@ -104,9 +104,14 @@ public class UserService {
                 throw new EmailAlreadyUsedException();
             }
         });
-        Optional<Company> companyOptional = companyRepository.findByCode(userDTO.getCompanyCode());
+        boolean isEmployer = false;
+        Optional<Company> companyOptional = companyRepository.findByEmployeeCode(companyCode);
         if (!companyOptional.isPresent()) {
-            throw new CompanyCodeNotFoundException();
+            companyOptional = companyRepository.findByEmployerCode(companyCode);
+            if (!companyOptional.isPresent()) {
+                throw new CompanyCodeNotFoundException();
+            }
+            isEmployer = true;
         }
         User newUser = new User();
         String encryptedPassword = passwordEncoder.encode(password);
@@ -127,7 +132,7 @@ public class UserService {
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
-        newUser.setEmployer(userDTO.getIsEmployer());
+        newUser.setEmployer(isEmployer);
         newUser.setCompany(companyOptional.get());
         userRepository.save(newUser);
         log.debug("Created Information for User: {}", newUser);

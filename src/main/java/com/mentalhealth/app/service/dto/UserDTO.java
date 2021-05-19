@@ -51,7 +51,7 @@ public class UserDTO {
 
     private boolean isEmployer;
 
-    private String companyCode;
+    private Long companyId;
 
     public UserDTO() {
         // Empty constructor needed for Jackson.
@@ -74,7 +74,7 @@ public class UserDTO {
             .map(Authority::getName)
             .collect(Collectors.toSet());
         this.isEmployer = user.isEmployer();
-        this.companyCode = user.getCompany().getCode();
+        this.companyId = user.getCompany().getId();
     }
 
     public Long getId() {
@@ -197,7 +197,7 @@ public class UserDTO {
             ", lastModifiedBy='" + lastModifiedBy + '\'' +
             ", lastModifiedDate=" + lastModifiedDate +
             ", authorities=" + authorities +
-            ", companyCode=" + companyCode +
+            ", companyId=" + companyId +
             ", isEmployer=" + isEmployer +
             "}";
     }
@@ -210,11 +210,11 @@ public class UserDTO {
         isEmployer = employer;
     }
 
-    public String getCompanyCode () {
-        return companyCode;
+    public Long getCompanyId () {
+        return companyId;
     }
 
-    public void setCompanyCode (String companyCode) {
-        this.companyCode = companyCode;
+    public void setCompanyId (Long companyId) {
+        this.companyId = companyId;
     }
 }

@@ -3,6 +3,7 @@ package com.mentalhealth.app.service;
 import com.mentalhealth.app.domain.Answer;
 import com.mentalhealth.app.domain.Chart;
 import com.mentalhealth.app.domain.Formula;
+import com.mentalhealth.app.domain.User;
 import com.mentalhealth.app.repository.AnswerRepository;
 import com.mentalhealth.app.repository.ChartRepository;
 import com.mentalhealth.app.repository.FormulaRepository;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -29,23 +31,53 @@ public class ChartService {
 
 	private final UserRepository userRepository;
 
+	private final SurveyService surveyService;
+
 	public ChartService (ChartRepository chartRepository, FormulaRepository formulaRepository, AnswerRepository answerRepository,
-			UserRepository userRepository) {
+			UserRepository userRepository, SurveyService surveyService) {
 		this.chartRepository = chartRepository;
 		this.formulaRepository = formulaRepository;
 		this.answerRepository = answerRepository;
 		this.userRepository = userRepository;
+		this.surveyService = surveyService;
 	}
 
-	public List<ChartDTO> generateMultiUserChart() {
-		List<Long> userIdList = new ArrayList<>();
-		userIdList.forEach(userId -> {
-
+	public List<ChartDTO> generateCompanyCharts (Long companyId) {
+		List<User> userList = userRepository.findAllByCompany_Id(companyId);
+		List<Chart> charts = chartRepository.findAll();
+		List<ChartDTO> chartDTOList = new ArrayList<>();
+		charts.sort(Comparator.comparing(Chart::getId));
+		charts.forEach(chart -> {
+			ChartDTO chartDTO = new ChartDTO();
+			List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
+			Map<Long, Double> averageResultMap = new HashMap<>();
+			AtomicInteger userCount = new AtomicInteger();
+			userList.forEach(user -> {
+				if (surveyService.checkUserForAnsweringAllQuestions(user)) {
+					Map<Long, Double> resultMap = getFormulaResults(user.getId(), formulaIds);
+					resultMap.keySet().forEach(formulaId -> {
+						double restSum = averageResultMap.getOrDefault(formulaId, 0.0);
+						restSum += resultMap.get(formulaId);
+						averageResultMap.put(formulaId, restSum);
+					});
+					userCount.getAndIncrement();
+				}
+			});
+			averageResultMap.keySet().forEach(formulaId -> averageResultMap.put(formulaId,
+					averageResultMap.get(formulaId)/ userCount.get()));
+			String chartOptions = replaceQuestionMark(chart.getChartOptions(),
+					formulaIds.stream().map(averageResultMap::get).map(res -> String.format("%.2f", res)).toArray(String[]::new));
+			chartDTO.setChartOptions(chartOptions);
+			chartDTOList.add(chartDTO);
 		});
-		return new ArrayList<>();
+		return chartDTOList;
 	}
 
 	public List<ChartDTO> generateCharts (Long userId) {
+
+		if (!surveyService.checkUserForAnsweringAllQuestions(userId)) {
+			throw new AllQuestionsNotAnsweredException();
+		}
 
 		List<ChartDTO> chartDTOList = new ArrayList<>();
 

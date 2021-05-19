@@ -11,7 +11,8 @@
             <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
             <column name="last_modified_by" type="VARCHAR(50)"/>
             <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
-            <column name="code" type="VARCHAR(255)"/>
+            <column name="employee_code" type="VARCHAR(255)"/>
+            <column name="employer_code" type="VARCHAR(255)"/>
             <column name="name" type="VARCHAR(255)"/>
         </createTable>
     </changeSet>
@@ -26,11 +27,16 @@
         </addColumn>
     </changeSet>
     <changeSet author="Developer (generated)" id="1621437804364-5">
-        <createIndex indexName="company_code_idx" tableName="company">
-            <column name="code"/>
+        <createIndex indexName="company_employee_code_idx" tableName="company">
+            <column name="employee_code"/>
         </createIndex>
     </changeSet>
     <changeSet author="Developer (generated)" id="1621437804364-6">
+        <createIndex indexName="company_employer_code_idx" tableName="company">
+            <column name="employer_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1621437804364-7">
         <addForeignKeyConstraint baseColumnNames="company_id" baseTableName="jhi_user" constraintName="FK3ltrtkr6yv25sivkurwf9q8v9" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="company" validate="true"/>
     </changeSet>
 </databaseChangeLog>

@@ -10,7 +10,8 @@ import java.io.Serializable;
 
 @Entity
 @Table (name = "company", indexes = {
-		@Index(columnList = "code", name = "company_code_idx")
+		@Index(columnList = "employee_code", name = "company_employee_code_idx"),
+		@Index(columnList = "employer_code", name = "company_employer_code_idx")
 })
 @Getter
 @Setter
@@ -25,6 +26,11 @@ public class Company  extends AbstractAuditingEntity implements Serializable {
 	private String name;
 
 	@Size (max = 255)
-	@Column(name = "code")
-	private String code;
+	@Column(name = "employee_code")
+	private String employeeCode;
+
+
+	@Size (max = 255)
+	@Column(name = "employer_code")
+	private String employerCode;
 }

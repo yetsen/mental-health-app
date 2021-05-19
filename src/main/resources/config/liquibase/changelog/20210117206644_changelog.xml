@@ -45,6 +45,7 @@
             <column name="created_date" type="timestamp"/>
             <column name="company_id" type="numeric"/>
             <column name="is_employer" type="boolean"/>
+            <column name="survey_finished" type="boolean"/>
         </loadData>
         <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="datetime"/>
         <loadData

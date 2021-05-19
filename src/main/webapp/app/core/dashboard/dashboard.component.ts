@@ -16,12 +16,27 @@ export default class Dashboard extends Vue {
   public chartList = [];
 
   mounted() {
-    this.chartService().get(this.userId()).then(
-        value => this.chartList = value.data
-    )
+    if (this.isEmployer()) {
+      this.chartService().getCompanyCharts(this.companyId()).then(
+          value => this.chartList = value.data
+      )
+    } else {
+      this.chartService().get(this.userId()).then(
+          value => this.chartList = value.data
+      )
+    }
+
   }
 
   userId() {
     return this.$store.getters.account.id;
+  }
+
+  companyId() {
+    return this.$store.getters.account.companyId;
+  }
+
+  isEmployer() {
+    return this.$store.getters.account.isEmployer;
   }
 }
