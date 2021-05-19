@@ -37,31 +37,49 @@ public class ChartService {
 		this.userRepository = userRepository;
 	}
 
+	public List<ChartDTO> generateMultiUserChart() {
+		List<Long> userIdList = new ArrayList<>();
+		userIdList.forEach(userId -> {
+
+		});
+		return new ArrayList<>();
+	}
+
 	public List<ChartDTO> generateCharts (Long userId) {
 
 		List<ChartDTO> chartDTOList = new ArrayList<>();
 
 		List<Chart> charts = chartRepository.findAll();
 		charts.forEach(chart -> {
-			ChartDTO chartDTO = new ChartDTO();
-			List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-			List<Formula> formulas = formulaRepository.findByIdIn(formulaIds);
-			Map<Long, String> resultMap = new HashMap<>();
-			formulas.forEach(formula -> {
-				List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-				List<Answer> answerList = answerRepository.findByUser_IdAndQuestion_IdIn(userId, questionIds).orElseThrow(RuntimeException::new);
-				Map<Long, Answer> questionAnswerList = answerList.stream().collect(Collectors.toMap(answer -> answer.getQuestion().getId(), Function
-						.identity()));
-				String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
-				double result = new Expression(expression).calculate();
-				resultMap.put(formula.getId(), String.format("%.2f", result));
-			});
-			String chartOptions = replaceQuestionMark(chart.getChartOptions(),
-					formulaIds.stream().map(resultMap::get).toArray(String[]::new));
-			chartDTO.setChartOptions(chartOptions);
+			ChartDTO chartDTO = getChartDTO(userId, chart);
 			chartDTOList.add(chartDTO);
 		});
 		return chartDTOList;
+	}
+
+	private ChartDTO getChartDTO (Long userId, Chart chart) {
+		ChartDTO chartDTO = new ChartDTO();
+		List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
+		Map<Long, Double> resultMap = getFormulaResults(userId, formulaIds);
+		String chartOptions = replaceQuestionMark(chart.getChartOptions(),
+				formulaIds.stream().map(resultMap::get).map(res -> String.format("%.2f", res)).toArray(String[]::new));
+		chartDTO.setChartOptions(chartOptions);
+		return chartDTO;
+	}
+
+	private Map<Long, Double> getFormulaResults (Long userId, List<Long> formulaIds) {
+		List<Formula> formulas = formulaRepository.findByIdIn(formulaIds);
+		Map<Long, Double> resultMap = new HashMap<>();
+		formulas.forEach(formula -> {
+			List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
+			List<Answer> answerList = answerRepository.findByUser_IdAndQuestion_IdIn(userId, questionIds).orElseThrow(RuntimeException::new);
+			Map<Long, Answer> questionAnswerList = answerList.stream().collect(Collectors.toMap(answer -> answer.getQuestion().getId(), Function
+					.identity()));
+			String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
+			double result = new Expression(expression).calculate();
+			resultMap.put(formula.getId(), result);
+		});
+		return resultMap;
 	}
 
 	private String [] getAnswerTexts(Map<Long, Answer> questionAnswerList, List<Long> questionIds) {

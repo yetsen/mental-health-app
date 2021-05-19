@@ -19,6 +19,7 @@ export default class DummyComponent extends Vue {
   data() {
     let parsed = JSONfn.parse(JSONfn.parse(this.chartOptions))
     //console.log(parsed)
+    //console.log(JSONfn.stringify())
     return {
       chartOptionsObject: parsed
     };
