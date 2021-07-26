@@ -4,6 +4,7 @@ import * as SurveyVue from 'survey-vue';
 import SurveyService from '@/core/survey.service.ts';
 import { Answer } from '@/shared/model/answer.model.ts';
 import Showdown from 'showdown';
+import {gsap, Bounce, Power3} from 'gsap/all';
 
 SurveyVue.StylesManager.applyTheme('bootstrap');
 
@@ -18,6 +19,8 @@ let Survey = SurveyVue.Survey;
 export default class SurveyCardComponent extends Vue {
   @Inject('surveyService')
   private surveyService: () => SurveyService;
+
+  private doAnimation = true;
 
   data() {
     let json = this.$store.getters.survey;
@@ -36,6 +39,12 @@ export default class SurveyCardComponent extends Vue {
       that['progress'] = 100 * (currentPage / visiblePageCount) + '%';
       that['pageNumber'] = 'Page ' + currentPage + ' of ' + visiblePageCount;
       (window as any).survey.render();
+    });
+    (window as any).survey.onCurrentPageChanging.add(function (sender, options) {
+      if (!that.doAnimation)
+        return;
+      options.allowChanging = false;
+      that.startTransition(sender, options);
     });
 
     (window as any).survey.onComplete.add(function (model, options) {
@@ -64,6 +73,14 @@ export default class SurveyCardComponent extends Vue {
         (window as any).survey.data = result;
       });
 
+    let tableCss = {
+      matrix: {
+        root: "table table-striped"
+      }
+    };
+
+    (window as any).survey.css = tableCss;
+
     return {
       survey: (window as any).survey,
       pageNumber: 'Page 1 of 15',
@@ -71,6 +88,25 @@ export default class SurveyCardComponent extends Vue {
       isCompletionPage: false,
     };
   }
+
+  private startTransition(sender, options) : void {
+    let that = this;
+    that.doAnimation = false;
+    let wrapper = gsap.timeline({onComplete: function (){
+        that.doAnimation = true;
+    }});
+    setTimeout(function () {
+      sender.currentPage = options.newCurrentPage;
+    }, 1700);
+    let direction = options.isPrevPage ? -1 : 1;
+    wrapper.to("#surveyElement", {scale: .8, ease: Bounce.easeOut, duration: 1});
+    wrapper.to("#surveyElement", {delay: -.25, x: -2400*direction, ease: Power3.easeIn, duration: 1});
+    wrapper.to("#surveyElement", {x: 2400*direction, duration: 0});
+    wrapper.to("#surveyElement", {delay: 1, x: 0, ease: Power3.easeOut, duration: 1});
+    wrapper.to("#surveyElement", {scale: 1, ease: Bounce.easeOut, duration: 1});
+
+  }
+
 
   surveyValidateQuestion(s, options) {
     if (options.name === 'ConsentForm') {

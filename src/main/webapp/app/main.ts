@@ -32,6 +32,7 @@ import SurveyService from '@/core/survey.service';
 import VueApexCharts from 'vue-apexcharts';
 import HighchartsVue from 'highcharts-vue'
 import ChartService from "@/core/chart.service";
+import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
 
 /* tslint:disable */
 
@@ -56,6 +57,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('jhi-sort-indicator', JhiSortIndicatorComponent);
 Vue.component('infinite-loading', InfiniteLoading);
+gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
 
 const i18n = config.initI18N(Vue);
 const store = config.initVueXStore(Vue);

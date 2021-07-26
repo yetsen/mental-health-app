@@ -2,13 +2,15 @@
     <div class="survey-page">
         <div class="card jh-card">
             <div class="container">
-                <div v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
+                <div id="progressBar" v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
                     <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{width: progress}">
                         <span id="progressbar">{{ pageNumber }}</span>
                     </div>
                 </div>
-                <survey :survey='survey'></survey>
-                <div v-if="!isCompletionPage" class="panel-footer card-footer">
+                <div id="surveyElement">
+                  <survey :survey='survey'></survey>
+                </div>
+                <div id="navigationButtons" v-if="!isCompletionPage" class="panel-footer card-footer">
                     <input v-if="!survey.isFirstPage" type="button" @click="survey.prevPage()" value="Previous" class="btn sv_prev_btn float-left" >
                     <input type="button" @click="prepareClearAndExitModal()" value="Clear & Exit" class="btn sv_clear_btn float-left" >
                     <input v-if="!survey.isLastPage" type="button" @click="survey.nextPage()" value="Next" class="btn sv_next_btn float-right">
