@@ -1,15 +1,10 @@
 package com.mentalhealth.app.service;
 
-import com.mentalhealth.app.domain.Answer;
-import com.mentalhealth.app.domain.Chart;
-import com.mentalhealth.app.domain.Formula;
-import com.mentalhealth.app.domain.User;
-import com.mentalhealth.app.repository.AnswerRepository;
-import com.mentalhealth.app.repository.ChartRepository;
-import com.mentalhealth.app.repository.FormulaRepository;
-import com.mentalhealth.app.repository.UserRepository;
+import com.mentalhealth.app.domain.*;
+import com.mentalhealth.app.repository.*;
 import com.mentalhealth.app.service.dto.ChartDTO;
 import org.mariuszgromada.math.mxparser.Expression;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -33,28 +28,32 @@ public class ChartService {
 
 	private final SurveyService surveyService;
 
+	private final SurveyInformationRepository surveyInformationRepository;
+
 	public ChartService (ChartRepository chartRepository, FormulaRepository formulaRepository, AnswerRepository answerRepository,
-			UserRepository userRepository, SurveyService surveyService) {
+			UserRepository userRepository, SurveyService surveyService, SurveyInformationRepository surveyInformationRepository) {
 		this.chartRepository = chartRepository;
 		this.formulaRepository = formulaRepository;
 		this.answerRepository = answerRepository;
 		this.userRepository = userRepository;
 		this.surveyService = surveyService;
+		this.surveyInformationRepository = surveyInformationRepository;
 	}
 
-	public List<ChartDTO> generateCompanyCharts (Long companyId) {
+	public List<ChartDTO> generateCompanyCharts (Long companyId, Integer times) {
 		List<User> userList = userRepository.findAllByCompany_Id(companyId);
-		List<Chart> charts = chartRepository.findAll();
+		List<Chart> charts = chartRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
 		List<ChartDTO> chartDTOList = new ArrayList<>();
-		charts.sort(Comparator.comparing(Chart::getId));
 		charts.forEach(chart -> {
 			ChartDTO chartDTO = new ChartDTO();
 			List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
 			Map<Long, Double> averageResultMap = new HashMap<>();
 			AtomicInteger userCount = new AtomicInteger();
 			userList.forEach(user -> {
-				if (surveyService.checkUserForAnsweringAllQuestions(user)) {
-					Map<Long, Double> resultMap = getFormulaResults(user.getId(), formulaIds);
+				SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(user.getId(), times)
+						.orElseThrow(RuntimeException::new);
+				if (surveyService.checkUserForAnsweringAllQuestions(user.getId(), times)) {
+					Map<Long, Double> resultMap = getFormulaResults(surveyInformation.getId(), formulaIds);
 					resultMap.keySet().forEach(formulaId -> {
 						double restSum = averageResultMap.getOrDefault(formulaId, 0.0);
 						restSum += resultMap.get(formulaId);
@@ -73,39 +72,40 @@ public class ChartService {
 		return chartDTOList;
 	}
 
-	public List<ChartDTO> generateCharts (Long userId) {
+	public List<ChartDTO> generateCharts (Long userId, Integer times) {
+		SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, times)
+				.orElseThrow(RuntimeException::new);
 
-		if (!surveyService.checkUserForAnsweringAllQuestions(userId)) {
+		if (!surveyService.checkUserForAnsweringAllQuestions(surveyInformation)) {
 			throw new AllQuestionsNotAnsweredException();
 		}
 
 		List<ChartDTO> chartDTOList = new ArrayList<>();
 
-		List<Chart> charts = chartRepository.findAll();
-		charts.sort(Comparator.comparing(Chart::getId));
+		List<Chart> charts = chartRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
 		charts.forEach(chart -> {
-			ChartDTO chartDTO = getChartDTO(userId, chart);
+			ChartDTO chartDTO = getChartDTO(surveyInformation.getId(), chart);
 			chartDTOList.add(chartDTO);
 		});
 		return chartDTOList;
 	}
 
-	private ChartDTO getChartDTO (Long userId, Chart chart) {
+	private ChartDTO getChartDTO (Long surveyInformationId, Chart chart) {
 		ChartDTO chartDTO = new ChartDTO();
 		List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-		Map<Long, Double> resultMap = getFormulaResults(userId, formulaIds);
+		Map<Long, Double> resultMap = getFormulaResults(surveyInformationId, formulaIds);
 		String chartOptions = replaceQuestionMark(chart.getChartOptions(),
 				formulaIds.stream().map(resultMap::get).map(res -> String.format("%.2f", res)).toArray(String[]::new));
 		chartDTO.setChartOptions(chartOptions);
 		return chartDTO;
 	}
 
-	private Map<Long, Double> getFormulaResults (Long userId, List<Long> formulaIds) {
+	private Map<Long, Double> getFormulaResults (Long surveyInformationId, List<Long> formulaIds) {
 		List<Formula> formulas = formulaRepository.findByIdIn(formulaIds);
 		Map<Long, Double> resultMap = new HashMap<>();
 		formulas.forEach(formula -> {
 			List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-			List<Answer> answerList = answerRepository.findByUser_IdAndQuestion_IdIn(userId, questionIds).orElseThrow(RuntimeException::new);
+			List<Answer> answerList = answerRepository.findByQuestion_IdInAndSurveyInformation_Id(questionIds, surveyInformationId).orElseThrow(RuntimeException::new);
 			Map<Long, Answer> questionAnswerList = answerList.stream().collect(Collectors.toMap(answer -> answer.getQuestion().getId(), Function
 					.identity()));
 			String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));

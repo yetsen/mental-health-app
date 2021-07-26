@@ -28,7 +28,7 @@ export default new Router({
       component: Home
     },
     {
-      path: '/survey',
+      path: '/survey/:times',
       name: 'SurveyCard',
       component: SurveyCard
     },

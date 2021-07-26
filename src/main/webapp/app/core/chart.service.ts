@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios';
 import { Store } from 'vuex';
-import { Answer } from '@/shared/model/answer.model';
+import { Answer } from '@/shared/model/answers.model';
 
 export default class ChartService {
   constructor(private store: Store<any>) {

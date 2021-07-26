@@ -3,15 +3,18 @@ package com.mentalhealth.app.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.time.Instant;
 
 @Entity
 @Table (name = "answer")
 @Data
 @NoArgsConstructor
-public class Answer {
+public class Answer extends AbstractAuditingEntity implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
@@ -20,7 +23,7 @@ public class Answer {
 
     @JsonIgnore
     @ManyToOne
-    private User user;
+    private SurveyInformation surveyInformation;
 
     @JsonIgnore
     @ManyToOne
@@ -34,8 +37,8 @@ public class Answer {
     @Column(name = "customAnswer", length = 4000)
     private String customAnswer;
 
-    public Answer (User user, Question question) {
-        this.user = user;
+    public Answer (SurveyInformation surveyInformation, Question question) {
+        this.surveyInformation = surveyInformation;
         this.question = question;
     }
 }

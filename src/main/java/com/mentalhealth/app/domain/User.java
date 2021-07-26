@@ -97,10 +97,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "is_employer")
     private boolean isEmployer;
 
-
-    @Column(name = "survey_finished")
-    private boolean surveyFinished;
-
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
     private Set<PersistentToken> persistentTokens = new HashSet<>();
@@ -263,13 +259,5 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setEmployer (boolean employer) {
         isEmployer = employer;
-    }
-
-    public boolean getSurveyFinished () {
-        return surveyFinished;
-    }
-
-    public void setSurveyFinished (boolean surveyFinished) {
-        this.surveyFinished = surveyFinished;
     }
 }

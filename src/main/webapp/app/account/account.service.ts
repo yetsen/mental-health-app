@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosPromise} from 'axios';
 import { Store } from 'vuex';
 import VueRouter from 'vue-router';
 import TranslationService from '@/locale/translation.service';
@@ -37,6 +37,9 @@ export default class AccountService {
               this.router.replace(sessionStorage.getItem('requested-url'));
               sessionStorage.removeItem('requested-url');
             }
+            this.getTimes(account.id).then(res => {
+              this.store.commit('setTimes', res.data.sort())
+            })
           } else {
             this.store.commit('logout');
             this.router.push('/');
@@ -79,6 +82,10 @@ export default class AccountService {
     return new Promise(resolve => {
       resolve(false);
     });
+  }
+
+  public getTimes(userId): AxiosPromise<any> {
+    return axios.get('api/survey/times/' + userId);
   }
 
   public get authenticated(): boolean {

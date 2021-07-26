@@ -2,6 +2,7 @@ package com.mentalhealth.app.repository;
 
 import com.mentalhealth.app.domain.Answer;
 import com.mentalhealth.app.domain.Question;
+import com.mentalhealth.app.domain.SurveyInformation;
 import com.mentalhealth.app.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,17 +13,17 @@ import java.util.Optional;
 @Repository
 public interface AnswerRepository extends JpaRepository<Answer, Long> {
 
-    Optional<Answer> findByUserAndQuestionAndChoice_Value(User user, Question question, String choiceValue);
+    Optional<Answer> findByQuestionAndChoice_ValueAndSurveyInformation(Question question, String choiceValue, SurveyInformation surveyInformation);
 
-    Optional<Answer> findByUserAndQuestion(User user, Question question);
+    Optional<Answer> findByQuestionAndSurveyInformation(Question question, SurveyInformation surveyInformation);
 
-    void deleteAnswersByUserAndQuestion(User user, Question question);
+    Optional<List<Answer>> findBySurveyInformation(SurveyInformation surveyInformation);
 
-    Optional<List<Answer>> findByUser(User user);
+    Optional<List<Answer>> findByQuestion_IdInAndSurveyInformation(List<Long> questionIdList, SurveyInformation surveyInformation);
 
-    Optional<List<Answer>> findByUser_IdAndQuestion_IdIn(Long userId, List<Long> questionIdList);
+    Optional<List<Answer>> findByQuestion_IdInAndSurveyInformation_Id(List<Long> questionIdList, Long surveyInformationId);
 
-    void deleteAnswersByUser(User user);
+    void deleteAnswersBySurveyInformation_Id(Long surveyInformationId);
 
-    long countAnswersByUser(User user);
+    long countAnswersBySurveyInformation(SurveyInformation surveyInformation);
 }

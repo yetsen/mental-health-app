@@ -28,12 +28,25 @@
                       <span v-text="$t('global.menu.home')">Home</span>
                   </span>
               </b-nav-item>
-              <b-nav-item v-if="isInHomePage()" @click="onAssessmentClick" exact>
+              <b-nav-item v-if="currentTime === 1 && isInHomePage()" @click="onAssessmentClick(currentTime)" exact>
                   <span>
                       <font-awesome-icon icon="pen" />
                       <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
                   </span>
               </b-nav-item>
+
+              <b-nav-item-dropdown v-if="currentTime > 1 && isInHomePage()" exact>
+                    <span slot="button-content" class="navbar-dropdown-menu">
+                        <font-awesome-icon icon="pen" />
+                        <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
+                    </span>
+                <b-dropdown-item v-for="time in times" v-bind:key="time" @click="onAssessmentClick(time)" active-class="active">
+                  <span>Assessment #{{time}}</span>
+                </b-dropdown-item>
+                <b-dropdown-item v-bind:key="currentTime" active-class="active" @click="onAssessmentClick(currentTime)">
+                  <span>Start New Assessment</span>
+                </b-dropdown-item>
+              </b-nav-item-dropdown>
               <b-nav-item v-if="isInHomePage()">
                   <a v-smooth-scroll href="#aboutModel">
                       <span v-text="$t('global.menu.aboutModel')">About The Model</span>

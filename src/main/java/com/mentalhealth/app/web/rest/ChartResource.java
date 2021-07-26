@@ -19,17 +19,17 @@ public class ChartResource {
         this.chartService = chartService;
     }
 
-    @GetMapping("/{userId}")
+    @GetMapping("/{userId}/{times}")
     //@PreAuthorize ("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
-    public ResponseEntity<List<ChartDTO>> get(@PathVariable Long userId) {
-        List<ChartDTO> chartDTOs = chartService.generateCharts(userId);
+    public ResponseEntity<List<ChartDTO>> get(@PathVariable Long userId, @PathVariable Integer times) {
+        List<ChartDTO> chartDTOs = chartService.generateCharts(userId, times);
         return new ResponseEntity<>(chartDTOs, HttpStatus.OK);
     }
 
-    @GetMapping("/company/{companyId}")
+    @GetMapping("/company/{companyId}/{times}")
     //@PreAuthorize ("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
-    public ResponseEntity<List<ChartDTO>> getCompanyCharts(@PathVariable Long companyId) {
-        List<ChartDTO> chartDTOs = chartService.generateCompanyCharts(companyId);
+    public ResponseEntity<List<ChartDTO>> getCompanyCharts(@PathVariable Long companyId, @PathVariable Integer times) {
+        List<ChartDTO> chartDTOs = chartService.generateCompanyCharts(companyId, times);
         return new ResponseEntity<>(chartDTOs, HttpStatus.OK);
     }
 }

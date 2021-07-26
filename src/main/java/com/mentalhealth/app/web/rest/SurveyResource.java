@@ -1,9 +1,7 @@
 package com.mentalhealth.app.web.rest;
 
 import com.mentalhealth.app.service.SurveyService;
-import com.mentalhealth.app.service.dto.AnswerDTO;
-import com.mentalhealth.app.service.dto.SurveyDTO;
-import com.mentalhealth.app.service.dto.SurveyResultDTO;
+import com.mentalhealth.app.service.dto.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,22 +25,27 @@ public class SurveyResource {
         return new ResponseEntity<>(surveyDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/answer/{userId}")
+    @GetMapping("/times/{userId}")
+    public ResponseEntity<List<Integer>> getTimes(@PathVariable Long userId) {
+        return new ResponseEntity<>(surveyService.getTimesByUserId(userId), HttpStatus.OK);
+    }
+
+    @GetMapping("/answer/{userId}/{times}")
     //@PreAuthorize ("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
-    public ResponseEntity<SurveyResultDTO> getAnswer(@PathVariable Long userId) {
-        SurveyResultDTO surveyResultDTO = surveyService.getSurveyAnswers(userId);
+    public ResponseEntity<SurveyResultDTO> getAnswer(@PathVariable Long userId, @PathVariable Integer times) {
+        SurveyResultDTO surveyResultDTO = surveyService.getSurveyAnswers(userId, times);
         return new ResponseEntity<>(surveyResultDTO, HttpStatus.OK);
     }
 
     @PostMapping
     @ResponseStatus (HttpStatus.CREATED)
-    public void post(@RequestBody List<AnswerDTO> answers) {
+    public void post(@RequestBody AnswersDTO answers) {
         surveyService.putAnswers(answers);
     }
 
-    @PostMapping("/clear/{userId}")
+    @PostMapping("/clear/{userId}/{times}")
     @ResponseStatus (HttpStatus.OK)
-    public void clearAnswers(@PathVariable Long userId) {
-        surveyService.clearAnswers(userId);
+    public void clearAnswers(@PathVariable Long userId, Integer times) {
+        surveyService.clearAnswers(userId, times);
     }
 }

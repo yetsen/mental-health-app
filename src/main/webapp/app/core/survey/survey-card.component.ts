@@ -2,7 +2,7 @@ import Component from 'vue-class-component';
 import { Vue, Inject } from 'vue-property-decorator';
 import * as SurveyVue from 'survey-vue';
 import SurveyService from '@/core/survey.service.ts';
-import { Answer } from '@/shared/model/answer.model.ts';
+import {Answer, Answers, SurveyInfo} from '@/shared/model/answers.model.ts';
 import Showdown from 'showdown';
 import {gsap, Bounce, Power3} from 'gsap/all';
 
@@ -21,6 +21,22 @@ export default class SurveyCardComponent extends Vue {
   private surveyService: () => SurveyService;
 
   private doAnimation = true;
+
+  private times;
+
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      if (to.params.times) {
+        vm.times = to.params.times;
+        vm.surveyService()
+            .getAnswer(vm.userId(), to.params.times)
+            .then(res => {
+              let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
+              (window as any).survey.data = result;
+            });
+      }
+    });
+  }
 
   data() {
     let json = this.$store.getters.survey;
@@ -66,12 +82,6 @@ export default class SurveyCardComponent extends Vue {
     });
 
     (window as any).survey.onValidateQuestion.add(this.surveyValidateQuestion);
-    this.surveyService()
-      .getAnswer(this.userId())
-      .then(res => {
-        let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
-        (window as any).survey.data = result;
-      });
 
     let tableCss = {
       matrix: {
@@ -143,7 +153,7 @@ export default class SurveyCardComponent extends Vue {
 
   clearAndGoToHomePage() {
     (window as any).survey.clear();
-    this.surveyService().clearAnswer(this.userId());
+    this.surveyService().clearAnswer(this.userId(), this.times);
     (<any>this).$router.push('/');
   }
 
@@ -157,36 +167,38 @@ export default class SurveyCardComponent extends Vue {
     }
   }
 
-  private convertSurveyDataToAnswer(surveyData: any): Answer[] {
-    let answers: Answer[] = [];
+  private convertSurveyDataToAnswer(surveyData: any): Answers {
+    let answers: Answers = {};
+    answers.answers = [];
     let that = this;
+    let si = new SurveyInfo();
+    si.userId = that.userId();
+    si.times = that.times;
+    answers.surveyInfo = si;
     Object.keys(surveyData).forEach(function (key, index) {
       let value = surveyData[key];
       if (typeof value === 'string' || typeof value === 'number') {
         let ans = new Answer();
-        ans.userId = that.userId();
         ans.questionName = key;
         ans.choiceValue = value;
-        answers.push(ans);
+        answers.answers.push(ans);
       } else if (Array.isArray(value)) {
         value.forEach(v => {
           let ans = new Answer();
-          ans.userId = that.userId();
           ans.questionName = key;
           ans.choiceValue = v;
-          answers.push(ans);
+          answers.answers.push(ans);
         });
       } else {
         Object.keys(value).forEach(function (key, index) {
           let ans = new Answer();
-          ans.userId = that.userId();
           ans.questionName = key;
           if (typeof value[key] === 'string') {
             ans.choiceValue = value[key];
           } else {
             ans.choiceValue = String(Object.values(value[key])[0]);
           }
-          answers.push(ans);
+          answers.answers.push(ans);
         });
       }
     });

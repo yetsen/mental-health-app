@@ -1,0 +1,58 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Developer (generated)" id="1627323460612-2">
+        <createTable tableName="survey_information">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="survey_informationPK"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="finished" type="BOOLEAN"/>
+            <column name="times" type="INTEGER"/>
+            <column name="user_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-3">
+        <addColumn tableName="answer">
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-4">
+        <addColumn tableName="answer">
+            <column name="created_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-5">
+        <addColumn tableName="answer">
+            <column name="last_modified_by" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-6">
+        <addColumn tableName="answer">
+            <column name="last_modified_date" type="timestamp"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-7">
+        <addColumn tableName="answer">
+            <column name="survey_information_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-8">
+        <addForeignKeyConstraint baseColumnNames="survey_information_id" baseTableName="answer" constraintName="FK4u3h9axv8wyt9foalrl3912p4" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="survey_information" validate="true"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-9">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="survey_information" constraintName="FKsh1rcbug7j4ooih6dfjjbonl0" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-10">
+        <dropForeignKeyConstraint baseTableName="answer" constraintName="FKpt5nm9lm7lr62sbxlsqa0qj3l"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627323460612-11">
+        <dropColumn columnName="user_id" tableName="answer"/>
+    </changeSet>
+</databaseChangeLog>

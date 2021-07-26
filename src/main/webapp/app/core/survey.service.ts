@@ -1,6 +1,6 @@
 import axios, { AxiosPromise } from 'axios';
 import { Store } from 'vuex';
-import { Answer } from '@/shared/model/answer.model';
+import {Answer, Answers} from '@/shared/model/answers.model';
 
 export default class SurveyService {
   constructor(private store: Store<any>) {
@@ -17,15 +17,15 @@ export default class SurveyService {
     return axios.get('api/survey');
   }
 
-  public getAnswer(userId): AxiosPromise<any> {
-    return axios.get('api/survey/answer/' + userId);
+  public getAnswer(userId, times): AxiosPromise<any> {
+    return axios.get('api/survey/answer/' + userId + '/' + times);
   }
 
-  public clearAnswer(userId): AxiosPromise<any> {
-    return axios.post('api/survey/clear/' + userId);
+  public clearAnswer(userId, times): AxiosPromise<any> {
+    return axios.post('api/survey/clear/' + userId + '/' + times);
   }
 
-  public push(answer: Answer[]): Promise<any> {
-    return axios.post('api/survey', answer);
+  public push(answers: Answers): Promise<any> {
+    return axios.post('api/survey', answers);
   }
 }
