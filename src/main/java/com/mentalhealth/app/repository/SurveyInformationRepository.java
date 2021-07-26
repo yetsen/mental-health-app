@@ -10,5 +10,5 @@ public interface SurveyInformationRepository  extends JpaRepository<SurveyInform
 
 	Optional<SurveyInformation> findByUser_IdAndTimes(Long userId, Integer times);
 
-	List<SurveyInformation> findByUser_IdOrderByTimesDesc(Long userId);
+	List<SurveyInformation> findByUser_IdOrderByTimesAsc(Long userId);
 }

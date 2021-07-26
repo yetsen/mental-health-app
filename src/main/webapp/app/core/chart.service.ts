@@ -7,12 +7,12 @@ export default class ChartService {
 
   }
 
-  public get(userId): AxiosPromise<any> {
-    return axios.get('api/chart/' + userId);
+  public get(userId, times): AxiosPromise<any> {
+    return axios.get('api/chart/' + userId + '/' + times);
   }
 
-  public getCompanyCharts(companyId): AxiosPromise<any> {
-    return axios.get('api/chart/company/' + companyId);
+  public getCompanyCharts(companyId, times): AxiosPromise<any> {
+    return axios.get('api/chart/company/' + companyId + '/' + times);
   }
 
 }

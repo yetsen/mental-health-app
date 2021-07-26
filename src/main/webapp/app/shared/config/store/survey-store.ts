@@ -3,18 +3,18 @@ import { Module } from 'vuex';
 export const surveyStore: Module<any, any> = {
   state: {
     survey: {},
-    times: []
+    surveyInformation: []
   },
   getters: {
     survey: state => state.survey,
-    times: state => state.times
+    surveyInformation: state => state.surveyInformation
   },
   mutations: {
     setSurvey(state, survey) {
       state.survey = survey;
     },
-    setTimes(state, times) {
-      state.times = times;
+    setSurveyInformation(state, surveyInformation) {
+      state.surveyInformation = surveyInformation;
     }
   },
 };

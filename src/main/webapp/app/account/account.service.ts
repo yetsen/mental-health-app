@@ -37,8 +37,8 @@ export default class AccountService {
               this.router.replace(sessionStorage.getItem('requested-url'));
               sessionStorage.removeItem('requested-url');
             }
-            this.getTimes(account.id).then(res => {
-              this.store.commit('setTimes', res.data.sort())
+            this.getSurveyInformation(account.id).then(res => {
+              this.store.commit('setSurveyInformation', res.data)
             })
           } else {
             this.store.commit('logout');
@@ -84,8 +84,8 @@ export default class AccountService {
     });
   }
 
-  public getTimes(userId): AxiosPromise<any> {
-    return axios.get('api/survey/times/' + userId);
+  public getSurveyInformation(userId): AxiosPromise<any> {
+    return axios.get('api/survey/survey-info/' + userId);
   }
 
   public get authenticated(): boolean {

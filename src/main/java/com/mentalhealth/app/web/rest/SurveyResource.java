@@ -1,5 +1,6 @@
 package com.mentalhealth.app.web.rest;
 
+import com.mentalhealth.app.domain.SurveyInformation;
 import com.mentalhealth.app.service.SurveyService;
 import com.mentalhealth.app.service.dto.*;
 import org.springframework.http.HttpStatus;
@@ -25,9 +26,9 @@ public class SurveyResource {
         return new ResponseEntity<>(surveyDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/times/{userId}")
-    public ResponseEntity<List<Integer>> getTimes(@PathVariable Long userId) {
-        return new ResponseEntity<>(surveyService.getTimesByUserId(userId), HttpStatus.OK);
+    @GetMapping("/survey-info/{userId}")
+    public ResponseEntity<List<SurveyInformation>> getSurveyInformation(@PathVariable Long userId) {
+        return new ResponseEntity<>(surveyService.getSurveyInformationByUserId(userId), HttpStatus.OK);
     }
 
     @GetMapping("/answer/{userId}/{times}")

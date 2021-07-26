@@ -53,14 +53,13 @@ export default class JhiNavbar extends Vue {
     return this.$store.getters.authenticated;
   }
 
-  public get times() {
-    console.log(this.$store.getters.times);
-    return this.$store.getters.times;
+  public get surveyInformation() {
+    return this.$store.getters.surveyInformation;
   }
 
   public get currentTime() {
-    return this.$store.getters.times.length === 0 ? 1 :
-        this.$store.getters.times[this.$store.getters.times.length - 1] + 1;
+    return this.surveyInformation.length === 0 ? 1 :
+        this.surveyInformation[this.surveyInformation.length - 1].times + 1;
   }
 
   private onAssessmentClick(times): void {

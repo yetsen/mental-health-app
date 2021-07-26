@@ -33,7 +33,7 @@ export default new Router({
       component: SurveyCard
     },
     {
-      path: '/dashboard',
+      path: '/dashboard/:times',
       name: 'Dashboard',
       component: Dashboard
     },

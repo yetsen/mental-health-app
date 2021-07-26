@@ -137,11 +137,8 @@ public class SurveyService {
         surveyInformationRepository.save(surveyInformation);
     }
 
-    public List<Integer> getTimesByUserId (Long userId) {
-        List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_IdOrderByTimesDesc(userId);
-        if (CollectionUtils.isEmpty(surveyInformations))
-            return new ArrayList<>();
-        return surveyInformations.stream().map(SurveyInformation::getTimes).collect(Collectors.toList());
+    public List<SurveyInformation> getSurveyInformationByUserId (Long userId) {
+        return surveyInformationRepository.findByUser_IdOrderByTimesAsc(userId);
 
     }
 }

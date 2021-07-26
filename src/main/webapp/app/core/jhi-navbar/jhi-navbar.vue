@@ -40,12 +40,21 @@
                         <font-awesome-icon icon="pen" />
                         <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
                     </span>
-                <b-dropdown-item v-for="time in times" v-bind:key="time" @click="onAssessmentClick(time)" active-class="active">
-                  <span>Assessment #{{time}}</span>
+                <b-dropdown-item v-for="si in surveyInformation" v-bind:key="si.times" @click="onAssessmentClick(si.times)" active-class="active">
+                  <span>Assessment #{{si.times}}</span>
                 </b-dropdown-item>
                 <b-dropdown-item v-bind:key="currentTime" active-class="active" @click="onAssessmentClick(currentTime)">
                   <span>Start New Assessment</span>
                 </b-dropdown-item>
+              </b-nav-item-dropdown>
+              <b-nav-item-dropdown exact>
+                     <span slot="button-content" class="navbar-dropdown-menu">
+                        <font-awesome-icon icon="tachometer-alt" />
+                        <span v-text="$t('global.menu.dashboard')">Dashboard</span>
+                    </span>
+                  <b-dropdown-item v-for="si in surveyInformation" v-if="si.finished" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times" active-class="active">
+                    <span>Dashboard #{{si.times}}</span>
+                  </b-dropdown-item>
               </b-nav-item-dropdown>
               <b-nav-item v-if="isInHomePage()">
                   <a v-smooth-scroll href="#aboutModel">
@@ -143,9 +152,6 @@
                     <b-dropdown-item to="/account/password" tag="b-dropdown-item" v-if="authenticated" active-class="active">
                         <font-awesome-icon icon="lock" />
                         <span v-text="$t('global.menu.account.password')">Password</span>
-                    </b-dropdown-item>
-                    <b-dropdown-item to="/dashboard" tag="b-dropdown-item" v-if="authenticated" active-class="active">
-                        <span v-text="$t('global.menu.dashboard')">Dashboard</span>
                     </b-dropdown-item>
                     <b-dropdown-item v-if="authenticated"  v-on:click="logout()" id="logout" active-class="active">
                         <font-awesome-icon icon="sign-out-alt" />
