@@ -1,5 +1,6 @@
 .survey-page {
   min-height: 75vh;
+  padding-top: 7vh;
 }
 
 .sv_main span {
@@ -8,4 +9,110 @@
 
 .panel-footer {
   overflow: hidden;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-nav li {
+  position: relative;
+  line-height: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+.sidebar-nav li:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 3px;
+  background-color: #1c1c1c;
+  -webkit-transition: width .2s ease-in;
+  -moz-transition:  width .2s ease-in;
+  -ms-transition:  width .2s ease-in;
+  transition: width .2s ease-in;
+
+}
+
+.sidebar-nav li:nth-child(9n+2):before {
+  background-color: #ec1b5a;
+}
+.sidebar-nav li:nth-child(9n+3):before {
+  background-color: #79aefe;
+}
+.sidebar-nav li:nth-child(9n+4):before {
+  background-color: #314190;
+}
+.sidebar-nav li:nth-child(9n+5):before {
+  background-color: #279636;
+}
+.sidebar-nav li:nth-child(9n+6):before {
+  background-color: #7d5d81;
+}
+.sidebar-nav li:nth-child(9n+7):before {
+  background-color: #ead24c;
+}
+.sidebar-nav li:nth-child(9n+8):before {
+  background-color: #2d2366;
+}
+.sidebar-nav li:nth-child(9n+9):before {
+  background-color: #35acdf;
+}
+.sidebar-nav li:hover:before,
+.sidebar-nav li.open:hover:before {
+  width: 100%;
+  -webkit-transition: width .2s ease-in;
+  -moz-transition:  width .2s ease-in;
+  -ms-transition:  width .2s ease-in;
+  transition: width .2s ease-in;
+
+}
+
+.focusedOn:before {
+  width: 100% !important;
+  -webkit-transition: width .2s ease-in !important;
+  -moz-transition:  width .2s ease-in !important;
+  -ms-transition:  width .2s ease-in !important;
+  transition: width .2s ease-in !important;
+}
+
+.focusedOn a {
+  color: #fff !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+
+.sidebar-nav li a {
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px 15px 10px 30px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus,
+.sidebar-nav li.open a:hover,
+.sidebar-nav li.open a:active,
+.sidebar-nav li.open a:focus{
+  color: #fff;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+
+#sidebar-wrapper {
+  padding: 0 !important;
+}
+#sidebar-wrapper-div {
+  padding: 0 !important;
+  z-index: 100;
 }

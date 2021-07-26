@@ -23,6 +23,7 @@ export default class SurveyCardComponent extends Vue {
   private doAnimation = true;
 
   private times;
+  private lastSurveyFinished;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -137,6 +138,10 @@ export default class SurveyCardComponent extends Vue {
   userId() {
     //TODO: remove it
     return this.$store.getters.account.id;
+  }
+
+  public get blockNames() {
+    return this.$store.getters.survey.pages.map(value => value.name);
   }
 
   pushCurrentSurveyData(surveyData: any) {

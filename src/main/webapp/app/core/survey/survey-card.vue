@@ -1,20 +1,35 @@
 <template>
     <div class="survey-page">
-        <div class="card jh-card">
-            <div class="container">
-                <div id="progressBar" v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
-                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{width: progress}">
+            <div class="container-fluid">
+                <div class="row align-content-start">
+                  <div id="sidebar-wrapper-div" class="col-3">
+                    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+                      <ul class="nav sidebar-nav">
+                        <li v-for="(name, index) in blockNames" v-bind:key="name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
+                          <a @click="survey.currentPageNo = index">{{ name }}</a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div id="survey-body" class="col-8">
+                    <div id="progressBar" v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
+                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{width: progress}">
                         <span id="progressbar">{{ pageNumber }}</span>
+                      </div>
                     </div>
-                </div>
-                <div id="surveyElement">
-                  <survey :survey='survey'></survey>
-                </div>
-                <div id="navigationButtons" v-if="!isCompletionPage" class="panel-footer card-footer">
-                    <input v-if="!survey.isFirstPage" type="button" @click="survey.prevPage()" value="Previous" class="btn sv_prev_btn float-left" >
-                    <input type="button" @click="prepareClearAndExitModal()" value="Clear & Exit" class="btn sv_clear_btn float-left" >
-                    <input v-if="!survey.isLastPage" type="button" @click="survey.nextPage()" value="Next" class="btn sv_next_btn float-right">
-                    <input v-if="survey.isLastPage" type="button" @click="survey.completeLastPage()" value="Complete" class="btn sv_complete_btn float-right" >
+                    <div id="surveyElement">
+                      <survey :survey='survey'></survey>
+                    </div>
+                    <div id="navigationButtons" v-if="!isCompletionPage" class="panel-footer card-footer">
+                      <input v-if="!survey.isFirstPage" type="button" @click="survey.prevPage()" value="Previous" class="btn sv_prev_btn float-left" >
+                      <input type="button" @click="prepareClearAndExitModal()" value="Clear & Exit" class="btn sv_clear_btn float-left" >
+                      <input v-if="!survey.isLastPage" type="button" @click="survey.nextPage()" value="Next" class="btn sv_next_btn float-right">
+                      <input v-if="survey.isLastPage" type="button" @click="survey.completeLastPage()" value="Complete" class="btn sv_complete_btn float-right" >
+                    </div>
+                  </div>
+                  <div class="col-1">
+
+                  </div>
                 </div>
             </div>
             <b-modal ref="clearAndExitModal" id="clearAndExitModal" title="Confirm Clear & Exit" v-bind:title="$t('global.modal.survey.clearAndExit.title')">
@@ -26,7 +41,6 @@
                     <button type="button" class="btn btn-primary" v-text="$t('global.modal.survey.clearAndExit.yes')" @click="clearAndGoToHomePage()">Yes</button>
                 </div>
             </b-modal>
-        </div>
     </div>
 </template>
 
