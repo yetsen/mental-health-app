@@ -109,10 +109,11 @@ export default class SurveyCardComponent extends Vue {
     setTimeout(function () {
       sender.currentPage = options.newCurrentPage;
     }, 1700);
-    let direction = options.isPrevPage ? -1 : 1;
+    //let direction = options.isPrevPage ? -1 : 1;
+    let direction = 1;
     wrapper.to("#surveyElement", {scale: .8, ease: Bounce.easeOut, duration: 1});
     wrapper.to("#surveyElement", {delay: -.25, x: -2400*direction, ease: Power3.easeIn, duration: 1});
-    wrapper.to("#surveyElement", {x: 2400*direction, duration: 0});
+    //wrapper.to("#surveyElement", {x: 2400*direction, duration: 0});
     wrapper.to("#surveyElement", {delay: 1, x: 0, ease: Power3.easeOut, duration: 1});
     wrapper.to("#surveyElement", {scale: 1, ease: Bounce.easeOut, duration: 1});
 
