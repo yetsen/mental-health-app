@@ -41,7 +41,30 @@ id;name;text;value;created_by;last_modified_by
 40;Strongly Agree;Strongly Agree;5;system;system
 41;Number of days (00-28);Number of days (00-28);text;system;system
 42;20-30;20-30;20-30;system;system
-43;20-30;31-40;31-40;system;system
-44;20-30;41-50;41-50;system;system
-45;20-30;51-60;51-60;system;system
-46;20-30;61-70;61-70;system;system
+43;31-40;31-40;31-40;system;system
+44;41-50;41-50;41-50;system;system
+45;51-60;51-60;51-60;system;system
+46;61-70;61-70;61-70;system;system
+47;Others;Others;3;system;system
+48;Prefer Not To Answer;Prefer Not To Answer;4;system;system
+49;Employed, full-time;Employed, full-time;1;system;system
+50;Employed, part-time;Employed, part-time;2;system;system
+51;Self-employed;Self-employed;3;system;system
+52;Not employed, looking for work;Not employed, looking for work;4;system;system
+53;Not employed, NOT looking for work;Not employed, NOT looking for work;5;system;system
+54;Student;Student;6;system;system
+55;Retired;Retired;7;system;system
+56;Disabled, not able to work;Disabled, not able to work;8;system;system
+57;Agriculture Forestry and Fishing;Agriculture Forestry and Fishing;1;system;system
+58;Mining and Quarrying;Mining and Quarrying;2;system;system
+59;Manufacturing;Manufacturing;3;system;system
+60;Electricity Gas Steam and Air Conditioning;Electricity Gas Steam and Air Conditioning;4;system;system
+61;Water Supply Sewerage Waste;Water Supply Sewerage Waste;5;system;system
+62;Construction;Construction;6;system;system
+63;Wholesale and Retail Trade Motor Repair;Wholesale and Retail Trade Motor Repair;7;system;system
+64;Transportation and Storage;Transportation and Storage;8;system;system
+65;Information and Communication;Information and Communication;9;system;system
+66;Administrative and Support Services;Administrative and Support Services;10;system;system
+67;Public Administration and Defence;Public Administration and Defence;11;system;system
+68;Education;Education;12;system;system
+69;Human Health and Social Work Activities;Human Health and Social Work Activities;13;system;system

@@ -138,3 +138,5 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 137;137;On a scale from 0 to 10 where 0 is the worst job performance anyone could have at your job and 10 is the performance of a top worker, how would you rate the usual performance of most workers in a job similar to yours?;RATING;system;system;5;
 138;138;Using the same 0-to-10 scale, how would you rate your usual job performance over the past year or two?;RATING;system;system;5;
 139;139;Using the same 0-to-10 scale, how would you rate your overall job performance on the days you worked during the past 4 weeks (28 days)?;RATING;system;system;5;
+140;140;What is your current employment status?;DROPDOWN;system;system;1;
+141;141;What is the sector you are working in?;DROPDOWN;system;system;1;
