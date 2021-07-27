@@ -46,5 +46,5 @@
 
 <script lang="ts" src="./survey-card.component.ts">
 </script>
-<style lang="scss" src="./survey-card.scss">
+<style lang="scss" src="./survey-card.scss" scoped>
 </style>
