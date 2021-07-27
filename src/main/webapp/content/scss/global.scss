@@ -282,4 +282,8 @@ ui bootstrap tweaks
   background-repeat: no-repeat;
 }
 
+.sv_main span {
+  word-break: keep-all !important;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */
