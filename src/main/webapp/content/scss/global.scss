@@ -286,4 +286,9 @@ ui bootstrap tweaks
   word-break: keep-all !important;
 }
 
+
+.sv_main.sv_main .table > tbody > tr > td {
+  width: 100px !important;
+}
+
 /* jhipster-needle-scss-add-main JHipster will add new css style */
