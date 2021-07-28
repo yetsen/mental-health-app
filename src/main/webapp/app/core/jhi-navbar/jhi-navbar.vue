@@ -42,8 +42,9 @@
                     </span>
                 <b-dropdown-item v-for="si in surveyInformation" v-bind:key="si.times" @click="onAssessmentClick(si.times)" active-class="active">
                   <span>Assessment #{{si.times}}</span>
+                  <font-awesome-icon v-if="si.finished" icon="check" />
                 </b-dropdown-item>
-                <b-dropdown-item v-bind:key="currentTime" active-class="active" @click="onAssessmentClick(currentTime)">
+                <b-dropdown-item v-if="isLastSurveyFinished" v-bind:key="currentTime" active-class="active" @click="onAssessmentClick(currentTime)">
                   <span>Start New Assessment</span>
                 </b-dropdown-item>
               </b-nav-item-dropdown>

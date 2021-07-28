@@ -62,6 +62,11 @@ export default class JhiNavbar extends Vue {
         this.surveyInformation[this.surveyInformation.length - 1].times + 1;
   }
 
+  public get isLastSurveyFinished() : boolean {
+    return this.surveyInformation.length === 0 ? true :
+        this.surveyInformation[this.surveyInformation.length - 1].finished;
+  }
+
   private onAssessmentClick(times): void {
     //TODO: remove it
     if (this.authenticated) {
