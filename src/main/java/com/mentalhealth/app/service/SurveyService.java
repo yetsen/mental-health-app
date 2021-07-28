@@ -11,10 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -139,6 +136,19 @@ public class SurveyService {
 
     public List<SurveyInformation> getSurveyInformationByUserId (Long userId) {
         return surveyInformationRepository.findByUser_IdOrderByTimesAsc(userId);
+
+    }
+
+    public Map<Long, List<SurveyInformation>> getCompanySurveyInformationByCompanyId (Long companyId) {
+        List<User> companyUsers = userRepository.findAllByCompany_Id(companyId);
+
+        if (CollectionUtils.isEmpty(companyUsers))
+            throw new RuntimeException("User Not Found!!");
+
+        List<SurveyInformation> surveyInformationList = surveyInformationRepository.findByUser_IdInOrderByTimesAsc(
+                companyUsers.stream().map(User::getId).collect(Collectors.toList()));
+        return surveyInformationList.stream().collect(Collectors.groupingBy(SurveyInformation::getId,
+                HashMap::new, Collectors.toCollection(ArrayList::new)));
 
     }
 }

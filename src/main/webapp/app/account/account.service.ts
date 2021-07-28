@@ -40,6 +40,11 @@ export default class AccountService {
             this.getSurveyInformation(account.id).then(res => {
               this.store.commit('setSurveyInformation', res.data)
             })
+            if (account.isEmployer) {
+              this.getCompanySurveyInformation(account.companyId).then(res => {
+                this.store.commit('setCompanySurveyInformation', res.data)
+              });
+            }
           } else {
             this.store.commit('logout');
             this.router.push('/');
@@ -86,6 +91,10 @@ export default class AccountService {
 
   public getSurveyInformation(userId): AxiosPromise<any> {
     return axios.get('api/survey/survey-info/' + userId);
+  }
+
+  public getCompanySurveyInformation(companyId): AxiosPromise<any> {
+    return axios.get('api/survey/company/survey-info/' + companyId);
   }
 
   public get authenticated(): boolean {
