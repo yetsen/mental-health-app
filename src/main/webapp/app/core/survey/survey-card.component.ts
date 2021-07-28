@@ -7,6 +7,7 @@ import Showdown from 'showdown';
 import {gsap, Bounce, Power3} from 'gsap/all';
 
 SurveyVue.StylesManager.applyTheme('bootstrap');
+SurveyVue.settings.lazyRowsRendering = true; //experimental if problem occurs remove it
 
 let Survey = SurveyVue.Survey;
 
