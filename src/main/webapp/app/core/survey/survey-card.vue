@@ -14,8 +14,8 @@
               <div id="sidebar-wrapper-div" class="col-3">
                 <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
                   <ul class="nav sidebar-nav">
-                    <li v-for="(name, index) in blockNames" v-bind:key="name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
-                      <a @click="survey.currentPageNo = index">{{ name }}</a>
+                    <li v-for="(block, index) in blocks" v-bind:key="block.name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
+                      <a @click="survey.currentPageNo = index">{{ block.name }}</a>
                     </li>
                   </ul>
                 </nav>
@@ -54,6 +54,15 @@
                 <button type="button" class="btn btn-secondary" v-text="$t('global.modal.survey.clearAndExit.no')" @click="closeDialog()">No</button>
                 <button type="button" class="btn btn-primary" v-text="$t('global.modal.survey.clearAndExit.yes')" @click="clearAndGoToHomePage()">Yes</button>
             </div>
+        </b-modal>
+        <b-modal ref="previewChartModal" id="previewChartModal" title="Preview">
+          <div class="modal-body">
+            <dummyComponent :chartOptions="currentChart.chartOptions"></dummyComponent>
+          </div>
+          <div slot="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="closeDialogAndOpenPreviousPage()">Change Answers</button>
+            <button type="button" class="btn btn-primary" @click="closeDialogAndOpenNextPage()">Continue</button>
+          </div>
         </b-modal>
     </div>
 </template>

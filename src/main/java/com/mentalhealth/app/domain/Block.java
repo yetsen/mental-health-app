@@ -34,6 +34,10 @@ public class Block extends AbstractAuditingEntity implements Serializable {
     private String description;
 
     @JsonIgnore
+    @OneToOne
+    private Chart chart;
+
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "block")
     private Set<Question> questions = new HashSet<>();
 

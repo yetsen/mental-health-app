@@ -1,20 +1,20 @@
-id;description;name;title;created_by;last_modified_by
-1;;Introduction;Introduction;system;system
-2;;Personality;Personality;system;system
-3;;Mental Health;Mental Health;system;system
-4;;Well-Being;Well-Being;system;system
-5;;Productivity;Productivity;system;system
-6;;Psychological Demand;Psychological Demand;system;system
-7;;Physical Demand;Physical Demand;system;system
-8;;Job Insecurity;Job Insecurity;system;system
-9;;Job Promotion;Job Promotion;system;system
-10;;Recognition;Recognition;system;system
-11;;Social Support from Supervisor;Social Support from Supervisor;system;system
-12;;Social Support from Coworkers;Social Support from Coworkers;system;system
-13;;Skill Utilization;Skill Utilization;system;system
-14;;Decision Authority;Decision Authority;system;system
-15;;Work to Family Conflict;Work to Family Conflict;system;system
-16;;Family to Work Conflict;Family to Work Conflict;system;system
-17;;Techno-Overload;Techno-Overload;system;system
-18;;Techno-Complexity;Techno-Complexity;system;system
-19;;COVID-19 Related Questions;COVID-19 Related Questions;system;system
+id;description;name;title;created_by;last_modified_by;chart_id
+1;;Introduction;Introduction;system;system;
+2;;Personality;Personality;system;system;1
+3;;Mental Health;Mental Health;system;system;2
+4;;Well-Being;Well-Being;system;system;3
+5;;Productivity;Productivity;system;system;
+6;;Psychological Demand;Psychological Demand;system;system;
+7;;Physical Demand;Physical Demand;system;system;
+8;;Job Insecurity;Job Insecurity;system;system;
+9;;Job Promotion;Job Promotion;system;system;
+10;;Recognition;Recognition;system;system;
+11;;Social Support from Supervisor;Social Support from Supervisor;system;system;
+12;;Social Support from Coworkers;Social Support from Coworkers;system;system;
+13;;Skill Utilization;Skill Utilization;system;system;
+14;;Decision Authority;Decision Authority;system;system;
+15;;Work to Family Conflict;Work to Family Conflict;system;system;
+16;;Family to Work Conflict;Family to Work Conflict;system;system;
+17;;Techno-Overload;Techno-Overload;system;system;
+18;;Techno-Complexity;Techno-Complexity;system;system;
+19;;COVID-19 Related Questions;COVID-19 Related Questions;system;system;

@@ -30,14 +30,18 @@ public class ChartService {
 
 	private final SurveyInformationRepository surveyInformationRepository;
 
+	private final BlockRepository blockRepository;
+
 	public ChartService (ChartRepository chartRepository, FormulaRepository formulaRepository, AnswerRepository answerRepository,
-			UserRepository userRepository, SurveyService surveyService, SurveyInformationRepository surveyInformationRepository) {
+			UserRepository userRepository, SurveyService surveyService, SurveyInformationRepository surveyInformationRepository,
+			BlockRepository blockRepository) {
 		this.chartRepository = chartRepository;
 		this.formulaRepository = formulaRepository;
 		this.answerRepository = answerRepository;
 		this.userRepository = userRepository;
 		this.surveyService = surveyService;
 		this.surveyInformationRepository = surveyInformationRepository;
+		this.blockRepository = blockRepository;
 	}
 
 	public List<ChartDTO> generateCompanyCharts (Long companyId, Integer times) {
@@ -131,5 +135,21 @@ public class ChartService {
 		}
 		str += tokens[array.length];
 		return str;
+	}
+
+	public ChartDTO generateBlockChart (Long blockId, Long userId, Integer times) {
+		Optional<Block> blockOptional = blockRepository.findById(blockId);
+		if (!blockOptional.isPresent())
+			throw new RuntimeException("Block Not Found");
+
+		Block block = blockOptional.get();
+		if (block.getChart() == null)
+			throw new RuntimeException("Chart is null");
+
+		SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, times)
+				.orElseThrow(RuntimeException::new);
+
+		return getChartDTO(surveyInformation.getId(), block.getChart());
+
 	}
 }

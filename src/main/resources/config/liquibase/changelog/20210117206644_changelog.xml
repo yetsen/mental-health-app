@@ -2,6 +2,11 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
     <changeSet author="Developer (generated)" id="1610913658250-2">
         <loadData
+                file="config/liquibase/data/chart.csv"
+                separator=";"
+                tableName="chart">
+        </loadData>
+        <loadData
             file="config/liquibase/data/block.csv"
             separator=";"
             tableName="block">
@@ -25,11 +30,6 @@
             file="config/liquibase/data/formula.csv"
             separator=";"
             tableName="formula">
-        </loadData>
-        <loadData
-            file="config/liquibase/data/chart.csv"
-            separator=";"
-            tableName="chart">
         </loadData>
         <loadData
                 file="config/liquibase/data/company.csv"

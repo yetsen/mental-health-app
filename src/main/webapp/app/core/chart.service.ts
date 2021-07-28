@@ -15,4 +15,8 @@ export default class ChartService {
     return axios.get('api/chart/company/' + companyId + '/' + times);
   }
 
+  public getBlockChart(blockId, userId, times): AxiosPromise<any> {
+    return axios.get('api/chart/block/' + blockId + '/' + userId + '/' + times);
+  }
+
 }

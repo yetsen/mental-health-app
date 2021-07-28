@@ -5,6 +5,8 @@ import SurveyService from '@/core/survey.service.ts';
 import {Answer, Answers, SurveyInfo} from '@/shared/model/answers.model.ts';
 import Showdown from 'showdown';
 import {gsap, Bounce, Power3} from 'gsap/all';
+import ChartService from "@/core/chart.service";
+import DummyComponent from "@/core/dashboard/dummy/dummy.vue";
 
 SurveyVue.StylesManager.applyTheme('bootstrap');
 SurveyVue.settings.lazyRowsRendering = true; //experimental if problem occurs remove it
@@ -15,15 +17,23 @@ let Survey = SurveyVue.Survey;
   name: 'surveyCard',
   components: {
     Survey,
+    dummyComponent: DummyComponent,
   },
 })
 export default class SurveyCardComponent extends Vue {
   @Inject('surveyService')
   private surveyService: () => SurveyService;
 
+  @Inject('chartService')
+  private chartService: () => ChartService;
+
   private doAnimation = true;
 
   private times;
+
+  public currentChart = {};
+  public currentSurveyModal = {};
+  public currentSurveyOptions = {};
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -50,7 +60,7 @@ export default class SurveyCardComponent extends Vue {
     let that = this;
 
     (window as any).survey.onCurrentPageChanged.add(function (model, options) {
-      that.pushCurrentSurveyData(model.data);
+      //that.pushCurrentSurveyData(model.data);
       let currentPage = (window as any).survey.currentPageNo + 1;
       let visiblePageCount = (window as any).survey.visiblePageCount;
       that['progress'] = 100 * (currentPage / visiblePageCount) + '%';
@@ -60,12 +70,32 @@ export default class SurveyCardComponent extends Vue {
     (window as any).survey.onCurrentPageChanging.add(function (sender, options) {
       if (sender.currentPageValue === undefined || !that.doAnimation)
         return;
+
+      that.doAnimation = false;
       options.allowChanging = false;
-      that.startTransition(sender, options);
+
+      let that2 = that;
+      that.pushCurrentSurveyData(sender.data).then(() => {
+        let currentPage = (window as any).survey.currentPageNo;
+        if (that2.blocks[currentPage].chartId !== null) {
+          let that3 = that2;
+          that2.chartService().getBlockChart(that2.blocks[currentPage].id, that2.userId(), that2.times).then(chart => {
+            that3.currentChart = chart.data;
+            that3.currentSurveyModal = sender;
+            that3.currentSurveyOptions = options;
+            that3.preparePreviewChartModal();
+          })
+        } else {
+          that2.startTransition(sender, options);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
     });
 
     (window as any).survey.onComplete.add(function (model, options) {
-      that.pushCurrentSurveyData(model.data);
+      //that.pushCurrentSurveyData(model.data);
       that['isCompletionPage'] = true;
       (<any>this).$router.push('/dashboard');
     });
@@ -102,7 +132,6 @@ export default class SurveyCardComponent extends Vue {
 
   private startTransition(sender, options) : void {
     let that = this;
-    that.doAnimation = false;
     let wrapper = gsap.timeline({onComplete: function (){
         that.doAnimation = true;
     }});
@@ -141,20 +170,14 @@ export default class SurveyCardComponent extends Vue {
     return this.$store.getters.account.id;
   }
 
-  public get blockNames() {
-    return this.$store.getters.survey.pages.map(value => value.name);
+  public get blocks() {
+    return this.$store.getters.survey.pages;
   }
 
   pushCurrentSurveyData(surveyData: any) {
     let answers = this.convertSurveyDataToAnswer(surveyData);
-    this.surveyService()
-      .push(answers)
-      .then(() => {
-        console.log('success');
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    return this.surveyService().push(answers)
+
   }
 
   clearAndGoToHomePage() {
@@ -171,6 +194,22 @@ export default class SurveyCardComponent extends Vue {
     if (<any>this.$refs.clearAndExitModal) {
       (<any>this.$refs.clearAndExitModal).show();
     }
+  }
+
+  preparePreviewChartModal(): void {
+    if (<any>this.$refs.previewChartModal) {
+      (<any>this.$refs.previewChartModal).show();
+    }
+  }
+
+  closeDialogAndOpenPreviousPage(): void {
+    (<any>this.$refs.previewChartModal).hide();
+    this.doAnimation = true;
+  }
+
+  closeDialogAndOpenNextPage(): void {
+    (<any>this.$refs.previewChartModal).hide();
+    this.startTransition(this.currentSurveyModal, this.currentSurveyOptions);
   }
 
   private convertSurveyDataToAnswer(surveyData: any): Answers {

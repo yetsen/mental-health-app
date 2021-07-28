@@ -1,0 +1,11 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Developer (generated)" id="1627499405831-2">
+        <addColumn tableName="block">
+            <column name="chart_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1627499405831-3">
+        <addForeignKeyConstraint baseColumnNames="chart_id" baseTableName="block" constraintName="FKgr74euen3gomxhsi1unf3d90o" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="chart" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

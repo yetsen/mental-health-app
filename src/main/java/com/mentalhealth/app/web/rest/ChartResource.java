@@ -2,6 +2,7 @@ package com.mentalhealth.app.web.rest;
 
 import com.mentalhealth.app.service.ChartService;
 import com.mentalhealth.app.service.dto.ChartDTO;
+import io.swagger.models.auth.In;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +32,12 @@ public class ChartResource {
     public ResponseEntity<List<ChartDTO>> getCompanyCharts(@PathVariable Long companyId, @PathVariable Integer times) {
         List<ChartDTO> chartDTOs = chartService.generateCompanyCharts(companyId, times);
         return new ResponseEntity<>(chartDTOs, HttpStatus.OK);
+    }
+
+    @GetMapping("/block/{blockId}/{userId}/{times}")
+    public ResponseEntity<ChartDTO> getBlockChart(@PathVariable Long blockId,
+            @PathVariable Long userId, @PathVariable Integer times) {
+        ChartDTO chartDTO = chartService.generateBlockChart(blockId, userId, times);
+        return new ResponseEntity<>(chartDTO, HttpStatus.OK);
     }
 }
