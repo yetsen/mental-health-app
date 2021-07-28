@@ -23,7 +23,6 @@ export default class SurveyCardComponent extends Vue {
   private doAnimation = true;
 
   private times;
-  private lastSurveyFinished;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -58,7 +57,7 @@ export default class SurveyCardComponent extends Vue {
       (window as any).survey.render();
     });
     (window as any).survey.onCurrentPageChanging.add(function (sender, options) {
-      if (!that.doAnimation)
+      if (sender.currentPageValue === undefined || !that.doAnimation)
         return;
       options.allowChanging = false;
       that.startTransition(sender, options);
