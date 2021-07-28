@@ -86,7 +86,7 @@ export default class SurveyCardComponent extends Vue {
 
     let tableCss = {
       matrix: {
-        root: "table table-striped"
+        root: "table"
       }
     };
 
