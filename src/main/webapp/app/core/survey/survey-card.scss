@@ -1,6 +1,17 @@
 .survey-page {
   min-height: 75vh;
-  padding-top: 7vh;
+  padding-top: 4vh;
+}
+
+#navigationButtons {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  bottom: 0;
+}
+
+#survey-body {
+  overflow-y: auto;
+  height: 75vh;
 }
 
 .panel-footer {
