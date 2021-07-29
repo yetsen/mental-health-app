@@ -87,6 +87,7 @@ export default class SurveyCardComponent extends Vue {
           })
         } else {
           that2.startTransition(sender, options);
+          that2.movePuzzle();
         }
       })
       .catch(error => {
@@ -128,6 +129,15 @@ export default class SurveyCardComponent extends Vue {
       progress: '7%',
       isCompletionPage: false,
     };
+  }
+
+  private movePuzzle() {
+    //let head = document.querySelector("#head");
+    //let p1 = document.querySelector("#p1");
+    console.log(window.innerHeight);
+    console.log(window.innerWidth);
+    gsap.timeline().to("#p1", 1, {x: -103,
+      y: 76 })
   }
 
   private startTransition(sender, options) : void {

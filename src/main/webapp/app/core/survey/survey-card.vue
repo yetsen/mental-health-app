@@ -12,6 +12,18 @@
             </div>
             <div class="row align-content-start">
               <div id="sidebar-wrapper-div" class="col-3">
+                <div class="row">
+                  <div class="col-3">
+                    <img id="head" src="/content/images/animation/head.png" height="250" class="img-responsive">
+                  </div>
+                  <div class="col-3">
+
+                  </div>
+                  <div class="col-3">
+                    <img id="p1" src="/content/images/animation/p1.png" height="53" class="img-responsive">
+                  </div>
+                  <div class="col-3"></div>
+                </div>
                 <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
                   <ul class="nav sidebar-nav">
                     <li v-for="(block, index) in blocks" v-bind:key="block.name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
