@@ -132,12 +132,20 @@ export default class SurveyCardComponent extends Vue {
   }
 
   private movePuzzle() {
-    //let head = document.querySelector("#head");
-    //let p1 = document.querySelector("#p1");
+    let head = document.querySelector("#head");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#p1");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = 128;
+    let p1ImagePlaceY = 76;
     console.log(window.innerHeight);
     console.log(window.innerWidth);
-    gsap.timeline().to("#p1", 1, {x: -103,
-      y: 76 })
+    console.log(headX);
+    console.log(headY);
+    gsap.timeline().to("#p1", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y })
   }
 
   private startTransition(sender, options) : void {
