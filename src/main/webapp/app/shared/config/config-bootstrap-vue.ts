@@ -24,6 +24,8 @@ import {
   BFormDatepicker,
   BInputGroup,
   BInputGroupPrepend,
+  BCarousel,
+  BCarouselSlide
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
@@ -53,4 +55,6 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-datepicker', BFormDatepicker);
   vue.component('b-input-group', BInputGroup);
   vue.component('b-input-group-prepend', BInputGroupPrepend);
+  vue.component('b-carousel', BCarousel);
+  vue.component('b-carousel-slide', BCarouselSlide);
 }
