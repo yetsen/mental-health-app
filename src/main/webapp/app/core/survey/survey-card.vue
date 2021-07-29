@@ -2,6 +2,7 @@
     <div class="survey-page">
         <div class="container-fluid">
             <div class="row justify-content-md-center">
+              <div class="col-3"></div>
               <div class="col-8">
                 <div id="progressBar" v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
                   <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{width: progress}">
@@ -9,17 +10,19 @@
                   </div>
                 </div>
               </div>
+              <div class="col-1"></div>
             </div>
             <div class="row align-content-start">
               <div id="sidebar-wrapper-div" class="col-3">
                 <div class="row">
-                  <div class="col-3">
+                  <div class="col-2">
+                  </div>
+                  <div class="col-4">
                     <img id="head" src="/content/images/animation/head.png" height="250" class="img-responsive">
                   </div>
-                  <div class="col-3">
-
+                  <div class="col-2">
                   </div>
-                  <div class="col-3">
+                  <div class="col-1">
                     <img id="p1" src="/content/images/animation/p1.png" height="53" class="img-responsive">
                   </div>
                   <div class="col-3"></div>
@@ -72,8 +75,8 @@
             <dummyComponent :chartOptions="currentChart.chartOptions"></dummyComponent>
           </div>
           <div slot="modal-footer">
-            <button type="button" class="btn btn-secondary" @click="closeDialogAndOpenPreviousPage()">Change Answers</button>
-            <button type="button" class="btn btn-primary" @click="closeDialogAndOpenNextPage()">Continue</button>
+            <button type="button" class="btn btn-danger" @click="closeDialogAndOpenPreviousPage()">Change Answers</button>
+            <button type="button" class="btn btn-secondary" @click="closeDialogAndOpenNextPage()">Continue</button>
           </div>
         </b-modal>
     </div>
