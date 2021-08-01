@@ -53,8 +53,11 @@
                         <font-awesome-icon icon="tachometer-alt" />
                         <span v-text="$t('global.menu.dashboard')">Dashboard</span>
                     </span>
-                  <b-dropdown-item v-for="si in surveyInformation" v-if="si.finished" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times" active-class="active">
+                  <b-dropdown-item v-for="si in surveyInformation" v-if="si.finished && !isEmployer" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times" active-class="active">
                     <span>Dashboard #{{si.times}}</span>
+                  </b-dropdown-item>
+                  <b-dropdown-item v-for="ctl in companyTimeList" v-if="isEmployer" v-bind:key="ctl" v-bind:to="'/dashboard/' + ctl" active-class="active">
+                    <span>Dashboard #{{ctl}}</span>
                   </b-dropdown-item>
               </b-nav-item-dropdown>
               <b-nav-item v-if="isInHomePage()">

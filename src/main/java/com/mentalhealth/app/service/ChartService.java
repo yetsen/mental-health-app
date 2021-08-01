@@ -54,10 +54,12 @@ public class ChartService {
 			Map<Long, Double> averageResultMap = new HashMap<>();
 			AtomicInteger userCount = new AtomicInteger();
 			userList.forEach(user -> {
-				SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(user.getId(), times)
-						.orElseThrow(RuntimeException::new);
+				Optional<SurveyInformation> surveyInformationOptional = surveyInformationRepository.findByUser_IdAndTimes(user.getId(), times);
+				if (!surveyInformationOptional.isPresent()) {
+					return;
+				}
 				if (surveyService.checkUserForAnsweringAllQuestions(user.getId(), times)) {
-					Map<Long, Double> resultMap = getFormulaResults(surveyInformation.getId(), formulaIds);
+					Map<Long, Double> resultMap = getFormulaResults(surveyInformationOptional.get().getId(), formulaIds);
 					resultMap.keySet().forEach(formulaId -> {
 						double restSum = averageResultMap.getOrDefault(formulaId, 0.0);
 						restSum += resultMap.get(formulaId);

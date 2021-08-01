@@ -33,7 +33,7 @@ public class SurveyResource {
     }
 
     @GetMapping("/company/survey-info/{companyId}")
-    public ResponseEntity<Map<Long, List<SurveyInformation>>> getCompanySurveyInformation(@PathVariable Long companyId) {
+    public ResponseEntity<Map<Integer, List<SurveyInformation>>> getCompanySurveyInformation(@PathVariable Long companyId) {
         return new ResponseEntity<>(surveyService.getCompanySurveyInformationByCompanyId(companyId), HttpStatus.OK);
     }
 

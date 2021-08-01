@@ -139,7 +139,7 @@ public class SurveyService {
 
     }
 
-    public Map<Long, List<SurveyInformation>> getCompanySurveyInformationByCompanyId (Long companyId) {
+    public Map<Integer, List<SurveyInformation>> getCompanySurveyInformationByCompanyId (Long companyId) {
         List<User> companyUsers = userRepository.findAllByCompany_Id(companyId);
 
         if (CollectionUtils.isEmpty(companyUsers))
@@ -147,8 +147,8 @@ public class SurveyService {
 
         List<SurveyInformation> surveyInformationList = surveyInformationRepository.findByUser_IdInOrderByTimesAsc(
                 companyUsers.stream().map(User::getId).collect(Collectors.toList()));
-        return surveyInformationList.stream().collect(Collectors.groupingBy(SurveyInformation::getId,
-                HashMap::new, Collectors.toCollection(ArrayList::new)));
+        return surveyInformationList.stream().collect(Collectors.groupingBy(SurveyInformation::getTimes,
+                TreeMap::new, Collectors.toCollection(ArrayList::new)));
 
     }
 }

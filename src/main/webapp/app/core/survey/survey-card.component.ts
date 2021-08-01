@@ -96,7 +96,24 @@ export default class SurveyCardComponent extends Vue {
     });
 
     (window as any).survey.onComplete.add(function (model, options) {
-      //that.pushCurrentSurveyData(model.data);
+      that.pushCurrentSurveyData(model.data).then(() => {
+        let that2 = that;
+        let currentPage = (window as any).survey.currentPageNo;
+        if (that2.blocks[currentPage].chartId !== null) {
+          let that3 = that2;
+          that2.chartService().getBlockChart(that2.blocks[currentPage].id, that2.userId(), that2.times).then(chart => {
+            that3.currentChart = chart.data;
+            that3.currentSurveyModal = model;
+            that3.currentSurveyOptions = options;
+            that3.preparePreviewChartModal();
+          })
+        } else {
+          that2.startTransition(model, options);
+          that2.movePuzzle();
+        }
+        }).catch(error => {
+              console.log(error);
+        });
       that['isCompletionPage'] = true;
       (<any>this).$router.push('/dashboard');
     });

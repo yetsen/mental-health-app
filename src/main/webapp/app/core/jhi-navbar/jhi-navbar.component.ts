@@ -57,6 +57,18 @@ export default class JhiNavbar extends Vue {
     return this.$store.getters.surveyInformation;
   }
 
+  public get companySurveyInformation() {
+    return this.$store.getters.companySurveyInformation;
+  }
+
+  public get companyTimeList() {
+    return Object.keys(this.companySurveyInformation);
+  }
+
+  public get isEmployer() {
+    return this.$store.getters.account ? this.$store.getters.account.isEmployer : '';
+  }
+
   public get currentTime() {
     return this.surveyInformation.length === 0 ? 1 :
         this.surveyInformation[this.surveyInformation.length - 1].times + 1;
