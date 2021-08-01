@@ -108,14 +108,12 @@ export default class SurveyCardComponent extends Vue {
             that3.preparePreviewChartModal();
           })
         } else {
-          that2.startTransition(model, options);
-          that2.movePuzzle();
+          that2['isCompletionPage'] = true;
+          (<any>that2).$router.push('/dashboard/' + that2.times);
         }
         }).catch(error => {
               console.log(error);
         });
-      that['isCompletionPage'] = true;
-      (<any>this).$router.push('/dashboard');
     });
 
     let converter = new Showdown.Converter();
