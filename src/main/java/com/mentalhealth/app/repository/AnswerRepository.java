@@ -19,6 +19,8 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
 
     Optional<List<Answer>> findBySurveyInformation(SurveyInformation surveyInformation);
 
+    Optional<List<Answer>> findBySurveyInformationAndQuestion_IdIn(SurveyInformation surveyInformation, List<Long> questionIds);
+
     Optional<List<Answer>> findByQuestion_IdInAndSurveyInformation(List<Long> questionIdList, SurveyInformation surveyInformation);
 
     Optional<List<Answer>> findByQuestion_IdInAndSurveyInformation_Id(List<Long> questionIdList, Long surveyInformationId);

@@ -44,9 +44,16 @@ public class SurveyService {
     }
 
     public SurveyResultDTO getSurveyAnswers(Long userId, Integer times) {
-        SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, times).orElseThrow(RuntimeException::new);
-        checkUserForAnsweringAllQuestions(surveyInformation);
-        return convert(answerRepository.findBySurveyInformation(surveyInformation).orElseThrow(RuntimeException::new));
+        Optional<SurveyInformation> surveyInformationOptional = surveyInformationRepository.findByUser_IdAndTimes(userId, times);
+        if (surveyInformationOptional.isPresent()) {
+            checkUserForAnsweringAllQuestions(surveyInformationOptional.get());
+            return convert(answerRepository.findBySurveyInformation(surveyInformationOptional.get()).orElseThrow(RuntimeException::new));
+        } else {
+            SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, 1).orElseThrow(RuntimeException::new);
+            Block introductionBlock = blockRepository.getOne(1L);
+            return convert(answerRepository.findBySurveyInformationAndQuestion_IdIn(surveyInformation, introductionBlock.getQuestions()
+                    .stream().map(Question::getId).collect(Collectors.toList())).orElseThrow(RuntimeException::new));
+        }
     }
 
     private List<Block> getAllBlocks() {
