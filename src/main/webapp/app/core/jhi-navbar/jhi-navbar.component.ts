@@ -61,8 +61,8 @@ export default class JhiNavbar extends Vue {
     return this.$store.getters.companySurveyInformation;
   }
 
-  public get companyTimeList() {
-    return Object.keys(this.companySurveyInformation);
+  public get companyAvailableTimeList() {
+    return Object.keys(this.companySurveyInformation).filter(key => this.companySurveyInformation[key].some(val => val.finished));
   }
 
   public get isEmployer() {
