@@ -19,6 +19,7 @@ export default class JhiNavbar extends Vue {
 
   created() {
     this.translationService().refreshTranslation(this.currentLanguage);
+    this.hasAnyAuthority('ROLE_USER');
   }
 
   public subIsActive(input) {
