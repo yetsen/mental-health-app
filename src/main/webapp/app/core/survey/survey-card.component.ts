@@ -87,8 +87,10 @@ export default class SurveyCardComponent extends Vue {
             that3.preparePreviewChartModal();
           })
         } else {
-          that2.startTransition(sender, options);
-          that2.movePuzzle();
+          //that2.startTransition(sender, options);
+          sender.currentPage = options.newCurrentPage;
+          that2.doAnimation = true;
+          //that2.movePuzzle();
         }
       })
       .catch(error => {
@@ -243,7 +245,9 @@ export default class SurveyCardComponent extends Vue {
 
   closeDialogAndOpenNextPage(): void {
     (<any>this.$refs.previewChartModal).hide();
-    this.startTransition(this.currentSurveyModal, this.currentSurveyOptions);
+    //this.startTransition(this.currentSurveyModal, this.currentSurveyOptions);
+    this.currentSurveyModal['currentPage'] = this.currentSurveyOptions['newCurrentPage'];
+    this.doAnimation = true;
   }
 
   private convertSurveyDataToAnswer(surveyData: any): Answers {

@@ -70,12 +70,11 @@
                 <button type="button" class="btn btn-primary" v-text="$t('global.modal.survey.clearAndExit.yes')" @click="clearAndGoToHomePage()">Yes</button>
             </div>
         </b-modal>
-        <b-modal ref="previewChartModal" id="previewChartModal" title="Preview">
+        <b-modal ref="previewChartModal" id="previewChartModal" title="Preview" :no-close-on-backdrop="true" v-bind:click-to-close="false">
           <div class="modal-body">
             <dummyComponent :chartOptions="currentChart.chartOptions"></dummyComponent>
           </div>
           <div slot="modal-footer">
-            <button type="button" class="btn btn-danger" @click="closeDialogAndOpenPreviousPage()">Change Answers</button>
             <button type="button" class="btn btn-secondary" @click="closeDialogAndOpenNextPage()">Continue</button>
           </div>
         </b-modal>
