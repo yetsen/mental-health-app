@@ -65,6 +65,7 @@ export default class SurveyCardComponent extends Vue {
       let visiblePageCount = (window as any).survey.visiblePageCount;
       that['progress'] = 100 * (currentPage / visiblePageCount) + '%';
       that['pageNumber'] = currentPage + ' of ' + visiblePageCount;
+      (window as any).survey.title = that.blocks[currentPage - 1].name;
       (window as any).survey.render();
     });
     (window as any).survey.onCurrentPageChanging.add(function (sender, options) {

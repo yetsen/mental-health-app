@@ -1,12 +1,15 @@
 <template>
   <!-- TODO: change 0 to 50 -->
     <b-navbar toggleable="md" type="light" :class="{'fixed-top': (isInHomePage() & scrollPosition < 0), 'bg-light sticky-top': !(isInHomePage() & scrollPosition < 0)}">
-        <b-navbar-brand class="logo" b-link>
-            <a  v-smooth-scroll href="#app">
-              <!-- <span class="logo-img"></span> -->
-              <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp
-              </span>
-            </a>
+        <b-navbar-brand class="logo" b-link to="/">
+          <a v-if="isInHomePage()" v-smooth-scroll href="#app">
+            <!-- <span class="logo-img"></span> -->
+            <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp</span>
+          </a>
+          <span v-else to="/" exact>
+            <!-- <span class="logo-img"></span> -->
+            <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp</span>
+          </span>
       </b-navbar-brand>
       <b-navbar-toggle
       right
