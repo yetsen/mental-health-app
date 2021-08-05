@@ -10,4 +10,8 @@ export default class ProjectDescriptionComponent extends Vue {
     public openLogin(): void {
         this.loginService().openLogin((<any>this).$root);
     }
+
+    public get authenticated(): boolean {
+        return this.$store.getters.authenticated;
+    }
 }
