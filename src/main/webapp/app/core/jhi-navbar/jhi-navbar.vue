@@ -1,9 +1,12 @@
 <template>
   <!-- TODO: change 0 to 50 -->
     <b-navbar toggleable="md" type="light" :class="{'fixed-top': (isInHomePage() & scrollPosition < 0), 'bg-light sticky-top': !(isInHomePage() & scrollPosition < 0)}">
-        <b-navbar-brand class="logo" b-link to="/">
-          <!-- <span class="logo-img"></span> -->
-          <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp</span>
+        <b-navbar-brand class="logo" b-link>
+            <a  v-smooth-scroll href="#app">
+              <!-- <span class="logo-img"></span> -->
+              <span v-text="$t('global.title')" class="navbar-title">mentalHealthApp
+              </span>
+            </a>
       </b-navbar-brand>
       <b-navbar-toggle
       right
@@ -18,7 +21,7 @@
 
       <b-collapse is-nav id="header-tabs">
           <b-navbar-nav class="ml-auto">
-              <b-nav-item to="/" exact>
+              <b-nav-item v-if="false" to="/" exact>
                   <a v-if="isInHomePage()" v-smooth-scroll href="#app">
                       <font-awesome-icon icon="home" />
                       <span v-text="$t('global.menu.home')">Home</span>
@@ -28,14 +31,14 @@
                       <span v-text="$t('global.menu.home')">Home</span>
                   </span>
               </b-nav-item>
-              <b-nav-item v-if="currentTime === 1 && isInHomePage()" @click="onAssessmentClick(currentTime)" exact>
+              <b-nav-item v-if="currentTime === 1 && isInHomePage() && authenticated" @click="onAssessmentClick(currentTime)" exact>
                   <span>
                       <font-awesome-icon icon="pen" />
                       <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
                   </span>
               </b-nav-item>
 
-              <b-nav-item-dropdown v-if="currentTime > 1 && isInHomePage()" exact>
+              <b-nav-item-dropdown v-if="currentTime > 1 && isInHomePage() && authenticated" exact>
                     <span slot="button-content" class="navbar-dropdown-menu">
                         <font-awesome-icon icon="pen" />
                         <span v-text="$t('global.menu.startTest')">Mental Health Assessment</span>
@@ -48,7 +51,7 @@
                   <span>Start New Assessment</span>
                 </b-dropdown-item>
               </b-nav-item-dropdown>
-              <b-nav-item-dropdown exact>
+              <b-nav-item-dropdown v-if="authenticated" exact>
                      <span slot="button-content" class="navbar-dropdown-menu">
                         <font-awesome-icon icon="tachometer-alt" />
                         <span v-text="$t('global.menu.dashboard')">Dashboard</span>
