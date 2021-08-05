@@ -15,7 +15,7 @@
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
-        "main": "Account",
+        "main": "Profile",
         "settings": "Settings",
         "password": "Password",
         "sessions": "Sessions",
@@ -50,7 +50,7 @@
     },
     "form": {
       "username.label": "Username",
-      "username.placeholder": "Your username",
+      "username.placeholder": "Username",
       "currentpassword.label": "Current password",
       "currentpassword.placeholder": "Current password",
       "newpassword.label": "New password",
@@ -58,9 +58,9 @@
       "confirmpassword.label": "New password confirmation",
       "confirmpassword.placeholder": "Confirm the new password",
       "email.label": "Email",
-      "email.placeholder": "Your email",
+      "email.placeholder": "Email",
       "companycode.label": "Company Code",
-      "companycode.placeholder": "Your Company Code",
+      "companycode.placeholder": "Company Code",
       "isemployer.label": "Are you employer of the company?"
     },
     "messages": {
