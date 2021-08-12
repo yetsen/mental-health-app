@@ -33,6 +33,14 @@
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'Dashboard'}"  v-if="authenticated" class="menu-item menu-item-241" id="menu_item_241">
               <a href="/dashboard">Dashboard</a>
+              <ul>
+                <li v-for="si in surveyInformation" v-if="si.finished && !isEmployer" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times" >
+                  <a v-bind:href="'/dashboard/' + si.times">Dashboard #{{si.times}}</a>
+                </li>
+                <li v-for="ctl in companyAvailableTimeList" v-if="isEmployer" v-bind:key="ctl" v-bind:to="'/dashboard/' + ctl">
+                  <a v-bind:href="'/dashboard/' + ctl">Dashboard #{{ctl}}</a>
+                </li>
+              </ul>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'Contact'}"  class="menu-item menu-item-143" id="menu_item_143">
               <a href="/contact-us">Contact us</a>
