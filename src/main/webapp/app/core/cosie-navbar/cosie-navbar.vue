@@ -1,8 +1,8 @@
 <template>
   <header>
-    <div class="row" style="background-color: #FFFFFF;">
+    <div class="row-navbar" style="background-color: #FFFFFF;">
       <div class="large-12 columns nav-wrap nav_layout_2">
-        <div class="row align-middle clearfix">
+        <div class="row-navbar align-middle clearfix">
           <div class="small-9 logo-wrap columns clearfix">
             <a href="/"><img src="/content/images/cosie/cosie_name_rgb.jpg" class="logo-image" alt="Etusivulle" /></a>
           </div>

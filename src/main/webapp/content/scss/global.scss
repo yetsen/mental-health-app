@@ -201,7 +201,7 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 /* ==========================================================================
 entity detail page css
 ========================================================================== */
-.row.jh-entity-details {
+.row-navbar.jh-entity-details {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 10px;
@@ -209,7 +209,7 @@ entity detail page css
 }
 
 @media screen and (min-width: 768px) {
-  .row.jh-entity-details > {
+  .row-navbar.jh-entity-details > {
     dt {
       float: left;
       overflow: hidden;
@@ -647,7 +647,7 @@ select {
   max-width:none!important;
 }
 
-.row {
+.row-navbar {
   max-width:75rem;
   margin-left:auto;
   margin-right:auto;
@@ -656,7 +656,7 @@ select {
   flex-flow:row wrap;
 }
 
-.row .row {
+.row-navbar .row-navbar {
   max-width:none;
   margin-left:-.625rem;
   margin-right:-.625rem;
@@ -670,12 +670,12 @@ select {
   min-width:0;
 }
 
-.column.row.row,.row.row.columns {
+.column.row-navbar.row-navbar,.row-navbar.row-navbar.columns {
   float:none;
   display:block;
 }
 
-.row .column.row.row,.row .row.row.columns {
+.row-navbar .column.row-navbar.row-navbar,.row-navbar .row-navbar.row-navbar.columns {
   padding-left:0;
   padding-right:0;
   margin-left:0;
@@ -3143,7 +3143,7 @@ input[type=submit].button {
   margin-bottom:4rem;
 }
 
-.latest_posts_component .row .column .button,.latest_posts_component .row .columns .button {
+.latest_posts_component .row-navbar .column .button,.latest_posts_component .row-navbar .columns .button {
   position:absolute;
   bottom:0;
   margin-bottom:0;
@@ -3903,11 +3903,11 @@ td,th,.menu.simple a,.reveal.collapse,.tabs.simple>li>a,.lang-switcher-wrap .dro
   display:block!important;
 }
 
-.row.expanded,.media-object img {
+.row-navbar.expanded,.media-object img {
   max-width:none;
 }
 
-.row.collapse>.column,.row.collapse>.columns,.small-collapse>.column,.small-collapse>.columns {
+.row-navbar.collapse>.column,.row-navbar.collapse>.columns,.small-collapse>.column,.small-collapse>.columns {
   padding-left:0;
   padding-right:0;
 }
@@ -3951,7 +3951,7 @@ td,th,.menu.simple a,.reveal.collapse,.tabs.simple>li>a,.lang-switcher-wrap .dro
   flex-wrap:wrap;
 }
 
-.row.medium-unstack>.column,.row.medium-unstack>.columns,.row.large-unstack>.column,.row.large-unstack>.columns {
+.row-navbar.medium-unstack>.column,.row-navbar.medium-unstack>.columns,.row-navbar.large-unstack>.column,.row-navbar.large-unstack>.columns {
   -ms-flex:0 0 100%;
   flex:0 0 100%;
 }
@@ -4108,7 +4108,7 @@ label>[type=checkbox],label>[type=radio],.events-list__info .meta span {
   background-color:#e6e6e6;
 }
 
-.is-accordion-submenu-parent>a,.is-drilldown-submenu-parent>a,.is-dropdown-submenu-parent,.orbit,.orbit-container,.sticky-container,header,.lang-switcher-wrap,.nav-wrap .menu-items-wrap .menu-depth-1 li,.nav-wrap .menu-items-wrap .menu-depth-1 .menu-item-has-children a,.call_to_action .text-center .button-wrap .button,.latest_posts_component .row .column,.latest_posts_component .row .columns,.single-post__excerpt {
+.is-accordion-submenu-parent>a,.is-drilldown-submenu-parent>a,.is-dropdown-submenu-parent,.orbit,.orbit-container,.sticky-container,header,.lang-switcher-wrap,.nav-wrap .menu-items-wrap .menu-depth-1 li,.nav-wrap .menu-items-wrap .menu-depth-1 .menu-item-has-children a,.call_to_action .text-center .button-wrap .button,.latest_posts_component .row-navbar .column,.latest_posts_component .row-navbar .columns,.single-post__excerpt {
   position:relative;
 }
 
@@ -4345,7 +4345,7 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
 }
 
 @media screen and (min-width: 40em) {
-  .row .row {
+  .row-navbar .row-navbar {
     margin-left:-.9375rem;
     margin-right:-.9375rem;
   }
@@ -4488,7 +4488,7 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
     max-width:12.5%;
   }
 
-  .row.medium-unstack>.column,.row.medium-unstack>.columns {
+  .row-navbar.medium-unstack>.column,.row-navbar.medium-unstack>.columns {
     -ms-flex:1 1 0;
     flex:1 1 0;
   }
@@ -4873,7 +4873,7 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
     max-width:12.5%;
   }
 
-  .row.large-unstack>.column,.row.large-unstack>.columns {
+  .row-navbar.large-unstack>.column,.row-navbar.large-unstack>.columns {
     -ms-flex:1 1 0;
     flex:1 1 0;
   }
@@ -5531,7 +5531,7 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
 }
 
 @media (max-width: 40rem) {
-  .galleryslider-component>.row {
+  .galleryslider-component>.row-navbar {
     padding-left:25px;
     padding-right:25px;
   }
@@ -5563,7 +5563,7 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
 }
 
 @media (max-width: 800px) {
-  .latest_posts_component .row .column .button,.latest_posts_component .row .columns .button {
+  .latest_posts_component .row-navbar .column .button,.latest_posts_component .row-navbar .columns .button {
     position:static;
   }
 }
