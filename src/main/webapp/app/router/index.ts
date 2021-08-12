@@ -11,10 +11,12 @@ const Home = () => import('@/core/home/home.vue');
 const Error = () => import('@/core/error/error.vue');
 const SurveyCard = () => import('@/core/survey/survey-card.vue');
 const Dashboard = () => import('@/core/dashboard/dashboard.vue');
+const Contact = () => import('@/core/home/teamVideos/team-videos.vue');
 import account from '@/router/account.ts';
 import admin from '@/router/admin.ts';
 import entities from '@/router/entities.ts';
 import pages from '@/router/pages.ts';
+import ContactComponent from "@/core/home/contact/contact.component";
 
 Vue.use(Router);
 
@@ -36,6 +38,21 @@ export default new Router({
       path: '/dashboard/:times',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+      path: '/about-project',
+      name: 'AboutProject',
+      component: Dashboard
+    },
+    {
+      path: '/consortium',
+      name: 'Consortium',
+      component: Dashboard
+    },
+    {
+      path: '/contact-us',
+      name: 'Contact',
+      component: Contact
     },
     {
       path: '/forbidden',
