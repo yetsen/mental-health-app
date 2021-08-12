@@ -4,7 +4,7 @@
       <div class="large-12 columns nav-wrap nav_layout_2">
         <div class="row align-middle clearfix">
           <div class="small-9 logo-wrap columns clearfix">
-            <a href="/"><img src="https://storage.googleapis.com/turku-amk/2018/01/cosie_name_rgb.jpg" class="logo-image" alt="Etusivulle" /></a>
+            <a href="/"><img src="/content/images/cosie/cosie_name_rgb.jpg" class="logo-image" alt="Etusivulle" /></a>
           </div>
         </div>
         <nav class="menu-items-wrap">

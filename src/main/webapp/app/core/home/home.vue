@@ -2,10 +2,10 @@
   <main id="main-content" role="main">
     <div class="galleryslider-component">
       <VueSlickCarousel :dots="true" :arrows="false" :autoplay="true" :autoplaySpeed="8000" :slidesToShow="1">
-        <div class="single-slide" v-bind:style="{'background-image' :'url(https://storage.googleapis.com/turku-amk/2017/12/cosie_alone-1500x800.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(https://storage.googleapis.com/turku-amk/2017/12/cosie_alley_bike-1500x800.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(https://storage.googleapis.com/turku-amk/2017/12/cosie_old_woman-1500x800.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(https://storage.googleapis.com/turku-amk/2017/12/cosie_street-1500x800.jpg)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_alone-1500x800.jpg)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_alley_bike-1500x800.jpg)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_old_woman-1500x800.jpg)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_street-1500x800.jpg)'}"></div>
       </VueSlickCarousel>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
                   </div>
                 </div>
                 <div class="small-12 medium-6 columns">
-                  <a href="indexdfaf.html?post_type=post&amp;p=3376" aria-hidden="true" tabindex="-1"><img src="https://storage.googleapis.com/turku-amk/2017/12/cosie_street-768x431.jpg" /></a>
+                  <a href="indexdfaf.html?post_type=post&amp;p=3376" aria-hidden="true" tabindex="-1"><img src="/content/images/cosie/cosie_street-768x431.jpg" /></a>
                 </div>
               </div>
               <div id="latest-wrap-1" data-offset="2" class="row latest-post-row">
@@ -33,7 +33,7 @@
                   </div>
                 </div>
                 <div class="small-12 medium-6 columns">
-                  <a href="index1670.html?post_type=post&amp;p=2605" aria-hidden="true" tabindex="-1"><img src="https://storage.googleapis.com/turku-amk/2017/12/cosie_old_woman-768x431.jpg" /></a>
+                  <a href="index1670.html?post_type=post&amp;p=2605" aria-hidden="true" tabindex="-1"><img src="/content/images/cosie/cosie_old_woman-768x431.jpg" /></a>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@
                   </div>
                 </div>
                 <div class="small-12 medium-6 columns">
-                  <a href="index6589.html?post_type=post&amp;p=2617" aria-hidden="true" tabindex="-1"><img src="https://storage.googleapis.com/turku-amk/2017/12/cosie_street-768x431.jpg" /></a>
+                  <a href="index6589.html?post_type=post&amp;p=2617" aria-hidden="true" tabindex="-1"><img src="/content/images/cosie/cosie_street-768x431.jpg" /></a>
                 </div>
               </div>
               <div id="latest-wrap-3" data-offset="2" class="row latest-post-row">
@@ -70,7 +70,7 @@
                   </div>
                 </div>
                 <div class="small-12 medium-6 columns">
-                  <a href="index7481.html?post_type=post&amp;p=2581" aria-hidden="true" tabindex="-1"><img src="https://storage.googleapis.com/turku-amk/2018/12/cosie_hands-1-768x431.jpg" /></a>
+                  <a href="index7481.html?post_type=post&amp;p=2581" aria-hidden="true" tabindex="-1"><img src="/content/images/cosie/cosie_hands-1-768x431.jpg" /></a>
                 </div>
               </div>
             </div>

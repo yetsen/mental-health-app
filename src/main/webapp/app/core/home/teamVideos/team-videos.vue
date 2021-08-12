@@ -1,7 +1,7 @@
 <template>
   <main id="main-content" role="main">
     <div class="full-width-img-first">
-      <div class="image_component" style="background-image:url(http://storage.googleapis.com/turku-amk/2017/12/mobile-phone-426559-1920x800.jpg)"></div>
+      <div class="image_component" style="background-image:url(/content/images/cosie/mobile-phone-426559-1920x800.jpg)"></div>
     </div>
     <div class="row heading-component">
       <div class="small-12 columns">

@@ -16,7 +16,7 @@
         <div class=columns>
           <div class=row>
             <div class="small-12 columns component-content">
-              <p><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:240}"> <img loading=lazy class="alignnone wp-image-532" src="https://storage.googleapis.com/turku-amk/2019/02/eu-emblem.png" alt="" width=152 height=101 srcset="https://storage.googleapis.com/turku-amk/2019/02/eu-emblem.png 788w, https://storage.googleapis.com/turku-amk/2019/02/eu-emblem-300x200.png 300w, https://storage.googleapis.com/turku-amk/2019/02/eu-emblem-768x512.png 768w" sizes="(max-width: 152px) 100vw, 152px"/>  </span></p>
+              <p><span data-ccp-props="{&quot;201341983&quot;:0,&quot;335559739&quot;:160,&quot;335559740&quot;:240}"> <img loading=lazy class="alignnone wp-image-532" src="/content/images/cosie/eu-emblem.png" alt="" width=152 height=101 />  </span></p>
             </div>
           </div>
         </div>
