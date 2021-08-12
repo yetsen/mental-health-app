@@ -2711,12 +2711,16 @@ table.hover tr:nth-of-type(2n):hover {
   display:inline-block;
   text-decoration:none;
   color:#000;
+  float: left;
+}
+
+.menu-depth-1 {
+  float: right;
 }
 
 .nav-wrap .menu-items-wrap {
   height:50%;
   width:80%;
-  float:left;
   position:relative;
   padding:1rem 0;
 }
@@ -2724,7 +2728,31 @@ table.hover tr:nth-of-type(2n):hover {
 .nav-wrap .menu-items-wrap .menu-depth-1 li a {
   font-weight:200;
   color:#000;
+  text-decoration:none;
+  text-align:center;
 }
+
+.nav-wrap .menu-items-wrap .menu-depth-1 li ul li {
+  background-color:#000 !important;
+  display: block;
+  z-index:2000;
+  margin-right: 0;
+}
+
+.nav-wrap .menu-items-wrap .menu-depth-1 li ul {
+  display: none;
+  list-style: none;
+  position: relative;
+  width: 100%;
+
+}
+.nav-wrap .menu-items-wrap .menu-depth-1 li:hover ul {
+  display: block;
+}
+
+
+.menu-depth-1 li:first-child a { margin-left:0; }
+.menu-depth-1 li:last-child a { margin-right:0; }
 
 .nav-wrap .menu-items-wrap .menu-depth-1 .menu-item-has-children [type=checkbox]+label {
   margin-left:0;
@@ -5667,7 +5695,7 @@ h1,.component h1,h1>a,h2,.component h2,h2>a,h3,.component h3,h3>a,h4,.component 
   }
 
   .nav-wrap .menu-items-wrap .menu-depth-1 {
-    text-align:right;
+    text-align:center;
   }
 
   li.menu-item a {
