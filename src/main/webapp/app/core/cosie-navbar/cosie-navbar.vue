@@ -32,7 +32,7 @@
               <a href="/consortium">Consortium</a>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'Dashboard'}"  v-if="authenticated" class="menu-item menu-item-241" id="menu_item_241">
-              <a href="/dashboard">Dashboard</a>
+              <a>Dashboard</a>
               <ul>
                 <li v-for="si in surveyInformation" v-if="si.finished && !isEmployer" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times" >
                   <a v-bind:href="'/dashboard/' + si.times">Dashboard #{{si.times}}</a>
