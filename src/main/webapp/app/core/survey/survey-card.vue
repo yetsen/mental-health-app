@@ -2,7 +2,7 @@
     <div class="survey-page">
         <div class="container-fluid">
             <div class="row justify-content-md-center">
-              <div class="col-3"></div>
+              <div class="col-4"></div>
               <div class="col-8">
                 <div id="progressBar" v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
                   <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{width: progress}">
@@ -10,42 +10,69 @@
                   </div>
                 </div>
               </div>
-              <div class="col-1"></div>
             </div>
             <div class="row align-content-start">
-              <div id="sidebar-wrapper-div" class="col-3">
+              <div id="sidebar-wrapper-div" class="col-4">
                 <div class="row">
-                  <div class="col-2">
+                  <div class="col-4">
+                    <div class="jigsaw1" id="jigsaw1">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Introduction</span>
+                    </div>
+                    <div class="jigsaw3" id="jigsaw3">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Mental Health</span>
+                    </div>
+                    <div class="jigsaw5" id="jigsaw5">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Productivity</span>
+                    </div>
                   </div>
                   <div class="col-4">
-                    <img id="head" src="/content/images/animation/head.png" height="250" class="img-responsive">
+                    <div class="jigsaw2" id="jigsaw2">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Personality</span>
+                    </div>
+                    <div class="jigsaw4" id="jigsaw4">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Well-being</span>
+                    </div>
+                    <div class="jigsaw6" id="jigsaw6">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Psychological Demand</span>
+                    </div>
                   </div>
-                  <div class="col-2">
+                  <div class="col-4">
+
                   </div>
-                  <div class="col-1">
-                    <img id="p1" src="/content/images/animation/p1.png" height="53" class="img-responsive">
-                  </div>
-                  <div class="col-3"></div>
                 </div>
-                <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-                  <ul class="nav sidebar-nav">
-                    <li v-for="(block, index) in blocks" v-bind:key="block.name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
-                      <a @click="survey.currentPageNo = index">{{ block.name }}</a>
-                    </li>
-                  </ul>
-                </nav>
               </div>
               <div id="survey-body" class="col-8">
                 <div id="surveyElement">
                   <survey :survey='survey'></survey>
                 </div>
               </div>
-              <div class="col-1">
-
-              </div>
             </div>
             <div id="navigationButtons" class="row justify-content-md-center">
-              <div class="col-3">
+              <div class="col-4">
 
               </div>
               <div class="col-8">
@@ -55,9 +82,6 @@
                   <input v-if="!survey.isLastPage" type="button" @click="survey.nextPage()" value="Next" class="btn sv_next_btn float-right">
                   <input v-if="survey.isLastPage" type="button" @click="survey.completeLastPage()" value="Complete" class="btn sv_complete_btn float-right" >
                 </div>
-              </div>
-              <div class="col-1">
-
               </div>
             </div>
         </div>

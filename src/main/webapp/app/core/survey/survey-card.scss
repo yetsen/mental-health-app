@@ -100,8 +100,121 @@
 #sidebar-wrapper-div {
   padding: 0 !important;
   z-index: 100;
+  border-style: dashed;
 }
 
 .progress-bar {
   background-color: $secondary;
+}
+
+div[class^='jigsaw'], div[class*=' jigsaw']{
+  width: 6em;
+  height: 6em;
+  margin: 50px;
+  position: relative;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  cursor: pointer;
+}
+
+
+.jigsaw1,
+.jigsaw1 span {
+  background-color: #6610f2;
+  z-index: 6;
+}
+
+.jigsaw2,
+.jigsaw2 span {
+  background-color: #00008B;
+  z-index: 5;
+}
+
+.jigsaw3,
+.jigsaw3 span {
+  background-color: #28a745;
+  z-index: 4;
+}
+
+.jigsaw4,
+.jigsaw4 span {
+  background-color: #0c4d78;
+  z-index: 3;
+}
+
+.jigsaw5,
+.jigsaw5 span {
+  background-color: #5eb69d;
+  z-index: 2;
+}
+
+.jigsaw6,
+.jigsaw6 span {
+  background-color: #171a1d;
+  z-index: 1;
+}
+
+.text {
+  display: block;
+  color: #fff;
+  font-size: 0.8em;
+  text-align: center;
+  padding: 3em 0 0 1.2em;
+  position: relative;
+  background: transparent !important;
+}
+
+.jigsaw1 .t, .jigsaw2 .t, .jigsaw3 .t, .jigsaw4 .t, .jigsaw5 .t, .jigsaw6 .t {
+  position: absolute;
+  top: -1.5em;
+  left: 2em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+}
+
+.jigsaw1 .r, .jigsaw2 .r, .jigsaw3 .r, .jigsaw4 .r, .jigsaw5 .r {
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 2em;
+  left: 5.7em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+}
+
+.jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b, .jigsaw5 .b, .jigsaw6 .b {
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 4.5em;
+  left: 2.2em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+  background-color: #fff;
+}
+
+.jigsaw2 .l, .jigsaw3 .l, .jigsaw4 .l, .jigsaw5 .l, .jigsaw6 .l {
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 2.0em;
+  left: -.4em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+  background-color: #fff;
+}
+
+.jigsaw1 .l {
+  position: absolute;
+  top: 2.2em;
+  left: -.4em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+  background-color: #fff;
 }

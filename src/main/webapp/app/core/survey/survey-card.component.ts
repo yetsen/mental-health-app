@@ -78,6 +78,18 @@ export default class SurveyCardComponent extends Vue {
       let that2 = that;
       that.pushCurrentSurveyData(sender.data).then(() => {
         let currentPage = (window as any).survey.currentPageNo;
+        if (currentPage == 0)
+          that2.movePuzzle2();
+        if (currentPage == 1)
+          that2.movePuzzle3();
+        if (currentPage == 2)
+          that2.movePuzzle4();
+        if (currentPage == 3)
+          that2.movePuzzle5();
+        if (currentPage == 4)
+          that2.movePuzzle6();
+        if (currentPage == 5)
+          that2.movePuzzle7();
         if (that2.blocks[currentPage].chartId !== null) {
           let that3 = that2;
           that2.chartService().getBlockChart(that2.blocks[currentPage].id, that2.userId(), that2.times).then(chart => {
@@ -147,6 +159,26 @@ export default class SurveyCardComponent extends Vue {
       progress: '7%',
       isCompletionPage: false,
     };
+  }
+
+  private movePuzzle2() {
+    gsap.timeline().to("#jigsaw1", 1, {x: -50, y: -50});
+  }
+
+  private movePuzzle3() {
+    gsap.timeline().to("#jigsaw2", 1, {x: -153, y: -50});
+  }
+  private movePuzzle4() {
+    gsap.timeline().to("#jigsaw3", 1, {x: 143, y: -195});
+  }
+  private movePuzzle5() {
+    gsap.timeline().to("#jigsaw4", 1, {x: 41, y: -195});
+  }
+  private movePuzzle6() {
+    gsap.timeline().to("#jigsaw5", 1, {x: 338, y: -341});
+  }
+  private movePuzzle7() {
+    gsap.timeline().to("#jigsaw6", 1, {x: 235, y: -341});
   }
 
   private movePuzzle() {

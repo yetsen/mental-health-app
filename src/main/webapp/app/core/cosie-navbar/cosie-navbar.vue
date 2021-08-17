@@ -2,9 +2,12 @@
   <header>
     <div class="row-navbar" style="background-color: #FFFFFF;">
       <div class="large-12 columns nav-wrap nav_layout_2">
-        <div class="row-navbar align-middle clearfix">
+        <div v-if="!authenticated" class="row-navbar align-middle clearfix">
           <div class="small-9 logo-wrap columns clearfix">
             <a href="/"><img src="/content/images/cosie/cosie_name_rgb.jpg" class="logo-image" alt="Etusivulle" /></a>
+          </div>
+          <div class="small-3 columns nav-toggle clearfix">
+            <button id=nav-toggle-btn aria-expanded=false> <font-awesome-icon icon="bars" /></button>
           </div>
         </div>
         <nav class="menu-items-wrap">
@@ -15,10 +18,10 @@
             <li v-bind:class="{'current-menu-item': currentRoute == 'AboutProject'}" class="menu-item menu-item-17" id="menu_item_17">
               <a href="/about-project">About The Project</a>
             </li>
-            <li v-bind:class="{'current-menu-item': currentRoute == 'SurveyCard'}"  v-if="currentTime === 1 && isInHomePage() && authenticated" @click="onAssessmentClick(currentTime)" class="menu-item menu-item-75" id="menu_item_75">
+            <li v-bind:class="{'current-menu-item': currentRoute == 'SurveyCard'}"  v-if="currentTime === 1 && authenticated" @click="onAssessmentClick(currentTime)" class="menu-item menu-item-75" id="menu_item_75">
               <a href="#">Assessment Center</a>
             </li>
-            <li class="menu-item menu-item-120" id="menu_item_120" v-if="currentTime > 1 && isInHomePage() && authenticated">
+            <li v-bind:class="{'current-menu-item': currentRoute == 'SurveyCard'}" class="menu-item menu-item-120" id="menu_item_120" v-if="currentTime > 1 && authenticated">
               <a>Assessment Center</a>
               <ul>
                 <li v-for="si in surveyInformation" v-bind:key="si.times" @click="onAssessmentClick(si.times)">
