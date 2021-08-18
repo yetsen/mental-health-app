@@ -1,5 +1,6 @@
 package com.mentalhealth.app.service;
 
+import com.mentalhealth.app.config.Constants;
 import com.mentalhealth.app.domain.*;
 import com.mentalhealth.app.enums.QuestionType;
 import com.mentalhealth.app.repository.*;
@@ -147,7 +148,8 @@ public class SurveyService {
     }
 
     public Map<Integer, List<SurveyInformation>> getCompanySurveyInformationByCompanyId (Long companyId) {
-        List<User> companyUsers = userRepository.findAllByCompany_Id(companyId);
+        List<User> companyUsers = Constants.ACADEMY_ID.equals(companyId) ?
+                userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
 
         if (CollectionUtils.isEmpty(companyUsers))
             throw new RuntimeException("User Not Found!!");
