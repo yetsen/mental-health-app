@@ -18,7 +18,6 @@ import account from '@/router/account.ts';
 import admin from '@/router/admin.ts';
 import entities from '@/router/entities.ts';
 import pages from '@/router/pages.ts';
-import ContactComponent from "@/core/home/contact/contact.component";
 
 Vue.use(Router);
 

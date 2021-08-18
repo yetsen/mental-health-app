@@ -61,5 +61,3 @@
 
 <script lang="ts" src="./consortium.component.ts">
 </script>
-<style lang="scss" src="./consortium.scss" scoped>
-</style>
