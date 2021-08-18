@@ -12,8 +12,8 @@
 }
 
 #survey-body {
-  overflow-y: auto;
-  height: 75vh;
+  //overflow-y: auto;
+  //height: 75vh;
 }
 
 .panel-footer {
@@ -155,6 +155,28 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   z-index: 1;
 }
 
+.jigsaw7,
+.jigsaw7 span {
+  background-color: #28a745;
+  z-index: 1;
+}
+.jigsaw8,
+.jigsaw8 span {
+  background-color: #2d6a52;
+  z-index: 1;
+}
+.jigsaw9,
+.jigsaw9 span {
+  background-color: #881f0e;
+  z-index: 1;
+}
+.jigsaw10,
+.jigsaw10 span {
+  background-color: #ffae00;
+  z-index: 1;
+}
+
+
 .text {
   display: block;
   color: #fff;
@@ -165,7 +187,7 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   background: transparent !important;
 }
 
-.jigsaw1 .t, .jigsaw2 .t, .jigsaw3 .t, .jigsaw4 .t, .jigsaw5 .t, .jigsaw6 .t {
+.jigsaw1 .t, .jigsaw2 .t, .jigsaw3 .t, .jigsaw4 .t, .jigsaw5 .t {
   position: absolute;
   top: -1.5em;
   left: 2em;
@@ -174,7 +196,19 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   border-radius: 4em;
 }
 
-.jigsaw1 .r, .jigsaw2 .r, .jigsaw3 .r, .jigsaw4 .r, .jigsaw5 .r {
+
+.jigsaw6 .t, .jigsaw7 .t, .jigsaw8 .t, .jigsaw9 .t, .jigsaw10 .t {
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: -1.5em;
+  left: 2em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+}
+
+.jigsaw1 .r, .jigsaw2 .r, .jigsaw3 .r, .jigsaw4 .r, .jigsaw6 .r, .jigsaw7 .r, .jigsaw8 .r, .jigsaw9 .r{
   width: 1.8em;
   height: 1.8em;
   position: absolute;
@@ -185,7 +219,7 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   border-radius: 4em;
 }
 
-.jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b, .jigsaw5 .b, .jigsaw6 .b {
+.jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b, .jigsaw5 .b {
   width: 1.8em;
   height: 1.8em;
   position: absolute;
@@ -197,7 +231,7 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   background-color: #fff;
 }
 
-.jigsaw2 .l, .jigsaw3 .l, .jigsaw4 .l, .jigsaw5 .l, .jigsaw6 .l {
+.jigsaw2 .l, .jigsaw3 .l, .jigsaw4 .l, .jigsaw5 .l, .jigsaw7 .l, .jigsaw8 .l, .jigsaw9 .l, .jigsaw10 .l {
   width: 1.8em;
   height: 1.8em;
   position: absolute;

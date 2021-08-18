@@ -51,3 +51,4 @@ id;name;employee_code;employer_code;created_by;last_modified_by
 50;code48;UKRI_Project_Employee_Code48;UKRI_Project_Code48;system;system
 51;code49;UKRI_Project_Employee_Code49;UKRI_Project_Code49;system;system
 52;code50;UKRI_Project_Employee_Code50;UKRI_Project_Code50;system;system
+999999;AcademyUser;"";UKRI_Project_Ac;system;system

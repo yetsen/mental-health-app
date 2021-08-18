@@ -36,6 +36,21 @@
                       <span class="l"></span>
                       <span class="text">Productivity</span>
                     </div>
+
+                    <div class="jigsaw7" id="jigsaw7">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Physical Demand</span>
+                    </div>
+                    <div class="jigsaw9" id="jigsaw9">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Job Promotion</span>
+                    </div>
                   </div>
                   <div class="col-4">
                     <div class="jigsaw2" id="jigsaw2">
@@ -58,6 +73,20 @@
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Psychological Demand</span>
+                    </div>
+                    <div class="jigsaw8" id="jigsaw8">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Job Insecurity</span>
+                    </div>
+                    <div class="jigsaw10" id="jigsaw10">
+                      <span class="t"></span>
+                      <span class="r"></span>
+                      <span class="b"></span>
+                      <span class="l"></span>
+                      <span class="text">Recognition</span>
                     </div>
                   </div>
                   <div class="col-4">

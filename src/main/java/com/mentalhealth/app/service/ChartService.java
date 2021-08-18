@@ -1,5 +1,6 @@
 package com.mentalhealth.app.service;
 
+import com.mentalhealth.app.config.Constants;
 import com.mentalhealth.app.domain.*;
 import com.mentalhealth.app.repository.*;
 import com.mentalhealth.app.service.dto.ChartDTO;
@@ -45,7 +46,8 @@ public class ChartService {
 	}
 
 	public List<ChartDTO> generateCompanyCharts (Long companyId, Integer times) {
-		List<User> userList = userRepository.findAllByCompany_Id(companyId);
+		List<User> userList = Constants.ACADEMY_ID.equals(companyId) ?
+				userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
 		List<Chart> charts = chartRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
 		List<ChartDTO> chartDTOList = new ArrayList<>();
 		charts.forEach(chart -> {
