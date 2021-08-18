@@ -55,10 +55,10 @@
                   <a href="#" v-on:click="openLogin()">Sign in</a>
                 </li>
                 <li v-if="!authenticated">
-                  <a href="/account/settings">Register</a>
+                  <a href="/register">Register</a>
                 </li>
                 <li v-if="authenticated">
-                  <a href="/register">Settings</a>
+                  <a href="/account/settings">Settings</a>
                 </li>
                 <li v-if="authenticated">
                   <a href="/account/password">Password</a>
