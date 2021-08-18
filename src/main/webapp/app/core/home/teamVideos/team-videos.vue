@@ -3,15 +3,15 @@
     <div class="full-width-img-first">
       <div class="image_component" style="background-image:url(/content/images/cosie/mobile-phone-426559-1920x800.jpg)"></div>
     </div>
-    <div class="row heading-component">
+    <div class="row-navbar heading-component">
       <div class="small-12 columns">
         <h2 class=''>Project Management</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row-navbar">
       <div class="small-12 large-6 columns">
         <div class="component">
-          <div class="row align-center">
+          <div class="row-navbar align-center">
             <div class="small-12 large-12 columns text-component">
               <h2><img loading="lazy" class="alignnone wp-image-1057" src="/content/images/Prasanta_Dey.jpg" alt="" width="146" height="182" /></h2>
               <p><strong>Prasanta Dey</strong><br />
@@ -31,7 +31,7 @@
       </div>
       <div class="small-12 large-6 columns">
         <div class="component">
-          <div class="row align-center">
+          <div class="row-navbar align-center">
             <div class="small-12 large-12 columns text-component">
               <p><img loading="lazy" class="alignnone wp-image-1108" src="/content/images/Sian_Joel_Edgar_resized.jpg" alt="" width="120" height="182" /></p>
               <p><strong><br />
