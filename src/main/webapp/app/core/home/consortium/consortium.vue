@@ -40,6 +40,18 @@
               <a href="https://pure.york.ac.uk/portal/en/researchers/jane-elizabeth-suter(750d31d2-b38f-4081-84aa-852d45ac6e7c).html" target="_blank" rel="noopener">Dr Jane Suter<br /></a>
             </li>
           </ul>
+          <p><strong>Keele University </strong> (see the <a href="https://www.keele.ac.uk" target="_blank" rel="noopener">website</a>)</p>
+          <ul>
+            <li aria-setsize="-1" data-aria-level="1" data-aria-posinset="0" data-listid="10" data-font="Calibri" data-leveltext="-">
+              <a href="https://www.keele.ac.uk/medicine/staff/carolynchew-graham/" target="_blank" rel="noopener">Professor Carolyn Chew-Graham<br /></a>
+            </li>
+          </ul>
+          <p><strong>University of Birmingham </strong> (see the <a href="https://www.birmingham.ac.uk/index.aspx" target="_blank" rel="noopener">website</a>)</p>
+          <ul>
+            <li aria-setsize="-1" data-aria-level="1" data-aria-posinset="0" data-listid="10" data-font="Calibri" data-leveltext="-">
+              <a href="https://www.birmingham.ac.uk/staff/profiles/psychology/marwaha-steven.aspx" target="_blank" rel="noopener">Professor Steven Marwaha <br /></a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
