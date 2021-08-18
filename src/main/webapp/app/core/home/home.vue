@@ -2,10 +2,10 @@
   <main id="main-content" role="main">
     <div class="galleryslider-component">
       <VueSlickCarousel :dots="true" :arrows="false" :autoplay="true" :autoplaySpeed="8000" :slidesToShow="1">
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_alone-1500x800.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_alley_bike-1500x800.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_old_woman-1500x800.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/cosie_street-1500x800.jpg)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH1.png)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH2.jpg)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH3.jpg)'}"></div>
+        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH5.jpg)'}"></div>
       </VueSlickCarousel>
     </div>
     <div class="row-navbar">
