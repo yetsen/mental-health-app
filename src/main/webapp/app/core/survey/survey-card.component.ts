@@ -90,6 +90,14 @@ export default class SurveyCardComponent extends Vue {
           that2.movePuzzle6();
         if (currentPage == 5)
           that2.movePuzzle7();
+        if (currentPage == 6)
+          that2.movePuzzle8();
+        if (currentPage == 7)
+          that2.movePuzzle9();
+        if (currentPage == 8)
+          that2.movePuzzle10();
+        if (currentPage == 9)
+          that2.movePuzzle11();
         if (that2.blocks[currentPage].chartId !== null) {
           let that3 = that2;
           that2.chartService().getBlockChart(that2.blocks[currentPage].id, that2.userId(), that2.times).then(chart => {
@@ -162,23 +170,125 @@ export default class SurveyCardComponent extends Vue {
   }
 
   private movePuzzle2() {
-    gsap.timeline().to("#jigsaw1", 1, {x: -50, y: -50});
+    let head = document.querySelector("#sidebar-wrapper-div");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw1");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = 1;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw1", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
   }
 
   private movePuzzle3() {
-    gsap.timeline().to("#jigsaw2", 1, {x: -153, y: -50});
+    let head = document.querySelector("#jigsaw1");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw2");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw2", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
   }
   private movePuzzle4() {
-    gsap.timeline().to("#jigsaw3", 1, {x: 143, y: -195});
+    let head = document.querySelector("#jigsaw2");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw3");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw3", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
   }
   private movePuzzle5() {
-    gsap.timeline().to("#jigsaw4", 1, {x: 41, y: -195});
+    let head = document.querySelector("#jigsaw3");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw4");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw4", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
   }
   private movePuzzle6() {
-    gsap.timeline().to("#jigsaw5", 1, {x: 338, y: -341});
+    let head = document.querySelector("#jigsaw4");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw5");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw5", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
   }
   private movePuzzle7() {
-    gsap.timeline().to("#jigsaw6", 1, {x: 235, y: -341});
+    let head = document.querySelector("#jigsaw1");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw6");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = 2;
+    let p1ImagePlaceY = head.getBoundingClientRect().height;
+    gsap.timeline().to("#jigsaw6", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
+  }
+  private movePuzzle8() {
+    let head = document.querySelector("#jigsaw6");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw7");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw7", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
+  }
+  private movePuzzle9() {
+    let head = document.querySelector("#jigsaw7");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw8");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw8", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
+  }
+  private movePuzzle10() {
+    let head = document.querySelector("#jigsaw8");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw9");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw9", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
+  }
+  private movePuzzle11() {
+    let head = document.querySelector("#jigsaw9");
+    let headX = head.getBoundingClientRect().x;
+    let headY = head.getBoundingClientRect().y;
+    let p1 = document.querySelector("#jigsaw10");
+    let p1X = p1.getBoundingClientRect().x;
+    let p1Y = p1.getBoundingClientRect().y;
+    let p1ImagePlaceX = head.getBoundingClientRect().width;
+    let p1ImagePlaceY = 0;
+    gsap.timeline().to("#jigsaw10", 1, {x: (headX + p1ImagePlaceX) - p1X,
+      y: (headY + p1ImagePlaceY) - p1Y });
   }
 
   private movePuzzle() {
