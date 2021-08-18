@@ -13,6 +13,7 @@ const SurveyCard = () => import('@/core/survey/survey-card.vue');
 const Dashboard = () => import('@/core/dashboard/dashboard.vue');
 const Contact = () => import('@/core/home/teamVideos/team-videos.vue');
 const AboutModel = () => import('@/core/home/aboutModel/about-model.vue');
+const Consortium = () => import('@/core/home/consortium/consortium.vue');
 import account from '@/router/account.ts';
 import admin from '@/router/admin.ts';
 import entities from '@/router/entities.ts';
@@ -48,7 +49,7 @@ export default new Router({
     {
       path: '/consortium',
       name: 'Consortium',
-      component: Dashboard
+      component: Consortium
     },
     {
       path: '/contact-us',
