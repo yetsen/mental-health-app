@@ -39,14 +39,14 @@ export default class Dashboard extends Vue {
   }
 
   public get userId() {
-    return this.$store.getters.account ? this.$store.getters.account.id : '';
+    return this.$store.getters.account.id;
   }
 
   public get companyId() {
-    return this.$store.getters.account ? this.$store.getters.account.companyId : '';
+    return this.$store.getters.account.companyId;
   }
 
   public get isEmployer() {
-    return this.$store.getters.account ? this.$store.getters.account.isEmployer : '';
+    return this.$store.getters.account.isEmployer;
   }
 }
