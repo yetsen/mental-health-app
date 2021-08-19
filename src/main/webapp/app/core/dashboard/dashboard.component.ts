@@ -1,5 +1,6 @@
 import Component from 'vue-class-component';
-import {Inject, Vue} from 'vue-property-decorator';
+import {Inject} from 'vue-property-decorator';
+import Vue from 'vue';
 
 import DummyComponent from '@/core/dashboard/dummy/dummy.vue';
 import ChartService from "@/core/chart.service";
@@ -21,12 +22,12 @@ export default class Dashboard extends Vue {
     next(vm => {
       if (to.params.times) {
         vm.times = to.params.times;
-        if (vm.isEmployer) {
-          vm.chartService().getCompanyCharts(vm.companyId, vm.times).then(
+        if (vm.isEmployer()) {
+          vm.chartService().getCompanyCharts(vm.companyId(), vm.times).then(
               value => vm.chartList = value.data
           )
         } else {
-          vm.chartService().get(vm.userId, vm.times).then(
+          vm.chartService().get(vm.userId(), vm.times).then(
               value => vm.chartList = value.data
           )
         }
@@ -38,15 +39,15 @@ export default class Dashboard extends Vue {
 
   }
 
-  public get userId() {
+  userId() {
     return this.$store.getters.account.id;
   }
 
-  public get companyId() {
+  companyId() {
     return this.$store.getters.account.companyId;
   }
 
-  public get isEmployer() {
+  isEmployer() {
     return this.$store.getters.account.isEmployer;
   }
 }
