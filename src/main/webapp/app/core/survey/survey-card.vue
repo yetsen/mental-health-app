@@ -2,8 +2,8 @@
     <div class="survey-page">
         <div class="container-fluid">
             <div class="row justify-content-md-center">
-              <div class="col-2"></div>
-              <div class="col-10">
+              <div class="col-4"></div>
+              <div class="col-8">
                 <div id="progressBar" v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
                   <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{width: progress}">
                     <span id="progressbar">{{ pageNumber }}</span>
@@ -12,7 +12,7 @@
               </div>
             </div>
             <div class="row align-content-start">
-              <div id="sidebar-wrapper-div" class="col-2">
+              <div id="sidebar-wrapper-div" class="col-4">
                 <div class="row">
                   <div class="col-4">
                     <div class="jigsaw1" id="jigsaw1">
@@ -94,17 +94,17 @@
                   </div>
                 </div>
               </div>
-              <div id="survey-body" class="col-10">
+              <div id="survey-body" class="col-8">
                 <div id="surveyElement">
                   <survey :survey='survey'></survey>
                 </div>
               </div>
             </div>
             <div id="navigationButtons" class="row justify-content-md-center">
-              <div class="col-2">
+              <div class="col-4">
 
               </div>
-              <div class="col-10">
+              <div class="col-8">
                 <div v-if="!isCompletionPage" class="panel-footer card-footer">
                   <input v-if="!survey.isFirstPage" type="button" @click="survey.prevPage()" value="Previous" class="btn sv_prev_btn float-left" >
                   <input type="button" @click="prepareClearAndExitModal()" value="Clear & Exit" class="btn sv_clear_btn float-left" >
