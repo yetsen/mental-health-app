@@ -1,13 +1,5 @@
 <template>
   <main id="main-content" role="main">
-    <div class="galleryslider-component">
-      <VueSlickCarousel :dots="true" :arrows="false" :autoplay="true" :autoplaySpeed="8000" :slidesToShow="1">
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH1.png)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH2.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH3.jpg)'}"></div>
-        <div class="single-slide" v-bind:style="{'background-image' :'url(/content/images/cosie/MH5.jpg)'}"></div>
-      </VueSlickCarousel>
-    </div>
     <div class="row-navbar">
       <div class="small-12 large-8 columns">
         <div class="row-navbar component" data-equalizer="latest-content">

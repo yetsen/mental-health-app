@@ -22,10 +22,13 @@
               <a href="https://research.aston.ac.uk/en/persons/sian-joel-edgar" target="_blank" rel="noopener">Dr Sian Joel-Edgar</a>
             </li>
             <li aria-setsize="-1" data-aria-level="1" data-aria-posinset="0" data-listid="10" data-font="Calibri" data-leveltext="-">
-              <a href="https://research.aston.ac.uk/en/persons/oscar-rodriguez-espindola" target="_blank" rel="noopener">Oscar Rodriguez-Espindola </a>
+              <a href="https://research.aston.ac.uk/en/persons/oscar-rodriguez-espindola" target="_blank" rel="noopener">Dr Oscar Rodriguez-Espindola </a>
             </li>
             <li aria-setsize="-1" data-aria-level="1" data-aria-posinset="0" data-listid="10" data-font="Calibri" data-leveltext="-">
-              <a href="#" target="_blank" rel="noopener">Dr Nur Gundogdu<br /></a>
+              <a target="_blank" rel="noopener">Dr Tri Dung Nguyen</a>
+            </li>
+            <li aria-setsize="-1" data-aria-level="1" data-aria-posinset="0" data-listid="10" data-font="Calibri" data-leveltext="-">
+              <a target="_blank" rel="noopener">Dr Nur Gundogdu<br /></a>
             </li>
           </ul>
           <p><strong>University of York </strong> (see the <a href="https://www.york.ac.uk" target="_blank" rel="noopener">website</a>)</p>
@@ -52,6 +55,12 @@
               <a href="https://www.birmingham.ac.uk/staff/profiles/psychology/marwaha-steven.aspx" target="_blank" rel="noopener">Professor Steven Marwaha <br /></a>
             </li>
           </ul>
+          <p><strong>King’s College London </strong> (see the <a href="https://www.kcl.ac.uk" target="_blank" rel="noopener">website</a>)</p>
+          <ul>
+            <li aria-setsize="-1" data-aria-level="1" data-aria-posinset="0" data-listid="10" data-font="Calibri" data-leveltext="-">
+              <a href="https://www.kcl.ac.uk/people/annie-irvine" target="_blank" rel="noopener">Dr Annie Irvine <br /></a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -61,3 +70,5 @@
 
 <script lang="ts" src="./consortium.component.ts">
 </script>
+
+<style lang="scss" src="./consortium.scss" scoped></style>

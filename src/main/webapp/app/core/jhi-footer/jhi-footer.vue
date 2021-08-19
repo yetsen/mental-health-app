@@ -4,7 +4,7 @@
         <div class=columns>
           <div class=row-navbar>
             <div class="small-12 columns component-content">
-              <img loading=lazy class="alignnone wp-image-532" src="/content/images/cosie/amblem.png" alt="" width=152 height=101 />
+              <img loading=lazy class="alignnone wp-image-532" src="/content/images/cosie/amblem.jpg" alt="" width=300 height=150 />
             </div>
           </div>
         </div>
@@ -18,7 +18,7 @@
         <div class=columns>
           <div class=row-navbar>
             <div class="small-12 columns component-content">
-              <p style="font-size: 0.75rem;">This project has received funding from UKRI- UK Research and Innovation under project ID number ES/V004263/1
+              <p style="font-size: 1.25rem;">This project has received funding from UKRI- UK Research and Innovation under project ID number ES/V004263/1
               </p>
             </div>
           </div>
