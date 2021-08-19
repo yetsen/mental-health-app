@@ -101,6 +101,9 @@
                 </b-carousel-slide>
               </b-carousel>
             </div>
+            <span v-show="false">{{userId}}</span>
+            <span v-show="false">{{companyId}}</span>
+            <span v-show="false">{{isEmployer}}</span>
         </div>
     </div>
 </template>

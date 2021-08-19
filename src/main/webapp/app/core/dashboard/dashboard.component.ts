@@ -35,10 +35,6 @@ export default class Dashboard extends Vue {
     });
   }
 
-  mounted() {
-
-  }
-
   userId() {
     return this.$store.getters.account.id;
   }
