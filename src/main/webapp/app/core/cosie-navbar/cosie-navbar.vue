@@ -52,7 +52,7 @@
               <a >Profile</a>
               <ul>
                 <li v-if="!authenticated">
-                  <a href="#" v-on:click="openLogin()">Sign in</a>
+                  <a v-on:click="openLogin()">Sign in</a>
                 </li>
                 <li v-if="!authenticated">
                   <a href="/register">Register</a>
