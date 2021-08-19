@@ -2519,70 +2519,6 @@ table.hover tr:nth-of-type(2n):hover {
   margin:0 .625rem;
 }
 
-#comments-section #submit {
-  padding-right:14.4px;
-}
-
-#comments-section .comment__body {
-  border:1px solid #ccc;
-  margin-bottom:1rem;
-  padding:1rem;
-}
-
-#comments-section .comment__body .comment__header {
-  background:#6b6b6b;
-  margin:-1rem -1rem 2rem;
-  padding:1rem;
-}
-
-#comments-section .comment__body .comment__header .comment__info .comment__heading {
-  color:#fff;
-  font-weight:600;
-  font-size:1.4rem;
-  margin-bottom:.2rem;
-}
-
-#comments-section .comment__body .comment__header .comment__info .comment__heading:before {
-  font-family:FontAwesome;
-  font-style:normal;
-  content:"\F007";
-  display:inline-block;
-  margin-right:.5rem;
-}
-
-#comments-section .comment__body .comment__header .comment__info .comment__date {
-  color:#fff;
-  font-size:1rem;
-  margin-bottom:0;
-}
-
-#comments-section .comment__body .comment__header .comment__info .comment__date:before {
-  font-family:FontAwesome;
-  font-style:normal;
-  content:"\F073";
-  display:inline-block;
-  margin-right:.5rem;
-}
-
-#comments-section .dustpress-comments__status .dustpress-comments__status {
-  position:relative;
-  margin-bottom:.5rem;
-  padding:1rem .8rem;
-}
-
-#comments-section .dustpress-comments__status .dustpress-comments__status .close {
-  position:absolute;
-  right:.5rem;
-  top:-.3rem;
-  font-size:3rem;
-  color:#000;
-}
-
-#comments-section .dustpress-comments__status .dustpress-comments__success {
-  color:#fff;
-  background-color:#148c8c;
-}
-
 .featured_bg {
   background-size:cover;
   padding-top:2rem;
@@ -2806,7 +2742,6 @@ blockquote:before {
   position:absolute;
   top:13px;
   left:1rem;
-  font-family:FontAwesome;
   content:"\F10D";
   font-size:2rem;
   line-height:2rem;
@@ -2834,7 +2769,6 @@ blockquote:before {
 }
 
 .button:after {
-  font-family:FontAwesome;
   content:"\F061";
   display:inline-block;
   margin-left:.5rem;
@@ -2997,13 +2931,6 @@ input[type=submit].button {
   border-top:1px solid #ccc;
   border-bottom:1px solid #ccc;
   padding:1rem;
-}
-
-.breadcrumb__link:after {
-  font-family:FontAwesome;
-  content:"\F105";
-  display:inline-block;
-  margin:0 .5rem;
 }
 
 footer {
@@ -4460,83 +4387,19 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
   }
 }
 
-@media max-width480px {
+@media (max-width: 480px) {
 
-  .events-list__day-month {
-    font-size:1rem;
-  }
-
-  .events-list__year {
-    font-size:1.5rem;
-  }
-
-  .events-list__date {
-    top:0;
-    transform:translateY(0);
-    display:inline-block;
-    color:#fff;
-    text-align:center;
-    margin:0;
-    padding:1rem;
-  }
-
-  .events-list__date-wrap {
-    position: static;
-    display:block;
-    width:100%;
-    padding:0 .5rem;
-  }
-
-  .events-list__info {
-    padding:1rem;
-  }
-
-  .event-component {
-    margin-bottom:1.2rem;
-  }
-
-  .event-component .events-list__event {
-    margin-bottom:1rem;
-  }
-
-  .event-component .events-list__info {
-    padding:.5rem;
-  }
 }
 
 @media (min-width: 580px) {
-  .nav_layout_1 .some-buttons-wrap .some-buttons-list .buttons-wrap .inner-wrap {
-    float:right;
-  }
+
 }
 
 @media (max-width: 580px) {
-  .nav_layout_1 .some-buttons-wrap .some-buttons-list .buttons-wrap .inner-wrap {
-    float:left;
-  }
+
 }
 
 @media (min-width: 640px) {
-  .nav_layout_1 .logo-wrap {
-    width:20%;
-    float:left;
-  }
-
-  .nav_layout_1 .logo-wrap .logo-image {
-    max-width:100%;
-  }
-
-  .nav_layout_1 .some-buttons-wrap {
-    height:50%;
-    width:80%;
-    float:left;
-  }
-
-  .nav_layout_1 .menu-depth-1 {
-    position:absolute;
-    bottom:0;
-    left:0;
-  }
 
   .nav-wrap {
     padding:1rem;
@@ -4561,9 +4424,6 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
     left:0;
   }
 
-  .nav_layout_1 .some-buttons-wrap .some-buttons-list,.nav-wrap .some-buttons-wrap .some-buttons-list {
-    float:right;
-  }
 }
 
 @media (max-width: 640px) {
@@ -4654,17 +4514,6 @@ tfoot tr,thead tr,.tabs.simple>li>a:hover {
     font-size:1.5rem;
   }
 
-  .staff-card-wrap {
-    width:100%;
-  }
-
-  footer .link-list li,footer .menu-depth-1 li {
-    margin-bottom:.5rem;
-  }
-
-  .tuamk-footer.bg-black h1,.tuamk-footer.bg-black h2,.tuamk-footer.bg-black h3,.tuamk-footer.bg-black h4,.tuamk-footer.bg-black h5 {
-    margin:.5rem 0;
-  }
 }
 
 @media (min-width: 40rem) {
