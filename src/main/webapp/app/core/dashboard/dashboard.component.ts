@@ -6,6 +6,7 @@ import DummyComponent from '@/core/dashboard/dummy/dummy.vue';
 import ChartService from "@/core/chart.service";
 
 @Component({
+  name: 'dashboard',
   components: {
     dummyComponent: DummyComponent,
   },
