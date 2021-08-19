@@ -21,12 +21,12 @@ export default class Dashboard extends Vue {
     next(vm => {
       if (to.params.times) {
         vm.times = to.params.times;
-        if (vm.isEmployer()) {
-          vm.chartService().getCompanyCharts(vm.companyId(), vm.times).then(
+        if (vm.isEmployer) {
+          vm.chartService().getCompanyCharts(vm.companyId, vm.times).then(
               value => vm.chartList = value.data
           )
         } else {
-          vm.chartService().get(vm.userId(), vm.times).then(
+          vm.chartService().get(vm.userId, vm.times).then(
               value => vm.chartList = value.data
           )
         }
