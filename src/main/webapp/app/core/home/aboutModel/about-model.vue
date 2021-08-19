@@ -12,7 +12,7 @@
           </div>
         </div>
       </div>
-      <br />
+      
       <div class="component">
         <div class="row align-center">
           <div class="small-12 large-8 columns text-component">
@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <br />
+      
 
       <div class="component">
         <div class="row align-center">
@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <br />
+      
       <div class="component">
         <div class="row align-center">
           <div class="small-12 large-8 columns text-component">
@@ -55,7 +55,7 @@
           </div>
         </div>
       </div>
-      <br />
+      
       <div class="component">
         <div class="row align-center">
           <div class="small-12 large-8 columns text-component">

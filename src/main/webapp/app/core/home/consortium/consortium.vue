@@ -1,7 +1,7 @@
 <template>
   <main id="main-content" role="main">
     <div class="full-width-img-first">
-      <div class="image_component" style="background-image:url('/content/images/cosie/cosie_street-1500x800.jpg')"></div>
+      <div class="image_component" style="background-image:url('/content/images/cosie/MH3.jpg')"></div>
     </div>
     <div class="component">
       <div class="row align-center">
