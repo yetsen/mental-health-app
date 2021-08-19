@@ -19,7 +19,7 @@
               <a href="/about-project">About The Project</a>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'SurveyCard'}"  v-if="currentTime === 1 && authenticated" @click="onAssessmentClick(currentTime)" class="menu-item menu-item-75" id="menu_item_75">
-              <a href="#">Assessment Center</a>
+              <a>Assessment Center</a>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'SurveyCard'}" class="menu-item menu-item-120" id="menu_item_120" v-if="currentTime > 1 && authenticated">
               <a>Assessment Center</a>
