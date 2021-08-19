@@ -29,6 +29,9 @@
                   <font-awesome-icon style="color: white" v-if="si.finished" icon="check" />
                   <font-awesome-icon v-if="!si.finished" icon="check" />
                 </li>
+                <li v-if="isLastSurveyFinished" v-bind:key="currentTime" @click="onAssessmentClick(currentTime)">
+                  <a>Start New Assessment</a>
+                </li>
               </ul>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'Consortium'}"  class="menu-item menu-item-2416" id="menu_item_2416">
