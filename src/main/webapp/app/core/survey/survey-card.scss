@@ -100,7 +100,6 @@
 #sidebar-wrapper-div {
   padding: 0 !important;
   z-index: 100;
-  border-style: dashed;
 }
 
 .progress-bar {
@@ -110,7 +109,7 @@
 div[class^='jigsaw'], div[class*=' jigsaw']{
   width: 6em;
   height: 6em;
-  margin: 50px;
+  margin: 2rem 0.5rem;;
   position: relative;
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
@@ -122,13 +121,13 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
 .jigsaw1,
 .jigsaw1 span {
   background-color: #6610f2;
-  z-index: 6;
+  z-index: 2;
 }
 
 .jigsaw2,
 .jigsaw2 span {
   background-color: #00008B;
-  z-index: 5;
+  z-index: 1;
 }
 
 .jigsaw3,
@@ -146,34 +145,34 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
 .jigsaw5,
 .jigsaw5 span {
   background-color: #5eb69d;
-  z-index: 2;
+  z-index: 6;
 }
 
 .jigsaw6,
 .jigsaw6 span {
   background-color: #171a1d;
-  z-index: 11;
+  z-index: 5;
 }
 
 .jigsaw7,
 .jigsaw7 span {
   background-color: #28a745;
-  z-index: 10;
+  z-index: 8;
 }
 .jigsaw8,
 .jigsaw8 span {
   background-color: #2d6a52;
-  z-index: 9;
+  z-index: 7;
 }
 .jigsaw9,
 .jigsaw9 span {
   background-color: #881f0e;
-  z-index: 8;
+  z-index: 10;
 }
 .jigsaw10,
 .jigsaw10 span {
   background-color: #ffae00;
-  z-index: 7;
+  z-index: 9;
 }
 
 
@@ -197,7 +196,7 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
 }
 
 
-.jigsaw6 .t, .jigsaw7 .t, .jigsaw8 .t, .jigsaw9 .t, .jigsaw10 .t {
+.jigsaw3 .t, .jigsaw4 .t, .jigsaw5 .t, .jigsaw6 .t, .jigsaw7 .t, .jigsaw8 .t, .jigsaw9 .t, .jigsaw10 .t {
   width: 1.8em;
   height: 1.8em;
   position: absolute;
@@ -208,7 +207,7 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   border-radius: 4em;
 }
 
-.jigsaw1 .r, .jigsaw2 .r, .jigsaw3 .r, .jigsaw4 .r, .jigsaw6 .r, .jigsaw7 .r, .jigsaw8 .r, .jigsaw9 .r{
+.jigsaw1 .r, .jigsaw3 .r, .jigsaw5 .r, .jigsaw7 .r, .jigsaw9 .r{
   width: 1.8em;
   height: 1.8em;
   position: absolute;
@@ -219,19 +218,19 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   border-radius: 4em;
 }
 
-.jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b, .jigsaw5 .b {
+.jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b, .jigsaw5 .b, .jigsaw6 .b, .jigsaw7 .b, .jigsaw8 .b {
   width: 1.8em;
   height: 1.8em;
   position: absolute;
   top: 4.5em;
-  left: 2.2em;
+  left: 2em;
   -webkit-border-radius: 4em;
   -moz-border-radius: 4em;
   border-radius: 4em;
   background-color: #fff;
 }
 
-.jigsaw2 .l, .jigsaw3 .l, .jigsaw4 .l, .jigsaw5 .l, .jigsaw7 .l, .jigsaw8 .l, .jigsaw9 .l, .jigsaw10 .l {
+.jigsaw2 .l, .jigsaw4 .l, .jigsaw6 .l, .jigsaw8 .l, .jigsaw10 .l {
   width: 1.8em;
   height: 1.8em;
   position: absolute;
