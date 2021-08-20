@@ -34,9 +34,6 @@
         <div class="small-12 columns">
           <div id="load-wrap-1" class="load-more-wrap">
             <button class="only-button load-more-button" id="1" data-offset="2" data-posts-in-cats="40" data-current="1" data-layout="row">Load more <i class="fa fa-arrow-down" aria-hidden="true"></i> <span class="spinner display-none"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></span></button>
-            <div class="test hidden">
-              0
-            </div>
           </div>
         </div>
         <div class="row-navbar component" data-equalizer="latest-content">
@@ -71,9 +68,6 @@
         <div class="small-12 columns">
           <div id="load-wrap-3" class="load-more-wrap">
             <button class="only-button load-more-button" id="3" data-offset="2" data-posts-in-cats="32" data-current="1" data-layout="row">Load more <i class="fa fa-arrow-down" aria-hidden="true"></i> <span class="spinner display-none"><i class="fa fa-spinner fa-spin" aria-hidden="true"></i></span></button>
-            <div class="test hidden">
-              0
-            </div>
           </div>
         </div>
       </div>
