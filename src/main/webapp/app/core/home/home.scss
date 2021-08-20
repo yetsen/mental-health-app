@@ -15,3 +15,25 @@
   padding:.85em 1em;
   text-decoration: none;
 }
+
+.only-button {
+  display:inline-block;
+  background:#000;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:.5rem;
+  cursor:pointer;
+  padding:1rem;
+}
+
+.load-more-button {
+  position:relative;
+  font-size:1.2rem;
+  margin:1rem 0;
+  padding:1rem 2rem;
+}
+
+.load-more-wrap {
+  text-align:center;
+  padding-bottom:1.5rem;
+}

@@ -14,7 +14,6 @@ h4 {
 
 body {
   margin: 0;
-  font-family: Verdana, sans-serif ;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -542,29 +541,6 @@ ul {
 }
 
 
-.only-button {
-  display:inline-block;
-  background:#000;
-  font-weight:700;
-  color:#fff;
-  margin-bottom:.5rem;
-  cursor:pointer;
-  padding:1rem;
-}
-
-.load-more-button {
-  position:relative;
-  font-size:1.2rem;
-  margin:1rem 0;
-  padding:1rem 2rem;
-}
-
-.load-more-wrap {
-  text-align:center;
-  padding-bottom:1.5rem;
-}
-
-
 .text-component hr {
   max-width:18rem;
 }
@@ -576,11 +552,6 @@ ul {
 
 .text-component ul li+li {
   margin-top:.2rem;
-}
-
-.text-component p .aligncenter img {
-  display:block;
-  margin:0 auto!important;
 }
 
 .text-component img {
@@ -813,13 +784,6 @@ footer {
   }
 }
 
-@media screen and (min-width:40em) and (min-width:40em) {
-  .medium-expand {
-    -ms-flex:1 1 0;
-    flex:1 1 0;
-  }
-}
-
 @media screen and (min-width:64em) {
   .large-1 {
     -ms-flex:0 0 8.33333%;
@@ -995,138 +959,6 @@ footer {
     margin-bottom:0;
   }
 
-  .menu.large-horizontal>li {
-    display:table-cell;
-  }
-
-  .menu.large-vertical>li {
-    display:block;
-  }
-
-  .dropdown.menu.large-horizontal>li.opens-left>.is-dropdown-submenu {
-    left:auto;
-    right:0;
-    top:100%;
-  }
-
-  .dropdown.menu.large-horizontal>li.opens-right>.is-dropdown-submenu {
-    right:auto;
-    left:0;
-    top:100%;
-  }
-
-  .dropdown.menu.large-horizontal>li.is-dropdown-submenu-parent>a {
-    padding-right:1.5rem;
-    position:relative;
-  }
-
-  .dropdown.menu.large-horizontal>li.is-dropdown-submenu-parent>a:after {
-    content:"";
-    display:block;
-    width:0;
-    height:0;
-    border:5px inset;
-    border-top-style:solid;
-    border-bottom-width:0;
-    right:5px;
-    margin-top:-2px;
-    border-color:#2199e8 transparent transparent;
-  }
-
-  .dropdown.menu.large-vertical>li .is-dropdown-submenu {
-    top:0;
-  }
-
-  .dropdown.menu.large-vertical>li.opens-left>.is-dropdown-submenu {
-    left:auto;
-    right:100%;
-  }
-
-  .dropdown.menu.large-vertical>li.opens-right>.is-dropdown-submenu {
-    right:auto;
-    left:100%;
-  }
-
-  .dropdown.menu.large-vertical>li>a:after {
-    right:14px;
-    margin-top:-3px;
-  }
-
-  .dropdown.menu.large-vertical>li.opens-left>a:after {
-    content:"";
-    display:block;
-    width:0;
-    height:0;
-    border:5px inset;
-    border-right-style:solid;
-    border-left-width:0;
-    border-color:transparent #2199e8 transparent transparent;
-  }
-
-  .dropdown.menu.large-vertical>li.opens-right>a:after {
-    content:"";
-    display:block;
-    width:0;
-    height:0;
-    border:5px inset;
-    border-left-style:solid;
-    border-right-width:0;
-    border-color:transparent transparent transparent #2199e8;
-  }
-
-  .position-left.reveal-for-large {
-    left:0;
-    z-index:auto;
-    position:fixed;
-  }
-
-  .position-left.reveal-for-large~.off-canvas-content {
-    margin-left:250px;
-  }
-
-  .position-right.reveal-for-large {
-    right:0;
-    z-index:auto;
-    position:fixed;
-  }
-
-  .position-right.reveal-for-large~.off-canvas-content {
-    margin-right:250px;
-  }
-
-  .hide-for-large {
-    display:none!important;
-  }
-
-  .courses,.references {
-    margin-top:5rem;
-  }
-
-  .course-select-fields,.reference-select-fields {
-    margin-bottom:4rem;
-  }
-
-  .course-card,.reference-card {
-    max-width:calc(33.33333% - 1rem);
-  }
-
-  .course-select-field-container,.reference-select-field-container {
-    display:flex;
-    -ms-flex-direction:column;
-    flex-direction:column;
-    -ms-flex-align:center;
-    align-items:center;
-  }
-
-  .course-select-field-container label,.reference-select-field-container label {
-    padding-left:1.5rem;
-  }
-
-  .course-select-field,.reference-select-field {
-    max-width:20rem;
-    margin:0;
-  }
-
   .large-2,.large-up-6>.column,.large-up-6>.columns {
     -ms-flex:0 0 16.66667%;
     flex:0 0 16.66667%;
@@ -1248,10 +1080,6 @@ footer {
     width:100%;
     float:left;
     position:relative;
-  }
-
-  .component-heading {
-    font-size:1.5rem;
   }
 
 }

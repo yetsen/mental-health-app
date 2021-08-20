@@ -1,6 +1,6 @@
 <template>
     <footer>
-      <div class="row-navbar small-up-1 medium-up-3">
+      <div class="row-navbar">
         <div class=columns>
           <div class=row-navbar>
             <div class="small-12 columns component-content">

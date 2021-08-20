@@ -5,8 +5,8 @@
         <div class="row-navbar component" data-equalizer="latest-content">
           <div class="small-12 columns">
             <h3 class="latest-heading">CoSIE Blog</h3>
-            <div id="latest-wrap-1" class="latest_posts_component" data-equalizer="latest-header">
-              <div id="latest-wrap-1" data-offset="2" class="row-navbar latest-post-row">
+            <div class="latest_posts_component" data-equalizer="latest-header">
+              <div data-offset="2" class="row-navbar latest-post-row">
                 <div class="small-12 medium-6 columns">
                   <div class="latest-post-row__content">
                     <h3><a href="indexdfaf.html?post_type=post&amp;p=3376">Intangible Presents to all CoSIE Folks</a></h3>
@@ -17,7 +17,7 @@
                   <a href="indexdfaf.html?post_type=post&amp;p=3376" aria-hidden="true" tabindex="-1"><img src="/content/images/cosie/cosie_street-768x431.jpg" /></a>
                 </div>
               </div>
-              <div id="latest-wrap-1" data-offset="2" class="row-navbar latest-post-row">
+              <div data-offset="2" class="row-navbar latest-post-row">
                 <div class="small-12 medium-6 columns">
                   <div class="latest-post-row__content">
                     <h3><a href="index1670.html?post_type=post&amp;p=2605">Co-creation, Digital Technologies and COVID-19</a></h3>
