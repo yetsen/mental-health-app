@@ -7,3 +7,12 @@ ol ol,ol ul,ul ol,ul ul {
   margin-left:1.25rem;
   margin-bottom:0;
 }
+
+ul {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+li {
+  min-width: 7.2rem;
+}
