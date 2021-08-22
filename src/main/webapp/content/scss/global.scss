@@ -1155,7 +1155,7 @@ h1,.component h1,h1>a,h2,.component h2,h2>a,h3,.component h3,h3>a,h4,.component 
     padding:8px 10px 8px 4px;
   }
 
-  li.current-menu-item a {
+  li.current-menu-item > a {
     background:#fff;
     color:#000!important;
     padding:8px 10px;
