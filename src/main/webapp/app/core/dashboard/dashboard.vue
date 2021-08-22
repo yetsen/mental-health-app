@@ -6,7 +6,6 @@
                   id="carousel-1"
                   indicators
                   :interval="0"
-                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[1].chartOptions"></dummyComponent>
@@ -21,7 +20,6 @@
                   id="carousel-2"
                   indicators
                   :interval="0"
-                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[2].chartOptions"></dummyComponent>
@@ -38,7 +36,6 @@
                   id="carousel-2"
                   indicators
                   :interval="0"
-                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[0].chartOptions"></dummyComponent>
@@ -53,7 +50,6 @@
                   id="carousel-2"
                   indicators
                   :interval="0"
-                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[5].chartOptions"></dummyComponent>
@@ -70,7 +66,6 @@
                   id="carousel-2"
                   indicators
                   :interval="0"
-                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[4].chartOptions"></dummyComponent>
@@ -85,7 +80,6 @@
                   id="carousel-2"
                   indicators
                   :interval="0"
-                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[3].chartOptions"></dummyComponent>

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="row-navbar" style="background-color: #FFFFFF;">
+    <div class="row-navbar">
       <div class="large-12 columns nav-wrap nav_layout_2">
         <div v-if="!authenticated" class="row-navbar align-middle clearfix">
           <div class="small-9 logo-wrap columns clearfix">
