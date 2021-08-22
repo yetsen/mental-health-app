@@ -4,10 +4,9 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
               <b-carousel
                   id="carousel-1"
-                  controls
                   indicators
                   :interval="0"
-                  background="#fff"
+                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[1].chartOptions"></dummyComponent>
@@ -20,10 +19,9 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
               <b-carousel
                   id="carousel-2"
-                  controls
                   indicators
                   :interval="0"
-                  background="#fff"
+                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[2].chartOptions"></dummyComponent>
@@ -38,10 +36,9 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
               <b-carousel
                   id="carousel-2"
-                  controls
                   indicators
                   :interval="0"
-                  background="#fff"
+                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[0].chartOptions"></dummyComponent>
@@ -54,10 +51,9 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
               <b-carousel
                   id="carousel-2"
-                  controls
                   indicators
                   :interval="0"
-                  background="#fff"
+                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[5].chartOptions"></dummyComponent>
@@ -72,10 +68,9 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
               <b-carousel
                   id="carousel-2"
-                  controls
                   indicators
                   :interval="0"
-                  background="#fff"
+                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[4].chartOptions"></dummyComponent>
@@ -88,10 +83,9 @@
             <div class="col-md-6 col-sm-12 col-xs-12">
               <b-carousel
                   id="carousel-2"
-                  controls
                   indicators
                   :interval="0"
-                  background="#fff"
+                  background="#fefefe"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
                   <dummyComponent :chartOptions="chartList[3].chartOptions"></dummyComponent>
