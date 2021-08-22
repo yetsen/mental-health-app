@@ -217,7 +217,10 @@ Highcharts.theme = {
     trackBorderColor: '#404043'
   }
 };
-
+if (true) {
+  // Apply the theme
+  Highcharts.setOptions(Highcharts.theme);
+}
 
 @Component
 export default class DummyComponent extends Vue {
@@ -228,10 +231,6 @@ export default class DummyComponent extends Vue {
     let parsed = JSONfn.parse(JSONfn.parse(this.chartOptions))
     //console.log(parsed)
     //console.log(JSONfn.stringify())
-    if (true) {
-      // Apply the theme
-      Highcharts.setOptions(Highcharts.theme);
-    }
     return {
       chartOptionsObject: parsed
     };
