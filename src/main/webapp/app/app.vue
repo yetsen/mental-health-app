@@ -2,7 +2,7 @@
   <div id="app">
       <cosie-navbar></cosie-navbar>
       <span>
-        <router-view></router-view>
+        <router-view :key="$route.path"></router-view>
       </span>
       <b-modal id="login-page" hide-footer lazy>
           <span slot="modal-title" id="login-title" v-text="$t('login.title')">Sign in</span>

@@ -1,5 +1,5 @@
 import Component from 'vue-class-component';
-import {Inject} from 'vue-property-decorator';
+import {Inject, Watch} from 'vue-property-decorator';
 import Vue from 'vue';
 
 import DummyComponent from '@/core/dashboard/dummy/dummy.vue';
@@ -19,21 +19,18 @@ export default class Dashboard extends Vue {
 
   private times;
 
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      if (to.params.times) {
-        vm.times = to.params.times;
-        if (vm.isEmployer()) {
-          vm.chartService().getCompanyCharts(vm.companyId(), vm.times).then(
-              value => vm.chartList = value.data
-          )
-        } else {
-          vm.chartService().get(vm.userId(), vm.times).then(
-              value => vm.chartList = value.data
-          )
-        }
-      }
-    });
+  @Watch('$route', { immediate: true, deep: true })
+  onPropertyChanged(value: string, oldValue: string) {
+    this.times = value['params'].times;
+    if (this.isEmployer()) {
+      this.chartService().getCompanyCharts(this.companyId(), this.times).then(
+          value => this.chartList = value.data
+      )
+    } else {
+      this.chartService().get(this.userId(), this.times).then(
+          value => this.chartList = value.data
+      )
+    }
   }
 
   userId() {

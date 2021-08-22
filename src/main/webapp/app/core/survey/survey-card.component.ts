@@ -1,5 +1,5 @@
 import Component from 'vue-class-component';
-import { Vue, Inject } from 'vue-property-decorator';
+import {Vue, Inject, Watch} from 'vue-property-decorator';
 import * as SurveyVue from 'survey-vue';
 import SurveyService from '@/core/survey.service.ts';
 import {Answer, Answers, SurveyInfo} from '@/shared/model/answers.model.ts';
@@ -35,18 +35,18 @@ export default class SurveyCardComponent extends Vue {
   public currentSurveyModal = {};
   public currentSurveyOptions = {};
 
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      if (to.params.times) {
-        vm.times = to.params.times;
-        vm.surveyService()
-            .getAnswer(vm.userId(), to.params.times)
-            .then(res => {
-              let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
-              (window as any).survey.data = result;
-            });
-      }
-    });
+  @Watch('$route', { immediate: true, deep: true })
+  onPropertyChanged(value: string, oldValue: string) {
+    if (this.times === value['params'].times)
+      return;
+
+    this.times = value['params'].times;
+    this.surveyService()
+        .getAnswer(this.userId(), this.times)
+        .then(res => {
+          let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
+          (window as any).survey.data = result;
+        });
   }
 
   data() {
