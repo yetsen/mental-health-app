@@ -89,6 +89,10 @@ export default class CosieNavbar extends Vue {
         }
     }
 
+    private goTo(address : string) {
+        this.$router.push(address);
+    }
+
     public hasAnyAuthority(authorities: any): boolean {
         this.accountService()
             .hasAnyAuthorityAndCheckAuth(authorities)

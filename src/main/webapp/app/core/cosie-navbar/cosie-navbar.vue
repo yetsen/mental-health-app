@@ -16,7 +16,7 @@
               <a href="/">Home</a>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'AboutProject'}" class="menu-item menu-item-17" id="menu_item_17">
-              <a href="/about-project">About The Project</a>
+              <a @click="goTo('/about-project')">About The Project</a>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'SurveyCard'}"  v-if="currentTime === 1 && authenticated" @click="onAssessmentClick(currentTime)" class="menu-item menu-item-75" id="menu_item_75">
               <a>Assessment Center</a>
@@ -35,21 +35,21 @@
               </ul>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'Consortium'}"  class="menu-item menu-item-2416" id="menu_item_2416">
-              <a href="/consortium">Consortium</a>
+              <a  @click="goTo('/consortium')" >Consortium</a>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'Dashboard'}"  v-if="authenticated" class="menu-item menu-item-241" id="menu_item_241">
               <a>Dashboard</a>
               <ul>
                 <li v-for="si in surveyInformation" v-if="si.finished && !isEmployer" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times" >
-                  <a v-bind:href="'/dashboard/' + si.times">Dashboard #{{si.times}}</a>
+                  <a  @click="goTo('/dashboard/' + si.times)">Dashboard #{{si.times}}</a>
                 </li>
                 <li v-for="ctl in companyAvailableTimeList" v-if="isEmployer" v-bind:key="ctl" v-bind:to="'/dashboard/' + ctl">
-                  <a v-bind:href="'/dashboard/' + ctl">Dashboard #{{ctl}}</a>
+                  <a @click="goTo('/dashboard/' + ctl)">Dashboard #{{ctl}}</a>
                 </li>
               </ul>
             </li>
             <li v-bind:class="{'current-menu-item': currentRoute == 'Contact'}"  class="menu-item menu-item-143" id="menu_item_143">
-              <a href="/contact-us">Contact us</a>
+              <a @click="goTo('/contact-us')">Contact us</a>
             </li>
             <li class="menu-item menu-item-140" id="menu_item_140">
               <a >Profile</a>
@@ -58,13 +58,13 @@
                   <a v-on:click="openLogin()">Sign in</a>
                 </li>
                 <li v-if="!authenticated">
-                  <a href="/register">Register</a>
+                  <a @click="goTo('/register')">Register</a>
                 </li>
                 <li v-if="authenticated">
-                  <a href="/account/settings">Settings</a>
+                  <a @click="goTo('/account/settings')">Settings</a>
                 </li>
                 <li v-if="authenticated">
-                  <a href="/account/password">Password</a>
+                  <a @click="goTo('/account/password')" >Password</a>
                 </li>
                 <li v-if="authenticated">
                   <a v-on:click="logout()" href="#">Sign out</a>
