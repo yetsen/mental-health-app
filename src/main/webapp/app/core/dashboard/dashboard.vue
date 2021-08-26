@@ -22,10 +22,10 @@
                   :interval="0"
                   style="text-shadow: 1px 1px 2px #333;">
                 <b-carousel-slide>
-                  <dummyComponent :chartOptions="chartList[2].chartOptions"></dummyComponent>
+                  <dummyComponent :chartOptions="chartList[6].chartOptions"></dummyComponent>
                 </b-carousel-slide>
                 <b-carousel-slide>
-                  <dummyComponent :chartOptions="chartList[2].chartOptions"></dummyComponent>
+                  <dummyComponent :chartOptions="chartList[6].chartOptions"></dummyComponent>
                 </b-carousel-slide>
               </b-carousel>
             </div>
