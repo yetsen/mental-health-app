@@ -15,21 +15,21 @@
               <div id="sidebar-wrapper-div" class="col-2">
                 <div class="row">
                   <div class="col-6">
-                    <div class="jigsaw1" id="jigsaw1">
+                    <div class="jigsaw1" :class="{ 'grayout' : isGrayOut[0] == 1}" id="jigsaw1">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Introduction</span>
                     </div>
-                    <div class="jigsaw3" id="jigsaw3">
+                    <div class="jigsaw3" :class="{ 'grayout' : isGrayOut[2] === 1}" id="jigsaw3">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Mental Health</span>
                     </div>
-                    <div class="jigsaw5" id="jigsaw5">
+                    <div class="jigsaw5" :class="{ 'grayout' : isGrayOut[4] === 1}" id="jigsaw5">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
@@ -37,14 +37,14 @@
                       <span class="text">Productivity</span>
                     </div>
 
-                    <div class="jigsaw7" id="jigsaw7">
+                    <div class="jigsaw7" :class="{ 'grayout' : isGrayOut[6] === 1}" id="jigsaw7">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Physical Demand</span>
                     </div>
-                    <div class="jigsaw9" id="jigsaw9">
+                    <div class="jigsaw9" :class="{ 'grayout' : isGrayOut[8] === 1}" id="jigsaw9">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
@@ -53,35 +53,35 @@
                     </div>
                   </div>
                   <div class="col-6">
-                    <div class="jigsaw2" id="jigsaw2">
+                    <div class="jigsaw2" :class="{ 'grayout' : isGrayOut[1] === 1}" id="jigsaw2">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Personality</span>
                     </div>
-                    <div class="jigsaw4" id="jigsaw4">
+                    <div class="jigsaw4" :class="{ 'grayout' : isGrayOut[3] === 1}" id="jigsaw4">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Well-being</span>
                     </div>
-                    <div class="jigsaw6" id="jigsaw6">
+                    <div class="jigsaw6" :class="{ 'grayout' : isGrayOut[5] === 1}" id="jigsaw6">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Psychological Demand</span>
                     </div>
-                    <div class="jigsaw8" id="jigsaw8">
+                    <div class="jigsaw8" :class="{ 'grayout' : isGrayOut[7] === 1}" id="jigsaw8">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
                       <span class="text">Job Insecurity</span>
                     </div>
-                    <div class="jigsaw10" id="jigsaw10">
+                    <div class="jigsaw10" :class="{ 'grayout' : isGrayOut[9] === 1}" id="jigsaw10">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>

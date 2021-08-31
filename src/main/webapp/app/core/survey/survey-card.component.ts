@@ -35,6 +35,8 @@ export default class SurveyCardComponent extends Vue {
   public currentSurveyModal = {};
   public currentSurveyOptions = {};
 
+  public isGrayOut = new Array(10).fill(1);
+
   @Watch('$route', { immediate: true, deep: true })
   onPropertyChanged(value: string, oldValue: string) {
     if (this.times === value['params'].times)
@@ -180,6 +182,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = 0;
     gsap.timeline().to("#jigsaw1", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[0] = 0;
   }
 
   private movePuzzle3() {
@@ -193,6 +196,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = 0;
     gsap.timeline().to("#jigsaw2", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[1] = 0;
   }
   private movePuzzle4() {
     let head = document.querySelector("#jigsaw1");
@@ -205,6 +209,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw3", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[2] = 0;
   }
   private movePuzzle5() {
     let head = document.querySelector("#jigsaw2");
@@ -217,6 +222,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw4", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[3] = 0;
   }
   private movePuzzle6() {
     let head = document.querySelector("#jigsaw3");
@@ -229,6 +235,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw5", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[4] = 0;
   }
   private movePuzzle7() {
     let head = document.querySelector("#jigsaw4");
@@ -241,6 +248,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw6", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[5] = 0;
   }
   private movePuzzle8() {
     let head = document.querySelector("#jigsaw5");
@@ -253,6 +261,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw7", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[6] = 0;
   }
   private movePuzzle9() {
     let head = document.querySelector("#jigsaw6");
@@ -265,6 +274,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw8", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[7] = 0;
   }
   private movePuzzle10() {
     let head = document.querySelector("#jigsaw7");
@@ -277,6 +287,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw9", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[8] = 0;
   }
   private movePuzzle11() {
     let head = document.querySelector("#jigsaw8");
@@ -289,6 +300,7 @@ export default class SurveyCardComponent extends Vue {
     let p1ImagePlaceY = head.getBoundingClientRect().height;
     gsap.timeline().to("#jigsaw10", 1, {x: (headX + p1ImagePlaceX) - p1X,
       y: (headY + p1ImagePlaceY) - p1Y });
+    this.isGrayOut[9] = 0;
   }
 
   private movePuzzle() {

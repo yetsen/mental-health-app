@@ -117,6 +117,10 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   cursor: pointer;
 }
 
+.grayout {
+  opacity: 0.4; /* Real browsers */
+  filter: alpha(opacity = 40); /* MSIE */
+}
 
 .jigsaw1,
 .jigsaw1 span {
