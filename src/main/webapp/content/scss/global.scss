@@ -1180,4 +1180,9 @@ h4 {
   }
 }
 
+div[id^='readMoreChart'], div[id*=' readMoreChart'] .modal-dialog > .modal-content {
+  background-color: unset !important;
+  background-clip: unset !important;
+  border: unset !important;
+}
 //////////slider/////
