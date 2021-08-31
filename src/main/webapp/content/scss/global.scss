@@ -372,7 +372,7 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
   font-family:Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
-  font-weight:400;
+  font-weight:600;
   font-style:normal;
   color:inherit;
   text-rendering:optimizeLegibility;
@@ -1108,11 +1108,29 @@ footer {
 }
 
 h1,.component h1,h1>a,h2,.component h2,h2>a,h3,.component h3,h3>a,h4,.component h4,h4>a {
-  color:#000!important;
+  color:#141155!important;
+  letter-spacing: -1px;
 }
 
+@font-face {
+  font-family: Gilroy;
+  font-weight: 400;
+  src: url(/content/fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gilroy;
+  font-weight: 600;
+  src: url(/content/fonts/Gilroy-ExtraBold.ttf);
+}
+
+
 .button,h1,h2,h3,h4,h5,h6,p,li,ul,ol {
-  font-family:Lato,sans-serif!important;
+  font-family:Gilroy, sans-serif !important;
+}
+
+h4 {
+    font-size: 2rem;
 }
 
 .latest-heading {
