@@ -118,19 +118,18 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
 }
 
 .grayout {
-  opacity: 0.4; /* Real browsers */
-  filter: alpha(opacity = 40); /* MSIE */
+  background-color: gray !important;
 }
 
 .jigsaw1,
 .jigsaw1 span {
-  background-color: #6610f2;
+  background-color: #28a745;
   z-index: 2;
 }
 
 .jigsaw2,
 .jigsaw2 span {
-  background-color: #00008B;
+  background-color: #28a745;
   z-index: 1;
 }
 
@@ -142,19 +141,19 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
 
 .jigsaw4,
 .jigsaw4 span {
-  background-color: #0c4d78;
+  background-color: #28a745;
   z-index: 3;
 }
 
 .jigsaw5,
 .jigsaw5 span {
-  background-color: #5eb69d;
+  background-color: #28a745;
   z-index: 6;
 }
 
 .jigsaw6,
 .jigsaw6 span {
-  background-color: #171a1d;
+  background-color: #28a745;
   z-index: 5;
 }
 
@@ -165,17 +164,17 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
 }
 .jigsaw8,
 .jigsaw8 span {
-  background-color: #2d6a52;
+  background-color: #28a745;
   z-index: 7;
 }
 .jigsaw9,
 .jigsaw9 span {
-  background-color: #881f0e;
+  background-color: #28a745;
   z-index: 10;
 }
 .jigsaw10,
 .jigsaw10 span {
-  background-color: #ffae00;
+  background-color: #28a745;
   z-index: 9;
 }
 
@@ -209,6 +208,7 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   -webkit-border-radius: 4em;
   -moz-border-radius: 4em;
   border-radius: 4em;
+  background-color: inherit;
 }
 
 .jigsaw1 .r, .jigsaw3 .r, .jigsaw5 .r, .jigsaw7 .r, .jigsaw9 .r{
@@ -220,6 +220,7 @@ div[class^='jigsaw'], div[class*=' jigsaw']{
   -webkit-border-radius: 4em;
   -moz-border-radius: 4em;
   border-radius: 4em;
+  background-color: inherit;
 }
 
 .jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b, .jigsaw5 .b, .jigsaw6 .b, .jigsaw7 .b, .jigsaw8 .b {
