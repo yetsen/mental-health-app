@@ -4,7 +4,7 @@
       <div class="large-12 columns nav-wrap nav_layout_2">
         <div v-if="!authenticated" class="row-navbar align-middle clearfix">
           <div class="small-9 logo-wrap columns clearfix">
-            <a href="/"><img src="/content/images/cosie/cosie_name_rgb.jpg" class="logo-image" alt="Etusivulle" /></a>
+            <a href="/"><img src="/content/images/app-icon.png" class="logo-image" alt="Etusivulle" /></a>
           </div>
           <div class="small-3 columns nav-toggle clearfix">
             <button id=nav-toggle-btn aria-expanded=false> <font-awesome-icon icon="bars" /></button>
