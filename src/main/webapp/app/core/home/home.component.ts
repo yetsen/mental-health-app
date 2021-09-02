@@ -2,16 +2,23 @@ import Component from 'vue-class-component';
 import { Inject, Vue } from 'vue-property-decorator';
 import LoginService from '@/account/login.service';
 import AboutModel from '@/core/home/aboutModel/about-model.vue';
+import FsAboutModel from '@/core/home/fsAboutModel/fs-about-model.vue';
 import TeamVideos from '@/core/home/teamVideos/team-videos.vue';
 import ProjectDescription from '@/core/home/project-description/project-description.vue';
 import Contact from '@/core/home/contact/contact.vue';
+import FsConsortium from "@/core/home/fsConsortium/fsConsortium.vue";
+import FsContact from "@/core/home/fsContact/fsContact.vue";
 
 @Component({
   components: {
     aboutModel: AboutModel,
     teamVideos: TeamVideos,
     projectDescription: ProjectDescription,
-    contact: Contact
+    contact: Contact,
+    fsAboutModel: FsAboutModel,
+    fsConsortium: FsConsortium,
+    fsContact: FsContact
+
   },
 })
 export default class Home extends Vue {

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-      <cosie-navbar></cosie-navbar>
+      <arsha-navbar></arsha-navbar>
+      <hero></hero>
       <span>
         <router-view :key="$route.path"></router-view>
       </span>
@@ -8,7 +9,6 @@
           <span slot="modal-title" id="login-title" v-text="$t('login.title')">Sign in</span>
           <login-form></login-form>
       </b-modal>
-      <jhi-footer></jhi-footer>
   </div>
 </template>
 

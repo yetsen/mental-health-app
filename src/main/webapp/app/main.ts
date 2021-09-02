@@ -33,6 +33,9 @@ import VueApexCharts from 'vue-apexcharts';
 import HighchartsVue from 'highcharts-vue'
 import ChartService from "@/core/chart.service";
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import 'mdb-vue-ui-kit/css/mdb.min.css';
 
 /* tslint:disable */
 
@@ -58,6 +61,7 @@ Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('jhi-sort-indicator', JhiSortIndicatorComponent);
 Vue.component('infinite-loading', InfiniteLoading);
 gsap.registerPlugin(ScrollTrigger, Draggable, MotionPathPlugin);
+AOS.init();
 
 const i18n = config.initI18N(Vue);
 const store = config.initVueXStore(Vue);
