@@ -19,10 +19,10 @@
           <div class="col-lg-2 col-12 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About the Project</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Consortium</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Contact Us</a></li>
+              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> Home</a></li>
+              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> About the Project</a></li>
+              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> Consortium</a></li>
+              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> Contact Us</a></li>
             </ul>
           </div>
 

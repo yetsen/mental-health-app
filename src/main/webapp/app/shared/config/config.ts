@@ -44,6 +44,8 @@ import { faPhone } from '@fortawesome/free-solid-svg-icons/faPhone';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt';
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 
 import VueCookie from 'vue-cookie';
 import Vuelidate from 'vuelidate';
@@ -133,7 +135,9 @@ export function initFortAwesome(vue) {
     faPhone,
     faEnvelope,
     faMapMarkerAlt,
-    faCheck
+    faCheck,
+    faChevronDown,
+    faChevronRight
   );
 }
 
