@@ -5,7 +5,7 @@
     <div class="container" data-aos="fade-up">
 
       <header class="section-header">
-        <h2>Contact</h2>
+        <h2>Contact/Project Management</h2>
       </header>
 
       <div class="row gy-4">
@@ -17,7 +17,7 @@
 
             </div>
             <div class="member-info">
-              <h4>Professor Prasanta Dey</h4>
+              <h4>Prof Prasanta Dey</h4>
               <span>Aston University</span>
             </div>
           </div>

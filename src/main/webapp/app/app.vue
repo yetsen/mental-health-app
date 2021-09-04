@@ -9,6 +9,7 @@
           <span slot="modal-title" id="login-title" v-text="$t('login.title')">Sign in</span>
           <login-form></login-form>
       </b-modal>
+      <jhi-footer></jhi-footer>
   </div>
 </template>
 

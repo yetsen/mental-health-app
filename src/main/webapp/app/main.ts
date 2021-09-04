@@ -49,6 +49,7 @@ bootstrapVueConfig.initBootstrapVue(Vue);
 Vue.use(Vue2Filters);
 Vue.use(VueSmoothScroll, {
   duration: 400,
+  offset: -25,
   updateHistory: false,
 });
 Vue.use(VueYouTubeEmbed);
