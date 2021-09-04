@@ -1,5 +1,6 @@
 <template>
   <main id="main">
+    <hero></hero>
     <fsAboutModel></fsAboutModel>
     <fsConsortium></fsConsortium>
     <fsContact></fsContact>

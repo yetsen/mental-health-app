@@ -106,6 +106,11 @@ export default class ArshaNavbar extends Vue {
     return this.$store.getters.activeProfiles.indexOf('prod') > -1;
   }
 
+
+  private goTo(address : string) {
+    this.$router.push(address);
+  }
+
   public isInHomePage(): boolean {
     return this.$route.name === 'Home';
   }

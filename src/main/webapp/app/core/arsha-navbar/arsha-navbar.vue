@@ -9,9 +9,28 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link active" v-smooth-scroll href="#hero">Home</a></li>
+          <li><a class="nav-link" v-smooth-scroll href="#hero">Home</a></li>
           <li><a class="nav-link" v-smooth-scroll href="#services">About The Project</a></li>
           <li><a class="nav-link" v-smooth-scroll href="#consortium">Consortium</a></li>
+          <li><a class="nav-link" v-smooth-scroll href="#team">Contact Us</a></li>
+          <li v-if="currentTime === 1 && authenticated"><a class="nav-link" @click="onAssessmentClick(currentTime)">Assessment Center</a></li>
+          <li v-if="currentTime > 1 && authenticated" class="dropdown"><a href="#"><span>Assessment Center</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li v-for="si in surveyInformation" v-bind:key="si.times" @click="onAssessmentClick(si.times)">
+                <a>Assessment #{{si.times}} <font-awesome-icon v-if="si.finished" icon="check" /></a>
+              </li>
+            </ul>
+          </li>
+          <li v-if="authenticated" class="dropdown"><a href="#"><span>Dashboard</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li v-for="si in surveyInformation" v-if="si.finished && !isEmployer" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times">
+                <a @click="goTo('/dashboard/' + si.times)">Dashboard #{{si.times}} </a>
+              </li>
+              <li v-for="ctl in companyAvailableTimeList" v-if="isEmployer" v-bind:key="ctl" v-bind:to="'/dashboard/' + ctl">
+                <a @click="goTo('/dashboard/' + ctl)">Dashboard #{{ctl}} </a>
+              </li>
+            </ul>
+          </li>
           <li v-if="false" class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -29,8 +48,14 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a class="nav-link" v-smooth-scroll href="#team">Contact Us</a></li>
-          <li><a class="getstarted" href="#about">Login</a></li>
+          <li v-if="!authenticated"><a class="getstarted" v-on:click="openLogin()">Sign in</a></li>
+          <li v-if="authenticated" class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a @click="goTo('/account/settings')">Settings</a></li>
+              <li><a @click="goTo('/account/password')">Password</a></li>
+              <li><a v-on:click="logout()" href="#">Sign out</a></li>
+            </ul>
+          </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

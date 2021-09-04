@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="#" class="logo d-flex align-items-center">
+            <a class="logo d-flex align-items-center">
               <img src="/content/images/icon/UKRI-Logo.png" alt="">
             </a>
             <p>This project has received funding from UKRI- UK Research and Innovation under project ID number ES/V004263/1</p>

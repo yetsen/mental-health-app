@@ -8,6 +8,7 @@ import ProjectDescription from '@/core/home/project-description/project-descript
 import Contact from '@/core/home/contact/contact.vue';
 import FsConsortium from "@/core/home/fsConsortium/fsConsortium.vue";
 import FsContact from "@/core/home/fsContact/fsContact.vue";
+import Hero from "@/core/hero/hero.vue";
 
 @Component({
   components: {
@@ -17,7 +18,8 @@ import FsContact from "@/core/home/fsContact/fsContact.vue";
     contact: Contact,
     fsAboutModel: FsAboutModel,
     fsConsortium: FsConsortium,
-    fsContact: FsContact
+    fsContact: FsContact,
+    'hero': Hero
 
   },
 })

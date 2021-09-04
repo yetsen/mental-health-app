@@ -1,7 +1,6 @@
 <template>
   <div id="app">
       <arsha-navbar></arsha-navbar>
-      <hero></hero>
       <span>
         <router-view :key="$route.path"></router-view>
       </span>
