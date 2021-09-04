@@ -1,8 +1,15 @@
 @import 'src/main/webapp/content/scss/bootswatch/variables';
 
 .survey-page {
-  min-height: 75vh;
-  padding-top: 4vh;
+  min-height: 80vh;
+}
+
+.survey-page .container-fluid {
+  padding-top: 10vh;
+}
+
+.progress {
+  height: 1rem !important;
 }
 
 #navigationButtons {
@@ -103,7 +110,7 @@
 }
 
 .progress-bar {
-  background-color: $secondary;
+  background-color: $primary;
 }
 
 div[class^='jigsaw'], div[class*=' jigsaw']{

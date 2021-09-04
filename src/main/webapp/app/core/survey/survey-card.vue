@@ -4,9 +4,9 @@
             <div class="row justify-content-md-center">
               <div class="col-3"></div>
               <div class="col-9">
-                <div id="progressBar" v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
+                <div v-if="!isCompletionPage" class="progress center-block mx-auto mb-4">
                   <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" :style="{width: progress}">
-                    <span id="progressbar">{{ pageNumber }}</span>
+                    <span>{{ pageNumber }}</span>
                   </div>
                 </div>
               </div>

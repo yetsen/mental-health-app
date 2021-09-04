@@ -14,14 +14,14 @@
           <li><a class="nav-link" v-smooth-scroll href="#consortium">Consortium</a></li>
           <li><a class="nav-link" v-smooth-scroll href="#team">Contact Us</a></li>
           <li v-if="currentTime === 1 && authenticated"><a class="nav-link" @click="onAssessmentClick(currentTime)">Assessment Center</a></li>
-          <li v-if="currentTime > 1 && authenticated" class="dropdown"><a href="#"><span>Assessment Center</span> <i class="bi bi-chevron-down"></i></a>
+          <li v-if="currentTime > 1 && authenticated" class="dropdown"><a><span>Assessment Center</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li v-for="si in surveyInformation" v-bind:key="si.times" @click="onAssessmentClick(si.times)">
                 <a>Assessment #{{si.times}} <font-awesome-icon v-if="si.finished" icon="check" /></a>
               </li>
             </ul>
           </li>
-          <li v-if="authenticated" class="dropdown"><a href="#"><span>Dashboard</span> <i class="bi bi-chevron-down"></i></a>
+          <li v-if="authenticated" class="dropdown"><a><span>Dashboard</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li v-for="si in surveyInformation" v-if="si.finished && !isEmployer" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times">
                 <a @click="goTo('/dashboard/' + si.times)">Dashboard #{{si.times}} </a>
@@ -49,7 +49,7 @@
             </ul>
           </li>
           <li v-if="!authenticated"><a class="getstarted" v-on:click="openLogin()">Sign in</a></li>
-          <li v-if="authenticated" class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
+          <li v-if="authenticated" class="dropdown"><a><span>Profile</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a @click="goTo('/account/settings')">Settings</a></li>
               <li><a @click="goTo('/account/password')">Password</a></li>

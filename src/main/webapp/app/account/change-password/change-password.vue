@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-top: 10vh">
         <div class="container-fluid">
             <div class="card jh-card">
                 <div class="row justify-content-center">

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-top: 10vh">
         <div class="row justify-content-center">
             <div class="col-md-8 toastify-container">
                 <h2 v-if="username" id="settings-title"><span v-bind:value="$t('settings.title')">User settings for [<b>{{username}}</b>]</span></h2>
