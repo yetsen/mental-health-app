@@ -1,8 +1,7 @@
-.features .feture-tabs {
-  margin-top: 120px;
+.features .container {
+  padding-top: 10vh;
 }
-
-.features .feture-tabs h3 {
+.features .feature-tabs h3 {
   color: #012970;
   font-weight: 700;
   font-size: 32px;
@@ -10,16 +9,16 @@
 }
 
 @media (max-width: 768px) {
-  .features .feture-tabs h3 {
+  .features .feature-tabs h3 {
     font-size: 28px;
   }
 }
 
-.features .feture-tabs .nav-pills {
+.features .feature-tabs .nav-pills {
   border-bottom: 1px solid #eee;
 }
 
-.features .feture-tabs .nav-link {
+.features .feature-tabs .nav-link {
   background: none;
   text-transform: uppercase;
   font-size: 15px;
@@ -31,19 +30,19 @@
   border-radius: 0;
 }
 
-.features .feture-tabs .nav-link.active {
+.features .feature-tabs .nav-link.active {
   color: #4154f1;
   border-bottom: 3px solid #4154f1;
 }
 
-.features .feture-tabs .tab-content h4 {
+.features .feature-tabs .tab-content h4 {
   font-size: 18px;
   margin: 0;
   font-weight: 700;
   color: #012970;
 }
 
-.features .feture-tabs .tab-content i {
+.features .feature-tabs .tab-content i {
   font-size: 24px;
   line-height: 0;
   margin-right: 8px;

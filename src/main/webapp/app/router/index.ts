@@ -14,6 +14,7 @@ const Dashboard = () => import('@/core/dashboard/dashboard.vue');
 const Contact = () => import('@/core/home/teamVideos/team-videos.vue');
 const AboutModel = () => import('@/core/home/aboutModel/about-model.vue');
 const Consortium = () => import('@/core/home/consortium/consortium.vue');
+const WorkPackage = () => import('@/core/work-package/work-package.vue');
 import account from '@/router/account.ts';
 import admin from '@/router/admin.ts';
 import entities from '@/router/entities.ts';
@@ -42,6 +43,11 @@ export default new Router({
       name: 'Dashboard',
       component: Dashboard,
       meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/work-package/:number',
+      name: 'WorkPackage',
+      component: WorkPackage
     },
     {
       path: '/about-project',

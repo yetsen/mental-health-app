@@ -5,26 +5,13 @@
     <div class="container" data-aos="fade-up">
 
       <header class="section-header">
-        <h2>Features</h2>
+        <h2>Work Package</h2>
         <p>Laboriosam et omnis fuga quis dolor direda fara</p>
       </header>
       <!-- Feature Tabs -->
-      <div class="row feture-tabs" data-aos="fade-up">
+      <div class="row feature-tabs" data-aos="fade-up">
         <div class="col-lg-6">
           <h3>Neque officiis dolore maiores et exercitationem quae est seda lidera pat claero</h3>
-
-          <!-- Tabs -->
-          <ul class="nav nav-pills mb-3">
-            <li>
-              <a class="nav-link active" data-bs-toggle="pill" href="#tab1">Saepe fuga</a>
-            </li>
-            <li>
-              <a class="nav-link" data-bs-toggle="pill" href="#tab2">Voluptates</a>
-            </li>
-            <li>
-              <a class="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a>
-            </li>
-          </ul><!-- End Tabs -->
 
           <!-- Tab Content -->
           <div class="tab-content">
@@ -76,7 +63,7 @@
         </div>
 
         <div class="col-lg-6">
-          <img src="assets/img/features-2.png" class="img-fluid" alt="">
+          <img src="/content/images/arsha/hero-img.png" class="img-fluid" alt="">
         </div>
 
       </div>
@@ -88,4 +75,4 @@
 <script lang="ts" src="./work-package.component.ts">
 </script>
 
-<style lang="scss" src="src/main/webapp/app/core/work-package/work-package.scss" scoped></style>
+<style lang="scss" src="./work-package.scss" scoped></style>

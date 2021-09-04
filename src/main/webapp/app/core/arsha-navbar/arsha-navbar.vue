@@ -5,7 +5,7 @@
 
       <!-- <h1 class="logo me-auto"><a href="#">Mental Health</a></h1>-->
       <!-- Uncomment below if you prefer to use an image logo -->
-       <a href="#" class="logo me-auto"><img src="/content/images/icon/favicon-32x32.png" alt="" class="img-fluid"></a>
+      <a href="#" class="logo me-auto"><img src="/content/images/icon/favicon-32x32.png" alt="" class="img-fluid"> MH&WB</a>
 
       <nav id="navbar" class="navbar">
         <ul>

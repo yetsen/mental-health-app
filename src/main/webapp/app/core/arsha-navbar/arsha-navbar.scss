@@ -368,3 +368,7 @@ a:not([href]):hover {
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
   color: #fff;
 }
+
+#header > .container > a {
+  color: #fff !important;
+}
