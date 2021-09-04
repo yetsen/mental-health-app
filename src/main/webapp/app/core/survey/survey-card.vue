@@ -103,10 +103,10 @@
               </div>
               <div class="col-9">
                 <div v-if="!isCompletionPage" class="panel-footer card-footer">
-                  <input v-if="!survey.isFirstPage" type="button" @click="survey.prevPage()" value="Previous" class="btn sv_prev_btn float-left" >
-                  <input type="button" @click="prepareClearAndExitModal()" value="Clear & Exit" class="btn sv_clear_btn float-left" >
-                  <input v-if="!survey.isLastPage" type="button" @click="survey.nextPage()" value="Next" class="btn sv_next_btn float-right">
-                  <input v-if="survey.isLastPage" type="button" @click="survey.completeLastPage()" value="Complete" class="btn sv_complete_btn float-right" >
+                  <input v-if="!survey.isFirstPage" type="button" @click="survey.prevPage()" value="Previous" class="btn btn-primary float-left" >
+                  <input type="button" @click="prepareClearAndExitModal()" value="Clear & Exit" class="btn btn-primary float-left" >
+                  <input v-if="!survey.isLastPage" type="button" @click="survey.nextPage()" value="Next" class="btn btn-primary float-right">
+                  <input v-if="survey.isLastPage" type="button" @click="survey.completeLastPage()" value="Complete" class="btn btn-primary float-right" >
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@
                 <p id="jhi-delete-user-heading" v-text="$t('global.modal.survey.clearAndExit.question')">Are you sure you want to clear and exit the survey?</p>
             </div>
             <div slot="modal-footer">
-                <button type="button" class="btn btn-secondary" v-text="$t('global.modal.survey.clearAndExit.no')" @click="closeDialog()">No</button>
+                <button type="button" class="btn btn-primary" v-text="$t('global.modal.survey.clearAndExit.no')" @click="closeDialog()">No</button>
                 <button type="button" class="btn btn-primary" v-text="$t('global.modal.survey.clearAndExit.yes')" @click="clearAndGoToHomePage()">Yes</button>
             </div>
         </b-modal>
@@ -125,7 +125,7 @@
             <dummyComponent :chartOptions="currentChart.chartOptions"></dummyComponent>
           </div>
           <div slot="modal-footer">
-            <button type="button" class="btn btn-secondary" @click="closeDialogAndOpenNextPage()">Continue</button>
+            <button type="button" class="btn btn-primary" @click="closeDialogAndOpenNextPage()">Continue</button>
           </div>
         </b-modal>
     </div>

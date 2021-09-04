@@ -8,7 +8,7 @@ import {gsap, Bounce, Power3} from 'gsap/all';
 import ChartService from "@/core/chart.service";
 import DummyComponent from "@/core/dashboard/dummy/dummy.vue";
 
-SurveyVue.StylesManager.applyTheme('bootstrap');
+SurveyVue.StylesManager.applyTheme('modern');
 //SurveyVue.settings.lazyRowsRendering = true; //experimental if problem occurs remove it
 
 let Survey = SurveyVue.Survey;

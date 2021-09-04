@@ -29,6 +29,7 @@ import ConfigurationService from '@/admin/configuration/configuration.service';
 import VueSmoothScroll from 'vue2-smooth-scroll';
 import VueYouTubeEmbed from 'vue-youtube-embed';
 import SurveyService from '@/core/survey.service';
+import "survey-vue/modern.min.css";
 import VueApexCharts from 'vue-apexcharts';
 import HighchartsVue from 'highcharts-vue'
 import ChartService from "@/core/chart.service";
