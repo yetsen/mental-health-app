@@ -5,7 +5,7 @@
     <div class="container" data-aos="fade-up">
 
       <header class="section-header">
-        <h2>Contact/Project Management</h2>
+        <h2>Contact To Project Management</h2>
       </header>
 
       <div class="row gy-4">

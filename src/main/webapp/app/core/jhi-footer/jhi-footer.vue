@@ -29,10 +29,12 @@
           <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Email:</strong> info@example.com<br>
+              Aston University <br>
+              Birmingham<br>
+              B4 7ET <br>
+              UK
+              <br>
+              +44 (0)121 204 3000<br>
             </p>
 
           </div>
