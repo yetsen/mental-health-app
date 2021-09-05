@@ -88,11 +88,13 @@ router.beforeEach((to, from, next) => {
         sessionStorage.setItem('requested-url', to.fullPath);
         next('/forbidden');
       } else {
+        window.scrollTo(0, 0)
         next();
       }
     });
   } else {
     // no authorities, so just proceed
+    window.scrollTo(0, 0)
     next();
   }
 });

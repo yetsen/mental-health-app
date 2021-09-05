@@ -1,5 +1,5 @@
 <template>
-  <footer v-if="currentRoute == 'Home'" id="footer" class="footer">
+  <footer v-if="currentRoute == 'Home' || currentRoute == 'WorkPackage'" id="footer" class="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">
@@ -19,10 +19,10 @@
           <div class="col-lg-2 col-12 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> Home</a></li>
-              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> About the Project</a></li>
-              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> Consortium</a></li>
-              <li> <a href="#"><font-awesome-icon icon="chevron-right"/> Contact Us</a></li>
+              <li> <a @click="goTo('/')" v-smooth-scroll href="#hero"><font-awesome-icon icon="chevron-right"/> Home</a></li>
+              <li> <a @click="goTo('/')" v-smooth-scroll href="#services"><font-awesome-icon icon="chevron-right"/> About the Project</a></li>
+              <li> <a @click="goTo('/')" v-smooth-scroll href="#consortium"><font-awesome-icon icon="chevron-right"/> Consortium</a></li>
+              <li> <a @click="goTo('/')" v-smooth-scroll href="#team"><font-awesome-icon icon="chevron-right"/> Contact Us</a></li>
             </ul>
           </div>
 
