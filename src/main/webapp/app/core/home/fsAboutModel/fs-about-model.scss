@@ -147,3 +147,9 @@
 .services .service-box:hover .icon {
   background: #fff;
 }
+
+/////////////////////////
+
+a:not([href]):hover {
+  cursor: pointer;
+}
