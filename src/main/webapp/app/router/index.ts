@@ -50,21 +50,6 @@ export default new Router({
       component: WorkPackage
     },
     {
-      path: '/about-project',
-      name: 'AboutProject',
-      component: AboutModel
-    },
-    {
-      path: '/consortium',
-      name: 'Consortium',
-      component: Consortium
-    },
-    {
-      path: '/contact-us',
-      name: 'Contact',
-      component: Contact
-    },
-    {
       path: '/forbidden',
       name: 'Forbidden',
       component: Error,

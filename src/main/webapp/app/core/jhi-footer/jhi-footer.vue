@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="footer">
+  <footer v-if="currentRoute == 'Home'" id="footer" class="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row gy-4">

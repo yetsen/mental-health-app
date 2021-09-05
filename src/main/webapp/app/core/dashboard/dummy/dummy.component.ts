@@ -25,8 +25,8 @@ Highcharts['theme'] = {
   chart: {
     backgroundColor: {
       stops: [
-        [0, '#2a2a2b'],
-        [1, '#3e3e40']
+        [0, '#27293d'],
+        [1, '#27293d']
       ]
     },
     style: {
