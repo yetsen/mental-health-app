@@ -83,7 +83,7 @@ export default class ArshaNavbar extends Vue {
   private onAssessmentClick(times): void {
     //TODO: remove it
     if (this.authenticated) {
-      this.$router.push('/survey/' + times);
+      this.$router.push('/landing-page/' + times);
     } else {
       this.openLogin();
     }

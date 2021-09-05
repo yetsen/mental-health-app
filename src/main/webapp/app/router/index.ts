@@ -15,6 +15,7 @@ const Contact = () => import('@/core/home/teamVideos/team-videos.vue');
 const AboutModel = () => import('@/core/home/aboutModel/about-model.vue');
 const Consortium = () => import('@/core/home/consortium/consortium.vue');
 const WorkPackage = () => import('@/core/work-package/work-package.vue');
+const LandingPage = () => import('@/core/home/landingPage/landing-page.vue');
 import account from '@/router/account.ts';
 import admin from '@/router/admin.ts';
 import entities from '@/router/entities.ts';
@@ -36,6 +37,12 @@ export default new Router({
       path: '/survey/:times',
       name: 'SurveyCard',
       component: SurveyCard,
+      meta: { authorities: [Authority.USER] }
+    },
+    {
+      path: '/landing-page/:times',
+      name: 'LandingPage',
+      component: LandingPage,
       meta: { authorities: [Authority.USER] }
     },
     {
