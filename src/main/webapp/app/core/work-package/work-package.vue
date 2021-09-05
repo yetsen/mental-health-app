@@ -14,8 +14,8 @@
           <div class="tab-content">
 
             <div class="tab-pane fade show active" id="tab1">
-              <p v-if="number != 2">{{ text }}</p>
-              <p v-if="number == 2" v-for="t in objectives">{{t}}</p>
+              <p v-if="objectives.length === 0">{{ text }}</p>
+              <p v-for="t in objectives">{{t}}</p>
             </div>
           </div>
         </div>
