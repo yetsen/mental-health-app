@@ -6,7 +6,6 @@
 
       <header class="section-header">
         <h2>About The Project</h2>
-        <p>Veritatis et dolores facere numquam et praesentium</p>
       </header>
 
       <div class="row gy-4">
@@ -14,8 +13,8 @@
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="service-box blue">
             <i class="ri-discuss-line icon"></i>
-            <h3>Nesciunt Mete</h3>
-            <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+            <h3>Who we are</h3>
+            <p>This “Impact of COVID-19 on Staff Mental Health and Well-Being in SMEs: Strategies and Interventions to Support Workforce</p>
             <a  @click="goTo('/work-package/1')" class="read-more"><a>Read More</a> <i class="bi bi-arrow-right"></i></a>
           </div>
         </div>
