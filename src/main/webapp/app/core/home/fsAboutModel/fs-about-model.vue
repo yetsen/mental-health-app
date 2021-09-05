@@ -20,7 +20,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-box orange">
+          <div class="service-box blue">
             <i class="ri-discuss-line icon"></i>
             <h3>Objectives</h3>
             <p>Develop a conceptual model that will facilitate analysing the relationship between MH issues faced by SMEs’ staff, factors</p>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="service-box green">
+          <div class="service-box blue">
             <i class="ri-discuss-line icon"></i>
             <h3>Work Package 1</h3>
             <p>The conceptual model will examine  the impact of staff MH problems, well-being issues, and various factors</p>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="service-box red">
+          <div class="service-box blue">
             <i class="ri-discuss-line icon"></i>
             <h3>Work Package 2</h3>
             <p>The deliverables of WP1 (survey and model), guidance published by policy makers and findings from management</p>
@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="service-box purple">
+          <div class="service-box blue">
             <i class="ri-discuss-line icon"></i>
             <h3>Work Package 3</h3>
             <p>Develop and test a user-friendly gamified application enabling SMEs’ staff to anonymously and remotely answer</p>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-          <div class="service-box pink">
+          <div class="service-box blue">
             <i class="ri-discuss-line icon"></i>
             <h3>Work Package 4</h3>
             <p>The primary objective is to examine the impact and effectiveness of the framework in a longitudinal study</p>
