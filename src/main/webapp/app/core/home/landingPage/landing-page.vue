@@ -24,10 +24,15 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-5">
 
-        <div class="col-lg-11"></div>
-        <div class="col-lg-1">
-          <input type="button" @click="onAssessmentClick()" value="Next" class="btn btn-primary float-right">
+        </div>
+        <div class="col-lg-2">
+          <input type="button" @click="onAssessmentClick()" value="Start Assessment" class="btn btn-primary float">
+        </div>
+
+        <div class="col-lg-5">
+
         </div>
       </div>
     </div>
