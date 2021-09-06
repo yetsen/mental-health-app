@@ -36,8 +36,7 @@ import ChartService from "@/core/chart.service";
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import 'mdb-vue-ui-kit/css/mdb.min.css';import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
-
+import 'mdb-vue-ui-kit/css/mdb.min.css';
 /* tslint:disable */
 
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
@@ -56,8 +55,6 @@ Vue.use(VueSmoothScroll, {
 Vue.use(VueYouTubeEmbed);
 Vue.use(VueApexCharts);
 Vue.use(HighchartsVue);
-Vue.use(BootstrapVue);
-Vue.use(BootstrapVueIcons);
 
 Vue.component('apexchart', VueApexCharts);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
