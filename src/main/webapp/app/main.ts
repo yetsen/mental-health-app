@@ -24,7 +24,6 @@ import AccountService from './account/account.service';
 
 
 import 'aos/dist/aos.css';
-import 'mdb-vue-ui-kit/css/mdb.min.css';
 import "survey-vue/modern.min.css";
 import '../content/scss/vendor.scss';
 import AlertService from '@/shared/alert/alert.service';
@@ -38,6 +37,7 @@ import HighchartsVue from 'highcharts-vue'
 import ChartService from "@/core/chart.service";
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin } from "gsap/all";
 import AOS from 'aos';
+//import 'mdb-vue-ui-kit/css/mdb.min.css';
 /* tslint:disable */
 
 // jhipster-needle-add-entity-service-to-main-import - JHipster will import entities services here
