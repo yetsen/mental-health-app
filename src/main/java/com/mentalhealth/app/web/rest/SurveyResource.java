@@ -22,8 +22,15 @@ public class SurveyResource {
 
     @GetMapping
     //@PreAuthorize ("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
-    public ResponseEntity<SurveyDTO> get() {
-        SurveyDTO surveyDTO = surveyService.getSurveyData();
+    public ResponseEntity<Map<Long, SurveyDTO>> get() {
+        Map<Long, SurveyDTO> surveyDTOs = surveyService.getSurveyData();
+        return new ResponseEntity<>(surveyDTOs, HttpStatus.OK);
+    }
+
+    @GetMapping("{surveyId}")
+    //@PreAuthorize ("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
+    public ResponseEntity<SurveyDTO> get(@PathVariable Long surveyId) {
+        SurveyDTO surveyDTO = surveyService.getSurveyData(surveyId);
         return new ResponseEntity<>(surveyDTO, HttpStatus.OK);
     }
 

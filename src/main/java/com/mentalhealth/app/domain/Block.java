@@ -41,4 +41,8 @@ public class Block extends AbstractAuditingEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "block")
     private Set<Question> questions = new HashSet<>();
 
+    @JsonIgnore
+    @ManyToOne
+    private Survey survey;
+
 }

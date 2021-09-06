@@ -10,4 +10,6 @@ import java.util.List;
 public interface BlockRepository  extends JpaRepository<Block, Long> {
 
     @Override List<Block> findAll ();
+
+    List<Block> findBySurvey_Id(Long surveyId);
 }

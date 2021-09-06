@@ -29,18 +29,29 @@ public class SurveyService {
 
     private final SurveyInformationRepository surveyInformationRepository;
 
+    private final SurveyRepository surveyRepository;
+
 
     public SurveyService (BlockRepository blockRepository, AnswerRepository answerRepository, UserRepository userRepository,
-            QuestionRepository questionRepository, SurveyInformationRepository surveyInformationRepository) {
+            QuestionRepository questionRepository, SurveyInformationRepository surveyInformationRepository,
+            SurveyRepository surveyRepository) {
         this.blockRepository = blockRepository;
         this.answerRepository = answerRepository;
         this.userRepository = userRepository;
         this.questionRepository = questionRepository;
         this.surveyInformationRepository = surveyInformationRepository;
+        this.surveyRepository = surveyRepository;
     }
 
-    public SurveyDTO getSurveyData() {
-        List<Block> blocks = getAllBlocks();
+    public Map<Long, SurveyDTO> getSurveyData() {
+        List<Survey> surveys = surveyRepository.findAll();
+        return surveys.stream().collect(
+                Collectors.toMap(Survey::getId, survey ->
+                        new SurveyDTO(blockRepository.findBySurvey_Id(survey.getId()))));
+    }
+
+    public SurveyDTO getSurveyData(Long surveyId) {
+        List<Block> blocks = getBlocks(surveyId);
         return new SurveyDTO(blocks);
     }
 
@@ -59,6 +70,10 @@ public class SurveyService {
 
     private List<Block> getAllBlocks() {
         return blockRepository.findAll();
+    }
+
+    private List<Block> getBlocks(Long surveyId) {
+        return blockRepository.findBySurvey_Id(surveyId);
     }
 
     public void putAnswers(AnswersDTO answers) {
