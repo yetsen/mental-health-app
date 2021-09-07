@@ -140,3 +140,126 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 139;139;Using the same 0-to-10 scale, how would you rate your overall job performance on the days you worked during the past 4 weeks (28 days)?;RATING;system;system;5;
 140;140;What is your current employment status?;DROPDOWN;system;system;1;
 141;141;What is the sector you are working in?;DROPDOWN;system;system;1;
+142;142;What is your age range?;DROPDOWN;system;system;20;
+143;143;How do you identify your gender?;DROPDOWN;system;system;20;
+144;144;What is your level of education?;DROPDOWN;system;system;20;
+145;145;Marital status;DROPDOWN;system;system;20;
+146;146;Do you have caring responsibilities?;DROPDOWN;system;system;20;
+147;147;What is your current employment status?;DROPDOWN;system;system;20;
+148;148;What is the sector you are working in?;DROPDOWN;system;system;20;
+149;149;Please read each statement and circle a number 0, 1, 2 or 3 which indicates how much the statement applied to you over the past week. There are no right or wrong answers. Do not spend too much time on any statement. <br/> <br/> The rating scale is as follows: <br/> <br/> 0 -> Did not apply to me at all <br/> 1 -> Applied to me to some degree, or some of the time <br/> 2 -> Applied to me to a considerable degree or a good part of time <br/> 3 -> Applied to me very much or most of the time;MATRIX;system;system;21;
+150;150;I found it hard to wind down;SUB_MATRIX;system;system;21;149
+151;151;I was aware of dryness of my mouth;SUB_MATRIX;system;system;21;149
+152;152;I couldn't seem to experience any positive feeling at all;SUB_MATRIX;system;system;21;149
+153;153;I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion);SUB_MATRIX;system;system;21;149
+154;154;I found it difficult to work up the initiative to do things;SUB_MATRIX;system;system;21;149
+155;155;I tended to over-react to situations;SUB_MATRIX;system;system;21;149
+156;156;I experienced trembling (e.g. in the hands);SUB_MATRIX;system;system;21;149
+157;157;I felt that I was using a lot of nervous energy;SUB_MATRIX;system;system;21;149
+158;158;I was worried about situations in which I might panic and make a fool of myself;SUB_MATRIX;system;system;21;149
+159;159;I felt that I had nothing to look forward to;SUB_MATRIX;system;system;21;149
+160;160;I found myself getting agitated;SUB_MATRIX;system;system;21;149
+161;161;I found it difficult to relax;SUB_MATRIX;system;system;21;149
+162;162;I felt down-hearted and blue;SUB_MATRIX;system;system;21;149
+163;163;I was intolerant of anything that kept me from getting on with what I was doing;SUB_MATRIX;system;system;21;149
+164;164;I felt I was close to panic;SUB_MATRIX;system;system;21;149
+165;165;I was unable to become enthusiastic about anything;SUB_MATRIX;system;system;21;149
+166;166;I felt I wasn't worth much as a person;SUB_MATRIX;system;system;21;149
+167;167;I felt that I was rather touchy;SUB_MATRIX;system;system;21;149
+168;168;I was aware of the action of my heart in the absence of physical exertion (e.g. sense of heart rate increase, heart missing a beat);SUB_MATRIX;system;system;21;149
+169;169;I felt scared without any good reason;SUB_MATRIX;system;system;21;149
+170;170;I felt that life was meaningless;SUB_MATRIX;system;system;21;149
+171;171;Please indicate your level of agreement with the following statements;MATRIX;system;system;22;
+172;172;I have been feeling optimistic about my future at work;SUB_MATRIX;system;system;22;171
+173;173;I have been feeling useful at work;SUB_MATRIX;system;system;22;171
+174;174;I have been feeling relaxed at work;SUB_MATRIX;system;system;22;171
+175;175;I have had energy to spare at work ;SUB_MATRIX;system;system;22;171
+176;176;I have been thinking clearly at work;SUB_MATRIX;system;system;22;171
+177;177;I have been feeling good about myself at work;SUB_MATRIX;system;system;22;171
+178;178;I have been feeling confident at work;SUB_MATRIX;system;system;22;171
+179;179;I have felt active and vigorous at work ;SUB_MATRIX;system;system;22;171
+180;180;My life at work has been filled with things that interest me;SUB_MATRIX;system;system;22;171
+181;181;Please indicate your level of agreement with the following statements in the context of YOUR JOB SATISFACTION with the following elements (in the past 4 weeks);MATRIX;system;system;23;
+182;182;Opportunity for personal control (job autonomy);SUB_MATRIX;system;system;23;181
+183;183;Job goals (e.g., job demand, task demands, role responsibility);SUB_MATRIX;system;system;23;181
+184;184;Opportunity for skill use/ abilities (showcasing what you've got!);SUB_MATRIX;system;system;23;181
+185;185;Career development / progression (promotion, training and learning);SUB_MATRIX;system;system;23;181
+186;186;Pay/rewards/recognition;SUB_MATRIX;system;system;23;181
+187;187;Job and Environmental clarity (the use of policy and consistent procedures);SUB_MATRIX;system;system;23;181
+188;188;All things considered, I am satisfied with my job;SUB_MATRIX;system;system;23;181
+189;189;Please indicate your level of agreement with the following statements During the past four weeks, how frequently did you...;MATRIX;system;system;24;
+190;190;Just do no work at times (worrying, or staring into space) when you would be expected to be working;SUB_MATRIX;system;system;24;189
+191;191;Find you have forgotten to respond to a request/ Have your boss/co-workers remind you to do things;SUB_MATRIX;system;system;24;189
+192;192;Avoid attending meetings, interaction with co -workers, clients, vendors, or supervisors;SUB_MATRIX;system;system;24;189
+193;193;Work more slowly or take longer to complete tasks than expected;SUB_MATRIX;system;system;24;189
+194;194;Trouble wrapping up the final details of a project once the challenging parts have been done;SUB_MATRIX;system;system;24;189
+195;195;Lose interest or become bored with your work;SUB_MATRIX;system;system;24;189
+196;196;Feel too exhausted/ restless to do your work;SUB_MATRIX;system;system;24;189
+197;197;Please indicate your level of agreement with the following statements;MATRIX;system;system;25;
+198;198;I can determine the method/strategy of working myself;SUB_MATRIX;system;system;25;197
+199;199;I can determine the amount of work to be done during a certain period myself;SUB_MATRIX;system;system;25;197
+200;200;Please indicate your level of agreement with the following statements;MATRIX;system;system;25;
+201;201;Things look secure for me in the future in this organization;SUB_MATRIX;system;system;25;200
+202;202;If my organization were facing economic problems, employee downsizing would be the last option used;SUB_MATRIX;system;system;25;200
+203;203;Please indicate your level of agreement with the following statements;MATRIX;system;system;25;
+204;204;Work demands are emotionally and mentally exacting;SUB_MATRIX;system;system;25;203
+205;205;I am uncertain about roles, responsibilities and what is expected of me;SUB_MATRIX;system;system;25;203
+206;206;There is lot of job spill-over (doing job for others either ill/furloughed/terminated);SUB_MATRIX;system;system;25;203
+207;207;Please indicate your level of agreement with the following statements;MATRIX;system;system;25;
+208;208;I understand how my work contributes to my life's meaning;SUB_MATRIX;system;system;25;207
+209;209;I work because it is intellectually stimulating;SUB_MATRIX;system;system;25;207
+210;210;I do my work for the money as a means to an end;SUB_MATRIX;system;system;25;207
+211;211;My work gives me a sense of achievement;SUB_MATRIX;system;system;25;207
+212;212;Please indicate your level of agreement with the following statements;MATRIX;system;system;25;
+213;213;My work stimulates me to learn new things ;SUB_MATRIX;system;system;25;212
+214;214;My work stimulates me to be creative and innovative;SUB_MATRIX;system;system;25;212
+215;215;I have the opportunity to develop my own special abilities;SUB_MATRIX;system;system;25;212
+216;216;Please indicate your level of agreement with the following statements;MATRIX;system;system;26;
+217;217;Manager says things that make employees proud to be a part of this organization;SUB_MATRIX;system;system;26;216
+218;218;Manager encourages people to see changing environments as situations full of opportunities;SUB_MATRIX;system;system;26;216
+219;219;Manager sees that the interests of employees are given due consideration;SUB_MATRIX;system;system;26;216
+220;220;Manager provides clear feedback to improve my work practice;SUB_MATRIX;system;system;26;216
+221;221;Help is available from my immediate manager when I have a problem;SUB_MATRIX;system;system;26;216
+222;222;Please indicate your level of agreement with the following statements;MATRIX;system;system;27;
+223;223;The demands of my work interfere with my family or personal time;SUB_MATRIX;system;system;27;222
+224;224;Things I want to do at home do not get done because of the demands my job puts on me;SUB_MATRIX;system;system;27;222
+225;225;People close to me say I sacrifice too much for my job;SUB_MATRIX;system;system;27;222
+226;226;Please indicate the level of agreement with the following statements regarding the use of communication technology (such as Teams, Zoom, whatsapp, other social media) in your machines (laptop/computer);MATRIX;system;system;28;
+227;227;Use of these technologies has not increased my workload during the pandemic;SUB_MATRIX;system;system;28;226
+228;228;Use of these technologies has not increased my stress or anxiety during the pandemic;SUB_MATRIX;system;system;28;226
+229;229;I am forced to change my work habits to adapt to new technologies;SUB_MATRIX;system;system;28;226
+230;230;I feel an invasion of personal life by the technology;SUB_MATRIX;system;system;28;226
+231;231;I find it difficult to use multiple technologies all at the same time (tech overload);SUB_MATRIX;system;system;28;226
+232;232;Please indicate your level of agreement with the following statements;MATRIX;system;system;29;
+233;233;I have the chance to attend to formal training programs to learn new skills and knowledge;SUB_MATRIX;system;system;29;232
+234;234;Organization spends enough resources on employees' training;SUB_MATRIX;system;system;29;232
+235;235;Organization is committed to the training and development of its employees;SUB_MATRIX;system;system;29;232
+236;236;Please indicate your level of agreement with the following statements;MATRIX;system;system;29;
+237;237;Employees receive support and encouragement when presenting new ideas and often favourable response;SUB_MATRIX;system;system;29;236
+238;238;There is a free and open communication within my work group/ teams/ organisation;SUB_MATRIX;system;system;29;236
+239;239;Organisation are capable of communicating the reasons for change to the members of our organization;SUB_MATRIX;system;system;29;236
+240;240;Please indicate your level of agreement with the following statements;MATRIX;system;system;30;
+241;241;I receive the respect and prestige I deserve at work;SUB_MATRIX;system;system;30;240
+242;242;I am fairly paid in comparison with others within the team;SUB_MATRIX;system;system;30;240
+243;243;My job promotion prospects are adequate;SUB_MATRIX;system;system;30;240
+244;244;Please indicate your level of agreement with the following statements;MATRIX;system;system;31;
+245;245;With my money situation, I feel like I have things I want in life;SUB_MATRIX;system;system;31;244
+246;246;I am securing my financial future;SUB_MATRIX;system;system;31;244
+247;247;I am not behind my finances;SUB_MATRIX;system;system;31;244
+248;248;Giving a gift for a wedding, birthday or other occasion would put a strain on my finances;SUB_MATRIX;system;system;31;244
+249;249;Please indicate your level of agreement with the following statements;MATRIX;system;system;32;
+250;250;I would be very happy to spend the rest of my career in this organization;SUB_MATRIX;system;system;32;249
+251;251;I feel emotionally attached to this organization;SUB_MATRIX;system;system;32;249
+252;252;Right now, staying with my job at this organization is a matter of necessity as much as desire, and would impact me financially;SUB_MATRIX;system;system;32;249
+253;253;This organization deserves my loyalty, and I owe a great deal;SUB_MATRIX;system;system;32;249
+254;254;It is unlikely that I will leave the company within the next 12 months;SUB_MATRIX;system;system;32;249
+255;255;Please indicate your level of agreement with the following statements;MATRIX;system;system;33;
+256;256;When someone criticizes my company, it feels like a personal insult;SUB_MATRIX;system;system;33;255
+257;257;When I talk about my company, I usually say “we” rather than “they”;SUB_MATRIX;system;system;33;255
+258;258;When someone praises my company, it feels like a personal compliment;SUB_MATRIX;system;system;33;255
+259;259;Please indicate your level of agreement with the following statements;MATRIX;system;system;34;
+260;260;I felt emotionally drained from my work;SUB_MATRIX;system;system;34;259
+261;261;I felt worn out at the end of the workday;SUB_MATRIX;system;system;34;259
+262;262;I felt I'm working too hard on my job;SUB_MATRIX;system;system;34;259
+263;263;I'm afraid that my work makes me emotionally wrecked;SUB_MATRIX;system;system;34;259
+264;264;I felt as soon as I get up in the morning and see a new working day stretched out;SUB_MATRIX;system;system;34;259

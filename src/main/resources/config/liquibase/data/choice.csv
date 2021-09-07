@@ -70,3 +70,12 @@ id;name;text;value;created_by;last_modified_by
 69;Human Health and Social Work Activities;Human Health and Social Work Activities;13;system;system
 70;Arts Entertainment and Recreation;Arts Entertainment and Recreation;14;system;system
 71;Other Manufacturing/Production/ Service Operations Activities;Other Manufacturing/Production/ Service Operations Activities;15;system;system
+72;Did not apply to me at all;0;0;system;system
+73;Applied to me to some degree, or some of the time;1;1;system;system
+74;Applied to me to a considerable degree or a good part of time;2;2;system;system
+75;Applied to me very much or most of the time;3;3;system;system
+76;Strongly disagree ;Strongly disagree ;1;system;system
+77;Somewhat disagree ;Somewhat disagree ;2;system;system
+78;Neither agree nor disagree ;Neither agree nor disagree ;3;system;system
+79;Somewhat agree ;Somewhat agree ;4;system;system
+80;Strongly agree;Strongly agree;5;system;system

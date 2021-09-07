@@ -14,7 +14,7 @@ export default class SurveyService {
   }
 
   public get(): AxiosPromise<any> {
-    let surveyId = 1;
+    let surveyId = 2;
     return axios.get('api/survey/' + surveyId);
   }
 
