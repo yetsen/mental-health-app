@@ -23,3 +23,16 @@ id;name;formula;variables;created_by;last_modified_by
 22;Covid-19 Related Questions;(?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)/16;112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127;system;system
 23;Covid-19 Organization Ability;(?+?+?+?+?+?+?+?+?+?+?+?)/12;112,113,114,115,116,117,118,119,120,121,122,123;system;system
 24;Covid-19 Impact;(?+?+?+?)/4;124,125,126,127;system;system
+25;Well-Being;(?+?+?+?+?+?+?+?+?)/9;172,173,174,175,176,177,178,179,180;system;system
+26;Job Satisfaction;(?+?+?+?+?+?+?)/7;182,183,184,185,186,187,188;system;system
+27;Employee Productivity;(?+?+?+?+?+?+?)/7;190,191,192,193,194,195,196;system;system
+28;Job Characteristics;(?+?+?+?+?+?+?+?+?+(6-?)+?+?+?+?)/14;198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215;system;system
+29;Leadership;(?+?+?+?+?)/5;217,218,219,220,221;system;system
+30;Work-life Balance;((6-?)+(6-?)+(6-?))/3;223,224,225;system;system
+31;Communication Tech;(?+?+6-?+6-?+6-?)/5;227,228,229,230,231;system;system
+32;Organisational  Learning ;(?+?+?+?+?+?)/6;233,234,235,237,238,239;system;system
+33;Rewards/Pay;(?+?+?)/3;241,242,243;system;system
+34;Financial Wellbeing;(?+?+?+6-?)/4;245,246,247,248;system;system
+35;Organisational Commitment;(?+?+6-?+?+?)/5;250,251,252,253,254;system;system
+36;Organisational Identity ;(?+?+?)/3;256,257,258;system;system
+37;Burnout;(?+?+?+?+?)/5;260,261,262,263,264;system;system
