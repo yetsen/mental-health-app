@@ -223,7 +223,7 @@ Highcharts['theme'] = {
 Highcharts.setOptions(Highcharts['theme']);
 
 @Component
-export default class BubbleComponent extends Vue {
+export default class BubbleWithMhComponent extends Vue {
 
   @Prop()
   formulaResults: string;

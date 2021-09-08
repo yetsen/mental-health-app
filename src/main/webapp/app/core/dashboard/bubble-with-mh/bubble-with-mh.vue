@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<script lang="ts" src="./bubble.component.ts">
+<script lang="ts" src="./bubble-with-mh.component.ts">
 </script>
-<style lang="scss" src="./bubble.scss" scoped>
+<style lang="scss" src="./bubble-with-mh.scss" scoped>
 </style>

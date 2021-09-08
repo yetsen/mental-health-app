@@ -4,13 +4,15 @@ import Vue from 'vue';
 
 import DummyComponent from '@/core/dashboard/dummy/dummy.vue';
 import ChartService from "@/core/chart.service";
-import BubbleComponent from "@/core/dashboard/bubble/bubble.vue";
+import BubbleWithMhComponent from "@/core/dashboard/bubble-with-mh/bubble-with-mh.vue";
+import BubbleWithWbComponent from "@/core/dashboard/bubble-with-wb/bubble-with-wb.vue";
 
 @Component({
   name: 'dashboard',
   components: {
     dummyComponent: DummyComponent,
-    bubbleComponent: BubbleComponent
+    bubbleWithMhComponent: BubbleWithMhComponent,
+    bubbleWithWbComponent: BubbleWithWbComponent
   },
 })
 export default class Dashboard extends Vue {
