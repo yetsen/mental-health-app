@@ -274,6 +274,9 @@ function genOptions(vm, dataset) {
         text: null
       }
     },
+    exporting: {
+      enabled: false
+    },
     tooltip: {
       positioner: function() {
         return {
