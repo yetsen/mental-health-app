@@ -323,7 +323,7 @@ function genOptions(vm, dataset) {
 }
 
 @Component
-export default class SyncWithJsComponent extends Vue {
+export default class SyncWithEpComponent extends Vue {
 
   @Prop()
   formulaResults: string;
@@ -339,15 +339,18 @@ export default class SyncWithJsComponent extends Vue {
 
   fetchData() {
     let results = this.formulaResults;
+    let wb = results["Well-Being"];
+    let mh = results["Anxiety"];
+    let ep = results["Employee Productivity"];
     let dataset = [];
     let chartData = {};
     chartData['data'] = []
-    let times = Object.keys(results["Job Satisfaction"]);
+    let times = Object.keys(results["Employee Productivity"]);
     times.forEach(i => {
-      chartData['data'].push(Number(results["Job Satisfaction"][i].toFixed(2)));
+      chartData['data'].push(Number(results["Employee Productivity"][i].toFixed(2)));
     });
     chartData['color'] = '#90ee7e'
-    chartData['name'] = 'Job Satisfaction'
+    chartData['name'] = 'Productivity'
     chartData['type'] = 'line'
     chartData['unit'] = ''
     chartData['valueDecimals'] = 1
