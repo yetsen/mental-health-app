@@ -7,6 +7,7 @@ import ChartService from "@/core/chart.service";
 import BubbleWithMhComponent from "@/core/dashboard/bubble-with-mh/bubble-with-mh.vue";
 import BubbleWithWbComponent from "@/core/dashboard/bubble-with-wb/bubble-with-wb.vue";
 import BoxPlotComponent from "@/core/dashboard/box-plot/box-plot.vue";
+import SyncWithJsComponent from "@/core/dashboard/sync-with-js/sync-with-js.vue";
 
 @Component({
   name: 'dashboard',
@@ -14,7 +15,8 @@ import BoxPlotComponent from "@/core/dashboard/box-plot/box-plot.vue";
     dummyComponent: DummyComponent,
     bubbleWithMhComponent: BubbleWithMhComponent,
     bubbleWithWbComponent: BubbleWithWbComponent,
-    boxPlot : BoxPlotComponent
+    boxPlot : BoxPlotComponent,
+    syncWithJs: SyncWithJsComponent
   },
 })
 export default class Dashboard extends Vue {

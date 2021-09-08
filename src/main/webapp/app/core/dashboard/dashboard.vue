@@ -16,6 +16,7 @@
               <bubbleWithWbComponent  v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithWbComponent>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
+              <syncWithJs v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></syncWithJs>
             </div>
         </div>
         <div class="row">
