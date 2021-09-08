@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping ("/api/chart")
@@ -39,5 +40,11 @@ public class ChartResource {
             @PathVariable Long userId, @PathVariable Integer times) {
         ChartDTO chartDTO = chartService.generateBlockChart(blockId, userId, times);
         return new ResponseEntity<>(chartDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/formula-results/{userId}")
+    public ResponseEntity<Map<String, Map<Integer, Double>>> getFormulaResults(@PathVariable Long userId) {
+        Map<String, Map<Integer, Double>> results = chartService.getAllFormulaResults(userId);
+        return new ResponseEntity<>(results, HttpStatus.OK);
     }
 }

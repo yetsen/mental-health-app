@@ -19,4 +19,7 @@ export default class ChartService {
     return axios.get('api/chart/block/' + blockId + '/' + userId + '/' + times);
   }
 
+  public getAllFormulaResults(userId): AxiosPromise<any> {
+    return axios.get('/api/chart/formula-results/' + userId);
+  }
 }

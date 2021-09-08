@@ -26,7 +26,7 @@ id;name;formula;variables;created_by;last_modified_by
 25;Well-Being;(?+?+?+?+?+?+?+?+?)/9;172,173,174,175,176,177,178,179,180;system;system
 26;Job Satisfaction;(?+?+?+?+?+?+?)/7;182,183,184,185,186,187,188;system;system
 27;Employee Productivity;(?+?+?+?+?+?+?)/7;190,191,192,193,194,195,196;system;system
-28;Job Characteristics;(?+?+?+?+?+?+?+?+?+(6-?)+?+?+?+?)/14;198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215;system;system
+28;Job Characteristics;(?+?+?+?+?+?+?+?+?+(6-?)+?+?+?+?)/14;198,199,201,202,204,205,206,208,209,210,211,213,214,215;system;system
 29;Leadership;(?+?+?+?+?)/5;217,218,219,220,221;system;system
 30;Work-life Balance;((6-?)+(6-?)+(6-?))/3;223,224,225;system;system
 31;Communication Tech;(?+?+6-?+6-?+6-?)/5;227,228,229,230,231;system;system
@@ -36,3 +36,6 @@ id;name;formula;variables;created_by;last_modified_by
 35;Organisational Commitment;(?+?+6-?+?+?)/5;250,251,252,253,254;system;system
 36;Organisational Identity ;(?+?+?)/3;256,257,258;system;system
 37;Burnout;(?+?+?+?+?)/5;260,261,262,263,264;system;system
+38;Depression;(?+?+?+?+?+?+?)*2;152,154,159,162,165,166,170;;
+39;Anxiety;(?+?+?+?+?+?+?)*2;151,153,156,158,164,168,169;;
+40;Stress;(?+?+?+?+?+?+?)*2;150,155,157,160,161,163,167;;

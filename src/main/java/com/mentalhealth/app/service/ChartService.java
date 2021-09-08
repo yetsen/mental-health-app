@@ -4,6 +4,7 @@ import com.mentalhealth.app.config.Constants;
 import com.mentalhealth.app.domain.*;
 import com.mentalhealth.app.repository.*;
 import com.mentalhealth.app.service.dto.ChartDTO;
+import io.swagger.models.auth.In;
 import org.mariuszgromada.math.mxparser.Expression;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -98,6 +99,20 @@ public class ChartService {
 		return chartDTOList;
 	}
 
+	public Map<String, Map<Integer, Double>> getAllFormulaResults(Long userId) {
+		Map<String, Map<Integer, Double>> results = new HashMap<>(); //formula, times, result
+		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_Id(userId);
+		surveyInformations.forEach(surveyInformation -> {
+			Map<String, Double> res = getFormulaResults(surveyInformation.getId());
+			for (String key : res.keySet()) {
+				Map<Integer, Double> subRes = new HashMap<>();
+				subRes.put(surveyInformation.getTimes(), res.get(key));
+				results.put(key, subRes);
+			}
+		});
+		return results;
+	}
+
 	private ChartDTO getChartDTO (Long surveyInformationId, Chart chart) {
 		ChartDTO chartDTO = new ChartDTO();
 		List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
@@ -119,6 +134,25 @@ public class ChartService {
 			String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
 			double result = new Expression(expression).calculate();
 			resultMap.put(formula.getId(), result);
+		});
+		return resultMap;
+	}
+
+	private Map<String, Double> getFormulaResults (Long surveyInformationId) {
+		List<Formula> formulas = formulaRepository.findAll();
+		Map<String, Double> resultMap = new HashMap<>();
+		formulas.forEach(formula -> {
+			List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
+			Optional<List<Answer>> answerListOptional = answerRepository.findByQuestion_IdInAndSurveyInformation_Id(questionIds, surveyInformationId);
+			if (!answerListOptional.isPresent()) {
+				return;
+			}
+			List<Answer> answerList = answerListOptional.get();
+			Map<Long, Answer> questionAnswerList = answerList.stream().collect(Collectors.toMap(answer -> answer.getQuestion().getId(), Function
+					.identity()));
+			String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
+			double result = new Expression(expression).calculate();
+			resultMap.put(formula.getName(), result);
 		});
 		return resultMap;
 	}

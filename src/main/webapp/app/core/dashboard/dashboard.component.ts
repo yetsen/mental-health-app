@@ -4,11 +4,13 @@ import Vue from 'vue';
 
 import DummyComponent from '@/core/dashboard/dummy/dummy.vue';
 import ChartService from "@/core/chart.service";
+import BubbleComponent from "@/core/dashboard/bubble/bubble.vue";
 
 @Component({
   name: 'dashboard',
   components: {
     dummyComponent: DummyComponent,
+    bubbleComponent: BubbleComponent
   },
 })
 export default class Dashboard extends Vue {
@@ -17,19 +19,21 @@ export default class Dashboard extends Vue {
 
   public chartList = [];
 
+  public formulaResults = {};
+
   private times;
 
   @Watch('$route', { immediate: true, deep: true })
   onPropertyChanged(value: string, oldValue: string) {
     this.times = value['params'].times;
     if (this.isEmployer()) {
-      this.chartService().getCompanyCharts(this.companyId(), this.times).then(
-          value => this.chartList = value.data
-      )
+      // this.chartService().getCompanyCharts(this.companyId(), this.times).then(
+      //     value => this.chartList = value.data
+      // )
     } else {
-      this.chartService().get(this.userId(), this.times).then(
-          value => this.chartList = value.data
-      )
+       this.chartService().getAllFormulaResults(this.userId()).then(
+           value => this.formulaResults = value.data
+       )
     }
   }
 

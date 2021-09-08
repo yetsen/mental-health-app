@@ -1,5 +1,6 @@
 package com.mentalhealth.app.repository;
 
+import com.mentalhealth.app.domain.Block;
 import com.mentalhealth.app.domain.Question;
 import com.mentalhealth.app.enums.QuestionType;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +14,5 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
 
     Optional<Question> findByName(String name);
 
-    long countAllByTypeNotIn(List<QuestionType> questionTypes);
+    long countAllByTypeNotInAndBlockIn(List<QuestionType> questionTypes, List<Block> blocks);
 }

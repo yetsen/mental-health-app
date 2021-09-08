@@ -136,7 +136,8 @@ public class SurveyService {
         if (surveyInformation.isFinished())
             return true;
         long answeredQuestionsSize = answerRepository.countAnswersBySurveyInformation(surveyInformation);
-        long allQuestionsSize = questionRepository.countAllByTypeNotIn(Arrays.asList(QuestionType.MATRIX_DROPDOWN, QuestionType.MATRIX));
+        List<Block> blockList = blockRepository.findBySurvey_Id(2L); //TODO change static 2
+        long allQuestionsSize = questionRepository.countAllByTypeNotInAndBlockIn(Arrays.asList(QuestionType.MATRIX_DROPDOWN, QuestionType.MATRIX), blockList);
 
         if (allQuestionsSize == answeredQuestionsSize) {
             surveyInformation.setFinished(true);

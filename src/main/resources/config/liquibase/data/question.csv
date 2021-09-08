@@ -255,7 +255,7 @@ id;name;title;type;created_by;last_modified_by;block_id;parent_id
 254;254;It is unlikely that I will leave the company within the next 12 months;SUB_MATRIX;system;system;32;249
 255;255;Please indicate your level of agreement with the following statements;MATRIX;system;system;33;
 256;256;When someone criticizes my company, it feels like a personal insult;SUB_MATRIX;system;system;33;255
-257;257;When I talk about my company, I usually say “we” rather than “they”;SUB_MATRIX;system;system;33;255
+257;257;When I talk about my company, I usually say "we" rather than "they";SUB_MATRIX;system;system;33;255
 258;258;When someone praises my company, it feels like a personal compliment;SUB_MATRIX;system;system;33;255
 259;259;Please indicate your level of agreement with the following statements;MATRIX;system;system;34;
 260;260;I felt emotionally drained from my work;SUB_MATRIX;system;system;34;259
