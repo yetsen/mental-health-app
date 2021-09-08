@@ -5,7 +5,6 @@ import exportingInit from "highcharts/modules/exporting";
 import heatmap from "highcharts/modules/heatmap";
 import Highcharts from 'highcharts';
 import More from 'highcharts/highcharts-more';
-import AccountService from "@/account/account.service";
 
 
 exportingInit(Highcharts);
@@ -223,27 +222,26 @@ Highcharts['theme'] = {
 Highcharts.setOptions(Highcharts['theme']);
 
 @Component
-export default class BubbleWithWbComponent extends Vue {
+export default class BoxPlotComponent extends Vue {
 
   @Prop()
   formulaResults: string;
 
   data() {
-    //console.log(parsed)
-    //console.log(JSONfn.stringify())
-
-
 
     return {
       chartOptions: {
 
         chart: {
-          type: 'bubble'
+          type: 'boxplot'
         },
 
-
         title: {
-          text: 'WB Vs Job satisfaction Vs Employee Productivity'
+          text: 'General Average'
+        },
+
+        legend: {
+          enabled: false
         },
 
         xAxis: {
@@ -254,83 +252,45 @@ export default class BubbleWithWbComponent extends Vue {
 
         yAxis: {
           title: {
-            text: 'Productivity'
+            text: 'Average'
           }
         },
 
-        tooltip: {
-          useHTML: true,
-          headerFormat: '<table>',
-          pointFormat: '<tr><th>Productivity:</th><td>{point.y}</td></tr>' +
-              '<tr><th>Job Satisfaction:</th><td>{point.z}</td></tr>',
-          footerFormat: '</table>',
-          followPointer: true
-        },
-
-        plotOptions: {
-          series: {
-            dataLabels: {
-              enabled: true,
-              format: '{point.name}'
-            }
+        series: [{
+          name: 'Statistics',
+          data: this.seriesData(),
+          tooltip: {
+            headerFormat: '<em>Assessment {point.key}</em><br/>'
           }
-        },
-        legend: {
-          enabled: true
-        },
-
-        series: this.series()
+        }]
 
       }
     };
   }
 
-  series() {
-    let series = [];
-    let seri = {};
+  times() {
+    let results = this.formulaResults;
+    return Object.keys(results["Well-Being"]);
+  }
 
-    seri['name'] = "Normal";
-    seri['data'] = [];
-    series.push(seri);
-    seri = {};
-    seri['name'] = "Mild";
-    seri['data'] = [];
-    series.push(seri);
-    seri = {};
-    seri['name'] = "Moderate";
-    seri['data'] = [];
-    series.push(seri);
-    seri = {};
-    seri['name'] = "Severe";
-    seri['data'] = [];
-    series.push(seri);
-    seri = {};
-    seri['name'] = "Extremely Severe";
-    seri['data'] = [];
-    series.push(seri);
+  seriesData() {
+    let seriesData = [];
+
 
     let results = this.formulaResults;
-    let wb = results["Well-Being"];
-    let ep = results["Employee Productivity"];
-    let js = results["Job Satisfaction"];
     let times = Object.keys(results["Well-Being"]);
-    times.forEach(i => {
-      let coord = {};
-      coord['x'] = Number(i);
-      coord['y'] = Number(ep[i].toFixed(2));
-      coord['z'] = Number(js[i].toFixed(2));
-      if (wb[i] <= 1)
-        series[0]["data"].push(coord);
-      else if (wb[i] <= 2)
-        series[1]["data"].push(coord);
-      else if (wb[i] <= 3)
-        series[2]["data"].push(coord);
-      else if (wb[i] <= 4)
-        series[3]["data"].push(coord);
-      else
-        series[4]["data"].push(coord);
-    });
-    return series;
+    let keys = Object.keys(results);
+      times.forEach(i => {
+        let row = [Number(i)];
+        keys.forEach(k => {
+          if (results[k][i] <= 5)
+            row.push(Number(results[k][i].toFixed(2)));
+        });
+        seriesData.push(row);
+        seriesData.push(row);
+      });
+
+    return seriesData;
 
   }
 

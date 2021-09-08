@@ -5,18 +5,17 @@
         </header>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-              <bubbleWithMhComponent  v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></bubbleWithMhComponent>
+              <boxPlot v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></boxPlot>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-              <bubbleWithWbComponent  v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithWbComponent>
+              <bubbleWithMhComponent  v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></bubbleWithMhComponent>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-
+              <bubbleWithWbComponent  v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithWbComponent>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
-
             </div>
         </div>
         <div class="row">
