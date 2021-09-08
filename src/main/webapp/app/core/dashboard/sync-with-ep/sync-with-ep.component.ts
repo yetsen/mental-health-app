@@ -329,11 +329,11 @@ export default class SyncWithEpComponent extends Vue {
   formulaResults: string;
 
 
-  optionsList: [];
+  optionsList: {};
 
   data() {
     return {
-      optionsList : []
+      optionsList : {}
     };
   }
 
