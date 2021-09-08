@@ -9,6 +9,7 @@ import BubbleWithWbComponent from "@/core/dashboard/bubble-with-wb/bubble-with-w
 import BoxPlotComponent from "@/core/dashboard/box-plot/box-plot.vue";
 import SyncWithEpComponent from "@/core/dashboard/sync-with-ep/sync-with-ep.vue";
 import SyncWithJsComponent from "@/core/dashboard/sync-with-js/sync-with-js.vue";
+import ScatterLineWithMh from "@/core/dashboard/scatter-line-with-mh/scatter-line-with-mh.vue";
 
 @Component({
   name: 'dashboard',
@@ -18,7 +19,8 @@ import SyncWithJsComponent from "@/core/dashboard/sync-with-js/sync-with-js.vue"
     bubbleWithWbComponent: BubbleWithWbComponent,
     boxPlot : BoxPlotComponent,
     syncWithEp: SyncWithEpComponent,
-    syncWithJs: SyncWithJsComponent
+    syncWithJs: SyncWithJsComponent,
+    scatterLineMh: ScatterLineWithMh
   },
 })
 export default class Dashboard extends Vue {
@@ -29,13 +31,13 @@ export default class Dashboard extends Vue {
 
   public formulaResults = {};
 
-  public companyFormulaResults = {};
+  public companyFormulaResults = [];
 
   @Watch('$route', { immediate: true, deep: true })
   onPropertyChanged(value: string, oldValue: string) {
     if (this.isEmployer()) {
        this.chartService().getAllCompanyFormulaResults(this.companyId()).then(
-           value => this.chartList = value.data
+           value => this.companyFormulaResults = value.data
        )
     } else {
        this.chartService().getAllFormulaResults(this.userId()).then(

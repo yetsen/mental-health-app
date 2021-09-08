@@ -9,6 +9,7 @@ import org.mariuszgromada.math.mxparser.Expression;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.*;
@@ -103,7 +104,11 @@ public class ChartService {
 		List<User> userList = Constants.ACADEMY_ID.equals(companyId) ?
 				userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
 		List<Map<String, Map<Integer, Double>>> result = new ArrayList<>();
-		userList.forEach(user -> result.add(getAllFormulaResults(user.getId())));
+		userList.forEach(user -> {
+			Map<String, Map<Integer, Double>> r = getAllFormulaResults(user.getId());
+			if (!CollectionUtils.isEmpty(r))
+				result.add(r);
+		});
 		return result;
 	}
 

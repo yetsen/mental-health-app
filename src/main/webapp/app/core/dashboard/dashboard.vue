@@ -9,6 +9,7 @@
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <boxPlot v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></boxPlot>
+              <scatterLineMh v-if="isEmployer() && companyFormulaResults[0]" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineMh>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithMhComponent  v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></bubbleWithMhComponent>
