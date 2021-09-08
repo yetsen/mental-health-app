@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="row">
-            <div style="margin-top: -260px;" class="col-md-6 col-sm-12 col-xs-12">
+            <div style="margin-top: -29vh;" class="col-md-6 col-sm-12 col-xs-12">
               <syncWithJs v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></syncWithJs>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
