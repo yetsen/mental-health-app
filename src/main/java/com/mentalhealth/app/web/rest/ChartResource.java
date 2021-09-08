@@ -47,4 +47,10 @@ public class ChartResource {
         Map<String, Map<Integer, Double>> results = chartService.getAllFormulaResults(userId);
         return new ResponseEntity<>(results, HttpStatus.OK);
     }
+
+    @GetMapping("/company-formula-results/{companyId}")
+    public ResponseEntity<List<Map<String, Map<Integer, Double>>>> getCompanyFormulaResults(@PathVariable Long companyId) {
+        List<Map<String, Map<Integer, Double>>> results = chartService.getAllCompanyFormulaResults(companyId);
+        return new ResponseEntity<>(results, HttpStatus.OK);
+    }
 }

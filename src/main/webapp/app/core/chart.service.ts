@@ -22,4 +22,8 @@ export default class ChartService {
   public getAllFormulaResults(userId): AxiosPromise<any> {
     return axios.get('/api/chart/formula-results/' + userId);
   }
+
+  public getAllCompanyFormulaResults(companyId): AxiosPromise<any> {
+    return axios.get('/api/chart/company-formula-results/' + companyId);
+  }
 }

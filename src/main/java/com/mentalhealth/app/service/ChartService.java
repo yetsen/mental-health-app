@@ -99,6 +99,14 @@ public class ChartService {
 		return chartDTOList;
 	}
 
+	public List<Map<String, Map<Integer, Double>>> getAllCompanyFormulaResults(Long companyId) {
+		List<User> userList = Constants.ACADEMY_ID.equals(companyId) ?
+				userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
+		List<Map<String, Map<Integer, Double>>> result = new ArrayList<>();
+		userList.forEach(user -> result.add(getAllFormulaResults(user.getId())));
+		return result;
+	}
+
 	public Map<String, Map<Integer, Double>> getAllFormulaResults(Long userId) {
 		Map<String, Map<Integer, Double>> results = new HashMap<>(); //formula, times, result
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_Id(userId);
