@@ -46,7 +46,7 @@ export default new Router({
       meta: { authorities: [Authority.USER] }
     },
     {
-      path: '/dashboard/:times',
+      path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
       meta: { authorities: [Authority.USER] }

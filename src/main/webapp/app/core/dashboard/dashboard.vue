@@ -1,5 +1,8 @@
 <template>
     <div class="container-fluid dashboard">
+        <header class="section-header">
+          <h2>Welcome To Employee Dashboard</h2>
+        </header>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithMhComponent  v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></bubbleWithMhComponent>

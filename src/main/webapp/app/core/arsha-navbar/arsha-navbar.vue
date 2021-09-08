@@ -22,16 +22,7 @@
               </li>
             </ul>
           </li>
-          <li v-if="authenticated" class="dropdown"><a><span>Dashboard <font-awesome-icon icon="chevron-down"/></span></a>
-            <ul>
-              <li v-for="si in surveyInformation" v-if="si.finished && !isEmployer" v-bind:key="si.times" v-bind:to="'/dashboard/' + si.times">
-                <a @click="goTo('/dashboard/' + si.times)">Dashboard #{{si.times}} </a>
-              </li>
-              <li v-for="ctl in companyAvailableTimeList" v-if="isEmployer" v-bind:key="ctl" v-bind:to="'/dashboard/' + ctl">
-                <a @click="goTo('/dashboard/' + ctl)">Dashboard #{{ctl}} </a>
-              </li>
-            </ul>
-          </li>
+          <li v-if="authenticated"><a class="nav-link" @click="goTo('/dashboard')">Dashboard</a></li>
           <li v-if="!authenticated"><a class="getstarted" v-on:click="openLogin()">Sign in</a></li>
           <li v-if="authenticated" class="dropdown"><a><span>Profile <font-awesome-icon icon="chevron-down"/></span></a>
             <ul>

@@ -23,11 +23,8 @@ export default class Dashboard extends Vue {
 
   public formulaResults = {};
 
-  private times;
-
   @Watch('$route', { immediate: true, deep: true })
   onPropertyChanged(value: string, oldValue: string) {
-    this.times = value['params'].times;
     if (this.isEmployer()) {
       // this.chartService().getCompanyCharts(this.companyId(), this.times).then(
       //     value => this.chartList = value.data
