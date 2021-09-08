@@ -5,14 +5,12 @@ import exportingInit from "highcharts/modules/exporting";
 import heatmap from "highcharts/modules/heatmap";
 import Highcharts from 'highcharts';
 import More from 'highcharts/highcharts-more';
-import Data from 'highcharts/modules/data'
 
 
 exportingInit(Highcharts);
 offlineExporting(Highcharts);
 More(Highcharts);
 heatmap(Highcharts);
-Data(Highcharts);
 
 Highcharts.createElement('link', {
   href: 'https://fonts.googleapis.com/css?family=Jost',
@@ -223,170 +221,160 @@ Highcharts['theme'] = {
 
 Highcharts.setOptions(Highcharts['theme']);
 
-function sync(vm, event, type) {
-  vm.$refs.highcharts.forEach(({ chart }) => {
-    if (chart === this.series.chart) return;
-    chart.series.forEach((series) => {
-      series.data.forEach((point) => {
-        if (point.x === this.x) {
-          if (type === 'over') {
-            point.setState('hover');
-            chart.tooltip.refresh(point);
-            chart.xAxis[0].drawCrosshair(event, point);
-          } else {
-            point.setState();
-            chart.tooltip.hide();
-            chart.xAxis[0].hideCrosshair();
-          }
-        }
-      });
-    });
-  });
-}
-
-function genOptions(vm, dataset) {
-  return {
-    chart: {
-      marginLeft: 40, // Keep all charts left aligned
-      spacingTop: 20,
-      spacingBottom: 20
-    },
-    title: {
-      text: dataset.name,
-      align: 'left',
-      margin: 0,
-      x: 30
-    },
-    credits: {
-      enabled: false
-    },
-    legend: {
-      enabled: false
-    },
-    xAxis: {
-      crosshair: true,
-      labels: {
-        format: '{value}'
-      }
-    },
-    yAxis: {
-      title: {
-        text: null
-      }
-    },
-    exporting: {
-      enabled: false
-    },
-    tooltip: {
-      positioner: function() {
-        return {
-          // right aligned
-          x: this.chart.chartWidth - this.label.width,
-          y: 10 // align to title
-        };
-      },
-      borderWidth: 0,
-      backgroundColor: 'none',
-      pointFormat: '{point.y}',
-      headerFormat: '',
-      shadow: false,
-      style: {
-        fontSize: '18px'
-      },
-      valueDecimals: dataset.valueDecimals
-    },
-    plotOptions: {
-      series: {
-        point: {
-          events: {
-            mouseOver: function(event) {
-              sync.call(this, vm, event, 'over');
-            },
-            mouseOut: function(event) {
-              sync.call(this, vm, event, 'out');
-            }
-          }
-        }
-      }
-    },
-    series: [{
-      data: dataset.data,
-      name: dataset.name,
-      type: dataset.type,
-      color: dataset.color,
-      fillOpacity: 0.3,
-      tooltip: {
-        valueSuffix: ' ' + dataset.unit
-      }
-    }]
-  };
-}
-
 @Component
-export default class SyncWithJsComponent extends Vue {
+export default class EmployerCombinationComponent extends Vue {
 
   @Prop()
   formulaResults: string;
-
-
-  optionsList: {};
+  @Prop()
+  companyFormulaResults: string[];
 
   data() {
+
     return {
-      optionsList : {}
+      chartOptions: {
+        title: {
+          text: 'MH Vs Job satisfaction Vs Org Commitment Vs WB Vs Emp Productivity '
+        },
+        xAxis: {
+          categories: this.times(),
+          title: {
+            text: 'Times'
+          }
+        },
+        series: this.seriesData()
+      }
     };
   }
 
-  fetchData() {
+
+  times() {
     let results = this.formulaResults;
-    let dataset = [];
-    let chartData = {};
-    chartData['data'] = []
-    let times = Object.keys(results["Job Satisfaction"]);
-    times.forEach(i => {
-      chartData['data'].push(Number(results["Job Satisfaction"][i].toFixed(2)));
-    });
-    chartData['color'] = '#90ee7e'
-    chartData['name'] = 'Job Satisfaction'
-    chartData['type'] = 'line'
-    chartData['unit'] = ''
-    chartData['valueDecimals'] = 1
-    dataset.push(chartData);
-
-    chartData = {};
-    chartData['data'] = []
-    times = Object.keys(results["Anxiety"]);
-    times.forEach(i => {
-      chartData['data'].push(Number(results["Anxiety"][i].toFixed(2)));
-    });
-    chartData['color'] = '#90ee7e'
-    chartData['name'] = 'Mental Health'
-    chartData['type'] = 'line'
-    chartData['unit'] = ''
-    chartData['valueDecimals'] = 1
-    dataset.push(chartData);
-
-    chartData = {};
-    chartData['data'] = []
-    times = Object.keys(results["Well-Being"]);
-    times.forEach(i => {
-      chartData['data'].push(Number(results["Well-Being"][i].toFixed(2)));
-    });
-    chartData['color'] = '#90ee7e'
-    chartData['name'] = 'Well-Being'
-    chartData['type'] = 'line'
-    chartData['unit'] = ''
-    chartData['valueDecimals'] = 1
-    dataset.push(chartData);
-
-    this.optionsList = dataset.map(d => {
-      return genOptions(this, d);
-    })
-
+    return Object.keys(results["Business Productivity"]);
   }
 
-  mounted() {
-    this.fetchData();
+  seriesData() {
+    let series = [];
+    let seri = {};
+
+    seri['name'] = "Mental Health";
+    seri['type'] = "column";
+    seri['data'] = [];
+    series.push(seri);
+    seri = {};
+    seri['name'] = "Job Satisfaction";
+    seri['type'] = "column";
+    seri['data'] = [];
+    series.push(seri);
+    seri = {};
+    seri['name'] = "Well-Being";
+    seri['type'] = "column";
+    seri['data'] = [];
+    series.push(seri);
+    seri = {};
+    seri['name'] = "Organizational Commitment";
+    seri['type'] = "column";
+    seri['data'] = [];
+    series.push(seri);
+    seri = {};
+    seri['name'] = "Employee Productivity";
+    seri['type'] = "column";
+    seri['data'] = [];
+
+    series.push(seri);
+    seri = {};
+    seri['name'] = "Business Productivity";
+    seri['type'] = "column";
+    seri['data'] = [];
+    series.push(seri);
+    seri = {};
+    seri['name'] = "Average";
+    seri['data'] = [];
+    seri['type'] = 'spline'
+    series.push(seri);
+
+    let allResults = this.companyFormulaResults;
+    allResults.forEach(results => {
+      let mh = results["Anxiety"];
+      let js = results["Job Satisfaction"];
+      let wb = results["Well-Being"];
+      let oc = results["Organisational Commitment"];
+      let ep = results["Employee Productivity"];
+      let bp = this.formulaResults["Business Productivity"]
+      let times = Object.keys(results["Anxiety"]);
+
+      let keys = Object.keys(results);
+      times.forEach(i => {
+
+        let ave = 0;
+        let cnt = 0;
+        keys.forEach(k => {
+          if (results[k][i] <= 5) {
+            ave += Number(results[k][i].toFixed(2));
+            cnt++;
+          }
+
+        });
+
+        ave = ave/cnt;
+
+
+        let cur = series[6]["data"][Number(i)-1];
+        if (typeof cur == "undefined") {
+          series[6]["data"][Number(i)-1] = ave;
+        } else {
+          series[6]["data"][Number(i)-1] += ave;
+        }
+
+        cur = series[0]["data"][Number(i)-1];
+        if (typeof cur == "undefined") {
+          series[0]["data"][Number(i)-1] = Number(mh[i]);
+        } else {
+          series[0]["data"][Number(i)-1] += Number(mh[i]);
+        }
+
+        cur = series[1]["data"][Number(i)-1];
+        if (typeof cur == "undefined") {
+          series[1]["data"][Number(i)-1] = Number(js[i]);
+        } else {
+          series[1]["data"][Number(i)-1] += Number(js[i]);
+        }
+        cur = series[2]["data"][Number(i)-1];
+        if (typeof cur == "undefined") {
+          series[2]["data"][Number(i)-1] = Number(wb[i]);
+        } else {
+          series[2]["data"][Number(i)-1] += Number(wb[i]);
+        }
+        cur = series[3]["data"][Number(i)-1];
+        if (typeof cur == "undefined") {
+          series[3]["data"][Number(i)-1] = Number(oc[i]);
+        } else {
+          series[3]["data"][Number(i)-1] += Number(oc[i]);
+        }
+        cur = series[4]["data"][Number(i)-1];
+        if (typeof cur == "undefined") {
+          series[4]["data"][Number(i)-1] = Number(ep[i]);
+        } else {
+          series[4]["data"][Number(i)-1] += Number(ep[i]);
+        }
+        cur = series[5]["data"][Number(i)-1];
+        if (typeof cur == "undefined") {
+          series[5]["data"][Number(i)-1] = Number(bp[i]);
+        } else {
+          series[5]["data"][Number(i)-1] += Number(bp[i]);
+        }
+      });
+    });
+
+    let userCount = allResults.length;
+    series.forEach(function(seri, index,arr) {
+      seri["data"].forEach(function (val, index2) {
+        arr[index]["data"][index2] = Number((val/userCount).toFixed(2));
+      });
+    });
+    console.log(series);
+    return series;
   }
+
 
 }

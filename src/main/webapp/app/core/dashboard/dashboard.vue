@@ -23,6 +23,7 @@
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <syncWithEp v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></syncWithEp>
+              <employerCombination v-if="isEmployer() && companyFormulaResults[0]" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></employerCombination>
             </div>
         </div>
         <div class="row">
