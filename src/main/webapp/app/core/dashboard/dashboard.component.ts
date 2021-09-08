@@ -11,6 +11,7 @@ import SyncWithEpComponent from "@/core/dashboard/sync-with-ep/sync-with-ep.vue"
 import SyncWithJsComponent from "@/core/dashboard/sync-with-js/sync-with-js.vue";
 import ScatterLineWithMh from "@/core/dashboard/scatter-line-with-mh/scatter-line-with-mh.vue";
 import ScatterLineWithWb from "@/core/dashboard/scatter-line-with-wb/scatter-line-with-wb.vue";
+import EmployerBubble from "@/core/dashboard/employer-bubble/employer-bubble.vue";
 
 @Component({
   name: 'dashboard',
@@ -22,7 +23,8 @@ import ScatterLineWithWb from "@/core/dashboard/scatter-line-with-wb/scatter-lin
     syncWithEp: SyncWithEpComponent,
     syncWithJs: SyncWithJsComponent,
     scatterLineMh: ScatterLineWithMh,
-    scatterLineWb: ScatterLineWithWb
+    scatterLineWb: ScatterLineWithWb,
+    employerBubble: EmployerBubble
   },
 })
 export default class Dashboard extends Vue {
