@@ -222,7 +222,7 @@ Highcharts['theme'] = {
 Highcharts.setOptions(Highcharts['theme']);
 
 @Component
-export default class ScatterLineWithMhComponent extends Vue {
+export default class ScatterLineWithWbComponent extends Vue {
 
   @Prop()
   formulaResults: string;
@@ -237,7 +237,7 @@ export default class ScatterLineWithMhComponent extends Vue {
           type: 'scatter'
         },
         title: {
-          text: 'MH Vs Employee Productivity Vs Business Productivity'
+          text: 'WB Vs Employee Productivity Vs Business Productivity'
         },
         xAxis: {
           title: {
@@ -298,20 +298,18 @@ export default class ScatterLineWithMhComponent extends Vue {
 
     let allResults = this.companyFormulaResults;
     allResults.forEach(results => {
-      let mh = results["Anxiety"];
+      let wb = results["Well-Being"];
       let ep = results["Employee Productivity"];
       let times = Object.keys(results["Anxiety"]);
       times.forEach(i => {
-        if (mh[i] < 8)
+        if (wb[i] <= 2)
           series[0]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
-        else if (mh[i] < 10)
+        else if (wb[i] <= 3)
           series[1]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
-        else if (mh[i] < 15)
+        else if (wb[i] <= 4)
           series[2]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
-        else if (mh[i] < 20)
-          series[3]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
         else
-          series[4]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
+          series[3]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
 
         //TODO it will change after questions are provided
         series[5]["data"].push([Number(i), this.formulaResults["Business Productivity"][i]])

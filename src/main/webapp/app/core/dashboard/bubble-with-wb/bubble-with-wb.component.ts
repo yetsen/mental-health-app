@@ -319,16 +319,14 @@ export default class BubbleWithWbComponent extends Vue {
       coord['x'] = Number(i);
       coord['y'] = Number(ep[i].toFixed(2));
       coord['z'] = Number(js[i].toFixed(2));
-      if (wb[i] <= 1)
+      if (wb[i] <= 2)
         series[0]["data"].push(coord);
-      else if (wb[i] <= 2)
-        series[1]["data"].push(coord);
       else if (wb[i] <= 3)
-        series[2]["data"].push(coord);
+        series[1]["data"].push(coord);
       else if (wb[i] <= 4)
-        series[3]["data"].push(coord);
+        series[2]["data"].push(coord);
       else
-        series[4]["data"].push(coord);
+        series[3]["data"].push(coord);
     });
     return series;
 

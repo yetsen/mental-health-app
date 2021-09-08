@@ -13,6 +13,7 @@
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithMhComponent  v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></bubbleWithMhComponent>
+              <scatterLineWb v-if="isEmployer() && companyFormulaResults[0]" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineWb>
             </div>
         </div>
         <div class="row">

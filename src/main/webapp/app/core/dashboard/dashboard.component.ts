@@ -10,6 +10,7 @@ import BoxPlotComponent from "@/core/dashboard/box-plot/box-plot.vue";
 import SyncWithEpComponent from "@/core/dashboard/sync-with-ep/sync-with-ep.vue";
 import SyncWithJsComponent from "@/core/dashboard/sync-with-js/sync-with-js.vue";
 import ScatterLineWithMh from "@/core/dashboard/scatter-line-with-mh/scatter-line-with-mh.vue";
+import ScatterLineWithWb from "@/core/dashboard/scatter-line-with-wb/scatter-line-with-wb.vue";
 
 @Component({
   name: 'dashboard',
@@ -20,7 +21,8 @@ import ScatterLineWithMh from "@/core/dashboard/scatter-line-with-mh/scatter-lin
     boxPlot : BoxPlotComponent,
     syncWithEp: SyncWithEpComponent,
     syncWithJs: SyncWithJsComponent,
-    scatterLineMh: ScatterLineWithMh
+    scatterLineMh: ScatterLineWithMh,
+    scatterLineWb: ScatterLineWithWb
   },
 })
 export default class Dashboard extends Vue {
@@ -39,6 +41,16 @@ export default class Dashboard extends Vue {
        this.chartService().getAllCompanyFormulaResults(this.companyId()).then(
            value => this.companyFormulaResults = value.data
        )
+
+      this.formulaResults["Business Productivity"] = {
+         '1' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
+         '2' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
+         '3' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
+         '4' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
+         '5' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
+         '6' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
+         '7' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
+       }
     } else {
        this.chartService().getAllFormulaResults(this.userId()).then(
            value => this.formulaResults = value.data
