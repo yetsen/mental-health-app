@@ -134,7 +134,7 @@ public class ChartService {
 		surveyInformations.forEach(surveyInformation -> {
 			Map<String, Double> res = getFormulaResults(surveyInformation.getId());
 			for (String key : res.keySet()) {
-				Map<Integer, Double> subRes = new TreeMap<>();
+				Map<Integer, Double> subRes = results.getOrDefault(key, new TreeMap<>());
 				subRes.put(surveyInformation.getTimes(), res.get(key));
 				results.put(key, subRes);
 			}
