@@ -10,7 +10,7 @@
 
       <div class="row">
 
-        <div class="col-lg-12 mt-5 mt-lg-0 d-flex">
+        <div class="col-lg-12 mt-5 mt-lg-0">
           <div class="row align-self-center gy-4">
 
             <div v-for="block in blocks" class="col-md-4" data-aos="zoom-out" data-aos-delay="200">

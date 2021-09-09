@@ -16,9 +16,12 @@ export default class LandingPageComponent extends Vue {
     }
 
     public get blocks() {
-        return this.$store.getters.survey.pages;
+        return this.isEmployer ? this.$store.getters.employerSurvey.pages : this.$store.getters.survey.pages;
     }
 
+    public get isEmployer() {
+        return this.$store.getters.account ? this.$store.getters.account.isEmployer : '';
+    }
 
     public get authenticated(): boolean {
         return this.$store.getters.authenticated;

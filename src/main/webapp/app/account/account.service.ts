@@ -46,6 +46,9 @@ export default class AccountService {
             if (account.isEmployer) {
               this.getCompanySurveyInformation(account.companyId).then(res => {
                 this.store.commit('setCompanySurveyInformation', res.data)
+                if (fromLogin) {
+                  router.push('/landing-page/' + this.currentTime(res.data));
+                }
               });
             }
           } else {
