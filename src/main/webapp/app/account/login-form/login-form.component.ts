@@ -35,7 +35,7 @@ export default class LoginForm extends Vue {
       .then(() => {
         this.authenticationError = false;
         this.$root.$emit('bv::hide::modal', 'login-page');
-        this.accountService().retrieveAccount();
+        this.accountService().retrieveAccount(true, this.$router);
       })
       .catch(() => {
         this.authenticationError = true;

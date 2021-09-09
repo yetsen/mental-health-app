@@ -21,7 +21,7 @@ export default class AccountService {
     });
   }
 
-  public retrieveAccount(): Promise<boolean> {
+  public retrieveAccount(fromLogin = false, router = null): Promise<boolean> {
     return new Promise(resolve => {
       axios
         .get('api/account')
@@ -39,6 +39,9 @@ export default class AccountService {
             }
             this.getSurveyInformation(account.id).then(res => {
               this.store.commit('setSurveyInformation', res.data)
+              if (fromLogin) {
+                router.push('/landing-page/' + this.currentTime(res.data));
+              }
             })
             if (account.isEmployer) {
               this.getCompanySurveyInformation(account.companyId).then(res => {
@@ -60,6 +63,19 @@ export default class AccountService {
     });
   }
 
+
+  public currentTime(surveyInformation) {
+    if (surveyInformation.length === 0) {
+      return 1;
+    }
+
+    if (surveyInformation[surveyInformation.length - 1].finished) {
+      return surveyInformation[surveyInformation.length - 1].times + 1;
+    } else {
+      return surveyInformation[surveyInformation.length - 1].times;
+    }
+  }
+
   public hasAnyAuthorityAndCheckAuth(authorities: any): Promise<boolean> {
     if (typeof authorities === 'string') {
       authorities = [authorities];
@@ -68,7 +84,7 @@ export default class AccountService {
     if (!this.authenticated || !this.userAuthorities) {
       const token = this.cookie.get('JSESSIONID') || this.cookie.get('XSRF-TOKEN');
       if (!this.store.getters.account && !this.store.getters.logon && token) {
-        return this.retrieveAccount();
+        return this.retrieveAccount(false, null);
       } else {
         return new Promise(resolve => {
           resolve(false);
