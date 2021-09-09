@@ -237,7 +237,7 @@ export default class ScatterLineWithMhComponent extends Vue {
           type: 'scatter'
         },
         title: {
-          text: 'MH - Employee Productivity - Business Productivity'
+          text: 'Mental Health - Employee Productivity - Business Productivity'
         },
         xAxis: {
           title: {
@@ -249,18 +249,11 @@ export default class ScatterLineWithMhComponent extends Vue {
         },
         yAxis: {
           title: {
-            text: 'Employee Productivity'
-          }
-        },
-        legend: {
-          layout: 'vertical',
-          align: 'left',
-          verticalAlign: 'top',
-          x: 80,
-          y: 50,
-          floating: true,
-          backgroundColor: Highcharts.defaultOptions.chart.backgroundColor,
-          borderWidth: 1
+            text: 'Productivity'
+          },
+          min: 0,
+          max: 5,
+          tickInterval: 1
         },
         series: this.seriesData()
       }

@@ -245,7 +245,7 @@ export default class EmployerBubbleComponent extends Vue {
 
 
         title: {
-          text: 'MH - Job satisfaction - Employee Productivity'
+          text: 'Mental Health - Job satisfaction - Employee Productivity'
         },
 
         xAxis: {
@@ -259,7 +259,10 @@ export default class EmployerBubbleComponent extends Vue {
         yAxis: {
           title: {
             text: 'Job Satisfaction'
-          }
+          },
+          min: 0,
+          max: 5,
+          tickInterval: 1
         },
 
         tooltip: {
@@ -277,6 +280,10 @@ export default class EmployerBubbleComponent extends Vue {
               enabled: true,
               format: '{point.name}'
             }
+          },
+          bubble: {
+            minSize: 1,
+            maxSize: 5
           }
         },
         legend: {
