@@ -251,7 +251,9 @@ export default class EmployerBubbleComponent extends Vue {
         xAxis: {
           title: {
             text: 'Times'
-          }
+          },
+          type: 'category',
+          allowDecimals: false
         },
 
         yAxis: {

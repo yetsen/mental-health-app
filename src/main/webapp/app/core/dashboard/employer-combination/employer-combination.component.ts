@@ -240,7 +240,8 @@ export default class EmployerCombinationComponent extends Vue {
           categories: this.times(),
           title: {
             text: 'Times'
-          }
+          },
+          allowDecimals: false
         },
         series: this.seriesData()
       }
