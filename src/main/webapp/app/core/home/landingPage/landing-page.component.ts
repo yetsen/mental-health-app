@@ -16,7 +16,7 @@ export default class LandingPageComponent extends Vue {
     }
 
     public get blocks() {
-        return this.$store.getters.survey.pages.slice(0,10);
+        return this.$store.getters.survey.pages;
     }
 
 
