@@ -20,21 +20,21 @@
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Introduction</span>
+                      <span class="text">{{blocks[0].name}}</span>
                     </div>
                     <div class="jigsaw3" :class="{ 'grayout' : isGrayOut[2] === 1}" id="jigsaw3">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Mental Health</span>
+                      <span class="text">{{blocks[2].name}}</span>
                     </div>
                     <div class="jigsaw5" :class="{ 'grayout' : isGrayOut[4] === 1}" id="jigsaw5">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Productivity</span>
+                      <span class="text">{{blocks[4].name}}</span>
                     </div>
 
                     <div class="jigsaw7" :class="{ 'grayout' : isGrayOut[6] === 1}" id="jigsaw7">
@@ -42,14 +42,14 @@
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Physical Demand</span>
+                      <span class="text">{{blocks[6].name}}</span>
                     </div>
                     <div class="jigsaw9" :class="{ 'grayout' : isGrayOut[8] === 1}" id="jigsaw9">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Job Promotion</span>
+                      <span class="text">{{blocks[8].name}}</span>
                     </div>
                   </div>
                   <div class="col-6">
@@ -58,35 +58,35 @@
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Personality</span>
+                      <span class="text">{{blocks[1].name}}</span>
                     </div>
                     <div class="jigsaw4" :class="{ 'grayout' : isGrayOut[3] === 1}" id="jigsaw4">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Well-being</span>
+                      <span class="text">{{ blocks[3].name }}</span>
                     </div>
                     <div class="jigsaw6" :class="{ 'grayout' : isGrayOut[5] === 1}" id="jigsaw6">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Psychological Demand</span>
+                      <span class="text">{{ blocks[5].name }}</span>
                     </div>
                     <div class="jigsaw8" :class="{ 'grayout' : isGrayOut[7] === 1}" id="jigsaw8">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Job Insecurity</span>
+                      <span class="text">{{ blocks[7].name }}</span>
                     </div>
                     <div class="jigsaw10" :class="{ 'grayout' : isGrayOut[9] === 1}" id="jigsaw10">
                       <span class="t"></span>
                       <span class="r"></span>
                       <span class="b"></span>
                       <span class="l"></span>
-                      <span class="text">Recognition</span>
+                      <span class="text">{{ blocks[9].name }}</span>
                     </div>
                   </div>
                 </div>
