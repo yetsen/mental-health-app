@@ -267,7 +267,9 @@ function genOptions(vm, dataset) {
       crosshair: true,
       labels: {
         format: '{value}'
-      }
+      },
+      categories: vm.times(),
+      allowDecimals: false
     },
     yAxis: {
       title: {
@@ -386,6 +388,11 @@ export default class SyncWithEpComponent extends Vue {
       return genOptions(this, d);
     })
 
+  }
+
+  times() {
+    let results = this.formulaResults;
+    return Object.keys(results["Well-Being"]);
   }
 
   mounted() {

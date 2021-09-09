@@ -249,7 +249,8 @@ export default class BubbleWithMhComponent extends Vue {
         xAxis: {
           title: {
             text: 'Times'
-          }
+          },
+          categories: this.times()
         },
 
         yAxis: {
@@ -285,6 +286,11 @@ export default class BubbleWithMhComponent extends Vue {
     };
   }
 
+  times() {
+    let results = this.formulaResults;
+    return Object.keys(results["Well-Being"]);
+  }
+
   series() {
     let series = [];
     let seri = {};
@@ -316,7 +322,7 @@ export default class BubbleWithMhComponent extends Vue {
     let times = Object.keys(results["Anxiety"]);
     times.forEach(i => {
       let coord = {};
-      coord['x'] = Number(i);
+      //coord['x'] = Number(i);
       coord['y'] = Number(ep[i].toFixed(2));
       coord['z'] = Number(js[i].toFixed(2));
       if (mh[i] < 8)
