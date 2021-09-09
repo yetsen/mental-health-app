@@ -6,17 +6,141 @@ export default class WorkPackageComponent extends Vue {
     private titles = ['Who we are', 'Objectives', 'Work Package 1', 'Work package 2', 'Work package 3', 'Work package 4'];
     private subtitles = ['', '',
         'Development and validation of a conceptual audit model',
-        'Development of the wellbeing framework for SMEs’ employees',
-        'Health app development',
+        'Development of the wellbeing framework for SMEs',
+        'Mental Health app development',
         'Longitudinal study in SMEs'];
-    private texts = ['This “Impact of COVID-19 on Staff Mental Health and Well-Being in SMEs: Strategies and Interventions to Support Workforce and Boost Productivity in the UK” project has received funding from UKRI- UK Research and Innovation under project ID number ES/V004263/1 and has been carried out in partnership with Aston University, University of Birmingham, University of York and Keele University.',
-        '* Develop a conceptual model that will facilitate analysing the relationship between MH issues faced by SMEs’ staff, factors and various job dimensions contributing to these issues, and its impact on both the staff and business productivity during the pandemic, through a multi-stage survey.\n' +
-        '* Develop a COVID-19 employee well-being framework comprising of strategies, practices and interventions, considering SMEs\' needs and constraints, and conduct a longitudinal study with SMEs to evaluate its effectiveness and impact towards increasing the resilience and productivity of SMEs’ workforce in varying work contexts during and after the pandemic.\n' +
-        '* Develop a COVID-19 MH application to monitor the MH conditions of SMEs’ workforce and pilot it with the longitudinal study, to show how the data collected through the app will enable each individual SME to understand its staff needs, introspect their well-being, that will facilitate customizing the framework, i.e. objectively putting in place practices, strategies and interventions to address employee MH, well-being and firm’s productivity related issues. \n',
-    'The conceptual model will examine  the impact of staff MH problems, well-being issues, and various factors (including work related) affecting these during COVID-19, on staff and business productivity, and the UK economy. A survey instrument will be designed to examine the relationship between several constructs including: *(1) impact of COVID on - job roles, environment, expectations and several dimensions, staff MH and well-being, training needs, technology use, business productivity and supply chain resilience; *(2) individual strategies and SMEs’ management strategy to alleviate MH problems, including transition from remote working back to the office; *(3) factors beyond the employer’s control affecting staff MH, and critical measures to address them; *(4) challenges faced by the different age groups; ',
-    'The deliverables of WP1 (survey and model), guidance published by policy makers and findings from management, occupational health, organisational and clinical psychology literature, will inform the framework development to map various practices (supporting business operations), strategies and interventions (alleviating MH and wellbeing issues, supporting staff), aligned to the SMEs’ staff needs during and after the pandemic, which will help to increase staff productivity in different working contexts.\n',
-    'Develop and test a user-friendly gamified application enabling SMEs’ staff to anonymously and remotely answer an interactive gamified survey that will automatically assess their MH condition. Consolidated results will be anonymised and visualized in a dashboard for the employees and managers in each SME.',
-    'The primary objective is to examine the impact and effectiveness of the framework in a longitudinal study and using the data collected from the MH App'];
+    private texts = ['This “Impact of COVID-19\n' +
+    'on Staff Mental Health and\n' +
+    'Well-Being in SMEs:\n' +
+    'Strategies and Interventions\n' +
+    'to Support Workforce and\n' +
+    'Boost Productivity in the\n' +
+    'UK” project has received\n' +
+    'funding from UKRI- UK\n' +
+    'Research and Innovation\n' +
+    'under project ID number\n' +
+    'ES/V004263/1 and has been\n' +
+    'carried out in partnership\n' +
+    'with Aston University,\n' +
+    'University of Birmingham,\n' +
+    'University of York and\n' +
+    'Keele University.',
+        '* Develop a conceptual model\n' +
+        'that facilitates analysing the\n' +
+        'relationship between MH\n' +
+        'issues faced by SMEs’ staff,\n' +
+        'factors and various job\n' +
+        'dimensions contributing to\n' +
+        'these issues, and its impact\n' +
+        'on both the staff and\n' +
+        'business productivity during\n' +
+        'the pandemic, through a\n' +
+        'multi-stage survey.' +
+        '* Develop a COVID-19\n' +
+        'employee well-being\n' +
+        'framework comprising of\n' +
+        'strategies, practices and\n' +
+        'interventions, considering\n' +
+        'SMEs&#39; needs and\n' +
+        'constraints, and conduct a\n' +
+        'longitudinal study with\n' +
+        'SMEs to evaluate its\n' +
+        'effectiveness and impact\n' +
+        'towards increasing the\n' +
+        'resilience and productivity\n' +
+        'of SMEs’ workforce in\n' +
+        'varying work contexts\n' +
+        'during and after the\n' +
+        'pandemic.' +
+        '* Develop a COVID-19 MH\n' +
+        'application to monitor the\n' +
+        'MH conditions of SMEs’\n' +
+        'workforce and pilot it with\n' +
+        'the longitudinal study, to\n' +
+        'show how the data collected\n' +
+        'through the app enables each\n' +
+        'individual SME to\n' +
+        'understand its staff needs,\n' +
+        'introspect their well-being,\n' +
+        'that facilitates customizing\n' +
+        'the framework, i.e.\n' +
+        'objectively putting in place\n' +
+        'practices, strategies and\n' +
+        'interventions to address\n' +
+        'employee MH, well-being\n' +
+        'and firm’s productivity\n' +
+        'related issues.',
+    'The conceptual model\n' +
+    'examines the impact of staff\n' +
+    'MH problems, well-being\n' +
+    'issues, and various factors\n' +
+    '(including work related)\n' +
+    'affecting these during\n' +
+    'COVID-19, on staff and\n' +
+    'business productivity, and\n' +
+    'the UK economy. A survey\n' +
+    'instrument was designed to\n' +
+    'examine the relationship\n' +
+    'between several constructs\n' +
+    'including: *(1) impact of\n' +
+    'COVID on - job roles,\n' +
+    'environment, expectations\n' +
+    'and several dimensions, staff\n' +
+    'MH and well-being, training\n' +
+    'needs, technology use,\n' +
+    'business productivity and\n' +
+    'supply chain resilience; *(2)\n' +
+    'individual strategies and\n' +
+    'SMEs’ management strategy\n' +
+    'to alleviate MH problems,\n' +
+    'including transition from\n' +
+    'remote working back to the\n' +
+    'office; *(3) factors beyond\n' +
+    'the employer’s control\n' +
+    'affecting staff MH, and\n' +
+    'critical measures to address\n' +
+    'them; *(4) challenges faced\n' +
+    'by the different age groups;',
+    'The deliverables of WP1\n' +
+    '(survey and model),\n' +
+    'guidance published by\n' +
+    'policy makers and findings\n' +
+    'from management,\n' +
+    'occupational health,\n' +
+    'organisational and clinical\n' +
+    'psychology literature,\n' +
+    'inform the framework\n' +
+    'development to map various\n' +
+    'practices (supporting\n' +
+    'business operations),\n' +
+    'strategies and interventions\n' +
+    '(alleviating MH and\n' +
+    'wellbeing issues, supporting\n' +
+    'staff), aligned to the SMEs’\n' +
+    'staff needs during and after\n' +
+    'the pandemic, which will\n' +
+    'help to increase staff\n' +
+    'productivity in different\n' +
+    'working contexts.',
+    'Develop and test a user-\n' +
+    'friendly gamified\n' +
+    'application enabling SMEs’\n' +
+    'staff to anonymously and\n' +
+    'remotely answer an\n' +
+    'interactive gamified survey\n' +
+    'that automatically assesses\n' +
+    'their MH condition.\n' +
+    'Consolidated results are\n' +
+    'anonymised and visualized\n' +
+    'in a dashboard for the\n' +
+    'employees and managers in\n' +
+    'each SME.',
+    'The primary objective is to\n' +
+    'examine the impact and\n' +
+    'effectiveness of the\n' +
+    'framework in a longitudinal\n' +
+    'study and using the data\n' +
+    'collected from the MH App'];
 
     private number;
 
