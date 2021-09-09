@@ -112,6 +112,22 @@ public class ChartService {
 		return result;
 	}
 
+	public List<Map<String, Map<Integer, Double>>> getAllFormulaResults(List<User> userList) {
+		List<Map<String, Map<Integer, Double>>> results = new ArrayList<>();
+		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUserIn(userList);
+		List<Formula> formulas = formulaRepository.findAll();
+		List<Long> questionIds = formulas.stream().map(formula ->
+				Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList()))
+				.flatMap(Collection::stream).collect(Collectors.toList());
+		List<Answer> answers = answerRepository.findByQuestion_IdInAndSurveyInformationIn(questionIds, surveyInformations);
+		Map<SurveyInformation, Map<Question, Answer>> reArrangedAnswers =  answers.stream()
+				.collect(Collectors.groupingBy(answer -> answer.getSurveyInformation(),
+				Collectors.toMap(Answer::getQuestion, Function.identity())));
+
+		return null;
+
+	}
+
 	public Map<String, Map<Integer, Double>> getAllFormulaResults(Long userId) {
 		Map<String, Map<Integer, Double>> results = new HashMap<>(); //formula, times, result
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_Id(userId);
