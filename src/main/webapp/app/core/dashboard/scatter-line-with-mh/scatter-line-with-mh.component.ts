@@ -266,22 +266,37 @@ export default class ScatterLineWithMhComponent extends Vue {
 
     seri['name'] = "Normal";
     seri['data'] = [];
+    seri['tooltip'] = {
+      pointFormat: 'Employee Productivity: <strong>{point.y}<strong/><br/>'
+    }
     series.push(seri);
     seri = {};
     seri['name'] = "Mild";
     seri['data'] = [];
+    seri['tooltip'] = {
+      pointFormat: 'Employee Productivity: <strong>{point.y}<strong/><br/>'
+    }
     series.push(seri);
     seri = {};
     seri['name'] = "Moderate";
     seri['data'] = [];
+    seri['tooltip'] = {
+      pointFormat: 'Employee Productivity: <strong>{point.y}<strong/><br/>'
+    }
     series.push(seri);
     seri = {};
     seri['name'] = "Severe";
     seri['data'] = [];
+    seri['tooltip'] = {
+      pointFormat: 'Employee Productivity: <strong>{point.y}<strong/><br/>'
+    }
     series.push(seri);
     seri = {};
     seri['name'] = "Extremely Severe";
     seri['data'] = [];
+    seri['tooltip'] = {
+      pointFormat: 'Employee Productivity: <strong>{point.y}<strong/><br/>'
+    }
     series.push(seri);
     seri = {};
     seri['name'] = "Business Productivity";
