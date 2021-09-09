@@ -134,7 +134,7 @@ export default class SurveyCardComponent extends Vue {
           })
         } else {
           that2['isCompletionPage'] = true;
-          (<any>that2).$router.push('/dashboard/' + that2.times);
+          (<any>that2).$router.push('/dashboard');
         }
         }).catch(error => {
               console.log(error);

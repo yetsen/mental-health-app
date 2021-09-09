@@ -20,6 +20,9 @@
               <li v-for="si in surveyInformation" v-bind:key="si.times" @click="onAssessmentClick(si.times)">
                 <a>Assessment #{{si.times}} <font-awesome-icon v-if="si.finished" icon="check" /></a>
               </li>
+              <li v-if="isLastSurveyFinished" v-bind:key="currentTime" @click="onAssessmentClick(currentTime)">
+                <a>Start New Assessment</a>
+              </li>
             </ul>
           </li>
           <li v-if="authenticated"><a class="nav-link" @click="goTo('/dashboard')">Dashboard</a></li>
