@@ -278,6 +278,10 @@ export default class BubbleWithMhComponent extends Vue {
               enabled: true,
               format: '{point.name}'
             }
+          },
+          bubble: {
+            minSize: 30,
+            maxSize: 50
           }
         },
         legend: {

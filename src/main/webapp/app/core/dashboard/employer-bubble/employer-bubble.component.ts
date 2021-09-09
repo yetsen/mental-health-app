@@ -282,8 +282,8 @@ export default class EmployerBubbleComponent extends Vue {
             }
           },
           bubble: {
-            minSize: 1,
-            maxSize: 5
+            minSize: 30,
+            maxSize: 50
           }
         },
         legend: {

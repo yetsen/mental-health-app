@@ -278,6 +278,10 @@ export default class BubbleWithWbComponent extends Vue {
               enabled: true,
               format: '{point.name}'
             }
+          },
+          bubble: {
+            minSize: 30,
+            maxSize: 50
           }
         },
         legend: {
