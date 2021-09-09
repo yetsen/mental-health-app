@@ -275,7 +275,7 @@ function genOptions(vm, dataset) {
         text: null
       },
       min: 0,
-      max: 5,
+      max: dataset.max,
       tickInterval: 1
     },
     exporting: {
@@ -355,6 +355,7 @@ export default class SyncWithJsComponent extends Vue {
     chartData['type'] = 'line'
     chartData['unit'] = ''
     chartData['valueDecimals'] = 1
+    chartData['max'] = 5
     dataset.push(chartData);
 
     chartData = {};
@@ -368,6 +369,7 @@ export default class SyncWithJsComponent extends Vue {
     chartData['type'] = 'line'
     chartData['unit'] = ''
     chartData['valueDecimals'] = 1
+    chartData['max'] = 32
     dataset.push(chartData);
 
     chartData = {};
@@ -381,6 +383,7 @@ export default class SyncWithJsComponent extends Vue {
     chartData['type'] = 'line'
     chartData['unit'] = ''
     chartData['valueDecimals'] = 1
+    chartData['max'] = 5
     dataset.push(chartData);
 
     this.optionsList = dataset.map(d => {
