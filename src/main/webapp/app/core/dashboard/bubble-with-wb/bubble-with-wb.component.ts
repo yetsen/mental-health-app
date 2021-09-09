@@ -249,7 +249,8 @@ export default class BubbleWithWbComponent extends Vue {
         xAxis: {
           title: {
             text: 'Times'
-          }
+          },
+          allowDecimals: false
         },
 
         yAxis: {
@@ -285,6 +286,11 @@ export default class BubbleWithWbComponent extends Vue {
     };
   }
 
+  times() {
+    let results = this.formulaResults;
+    return Object.keys(results["Well-Being"]);
+  }
+
   series() {
     let series = [];
     let seri = {};
@@ -302,10 +308,6 @@ export default class BubbleWithWbComponent extends Vue {
     series.push(seri);
     seri = {};
     seri['name'] = "Severe";
-    seri['data'] = [];
-    series.push(seri);
-    seri = {};
-    seri['name'] = "Extremely Severe";
     seri['data'] = [];
     series.push(seri);
 

@@ -250,7 +250,7 @@ export default class BubbleWithMhComponent extends Vue {
           title: {
             text: 'Times'
           },
-          categories: this.times()
+          allowDecimals: false
         },
 
         yAxis: {
@@ -322,7 +322,7 @@ export default class BubbleWithMhComponent extends Vue {
     let times = Object.keys(results["Anxiety"]);
     times.forEach(i => {
       let coord = {};
-      //coord['x'] = Number(i);
+      coord['x'] = Number(i);
       coord['y'] = Number(ep[i].toFixed(2));
       coord['z'] = Number(js[i].toFixed(2));
       if (mh[i] < 8)
