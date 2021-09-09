@@ -245,6 +245,7 @@ export default class BoxPlotComponent extends Vue {
         },
 
         xAxis: {
+          categories: this.times(),
           title: {
             text: 'Times'
           }
@@ -253,12 +254,15 @@ export default class BoxPlotComponent extends Vue {
         yAxis: {
           title: {
             text: 'Average'
-          }
+          },
+          min: 0,
+          max: 5
         },
 
         series: [{
           name: 'Statistics',
           data: this.seriesData(),
+          type: 'boxplot',
           tooltip: {
             headerFormat: '<em>Assessment {point.key}</em><br/>'
           }
@@ -280,16 +284,25 @@ export default class BoxPlotComponent extends Vue {
     let results = this.formulaResults;
     let times = Object.keys(results["Well-Being"]);
     let keys = Object.keys(results);
-      times.forEach(i => {
-        let row = [Number(i)];
-        keys.forEach(k => {
-          if (results[k][i] <= 5)
-            row.push(Number(results[k][i].toFixed(2)));
-        });
-        seriesData.push(row);
-        seriesData.push(row);
+    times.forEach(i => {
+      let row = [];
+      keys.forEach(k => {
+        if (results[k][i] <= 5)
+          row.push(Number(results[k][i].toFixed(2)));
       });
-
+      row.sort();
+      let median = row.length % 2 == 1 ? row[Math.floor(row.length/2)] : (row[row.length/2] + row[row.length/2 - 1])/2;
+      let ql = row[Math.floor(row.length/4)];
+      let qu = row[Math.floor(row.length*3/4)];
+      seriesData.push([
+        row[0],
+        ql,
+        median,
+        qu,
+        row[row.length - 1]
+      ]);
+    });
+    console.log(seriesData);
     return seriesData;
 
   }
