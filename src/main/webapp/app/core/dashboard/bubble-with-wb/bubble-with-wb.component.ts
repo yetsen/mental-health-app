@@ -250,6 +250,7 @@ export default class BubbleWithWbComponent extends Vue {
           title: {
             text: 'Times'
           },
+          type: 'category',
           allowDecimals: false
         },
 

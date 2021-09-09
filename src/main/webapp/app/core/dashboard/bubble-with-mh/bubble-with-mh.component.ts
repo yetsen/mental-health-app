@@ -250,7 +250,8 @@ export default class BubbleWithMhComponent extends Vue {
           title: {
             text: 'Times'
           },
-          allowDecimals: false
+          type: 'category',
+          allowDecimals: false,
         },
 
         yAxis: {
