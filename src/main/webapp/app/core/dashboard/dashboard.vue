@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid dashboard">
         <header v-if="!isEmployer()" class="section-header">
-          <h2>Welcome To Employee Dashboard</h2>
+          <h2>Welcome To Your Dashboard</h2>
         </header>
         <header v-if="isEmployer()" class="section-header">
-          <h2>Welcome To Employer Dashboard</h2>
+          <h2>Welcome To Your Dashboard</h2>
         </header>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">

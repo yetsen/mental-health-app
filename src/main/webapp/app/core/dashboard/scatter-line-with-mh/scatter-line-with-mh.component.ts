@@ -19,8 +19,8 @@ Highcharts.createElement('link', {
 }, null, document.getElementsByTagName('head')[0]);
 
 Highcharts['theme'] = {
-  colors: ['#90ee7e', '#aaeeee', '#2b908f',
-    '#f45b5b', '#ff0066', '#eeaaee', '#55BF3B',
+  colors: ['#90ee7e', '#aaeeee', '#FFF300',
+    '#f45b5b', '#ff0000', '#eeaaee', '#55BF3B',
     '#DF5353', '#7798BF', '#aaeeee', '#7798BF'
   ],
   chart: {
@@ -237,7 +237,7 @@ export default class ScatterLineWithMhComponent extends Vue {
           type: 'scatter'
         },
         title: {
-          text: 'MH Vs Employee Productivity Vs Business Productivity'
+          text: 'MH - Employee Productivity - Business Productivity'
         },
         xAxis: {
           title: {
