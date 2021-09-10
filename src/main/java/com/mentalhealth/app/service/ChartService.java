@@ -1,5 +1,7 @@
 package com.mentalhealth.app.service;
 
+import com.google.common.base.Functions;
+import com.google.common.collect.Collections2;
 import com.mentalhealth.app.config.Constants;
 import com.mentalhealth.app.domain.*;
 import com.mentalhealth.app.repository.*;
@@ -103,28 +105,63 @@ public class ChartService {
 	public List<Map<String, Map<Integer, Double>>> getAllCompanyFormulaResults(Long companyId) {
 		List<User> userList = Constants.ACADEMY_ID.equals(companyId) ?
 				userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
-		List<Map<String, Map<Integer, Double>>> result = new ArrayList<>();
-		userList.forEach(user -> {
-			Map<String, Map<Integer, Double>> r = getAllFormulaResults(user.getId());
-			if (!CollectionUtils.isEmpty(r))
-				result.add(r);
-		});
-		return result;
+		return getAllFormulaResults(userList);
 	}
 
 	public List<Map<String, Map<Integer, Double>>> getAllFormulaResults(List<User> userList) {
-		List<Map<String, Map<Integer, Double>>> results = new ArrayList<>();
+		List<Map<String, Map<Integer, Double>>> allResults = new ArrayList<>(); //formula, times, result
+
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUserIn(userList);
 		List<Formula> formulas = formulaRepository.findAll();
-		List<Long> questionIds = formulas.stream().map(formula ->
+		List<Long> allQuestionIds = formulas.stream().map(formula ->
 				Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList()))
 				.flatMap(Collection::stream).collect(Collectors.toList());
-		List<Answer> answers = answerRepository.findByQuestion_IdInAndSurveyInformationIn(questionIds, surveyInformations);
-		Map<SurveyInformation, Map<Question, Answer>> reArrangedAnswers =  answers.stream()
-				.collect(Collectors.groupingBy(answer -> answer.getSurveyInformation(),
-				Collectors.toMap(Answer::getQuestion, Function.identity())));
+		List<Answer> answers = answerRepository.findByQuestion_IdInAndSurveyInformationIn(allQuestionIds, surveyInformations);
+		Map<SurveyInformation, Map<Long, Answer>> reArrangedAnswers =  answers.stream()
+				.collect(Collectors.groupingBy(Answer::getSurveyInformation,
+				Collectors.toMap(answer -> answer.getQuestion().getId(), Function.identity())));
 
-		return null;
+
+		Map<SurveyInformation, Map<String, Double>> results = new HashMap<>();
+		reArrangedAnswers.keySet().forEach(surveyInformation -> {
+			Map<String, Double> resultMap = new HashMap<>();
+			formulas.forEach(formula -> {
+				List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
+				Map<Long, Answer> questionAnswerList = reArrangedAnswers.get(surveyInformation)
+						.entrySet().stream()
+						.filter(questionAnswerEntry -> questionIds.contains(questionAnswerEntry.getKey()))
+						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+				if (CollectionUtils.isEmpty(questionAnswerList)) {
+					return;
+				}
+				String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
+				double result = new Expression(expression).calculate();
+				resultMap.put(formula.getName(), result);
+			});
+			results.put(surveyInformation, resultMap);
+		});
+
+		userList.forEach(user -> {
+			Map<String, Map<Integer, Double>> r = new HashMap<>();
+			List<SurveyInformation> surveyInformationListForUser =
+					results.keySet().stream()
+							.filter(surveyInformation -> surveyInformation.getUser().equals(user)).collect(Collectors.toList());
+
+			for (SurveyInformation key : surveyInformationListForUser) {
+				Map<String, Double> subRes = results.get(key);
+				subRes.keySet().forEach(formulaName -> {
+					Map<Integer, Double> existingTimesResultMap = r.getOrDefault(formulaName, new TreeMap<>());
+					existingTimesResultMap.put(key.getTimes(), subRes.get(formulaName));
+					r.put(formulaName, existingTimesResultMap);
+				});
+			}
+
+			if (!CollectionUtils.isEmpty(r))
+				allResults.add(r);
+		});
+
+
+		return allResults;
 
 	}
 

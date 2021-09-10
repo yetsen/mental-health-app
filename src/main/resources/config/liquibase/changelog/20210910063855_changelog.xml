@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Developer (generated)" id="1631255941244-2">
+        <addUniqueConstraint columnNames="question_id, survey_information_id" constraintName="answer_q_si_index" tableName="answer"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1631255941244-3">
+        <createIndex indexName="answer_question_index" tableName="answer">
+            <column name="question_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1631255941244-4">
+        <createIndex indexName="answer_si_index" tableName="answer">
+            <column name="survey_information_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1631255941244-5">
+        <createIndex indexName="si_user_index" tableName="survey_information">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

@@ -9,7 +9,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table (name = "survey_information")
+@Table (name = "survey_information",
+		indexes = {
+				@Index(name = "si_user_index",  columnList="user_id"),
+		})
 @Data
 @NoArgsConstructor
 public class SurveyInformation extends AbstractAuditingEntity implements Serializable {

@@ -11,7 +11,12 @@ import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
-@Table (name = "answer")
+@Table (name = "answer",
+        indexes = {
+            @Index(name = "answer_question_index",  columnList="question_id"),
+            @Index(name = "answer_si_index", columnList="survey_information_id"),
+            @Index(name = "answer_q_si_index", columnList="question_id, survey_information_id", unique = true),
+        })
 @Data
 @NoArgsConstructor
 public class Answer extends AbstractAuditingEntity implements Serializable {
