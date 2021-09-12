@@ -41,24 +41,14 @@ export default class Dashboard extends Vue {
 
   @Watch('$route', { immediate: true, deep: true })
   onPropertyChanged(value: string, oldValue: string) {
+    this.chartService().getAllFormulaResults(this.userId()).then(
+      value => this.formulaResults = value.data
+    )
     if (this.isEmployer()) {
        this.chartService().getAllCompanyFormulaResults(this.companyId()).then(
            value => this.companyFormulaResults = value.data
        )
 
-      this.formulaResults["Business Productivity"] = {
-         '1' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
-         '2' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
-         '3' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
-         '4' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
-         '5' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
-         '6' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
-         '7' : Number((Math.random() * (5.0 - 1.0) + 1.0).toFixed(2)),
-       }
-    } else {
-       this.chartService().getAllFormulaResults(this.userId()).then(
-           value => this.formulaResults = value.data
-       )
     }
   }
 

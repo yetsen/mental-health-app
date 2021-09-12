@@ -41,7 +41,7 @@ public class ChartService {
 
 	public List<Map<String, Map<Integer, Double>>> getAllCompanyFormulaResults(Long companyId) {
 		List<User> userList = Constants.ACADEMY_ID.equals(companyId) ?
-				userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
+				userRepository.findAll() : userRepository.findAllByCompany_IdAndIsEmployer(companyId, false);
 		return getAllFormulaResults(userList);
 	}
 

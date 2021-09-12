@@ -171,7 +171,7 @@ public class SurveyService {
 
     public Map<Integer, List<SurveyInformation>> getCompanySurveyInformationByCompanyId (Long companyId) {
         List<User> companyUsers = Constants.ACADEMY_ID.equals(companyId) ?
-                userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
+                userRepository.findAllByIsEmployer(false) : userRepository.findAllByCompany_IdAndIsEmployer(companyId, false);
 
         if (CollectionUtils.isEmpty(companyUsers))
             throw new RuntimeException("User Not Found!!");

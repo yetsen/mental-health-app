@@ -36,5 +36,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Page<User> findAllByLoginNot(Pageable pageable, String login);
 
-    List<User> findAllByCompany_Id(Long companyId);
+    List<User> findAllByCompany_IdAndIsEmployer(Long companyId, boolean employer);
+
+    List<User> findAllByIsEmployer(boolean employer);
 }
