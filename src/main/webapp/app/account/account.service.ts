@@ -40,14 +40,14 @@ export default class AccountService {
             this.getSurveyInformation(account.id).then(res => {
               this.store.commit('setSurveyInformation', res.data)
               if (fromLogin) {
-                router.push('/landing-page/' + this.currentTime(res.data));
+                router.push('/landing-page');
               }
             })
             if (account.isEmployer) {
               this.getCompanySurveyInformation(account.companyId).then(res => {
                 this.store.commit('setCompanySurveyInformation', res.data)
                 if (fromLogin) {
-                  router.push('/landing-page/' + this.currentTime(res.data));
+                  router.push('/landing-page');
                 }
               });
             }

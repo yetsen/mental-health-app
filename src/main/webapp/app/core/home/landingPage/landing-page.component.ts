@@ -19,6 +19,10 @@ export default class LandingPageComponent extends Vue {
         return this.$store.getters.authenticated;
     }
 
+    public get buttonStyle() {
+        return this.isEmployer ? "style='margin-top: 5vh'" : "style='margin-top: -10vh'";
+    }
+
     public openLogin(): void {
         this.loginService().openLogin((<any>this).$root);
     }
