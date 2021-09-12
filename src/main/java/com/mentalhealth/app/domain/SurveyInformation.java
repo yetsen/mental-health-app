@@ -1,12 +1,14 @@
 package com.mentalhealth.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mentalhealth.app.config.ResultConverter;
 import com.mentalhealth.app.service.dto.SurveyInformationDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Map;
 
 @Entity
 @Table (name = "survey_information",
@@ -32,8 +34,17 @@ public class SurveyInformation extends AbstractAuditingEntity implements Seriali
 	@Column(name = "finished")
 	private boolean finished;
 
-	public SurveyInformation(User user, Integer times) {
+	@JsonIgnore
+	@ManyToOne
+	private Survey survey;
+
+	@Transient
+	@Convert(converter = ResultConverter.class)
+	private Map<String, Double> results;
+
+	public SurveyInformation(User user, Integer times, Survey survey) {
 		this.user = user;
 		this.times = times;
+		this.survey = survey;
 	}
 }

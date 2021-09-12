@@ -44,10 +44,10 @@ public class SurveyResource {
         return new ResponseEntity<>(surveyService.getCompanySurveyInformationByCompanyId(companyId), HttpStatus.OK);
     }
 
-    @GetMapping("/answer/{userId}/{times}")
+    @GetMapping("/answer/{userId}/{times}/{surveyId}")
     //@PreAuthorize ("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
-    public ResponseEntity<SurveyResultDTO> getAnswer(@PathVariable Long userId, @PathVariable Integer times) {
-        SurveyResultDTO surveyResultDTO = surveyService.getSurveyAnswers(userId, times);
+    public ResponseEntity<SurveyResultDTO> getAnswer(@PathVariable Long userId, @PathVariable Integer times, @PathVariable Long surveyId) {
+        SurveyResultDTO surveyResultDTO = surveyService.getSurveyAnswers(userId, times, surveyId);
         return new ResponseEntity<>(surveyResultDTO, HttpStatus.OK);
     }
 
@@ -57,9 +57,9 @@ public class SurveyResource {
         surveyService.putAnswers(answers);
     }
 
-    @PostMapping("/clear/{userId}/{times}")
+    @PostMapping("/clear/{userId}/{times}/{surveyId}")
     @ResponseStatus (HttpStatus.OK)
-    public void clearAnswers(@PathVariable Long userId, Integer times) {
-        surveyService.clearAnswers(userId, times);
+    public void clearAnswers(@PathVariable Long userId, @PathVariable Integer times, @PathVariable Long surveyId) {
+        surveyService.clearAnswers(userId, times, surveyId);
     }
 }

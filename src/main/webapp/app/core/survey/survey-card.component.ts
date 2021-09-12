@@ -37,14 +37,17 @@ export default class SurveyCardComponent extends Vue {
 
   public isGrayOut = new Array(10).fill(1);
 
+  private surveyId;
+
   @Watch('$route', { immediate: true, deep: true })
   onPropertyChanged(value: string, oldValue: string) {
     if (this.times === value['params'].times)
       return;
 
     this.times = value['params'].times;
+    this.surveyId = this.isEmployer() ? 3 : 2;
     this.surveyService()
-        .getAnswer(this.userId(), this.times)
+        .getAnswer(this.userId(), this.times, this.surveyId)
         .then(res => {
           let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
           (window as any).survey.data = result;
@@ -360,6 +363,10 @@ export default class SurveyCardComponent extends Vue {
     return this.$store.getters.account.id;
   }
 
+  isEmployer() {
+    return this.$store.getters.account.isEmployer;
+  }
+
   public get blocks() {
     return this.$store.getters.survey.pages;
   }
@@ -372,7 +379,7 @@ export default class SurveyCardComponent extends Vue {
 
   clearAndGoToHomePage() {
     (window as any).survey.clear();
-    this.surveyService().clearAnswer(this.userId(), this.times);
+    this.surveyService().clearAnswer(this.userId(), this.times, this.surveyId);
     (<any>this).$router.push('/');
   }
 
@@ -411,6 +418,7 @@ export default class SurveyCardComponent extends Vue {
     let si = new SurveyInfo();
     si.userId = that.userId();
     si.times = that.times;
+    si.surveyId = that.surveyId;
     answers.surveyInfo = si;
     Object.keys(surveyData).forEach(function (key, index) {
       let value = surveyData[key];

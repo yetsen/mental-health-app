@@ -8,22 +8,24 @@ export default class SurveyService {
   }
 
   public init(): void {
-    this.get().then(res => {
+    this.get(2).then(res => {
       this.store.commit('setSurvey', res.data);
+    });
+    this.get(3).then(res => {
+      this.store.commit('setEmployerSurvey', res.data);
     });
   }
 
-  public get(): AxiosPromise<any> {
-    let surveyId = 2;
+  public get(surveyId): AxiosPromise<any> {
     return axios.get('api/survey/' + surveyId);
   }
 
-  public getAnswer(userId, times): AxiosPromise<any> {
-    return axios.get('api/survey/answer/' + userId + '/' + times);
+  public getAnswer(userId, times, surveyId): AxiosPromise<any> {
+    return axios.get('api/survey/answer/' + userId + '/' + times + '/' + surveyId);
   }
 
-  public clearAnswer(userId, times): AxiosPromise<any> {
-    return axios.post('api/survey/clear/' + userId + '/' + times);
+  public clearAnswer(userId, times, surveyId): AxiosPromise<any> {
+    return axios.post('api/survey/clear/' + userId + '/' + times + '/' + surveyId);
   }
 
   public push(answers: Answers): Promise<any> {

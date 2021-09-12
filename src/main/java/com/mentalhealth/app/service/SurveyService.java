@@ -31,16 +31,19 @@ public class SurveyService {
 
     private final SurveyRepository surveyRepository;
 
+    private final ChartService chartService;
+
 
     public SurveyService (BlockRepository blockRepository, AnswerRepository answerRepository, UserRepository userRepository,
             QuestionRepository questionRepository, SurveyInformationRepository surveyInformationRepository,
-            SurveyRepository surveyRepository) {
+            SurveyRepository surveyRepository, ChartService chartService) {
         this.blockRepository = blockRepository;
         this.answerRepository = answerRepository;
         this.userRepository = userRepository;
         this.questionRepository = questionRepository;
         this.surveyInformationRepository = surveyInformationRepository;
         this.surveyRepository = surveyRepository;
+        this.chartService = chartService;
     }
 
     public Map<Long, SurveyDTO> getSurveyData() {
@@ -55,13 +58,13 @@ public class SurveyService {
         return new SurveyDTO(blocks);
     }
 
-    public SurveyResultDTO getSurveyAnswers(Long userId, Integer times) {
-        Optional<SurveyInformation> surveyInformationOptional = surveyInformationRepository.findByUser_IdAndTimes(userId, times);
+    public SurveyResultDTO getSurveyAnswers(Long userId, Integer times, Long surveyId) {
+        Optional<SurveyInformation> surveyInformationOptional = surveyInformationRepository.findByUser_IdAndTimesAndSurvey_Id(userId, times, surveyId);
         if (surveyInformationOptional.isPresent()) {
-            checkUserForAnsweringAllQuestions(surveyInformationOptional.get());
             return convert(answerRepository.findBySurveyInformation(surveyInformationOptional.get()).orElseThrow(RuntimeException::new));
         } else {
-            SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, 1).orElseThrow(RuntimeException::new);
+            SurveyInformation surveyInformation = surveyInformationRepository
+                    .findByUser_IdAndTimesAndSurvey_Id(userId, 1, surveyId).orElseThrow(RuntimeException::new);
             Block introductionBlock = blockRepository.getOne(20L); //TODO: Change It Introduction always same
             return convert(answerRepository.findBySurveyInformationAndQuestion_IdIn(surveyInformation, introductionBlock.getQuestions()
                     .stream().map(Question::getId).collect(Collectors.toList())).orElseThrow(RuntimeException::new));
@@ -86,10 +89,16 @@ public class SurveyService {
                 .findById(answers.getSurveyInfo().getUserId())).get().orElseThrow(RuntimeException::new);
 
         Optional<SurveyInformation> surveyInformationOptional = surveyInformationRepository
-                .findByUser_IdAndTimes(answers.getSurveyInfo().getUserId(), answers.getSurveyInfo().getTimes());
+                .findByUser_IdAndTimesAndSurvey_Id(answers.getSurveyInfo().getUserId(),
+                        answers.getSurveyInfo().getTimes(), answers.getSurveyInfo()
+                        .getSurveyId());
 
         SurveyInformation surveyInformation = surveyInformationOptional
-                .orElseGet(() -> surveyInformationRepository.save(new SurveyInformation(user, answers.getSurveyInfo().getTimes())));
+                .orElseGet(() -> {
+                    Survey survey = Optional.of(surveyRepository
+                            .findById(answers.getSurveyInfo().getSurveyId())).get().orElseThrow(RuntimeException::new);
+                    return surveyInformationRepository.save(new SurveyInformation(user, answers.getSurveyInfo().getTimes(), survey));
+                });
 
         answerRepository.saveAll(answers.getAnswers().stream().map(answerDTO -> {
             Question question = Optional.of(questionRepository
@@ -115,21 +124,17 @@ public class SurveyService {
             return answer;
         }).collect(Collectors.toList()));
 
-        checkUserForAnsweringAllQuestions(surveyInformation);
+        if (answers.getSurveyInfo().isFinished()) {
+            surveyInformation.setFinished(true);
+            surveyInformation.setResults(chartService.getFormulaResults(surveyInformation));
+            surveyInformationRepository.save(surveyInformation);
+        }
     }
 
-    public boolean checkUserForAnsweringAllQuestions(Long surveyInformationId) {
-        SurveyInformation surveyInformation = surveyInformationRepository.findById(surveyInformationId).orElseThrow(RuntimeException::new);
-        if (surveyInformation.isFinished())
-            return true;
-        return checkUserForAnsweringAllQuestions(surveyInformation);
-    }
-
-    public boolean checkUserForAnsweringAllQuestions(Long userId, Integer times) {
-        SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, times).orElseThrow(RuntimeException::new);
-        if (surveyInformation.isFinished())
-            return true;
-        return checkUserForAnsweringAllQuestions(surveyInformation);
+    public boolean checkUserForAnsweringAllQuestions(Long userId, Integer times, Long surveyId) {
+        SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimesAndSurvey_Id(userId, times, surveyId)
+                .orElseThrow(RuntimeException::new);
+        return surveyInformation.isFinished();
     }
 
     public boolean checkUserForAnsweringAllQuestions (SurveyInformation surveyInformation) {
@@ -151,8 +156,9 @@ public class SurveyService {
         return new SurveyResultDTO(answers);
     }
 
-    public void clearAnswers (Long userId, Integer times) {
-        SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, times).orElseThrow(RuntimeException::new);
+    public void clearAnswers (Long userId, Integer times, Long surveyId) {
+        SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimesAndSurvey_Id(userId, times, surveyId)
+                .orElseThrow(RuntimeException::new);
         answerRepository.deleteAnswersBySurveyInformation_Id(surveyInformation.getId());
         surveyInformation.setFinished(false);
         surveyInformationRepository.save(surveyInformation);

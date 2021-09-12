@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface SurveyInformationRepository  extends JpaRepository<SurveyInformation, Long> {
 
-	Optional<SurveyInformation> findByUser_IdAndTimes(Long userId, Integer times);
+	Optional<SurveyInformation> findByUser_IdAndTimesAndSurvey_Id(Long userId, Integer times, Long surveyId);
 
 	List<SurveyInformation> findByUser_Id(Long userId);
 

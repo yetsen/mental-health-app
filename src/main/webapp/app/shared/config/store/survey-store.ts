@@ -17,6 +17,9 @@ export const surveyStore: Module<any, any> = {
     setSurvey(state, survey) {
       state.survey = survey;
     },
+    setEmployerSurvey(state, employerSurvey) {
+      state.employerSurvey = employerSurvey;
+    },
     setSurveyInformation(state, surveyInformation) {
       state.surveyInformation = surveyInformation;
     },

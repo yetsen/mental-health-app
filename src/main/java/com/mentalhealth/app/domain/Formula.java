@@ -1,5 +1,6 @@
 package com.mentalhealth.app.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,4 +31,8 @@ public class Formula extends AbstractAuditingEntity implements Serializable {
     @Size (max = 4000)
     @Column (name = "variables", length = 4000)
     private String variables;
+
+    @JsonIgnore
+    @ManyToOne
+    private Survey survey;
 }

@@ -6,4 +6,6 @@ import lombok.Data;
 public class SurveyInformationDTO {
 	private Long userId;
 	private Integer times;
+	private Long surveyId;
+	private boolean finished;
 }

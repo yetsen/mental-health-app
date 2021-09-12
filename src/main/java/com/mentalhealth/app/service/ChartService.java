@@ -23,83 +23,20 @@ import java.util.stream.Collectors;
 @Transactional
 public class ChartService {
 
-	private final ChartRepository chartRepository;
-
 	private final FormulaRepository formulaRepository;
 
 	private final AnswerRepository answerRepository;
 
 	private final UserRepository userRepository;
 
-	private final SurveyService surveyService;
-
 	private final SurveyInformationRepository surveyInformationRepository;
 
-	private final BlockRepository blockRepository;
-
-	public ChartService (ChartRepository chartRepository, FormulaRepository formulaRepository, AnswerRepository answerRepository,
-			UserRepository userRepository, SurveyService surveyService, SurveyInformationRepository surveyInformationRepository,
-			BlockRepository blockRepository) {
-		this.chartRepository = chartRepository;
+	public ChartService (FormulaRepository formulaRepository, AnswerRepository answerRepository, UserRepository userRepository,
+			SurveyInformationRepository surveyInformationRepository) {
 		this.formulaRepository = formulaRepository;
 		this.answerRepository = answerRepository;
 		this.userRepository = userRepository;
-		this.surveyService = surveyService;
 		this.surveyInformationRepository = surveyInformationRepository;
-		this.blockRepository = blockRepository;
-	}
-
-	public List<ChartDTO> generateCompanyCharts (Long companyId, Integer times) {
-		List<User> userList = Constants.ACADEMY_ID.equals(companyId) ?
-				userRepository.findAll() : userRepository.findAllByCompany_Id(companyId);
-		List<Chart> charts = chartRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
-		List<ChartDTO> chartDTOList = new ArrayList<>();
-		charts.forEach(chart -> {
-			ChartDTO chartDTO = new ChartDTO();
-			List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-			Map<Long, Double> averageResultMap = new HashMap<>();
-			AtomicInteger userCount = new AtomicInteger();
-			userList.forEach(user -> {
-				Optional<SurveyInformation> surveyInformationOptional = surveyInformationRepository.findByUser_IdAndTimes(user.getId(), times);
-				if (!surveyInformationOptional.isPresent()) {
-					return;
-				}
-				if (surveyService.checkUserForAnsweringAllQuestions(user.getId(), times)) {
-					Map<Long, Double> resultMap = getFormulaResults(surveyInformationOptional.get().getId(), formulaIds);
-					resultMap.keySet().forEach(formulaId -> {
-						double restSum = averageResultMap.getOrDefault(formulaId, 0.0);
-						restSum += resultMap.get(formulaId);
-						averageResultMap.put(formulaId, restSum);
-					});
-					userCount.getAndIncrement();
-				}
-			});
-			averageResultMap.keySet().forEach(formulaId -> averageResultMap.put(formulaId,
-					averageResultMap.get(formulaId)/ userCount.get()));
-			String chartOptions = replaceQuestionMark(chart.getChartOptions(),
-					formulaIds.stream().map(averageResultMap::get).map(res -> String.format("%.2f", res)).toArray(String[]::new));
-			chartDTO.setChartOptions(chartOptions);
-			chartDTOList.add(chartDTO);
-		});
-		return chartDTOList;
-	}
-
-	public List<ChartDTO> generateCharts (Long userId, Integer times) {
-		SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, times)
-				.orElseThrow(RuntimeException::new);
-
-		if (!surveyService.checkUserForAnsweringAllQuestions(surveyInformation)) {
-			throw new AllQuestionsNotAnsweredException();
-		}
-
-		List<ChartDTO> chartDTOList = new ArrayList<>();
-
-		List<Chart> charts = chartRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
-		charts.forEach(chart -> {
-			ChartDTO chartDTO = getChartDTO(surveyInformation.getId(), chart);
-			chartDTOList.add(chartDTO);
-		});
-		return chartDTOList;
 	}
 
 	public List<Map<String, Map<Integer, Double>>> getAllCompanyFormulaResults(Long companyId) {
@@ -112,54 +49,31 @@ public class ChartService {
 		List<Map<String, Map<Integer, Double>>> allResults = new ArrayList<>(); //formula, times, result
 
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUserIn(userList);
-		List<Formula> formulas = formulaRepository.findAll();
-		List<Long> allQuestionIds = formulas.stream().map(formula ->
-				Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList()))
-				.flatMap(Collection::stream).collect(Collectors.toList());
-		List<Answer> answers = answerRepository.findByQuestion_IdInAndSurveyInformationIn(allQuestionIds, surveyInformations);
-		Map<SurveyInformation, Map<Long, Answer>> reArrangedAnswers =  answers.stream()
-				.collect(Collectors.groupingBy(Answer::getSurveyInformation,
-				Collectors.toMap(answer -> answer.getQuestion().getId(), Function.identity())));
 
+		Map<User, List<SurveyInformation>> surveyInformationMap = surveyInformations.stream()
+				.collect(Collectors.groupingBy(SurveyInformation::getUser,
+						Collectors.toList()));
 
-		Map<SurveyInformation, Map<String, Double>> results = new HashMap<>();
-		reArrangedAnswers.keySet().forEach(surveyInformation -> {
-			Map<String, Double> resultMap = new HashMap<>();
-			formulas.forEach(formula -> {
-				List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-				Map<Long, Answer> questionAnswerList = reArrangedAnswers.get(surveyInformation)
-						.entrySet().stream()
-						.filter(questionAnswerEntry -> questionIds.contains(questionAnswerEntry.getKey()))
-						.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-				if (CollectionUtils.isEmpty(questionAnswerList)) {
-					return;
-				}
-				String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
-				double result = new Expression(expression).calculate();
-				resultMap.put(formula.getName(), result);
-			});
-			results.put(surveyInformation, resultMap);
-		});
-
-		userList.forEach(user -> {
+		surveyInformationMap.forEach((key, value) -> {
 			Map<String, Map<Integer, Double>> r = new HashMap<>();
-			List<SurveyInformation> surveyInformationListForUser =
-					results.keySet().stream()
-							.filter(surveyInformation -> surveyInformation.getUser().equals(user)).collect(Collectors.toList());
 
-			for (SurveyInformation key : surveyInformationListForUser) {
-				Map<String, Double> subRes = results.get(key);
+			value.stream().filter(SurveyInformation::isFinished).forEach(surveyInformation -> {
+				Map<String, Double> subRes = surveyInformation.getResults();
+				if (CollectionUtils.isEmpty(subRes)) {
+					subRes = getFormulaResults(surveyInformation);
+					surveyInformation.setResults(subRes);
+					surveyInformationRepository.save(surveyInformation);
+				}
+				final Map<String, Double> finalSubRes = subRes;
 				subRes.keySet().forEach(formulaName -> {
 					Map<Integer, Double> existingTimesResultMap = r.getOrDefault(formulaName, new TreeMap<>());
-					existingTimesResultMap.put(key.getTimes(), subRes.get(formulaName));
+					existingTimesResultMap.put(surveyInformation.getTimes(), finalSubRes.get(formulaName));
 					r.put(formulaName, existingTimesResultMap);
 				});
-			}
-
+			});
 			if (!CollectionUtils.isEmpty(r))
 				allResults.add(r);
 		});
-
 
 		return allResults;
 
@@ -169,7 +83,7 @@ public class ChartService {
 		Map<String, Map<Integer, Double>> results = new HashMap<>(); //formula, times, result
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_Id(userId);
 		surveyInformations.forEach(surveyInformation -> {
-			Map<String, Double> res = getFormulaResults(surveyInformation.getId());
+			Map<String, Double> res = surveyInformation.getResults();
 			for (String key : res.keySet()) {
 				Map<Integer, Double> subRes = results.getOrDefault(key, new TreeMap<>());
 				subRes.put(surveyInformation.getTimes(), res.get(key));
@@ -179,37 +93,12 @@ public class ChartService {
 		return results;
 	}
 
-	private ChartDTO getChartDTO (Long surveyInformationId, Chart chart) {
-		ChartDTO chartDTO = new ChartDTO();
-		List<Long> formulaIds = Arrays.stream(chart.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-		Map<Long, Double> resultMap = getFormulaResults(surveyInformationId, formulaIds);
-		String chartOptions = replaceQuestionMark(chart.getChartOptions(),
-				formulaIds.stream().map(resultMap::get).map(res -> String.format("%.2f", res)).toArray(String[]::new));
-		chartDTO.setChartOptions(chartOptions);
-		return chartDTO;
-	}
-
-	private Map<Long, Double> getFormulaResults (Long surveyInformationId, List<Long> formulaIds) {
-		List<Formula> formulas = formulaRepository.findByIdIn(formulaIds);
-		Map<Long, Double> resultMap = new HashMap<>();
-		formulas.forEach(formula -> {
-			List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-			List<Answer> answerList = answerRepository.findByQuestion_IdInAndSurveyInformation_Id(questionIds, surveyInformationId).orElseThrow(RuntimeException::new);
-			Map<Long, Answer> questionAnswerList = answerList.stream().collect(Collectors.toMap(answer -> answer.getQuestion().getId(), Function
-					.identity()));
-			String expression =  replaceQuestionMark(formula.getFormula(), getAnswerTexts(questionAnswerList, questionIds));
-			double result = new Expression(expression).calculate();
-			resultMap.put(formula.getId(), result);
-		});
-		return resultMap;
-	}
-
-	private Map<String, Double> getFormulaResults (Long surveyInformationId) {
-		List<Formula> formulas = formulaRepository.findAll();
+	public Map<String, Double> getFormulaResults (SurveyInformation surveyInformation) {
+		List<Formula> formulas = formulaRepository.findBySurvey(surveyInformation.getSurvey());
 		Map<String, Double> resultMap = new HashMap<>();
 		formulas.forEach(formula -> {
 			List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
-			Optional<List<Answer>> answerListOptional = answerRepository.findByQuestion_IdInAndSurveyInformation_Id(questionIds, surveyInformationId);
+			Optional<List<Answer>> answerListOptional = answerRepository.findByQuestion_IdInAndSurveyInformation_Id(questionIds, surveyInformation.getId());
 			if (!answerListOptional.isPresent()) {
 				return;
 			}
@@ -241,19 +130,4 @@ public class ChartService {
 		return str;
 	}
 
-	public ChartDTO generateBlockChart (Long blockId, Long userId, Integer times) {
-		Optional<Block> blockOptional = blockRepository.findById(blockId);
-		if (!blockOptional.isPresent())
-			throw new RuntimeException("Block Not Found");
-
-		Block block = blockOptional.get();
-		if (block.getChart() == null)
-			throw new RuntimeException("Chart is null");
-
-		SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimes(userId, times)
-				.orElseThrow(RuntimeException::new);
-
-		return getChartDTO(surveyInformation.getId(), block.getChart());
-
-	}
 }
