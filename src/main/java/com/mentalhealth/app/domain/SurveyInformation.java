@@ -38,7 +38,8 @@ public class SurveyInformation extends AbstractAuditingEntity implements Seriali
 	@ManyToOne
 	private Survey survey;
 
-	@Transient
+	@Column(name = "results", length = 4000)
+	@SuppressWarnings("JpaAttributeTypeInspection")
 	@Convert(converter = ResultConverter.class)
 	private Map<String, Double> results;
 

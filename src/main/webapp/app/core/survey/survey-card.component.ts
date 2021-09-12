@@ -55,7 +55,7 @@ export default class SurveyCardComponent extends Vue {
   }
 
   data() {
-    let json = this.$store.getters.survey;
+    let json = this.isEmployer() ? this.$store.getters.employerSurvey : this.$store.getters.survey;
     json.showNavigationButtons = 'none';
     json.showProgressBar = 'none';
     (window as any).survey = new SurveyVue.Model(json);

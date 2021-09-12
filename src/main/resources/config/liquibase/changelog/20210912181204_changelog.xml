@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="Developer (generated)" id="1631470330733-2">
+        <addColumn tableName="survey_information">
+            <column name="results" type="varchar(4000)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1631470330733-3">
+        <addColumn tableName="formula">
+            <column name="survey_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1631470330733-4">
+        <addColumn tableName="survey_information">
+            <column name="survey_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1631470330733-5">
+        <addForeignKeyConstraint baseColumnNames="survey_id" baseTableName="survey_information" constraintName="FKhso7sk3uel8j79bgir9a00pdw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="survey" validate="true"/>
+    </changeSet>
+    <changeSet author="Developer (generated)" id="1631470330733-6">
+        <addForeignKeyConstraint baseColumnNames="survey_id" baseTableName="formula" constraintName="FKq1msqx9uykmkwv4rae2ubv4iu" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="survey" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

@@ -5,7 +5,7 @@ export const surveyStore: Module<any, any> = {
     survey: {},
     surveyInformation: [],
     companySurveyInformation: {},
-    employerSurvey: {"title":"Mental Health Assessment","showProgressBar":"top","pages":[{"id":40,"name":"Introduction","title":"","description":"","chartId":null},{"id":41,"name":"Business Productivity","title":"","description":"","chartId":null},{"id":42,"name":"Green Management","title":"","description":"","chartId":null}]}
+    employerSurvey: {}
   },
   getters: {
     survey: state => state.survey,
