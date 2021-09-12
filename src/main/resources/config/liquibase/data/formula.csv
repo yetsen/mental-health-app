@@ -39,3 +39,4 @@ id;name;formula;variables;created_by;last_modified_by;survey_id
 38;Depression;(?+?+?+?+?+?+?)*2;152,154,159,162,165,166,170;system;system;2
 39;Anxiety;(?+?+?+?+?+?+?)*2;151,153,156,158,164,168,169;system;system;2
 40;Stress;(?+?+?+?+?+?+?)*2;150,155,157,160,161,163,167;system;system;2
+41;Business Productivity;(?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)/20;274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293;system;system;3
