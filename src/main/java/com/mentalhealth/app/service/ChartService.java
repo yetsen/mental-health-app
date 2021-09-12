@@ -84,6 +84,11 @@ public class ChartService {
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_Id(userId);
 		surveyInformations.forEach(surveyInformation -> {
 			Map<String, Double> res = surveyInformation.getResults();
+			if (CollectionUtils.isEmpty(res)) {
+				res = getFormulaResults(surveyInformation);
+				surveyInformation.setResults(res);
+				surveyInformationRepository.save(surveyInformation);
+			}
 			for (String key : res.keySet()) {
 				Map<Integer, Double> subRes = results.getOrDefault(key, new TreeMap<>());
 				subRes.put(surveyInformation.getTimes(), res.get(key));

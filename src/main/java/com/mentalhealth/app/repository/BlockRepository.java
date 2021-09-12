@@ -12,4 +12,6 @@ public interface BlockRepository  extends JpaRepository<Block, Long> {
     @Override List<Block> findAll ();
 
     List<Block> findBySurvey_Id(Long surveyId);
+
+    Block findBySurvey_IdAndName(Long surveyId, String name);
 }

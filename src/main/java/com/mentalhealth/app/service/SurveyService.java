@@ -65,7 +65,7 @@ public class SurveyService {
         } else {
             SurveyInformation surveyInformation = surveyInformationRepository
                     .findByUser_IdAndTimesAndSurvey_Id(userId, 1, surveyId).orElseThrow(RuntimeException::new);
-            Block introductionBlock = blockRepository.getOne(20L); //TODO: Change It Introduction always same
+            Block introductionBlock = blockRepository.findBySurvey_IdAndName(surveyId, "Introduction"); //TODO: Change It Introduction always same
             return convert(answerRepository.findBySurveyInformationAndQuestion_IdIn(surveyInformation, introductionBlock.getQuestions()
                     .stream().map(Question::getId).collect(Collectors.toList())).orElseThrow(RuntimeException::new));
         }

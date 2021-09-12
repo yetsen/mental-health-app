@@ -81,7 +81,7 @@ export default class SurveyCardComponent extends Vue {
       options.allowChanging = false;
 
       let that2 = that;
-      that.pushCurrentSurveyData(sender.data).then(() => {
+      that.pushCurrentSurveyData(sender.data, false).then(() => {
         let currentPage = (window as any).survey.currentPageNo;
         if (currentPage == 0)
           that2.movePuzzle2();
@@ -124,7 +124,7 @@ export default class SurveyCardComponent extends Vue {
     });
 
     (window as any).survey.onComplete.add(function (model, options) {
-      that.pushCurrentSurveyData(model.data).then(() => {
+      that.pushCurrentSurveyData(model.data, true).then(() => {
         let that2 = that;
         let currentPage = (window as any).survey.currentPageNo;
         if (that2.blocks[currentPage].chartId !== null) {
@@ -371,8 +371,8 @@ export default class SurveyCardComponent extends Vue {
     return this.$store.getters.survey.pages;
   }
 
-  pushCurrentSurveyData(surveyData: any) {
-    let answers = this.convertSurveyDataToAnswer(surveyData);
+  pushCurrentSurveyData(surveyData: any, surveyFinished: boolean) {
+    let answers = this.convertSurveyDataToAnswer(surveyData, surveyFinished);
     return this.surveyService().push(answers)
 
   }
@@ -411,7 +411,7 @@ export default class SurveyCardComponent extends Vue {
     this.doAnimation = true;
   }
 
-  private convertSurveyDataToAnswer(surveyData: any): Answers {
+  private convertSurveyDataToAnswer(surveyData: any, surveyFinished: boolean): Answers {
     let answers: Answers = {};
     answers.answers = [];
     let that = this;
@@ -419,6 +419,7 @@ export default class SurveyCardComponent extends Vue {
     si.userId = that.userId();
     si.times = that.times;
     si.surveyId = that.surveyId;
+    si.finished = surveyFinished
     answers.surveyInfo = si;
     Object.keys(surveyData).forEach(function (key, index) {
       let value = surveyData[key];

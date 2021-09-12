@@ -6,6 +6,7 @@ export interface ISurveyInfo {
   userId?: string;
   times?: number;
   surveyId?: number;
+  finished?: boolean;
 }
 
 export interface IAnswers {
@@ -22,5 +23,5 @@ export class Answer implements IAnswer {
 }
 
 export class SurveyInfo implements ISurveyInfo {
-  constructor(public userId?: string, public times?: number, public surveyId?: number) {}
+  constructor(public userId?: string, public times?: number, public surveyId?: number, public finished?: boolean) {}
 }
