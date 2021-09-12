@@ -40,7 +40,7 @@ export default new Router({
       meta: { authorities: [Authority.USER] }
     },
     {
-      path: '/landing-page/:times',
+      path: '/landing-page',
       name: 'LandingPage',
       component: LandingPage,
       meta: { authorities: [Authority.USER] }
