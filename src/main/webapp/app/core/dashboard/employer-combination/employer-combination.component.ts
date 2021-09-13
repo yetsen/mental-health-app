@@ -242,7 +242,7 @@ export default class EmployerCombinationComponent extends Vue {
         xAxis: {
           categories: this.times(),
           title: {
-            text: 'Times'
+            text: 'Months'
           },
           allowDecimals: false
         },

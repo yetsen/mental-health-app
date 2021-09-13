@@ -248,7 +248,7 @@ export default class BubbleWithMhComponent extends Vue {
 
         xAxis: {
           title: {
-            text: 'Times'
+            text: 'Months'
           },
           type: 'category',
           allowDecimals: false,

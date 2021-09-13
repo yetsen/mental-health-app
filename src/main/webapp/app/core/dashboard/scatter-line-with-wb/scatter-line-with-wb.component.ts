@@ -242,7 +242,7 @@ export default class ScatterLineWithWbComponent extends Vue {
         xAxis: {
           title: {
             enabled: true,
-            text: 'Times'
+            text: 'Months'
           },
           type: 'category',
           min: 1

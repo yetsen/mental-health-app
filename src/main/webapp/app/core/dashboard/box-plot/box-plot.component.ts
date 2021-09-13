@@ -247,7 +247,7 @@ export default class BoxPlotComponent extends Vue {
         xAxis: {
           categories: this.times(),
           title: {
-            text: 'Times'
+            text: 'Months'
           }
         },
 

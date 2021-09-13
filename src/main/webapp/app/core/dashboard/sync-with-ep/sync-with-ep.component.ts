@@ -264,6 +264,9 @@ function genOptions(vm, dataset) {
       enabled: false
     },
     xAxis: {
+      title: {
+        text: 'Months'
+      },
       crosshair: true,
       labels: {
         format: '{value}'
