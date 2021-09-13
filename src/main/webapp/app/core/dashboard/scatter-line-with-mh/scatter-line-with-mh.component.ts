@@ -320,10 +320,13 @@ export default class ScatterLineWithMhComponent extends Vue {
           series[3]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
         else
           series[4]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
+      });
 
+      times = Object.keys(this.formulaResults["Business Productivity"]);
+      times.forEach(i => {
         //TODO it will change after questions are provided
         series[5]["data"].push([Number(i), this.formulaResults["Business Productivity"][i]])
-      });
+      })
     });
 
     return series;

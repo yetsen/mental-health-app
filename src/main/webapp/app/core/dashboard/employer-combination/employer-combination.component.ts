@@ -253,8 +253,12 @@ export default class EmployerCombinationComponent extends Vue {
 
 
   times() {
-    let results = this.formulaResults;
-    return Object.keys(results["Business Productivity"]);
+    let results = this.companyFormulaResults;
+    let max = Object.keys(this.formulaResults["Business Productivity"]).length;
+    results.forEach(res => {
+      max = Math.max(max, Object.keys(res["Well-Being"]).length);
+    });
+    return Array.from({length: max}, (_, i) => i + 1);
   }
 
   seriesData() {
@@ -361,13 +365,17 @@ export default class EmployerCombinationComponent extends Vue {
         } else {
           series[4]["data"][Number(i)-1] += Number(ep[i]);
         }
-        cur = series[5]["data"][Number(i)-1];
+      });
+
+      times = Object.keys(bp);
+      times.forEach(i => {
+        let cur = series[5]["data"][Number(i)-1];
         if (typeof cur == "undefined") {
           series[5]["data"][Number(i)-1] = Number(bp[i]);
         } else {
           series[5]["data"][Number(i)-1] += Number(bp[i]);
         }
-      });
+      })
     });
 
     let userCount = allResults.length;
