@@ -34,7 +34,7 @@ export default class BubbleWithMhComponent extends Vue {
 
 
         title: {
-          text: 'Mental Health - Job satisfaction - Employee Productivity'
+          text: 'Your Mental Health, Job satisfaction and Productivity'
         },
 
         xAxis: {

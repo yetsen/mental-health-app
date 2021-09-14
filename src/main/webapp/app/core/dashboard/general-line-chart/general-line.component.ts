@@ -24,13 +24,16 @@ export default class GeneralLineComponent extends Vue {
       chartOptions: {
 
         title: {
-          text: 'General Scores'
+          text: 'All of Your Scores'
         },
 
         yAxis: {
           title: {
             text: 'Scores'
-          }
+          },
+          min: 0,
+          max: 5,
+          tickInterval: 1
         },
 
         xAxis: {

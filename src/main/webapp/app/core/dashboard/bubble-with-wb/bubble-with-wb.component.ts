@@ -34,7 +34,7 @@ export default class BubbleWithWbComponent extends Vue {
 
 
         title: {
-          text: 'Well-Being - Job satisfaction - Employee Productivity'
+          text: 'Your Well-Being, Job satisfaction and Productivity'
         },
 
         xAxis: {

@@ -145,7 +145,7 @@ export default class SyncWithJsComponent extends Vue {
       chartData['data'].push(Number(results["Job Satisfaction"][i].toFixed(2)));
     });
     chartData['color'] = '#7AF5F5'
-    chartData['name'] = 'Job Satisfaction'
+    chartData['name'] = 'Your Job Satisfaction'
     chartData['type'] = 'line'
     chartData['unit'] = ''
     chartData['valueDecimals'] = 1

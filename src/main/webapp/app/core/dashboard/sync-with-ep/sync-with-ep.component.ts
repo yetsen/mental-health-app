@@ -150,7 +150,7 @@ export default class SyncWithEpComponent extends Vue {
       chartData['data'].push(Number(results["Employee Productivity"][i].toFixed(2)));
     });
     chartData['color'] = '#90ee7e'
-    chartData['name'] = 'Employee Productivity'
+    chartData['name'] = 'Your Productivity'
     chartData['type'] = 'line'
     chartData['unit'] = ''
     chartData['valueDecimals'] = 1
