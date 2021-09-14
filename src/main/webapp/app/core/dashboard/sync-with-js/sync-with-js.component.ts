@@ -144,7 +144,7 @@ export default class SyncWithJsComponent extends Vue {
     times.forEach(i => {
       chartData['data'].push(Number(results["Job Satisfaction"][i].toFixed(2)));
     });
-    chartData['color'] = '#90ee7e'
+    chartData['color'] = '#7AF5F5'
     chartData['name'] = 'Job Satisfaction'
     chartData['type'] = 'line'
     chartData['unit'] = ''
@@ -158,7 +158,7 @@ export default class SyncWithJsComponent extends Vue {
     times.forEach(i => {
       chartData['data'].push(Number(results["Anxiety"][i].toFixed(2)));
     });
-    chartData['color'] = '#90ee7e'
+    chartData['color'] = '#3399FF'
     chartData['name'] = 'Mental Health'
     chartData['type'] = 'line'
     chartData['unit'] = ''
@@ -172,7 +172,7 @@ export default class SyncWithJsComponent extends Vue {
     times.forEach(i => {
       chartData['data'].push(Number(results["Well-Being"][i].toFixed(2)));
     });
-    chartData['color'] = '#90ee7e'
+    chartData['color'] = '#CA278C'
     chartData['name'] = 'Well-Being'
     chartData['type'] = 'line'
     chartData['unit'] = ''
