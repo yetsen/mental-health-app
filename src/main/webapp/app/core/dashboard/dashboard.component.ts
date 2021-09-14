@@ -13,6 +13,7 @@ import ScatterLineWithMh from "@/core/dashboard/scatter-line-with-mh/scatter-lin
 import ScatterLineWithWb from "@/core/dashboard/scatter-line-with-wb/scatter-line-with-wb.vue";
 import EmployerBubble from "@/core/dashboard/employer-bubble/employer-bubble.vue";
 import EmployerCombination from "@/core/dashboard/employer-combination/employer-combination.vue";
+import GeneralLine from "@/core/dashboard/general-line-chart/general-line.vue";
 
 @Component({
   name: 'dashboard',
@@ -26,7 +27,8 @@ import EmployerCombination from "@/core/dashboard/employer-combination/employer-
     scatterLineMh: ScatterLineWithMh,
     scatterLineWb: ScatterLineWithWb,
     employerBubble: EmployerBubble,
-    employerCombination: EmployerCombination
+    employerCombination: EmployerCombination,
+    generalLine: GeneralLine
   },
 })
 export default class Dashboard extends Vue {

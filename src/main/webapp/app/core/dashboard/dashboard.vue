@@ -8,27 +8,29 @@
         </header>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-              <boxPlot v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></boxPlot>
-              <scatterLineMh v-if="isEmployer() && companyFormulaResults[0]" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineMh>
+              <boxPlot v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults"></boxPlot>
+              <generalLine v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></generalLine>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithMhComponent  v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></bubbleWithMhComponent>
-              <scatterLineWb v-if="isEmployer() && companyFormulaResults[0]" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineWb>
+              <scatterLineMh v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineMh>
+
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithWbComponent  v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithWbComponent>
-              <employerBubble v-if="isEmployer() && companyFormulaResults[0]" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></employerBubble>
+              <scatterLineWb v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineWb>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <syncWithEp v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></syncWithEp>
-              <employerCombination v-if="isEmployer() && companyFormulaResults[0]" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></employerCombination>
+              <employerBubble v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></employerBubble>
             </div>
         </div>
         <div class="row">
-            <div style="margin-top: -29vh;" class="col-md-6 col-sm-12 col-xs-12">
+            <div v-bind:style="[isEmployer() ? {} : {'margin-top': '-29vh'}]" class="col-md-6 col-sm-12 col-xs-12">
               <syncWithJs v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></syncWithJs>
+              <employerCombination v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></employerCombination>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
 
