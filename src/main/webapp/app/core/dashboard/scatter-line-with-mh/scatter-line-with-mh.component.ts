@@ -29,7 +29,7 @@ export default class ScatterLineWithMhComponent extends Vue {
           type: 'scatter'
         },
         title: {
-          text: 'Mental Health - Employee Productivity - Business Productivity'
+          text: 'Mental Health, Employee Productivity and Business Productivity'
         },
         plotOptions: {
           series: {

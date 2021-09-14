@@ -36,7 +36,7 @@ export default class EmployerBubbleComponent extends Vue {
 
 
         title: {
-          text: 'Mental Health - Job satisfaction - Employee Productivity'
+          text: 'Mental Health, Job satisfaction and Employee Productivity'
         },
 
         xAxis: {

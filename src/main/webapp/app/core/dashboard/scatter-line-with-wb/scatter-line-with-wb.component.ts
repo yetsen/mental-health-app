@@ -28,7 +28,7 @@ export default class ScatterLineWithWbComponent extends Vue {
           type: 'scatter'
         },
         title: {
-          text: 'Well-Being - Employee Productivity - Business Productivity'
+          text: 'Well-Being, Employee Productivity and Business Productivity'
         },
         plotOptions: {
           series: {

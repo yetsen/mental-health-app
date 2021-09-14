@@ -32,7 +32,7 @@ export default class BoxPlotComponent extends Vue {
         },
 
         title: {
-          text: 'General Scores'
+          text: "All of The Company's Scores"
         },
 
         xAxis: {

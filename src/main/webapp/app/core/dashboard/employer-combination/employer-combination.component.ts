@@ -25,10 +25,10 @@ export default class EmployerCombinationComponent extends Vue {
     return {
       chartOptions: {
         title: {
-          text: 'MH - JS - OC - WB - EP - BP'
+          text: ''
         },
         subtitle: {
-          text: 'Mental Health - Job satisfaction - Org Commitment - Well-Being - Employee Productivity - Business Productivity'
+          text: 'Mental Health, Job satisfaction, Org Commitment, Well-Being, Employee Productivity and Business Productivity'
         },
         xAxis: {
           categories: this.times(),
