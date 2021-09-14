@@ -239,6 +239,13 @@ export default class ScatterLineWithWbComponent extends Vue {
         title: {
           text: 'Well-Being - Employee Productivity - Business Productivity'
         },
+        plotOptions: {
+          series: {
+            marker: {
+              symbol: 'circle'
+            }
+          }
+        },
         xAxis: {
           title: {
             enabled: true,

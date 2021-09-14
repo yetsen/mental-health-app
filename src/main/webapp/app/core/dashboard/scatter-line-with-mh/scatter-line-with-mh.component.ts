@@ -239,6 +239,13 @@ export default class ScatterLineWithMhComponent extends Vue {
         title: {
           text: 'Mental Health - Employee Productivity - Business Productivity'
         },
+        plotOptions: {
+          series: {
+            marker: {
+              symbol: 'circle'
+            }
+          }
+        },
         xAxis: {
           title: {
             enabled: true,
