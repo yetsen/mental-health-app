@@ -59,32 +59,38 @@ export default class EmployerCombinationComponent extends Vue {
     seri['name'] = "Mental Health";
     seri['type'] = "column";
     seri['data'] = [];
+    seri['color'] = '#043c5d'
     series.push(seri);
     seri = {};
     seri['name'] = "Job Satisfaction";
     seri['type'] = "column";
     seri['data'] = [];
+    seri['color'] = '#17788d'
     series.push(seri);
     seri = {};
     seri['name'] = "Well-Being";
     seri['type'] = "column";
     seri['data'] = [];
+    seri['color'] = '#0884cd'
     series.push(seri);
     seri = {};
     seri['name'] = "Organizational Commitment";
     seri['type'] = "column";
     seri['data'] = [];
+    seri['color'] = '#23b6d6'
     series.push(seri);
     seri = {};
     seri['name'] = "Employee Productivity";
     seri['type'] = "column";
     seri['data'] = [];
+    seri['color'] = '#3cb4c4'
 
     series.push(seri);
     seri = {};
     seri['name'] = "Business Productivity";
     seri['type'] = "column";
     seri['data'] = [];
+    seri['color'] = '#94eff3'
     series.push(seri);
     seri = {};
     seri['name'] = "Average";
