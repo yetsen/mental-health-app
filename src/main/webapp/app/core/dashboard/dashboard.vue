@@ -8,7 +8,7 @@
         </header>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
-              <boxPlot v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults"></boxPlot>
+              <boxPlot v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></boxPlot>
               <generalLine v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></generalLine>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
