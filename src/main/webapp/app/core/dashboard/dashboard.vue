@@ -20,6 +20,7 @@
           </div>
           <div class="col-md-4 col-sm-12 col-xs-12">
             <employeeCurrentHorizontalBar v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></employeeCurrentHorizontalBar>
+            <employerBar v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerBar>
           </div>
         </div>
 
