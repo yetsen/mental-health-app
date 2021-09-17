@@ -6,6 +6,22 @@
         <header v-if="isEmployer()" class="section-header">
           <h2>Welcome To The Company's Dashboard</h2>
         </header>
+        <h1 style="text-align: center">Current View</h1>
+        <div class="row">
+
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <speedometerWithMh v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></speedometerWithMh>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <speedometerWithWb v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></speedometerWithWb>
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <employeeCurrentHorizontalBar v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></employeeCurrentHorizontalBar>
+          </div>
+        </div>
+
+        <h1 style="text-align: center">General View</h1>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <boxPlot v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></boxPlot>
