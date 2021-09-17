@@ -18,6 +18,8 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
 
   @Prop()
   formulaResults: string;
+  @Prop()
+  companyFormulaResults: string[];
 
   data() {
     //console.log(parsed)
@@ -70,7 +72,7 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
           {
             "lineWidth": 0,
             "min": 0,
-            "max": 21,
+            "max": 28,
             "minorTickLength": 0,
             "tickLength": 0,
             "tickWidth": 0,
@@ -119,15 +121,15 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
             "data": [
               [
                 "Minimal <br> Anxiety",
-                4
+                7
               ],
               [
                 "Mild <br> Anxiety",
-                5
+                7
               ],
               [
                 "Moderate <br> Anxiety",
-                5
+                7
               ],
               [
                 "Severe <br> Anxiety",
@@ -137,7 +139,7 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
           },
           {
             "type": "gauge",
-            "data": [],
+            "data": [this.result()],
             "dial": {
               "rearLength": 0
             }
@@ -147,8 +149,17 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
     };
   }
 
-  series() {
-
+  result() {
+    let allResults = this.companyFormulaResults;
+    let total = 0;
+    allResults.forEach(results => {
+      let mh = results["Anxiety"];
+      let times = Object.keys(mh);
+      let currentTime = times[times.length - 1];
+      total += mh[currentTime];
+    });
+    let userCount = allResults.length;
+    return Number((total/userCount).toFixed(2));
   }
 
 

@@ -18,6 +18,8 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
 
   @Prop()
   formulaResults: string;
+  @Prop()
+  companyFormulaResults: string[];
 
   data() {
     //console.log(parsed)
@@ -35,7 +37,7 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
           "plotShadow": false
         },
         "title": {
-          "text": "Mental Health",
+          "text": "Well-Being",
           "align": "center",
           "verticalAlign": "top",
           "y": 40
@@ -70,7 +72,7 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
           {
             "lineWidth": 0,
             "min": 0,
-            "max": 21,
+            "max": 5,
             "minorTickLength": 0,
             "tickLength": 0,
             "tickWidth": 0,
@@ -114,30 +116,30 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
         "series": [
           {
             "type": "pie",
-            "name": "Mental Health",
+            "name": "Well-Being",
             "innerSize": "30%",
             "data": [
               [
-                "Minimal <br> Anxiety",
-                4
+                "Minimal",
+                1
               ],
               [
-                "Mild <br> Anxiety",
-                5
+                "Mild",
+                1
               ],
               [
-                "Moderate <br> Anxiety",
-                5
+                "Moderate",
+                1
               ],
               [
-                "Severe <br> Anxiety",
-                7
+                "Severe",
+                1
               ]
             ]
           },
           {
             "type": "gauge",
-            "data": [],
+            "data": [this.result()],
             "dial": {
               "rearLength": 0
             }
@@ -147,8 +149,18 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
     };
   }
 
-  series() {
 
+  result() {
+    let allResults = this.companyFormulaResults;
+    let total = 0;
+    allResults.forEach(results => {
+      let mh = results["Well-Being"];
+      let times = Object.keys(mh);
+      let currentTime = times[times.length - 1];
+      total += mh[currentTime];
+    });
+    let userCount = allResults.length;
+    return Number((total/userCount).toFixed(2));
   }
 
 

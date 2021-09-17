@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="card-body">
-            <div v-if="formulaResults['Anxiety']">
+            <div>
               <highcharts :options="chartOptions"></highcharts>
             </div>
         </div>
@@ -10,5 +10,5 @@
 
 <script lang="ts" src="./employer-speedometer-with-wb.component.ts">
 </script>
-<style lang="scss" src="./speedometer-with-wb.scss" scoped>
+<style lang="scss" src="./employer-speedometer-with-wb.scss" scoped>
 </style>

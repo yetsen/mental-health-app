@@ -11,10 +11,12 @@
 
           <div class="col-md-4 col-sm-12 col-xs-12">
             <speedometerWithMh v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></speedometerWithMh>
+            <employerSpeedometerWithMh v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerSpeedometerWithMh>
           </div>
 
           <div class="col-md-4 col-sm-12 col-xs-12">
             <speedometerWithWb v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></speedometerWithWb>
+            <employerSpeedometerWithWb v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerSpeedometerWithWb>
           </div>
           <div class="col-md-4 col-sm-12 col-xs-12">
             <employeeCurrentHorizontalBar v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></employeeCurrentHorizontalBar>

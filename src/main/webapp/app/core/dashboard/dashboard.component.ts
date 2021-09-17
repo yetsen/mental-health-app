@@ -17,6 +17,8 @@ import GeneralLine from "@/core/dashboard/general-line-chart/general-line.vue";
 import SpeedometerWithMhComponent from "@/core/dashboard/speedometer-with-mh/speedometer-with-mh.vue";
 import SpeedometerWithWbComponent from "@/core/dashboard/speedometer-with-wb/speedometer-with-wb.vue";
 import EmployeeCurrentHorizontalBar from "@/core/dashboard/employee-current-horizontal-bar-chart/employee-current-horizontal-bar-chart.vue";
+import EmployerSpeedometerWithMhComponent from "@/core/dashboard/employer-speedometer-with-mh/employer-speedometer-with-mh.vue";
+import EmployerSpeedometerWithWbComponent from "@/core/dashboard/employer-speedometer-with-wb/employer-speedometer-with-wb.vue";
 import Highcharts from "highcharts";
 
 Highcharts.createElement('link', {
@@ -244,7 +246,9 @@ Highcharts.setOptions(Highcharts['theme']);
     generalLine: GeneralLine,
     speedometerWithMh: SpeedometerWithMhComponent,
     speedometerWithWb: SpeedometerWithWbComponent,
-    employeeCurrentHorizontalBar: EmployeeCurrentHorizontalBar
+    employeeCurrentHorizontalBar: EmployeeCurrentHorizontalBar,
+    employerSpeedometerWithMh: EmployerSpeedometerWithMhComponent,
+    employerSpeedometerWithWb: EmployerSpeedometerWithWbComponent
   },
 })
 export default class Dashboard extends Vue {
