@@ -50,7 +50,34 @@ export default class BoxPlotComponent extends Vue {
           max: 5,
           tickInterval: 1
         },
-
+        plotOptions: {
+          boxplot: {
+            events: {
+              legendItemClick: function (col) {
+                console.log(col);
+                if (col.target.index === 0) {
+                  this.chart.series.forEach(function(val, index){
+                    if (index !== 0 || index !== 1) {
+                      val.setVisible(true, true);
+                    }
+                  });
+                  return false;
+                }
+                if (col.target.index === 1) {
+                  this.chart.series.forEach(function(val, index){
+                    if (index !== 0 || index !== 1) {
+                      val.setVisible(false, false);
+                    }
+                  });
+                  return false;
+                }
+              }
+            }
+          }
+        },
+        legend: {
+          enabled:true
+        },
         series: this.seriesData()
       }
     };
@@ -62,7 +89,7 @@ export default class BoxPlotComponent extends Vue {
   }
 
   seriesData() {
-    let seriesData = [];
+    let seriesData = [{name:"Select All", data:[], type: '', tooltip: {headerFormat: ''},visible:false },{name:"Deselect All", data: [], type: '', tooltip: {headerFormat: ''}, visible:false }];
 
 
     let results = this.companyFormulaResults;
@@ -75,7 +102,8 @@ export default class BoxPlotComponent extends Vue {
         type: 'boxplot',
         tooltip: {
           headerFormat: '<em>Assessment {point.key}</em><br/>'
-        }
+        },
+        visible: true
       }
       times.forEach(i => {
         let row = [];
