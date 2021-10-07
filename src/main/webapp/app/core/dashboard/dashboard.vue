@@ -24,7 +24,7 @@
           </div>
         </div>
 
-        <h1 style="text-align: center">General View</h1>
+        <h1 style="text-align: center">View Over Time</h1>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <boxPlot v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></boxPlot>

@@ -10,5 +10,5 @@ public interface FormulaRepository extends JpaRepository<Formula, Long> {
 
 	List<Formula> findByIdIn(List<Long> idList);
 
-	List<Formula> findBySurvey(Survey survey);
+	List<Formula> findBySurveyOrderById(Survey survey);
 }

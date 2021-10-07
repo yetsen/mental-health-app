@@ -80,7 +80,7 @@ public class ChartService {
 	}
 
 	public Map<String, Map<Integer, Double>> getAllFormulaResults(Long userId) {
-		Map<String, Map<Integer, Double>> results = new HashMap<>(); //formula, times, result
+		Map<String, Map<Integer, Double>> results = new LinkedHashMap<>(); //formula, times, result
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_Id(userId);
 		surveyInformations.forEach(surveyInformation -> {
 			Map<String, Double> res = surveyInformation.getResults();
@@ -99,8 +99,8 @@ public class ChartService {
 	}
 
 	public Map<String, Double> getFormulaResults (SurveyInformation surveyInformation) {
-		List<Formula> formulas = formulaRepository.findBySurvey(surveyInformation.getSurvey());
-		Map<String, Double> resultMap = new HashMap<>();
+		List<Formula> formulas = formulaRepository.findBySurveyOrderById(surveyInformation.getSurvey());
+		Map<String, Double> resultMap = new LinkedHashMap<>();
 		formulas.forEach(formula -> {
 			List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());
 			Optional<List<Answer>> answerListOptional = answerRepository.findByQuestion_IdInAndSurveyInformation_Id(questionIds, surveyInformation.getId());

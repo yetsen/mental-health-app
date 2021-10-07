@@ -33,11 +33,11 @@ export default class EmployerCurrentHorizontalBarChartComponent extends Vue {
           type: 'bar'
         },
         title: {
-          text: 'General Score'
+          text: 'General Scores'
         },
         plotOptions: {
           series: {
-            colorByPoint: true
+            color: '#043c5d'
           }
         },
         legend: {
