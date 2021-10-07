@@ -42,7 +42,34 @@ export default class GeneralLineComponent extends Vue {
             text: 'Months'
           }
         },
-
+        plotOptions: {
+          line: {
+            events: {
+              legendItemClick: function (col) {
+                console.log(col);
+                if (col.target.index === 0) {
+                  this.chart.series.forEach(function(val, index){
+                    if (index !== 0 || index !== 1) {
+                      val.setVisible(true, true);
+                    }
+                  });
+                  return false;
+                }
+                if (col.target.index === 1) {
+                  this.chart.series.forEach(function(val, index){
+                    if (index !== 0 || index !== 1) {
+                      val.setVisible(false, false);
+                    }
+                  });
+                  return false;
+                }
+              }
+            }
+          }
+        },
+        legend: {
+          enabled:true
+        },
         series: this.seriesData()
 
       }
@@ -55,7 +82,7 @@ export default class GeneralLineComponent extends Vue {
   }
 
   seriesData() {
-    let seriesData = [];
+    let seriesData = [{name:"Select All", data:[], visible:false },{name:"Deselect All", data: [], visible:false }];
 
 
     let results = this.formulaResults;
@@ -76,6 +103,5 @@ export default class GeneralLineComponent extends Vue {
     return seriesData;
 
   }
-
 
 }

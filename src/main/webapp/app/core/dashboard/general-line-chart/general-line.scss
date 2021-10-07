@@ -2,3 +2,19 @@
   margin: 2vh;
   background: linear-gradient(#27293d, #27293d);
 }
+
+.card::v-deep .highcharts-legend-item:first-child path {
+  display: none;
+}
+.card::v-deep .highcharts-legend-item:nth-child(2) path {
+  display: none;
+}
+
+.card::v-deep .highcharts-legend-item:first-child text {
+  color: #606063 !important;
+  fill: #606063 !important;
+}
+.card::v-deep .highcharts-legend-item:nth-child(2) text {
+  color: #606063 !important;
+  fill: #606063 !important;
+}
