@@ -29,7 +29,7 @@ export default class GeneralLineComponent extends Vue {
 
         yAxis: {
           title: {
-            text: 'Scores'
+            text: 'Score'
           },
           min: 0,
           max: 5,

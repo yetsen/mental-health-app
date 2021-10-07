@@ -55,7 +55,7 @@ public class ChartService {
 						Collectors.toList()));
 
 		surveyInformationMap.forEach((key, value) -> {
-			Map<String, Map<Integer, Double>> r = new HashMap<>();
+			Map<String, Map<Integer, Double>> r = new LinkedHashMap<>();
 
 			value.stream().filter(SurveyInformation::isFinished).forEach(surveyInformation -> {
 				Map<String, Double> subRes = surveyInformation.getResults();

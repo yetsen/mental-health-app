@@ -37,6 +37,12 @@ export default class EmployerCombinationComponent extends Vue {
           },
           allowDecimals: false
         },
+        yAxis: {
+          title: {
+            text: 'Score'
+          },
+          tickInterval: 1
+        },
         series: this.seriesData()
       }
     };
@@ -93,7 +99,7 @@ export default class EmployerCombinationComponent extends Vue {
     seri['color'] = '#94eff3'
     series.push(seri);
     seri = {};
-    seri['name'] = "Average";
+    seri['name'] = "Average of All Constructs";
     seri['data'] = [];
     seri['type'] = 'spline'
     series.push(seri);
