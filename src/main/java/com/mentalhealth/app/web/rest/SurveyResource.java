@@ -5,6 +5,7 @@ import com.mentalhealth.app.service.SurveyService;
 import com.mentalhealth.app.service.dto.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -53,6 +54,7 @@ public class SurveyResource {
 
     @PostMapping
     @ResponseStatus (HttpStatus.CREATED)
+    @Async
     public void post(@RequestBody AnswersDTO answers) {
         surveyService.putAnswers(answers);
     }

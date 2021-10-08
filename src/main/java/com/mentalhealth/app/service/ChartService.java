@@ -83,6 +83,8 @@ public class ChartService {
 		Map<String, Map<Integer, Double>> results = new LinkedHashMap<>(); //formula, times, result
 		List<SurveyInformation> surveyInformations = surveyInformationRepository.findByUser_Id(userId);
 		surveyInformations.forEach(surveyInformation -> {
+			if (!surveyInformation.isFinished())
+				return;
 			Map<String, Double> res = surveyInformation.getResults();
 			if (CollectionUtils.isEmpty(res)) {
 				res = getFormulaResults(surveyInformation);
