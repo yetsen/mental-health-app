@@ -54,10 +54,11 @@ export default class EmployerCurrentHorizontalBarChartComponent extends Vue {
           },
           labels: {
             overflow: 'justify'
-          }
+          },
+          tickInterval: 1
         },
         series: [{
-          name: 'Scores',
+          name: 'Score',
           data: this.currentOtherResults()
         }]
       }
