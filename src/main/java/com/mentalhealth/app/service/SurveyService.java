@@ -160,8 +160,7 @@ public class SurveyService {
         SurveyInformation surveyInformation = surveyInformationRepository.findByUser_IdAndTimesAndSurvey_Id(userId, times, surveyId)
                 .orElseThrow(RuntimeException::new);
         answerRepository.deleteAnswersBySurveyInformation_Id(surveyInformation.getId());
-        surveyInformation.setFinished(false);
-        surveyInformationRepository.save(surveyInformation);
+        surveyInformationRepository.delete(surveyInformation);
     }
 
     public List<SurveyInformation> getSurveyInformationByUserId (Long userId) {
