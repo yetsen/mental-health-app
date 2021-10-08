@@ -15,7 +15,7 @@
           <li><a @click="goTo('/')" class="nav-link" v-smooth-scroll href="#consortium">Consortium</a></li>
           <li><a @click="goTo('/')" class="nav-link" v-smooth-scroll href="#team">Contact Us</a></li>
           <li v-if="authenticated"><a class="nav-link" @click="onAssessmentClick(currentTime)">Assessment Center</a></li>
-          <li v-if="authenticated"><a class="nav-link" @click="goTo('/dashboard')">Dashboard</a></li>
+          <li v-if="authenticated && isFirstSurveyFinished"><a class="nav-link" @click="goTo('/dashboard')">Dashboard</a></li>
           <li v-if="!authenticated"><a class="getstarted" v-on:click="openLogin()">Sign in</a></li>
           <li v-if="authenticated" class="dropdown"><a><span>Profile <font-awesome-icon icon="chevron-down"/></span></a>
             <ul>

@@ -80,6 +80,11 @@ export default class ArshaNavbar extends Vue {
         this.surveyInformation[this.surveyInformation.length - 1].finished;
   }
 
+  public get isFirstSurveyFinished() : boolean {
+    return this.surveyInformation.length === 0 ? false :
+        this.surveyInformation[0].finished;
+  }
+
   private onAssessmentClick(times): void {
     //TODO: remove it
     if (this.authenticated) {
