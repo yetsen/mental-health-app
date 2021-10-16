@@ -51,7 +51,7 @@
   z-index: -1;
   height: 100%;
   width: 3px;
-  background-color: #4A99C0;
+  background-color: $primary;
   -webkit-transition: width .2s ease-in;
   -moz-transition:  width .2s ease-in;
   -ms-transition:  width .2s ease-in;
@@ -59,15 +59,6 @@
 
 }
 
-.sidebar-nav li:hover:before,
-.sidebar-nav li.open:hover:before {
-  width: 100%;
-  -webkit-transition: width .2s ease-in;
-  -moz-transition:  width .2s ease-in;
-  -ms-transition:  width .2s ease-in;
-  transition: width .2s ease-in;
-
-}
 
 .focusedOn:before {
   width: 100% !important;
@@ -79,13 +70,11 @@
 
 .focusedOn a {
   color: #fff !important;
-  text-decoration: none !important;
-  background-color: transparent !important;
 }
 
 .sidebar-nav li a {
   display: block;
-  color: #ddd;
+  color: inherit;
   text-decoration: none;
   padding: 10px 15px 10px 30px;
 }
@@ -96,7 +85,7 @@
 .sidebar-nav li.open a:hover,
 .sidebar-nav li.open a:active,
 .sidebar-nav li.open a:focus{
-  color: #fff;
+  color: inherit;
   text-decoration: none;
   background-color: transparent;
 }
@@ -112,155 +101,4 @@
 
 .progress-bar {
   background-color: $primary;
-}
-
-div[class^='jigsaw'], div[class*=' jigsaw']{
-  width: 6em;
-  height: 6em;
-  margin: 2rem 0.5rem;;
-  position: relative;
-  -webkit-border-radius: .5em;
-  -moz-border-radius: .5em;
-  border-radius: .5em;
-  cursor: pointer;
-}
-
-.grayout {
-  background-color: gray !important;
-}
-
-.jigsaw1,
-.jigsaw1 span {
-  background-color: #28a745;
-  z-index: 2;
-}
-
-.jigsaw2,
-.jigsaw2 span {
-  background-color: #28a745;
-  z-index: 1;
-}
-
-.jigsaw3,
-.jigsaw3 span {
-  background-color: #28a745;
-  z-index: 4;
-}
-
-.jigsaw4,
-.jigsaw4 span {
-  background-color: #28a745;
-  z-index: 3;
-}
-
-.jigsaw5,
-.jigsaw5 span {
-  background-color: #28a745;
-  z-index: 6;
-}
-
-.jigsaw6,
-.jigsaw6 span {
-  background-color: #28a745;
-  z-index: 5;
-}
-
-.jigsaw7,
-.jigsaw7 span {
-  background-color: #28a745;
-  z-index: 8;
-}
-.jigsaw8,
-.jigsaw8 span {
-  background-color: #28a745;
-  z-index: 7;
-}
-.jigsaw9,
-.jigsaw9 span {
-  background-color: #28a745;
-  z-index: 10;
-}
-.jigsaw10,
-.jigsaw10 span {
-  background-color: #28a745;
-  z-index: 9;
-}
-
-
-.text {
-  display: block;
-  color: #fff;
-  font-size: 0.8em;
-  text-align: center;
-  padding: 3em 0 0 1.2em;
-  position: relative;
-  background: transparent !important;
-}
-
-.jigsaw1 .t, .jigsaw2 .t, .jigsaw3 .t, .jigsaw4 .t, .jigsaw5 .t {
-  position: absolute;
-  top: -1.5em;
-  left: 2em;
-  -webkit-border-radius: 4em;
-  -moz-border-radius: 4em;
-  border-radius: 4em;
-}
-
-
-.jigsaw3 .t, .jigsaw4 .t, .jigsaw5 .t, .jigsaw6 .t, .jigsaw7 .t, .jigsaw8 .t, .jigsaw9 .t, .jigsaw10 .t {
-  width: 1.8em;
-  height: 1.8em;
-  position: absolute;
-  top: -1.5em;
-  left: 2em;
-  -webkit-border-radius: 4em;
-  -moz-border-radius: 4em;
-  border-radius: 4em;
-  background-color: inherit;
-}
-
-.jigsaw1 .r, .jigsaw3 .r, .jigsaw5 .r, .jigsaw7 .r, .jigsaw9 .r{
-  width: 1.8em;
-  height: 1.8em;
-  position: absolute;
-  top: 2em;
-  left: 5.7em;
-  -webkit-border-radius: 4em;
-  -moz-border-radius: 4em;
-  border-radius: 4em;
-  background-color: inherit;
-}
-
-.jigsaw1 .b, .jigsaw2 .b, .jigsaw3 .b, .jigsaw4 .b, .jigsaw5 .b, .jigsaw6 .b, .jigsaw7 .b, .jigsaw8 .b {
-  width: 1.8em;
-  height: 1.8em;
-  position: absolute;
-  top: 4.5em;
-  left: 2em;
-  -webkit-border-radius: 4em;
-  -moz-border-radius: 4em;
-  border-radius: 4em;
-  background-color: #fff;
-}
-
-.jigsaw2 .l, .jigsaw4 .l, .jigsaw6 .l, .jigsaw8 .l, .jigsaw10 .l {
-  width: 1.8em;
-  height: 1.8em;
-  position: absolute;
-  top: 2.0em;
-  left: -.4em;
-  -webkit-border-radius: 4em;
-  -moz-border-radius: 4em;
-  border-radius: 4em;
-  background-color: #fff;
-}
-
-.jigsaw1 .l {
-  position: absolute;
-  top: 2.2em;
-  left: -.4em;
-  -webkit-border-radius: 4em;
-  -moz-border-radius: 4em;
-  border-radius: 4em;
-  background-color: #fff;
 }

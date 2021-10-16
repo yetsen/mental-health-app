@@ -27,15 +27,11 @@ export default class SurveyCardComponent extends Vue {
   @Inject('chartService')
   private chartService: () => ChartService;
 
-  private doAnimation = true;
-
   private times;
 
   public currentChart = {};
   public currentSurveyModal = {};
   public currentSurveyOptions = {};
-
-  public isGrayOut = new Array(10).fill(1);
 
   private surveyId;
 
@@ -74,35 +70,12 @@ export default class SurveyCardComponent extends Vue {
       (window as any).survey.render();
     });
     (window as any).survey.onCurrentPageChanging.add(function (sender, options) {
-      if (sender.currentPageValue === undefined || !that.doAnimation)
+      if (sender.currentPageValue === undefined)
         return;
-
-      that.doAnimation = false;
-      options.allowChanging = false;
 
       let that2 = that;
       that.pushCurrentSurveyData(sender.data, false).then(() => {
         let currentPage = (window as any).survey.currentPageNo;
-        if (currentPage == 0)
-          that2.movePuzzle2();
-        if (currentPage == 1)
-          that2.movePuzzle3();
-        if (currentPage == 2)
-          that2.movePuzzle4();
-        if (currentPage == 3)
-          that2.movePuzzle5();
-        if (currentPage == 4)
-          that2.movePuzzle6();
-        if (currentPage == 5)
-          that2.movePuzzle7();
-        if (currentPage == 6)
-          that2.movePuzzle8();
-        if (currentPage == 7)
-          that2.movePuzzle9();
-        if (currentPage == 8)
-          that2.movePuzzle10();
-        if (currentPage == 9)
-          that2.movePuzzle11();
         if (that2.blocks[currentPage].chartId !== null) {
           let that3 = that2;
           that2.chartService().getBlockChart(that2.blocks[currentPage].id, that2.userId(), that2.times).then(chart => {
@@ -112,10 +85,7 @@ export default class SurveyCardComponent extends Vue {
             that3.preparePreviewChartModal();
           })
         } else {
-          //that2.startTransition(sender, options);
           sender.currentPage = options.newCurrentPage;
-          that2.doAnimation = true;
-          //that2.movePuzzle();
         }
       })
       .catch(error => {
@@ -174,174 +144,6 @@ export default class SurveyCardComponent extends Vue {
     };
   }
 
-  private movePuzzle2() {
-    let head = document.querySelector("#sidebar-wrapper-div");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw1");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = 0;
-    gsap.timeline().to("#jigsaw1", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[0] = 0;
-  }
-
-  private movePuzzle3() {
-    let head = document.querySelector("#jigsaw1");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw2");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = head.getBoundingClientRect().width;
-    let p1ImagePlaceY = 0;
-    gsap.timeline().to("#jigsaw2", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[1] = 0;
-  }
-  private movePuzzle4() {
-    let head = document.querySelector("#jigsaw1");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw3");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw3", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[2] = 0;
-  }
-  private movePuzzle5() {
-    let head = document.querySelector("#jigsaw2");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw4");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw4", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[3] = 0;
-  }
-  private movePuzzle6() {
-    let head = document.querySelector("#jigsaw3");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw5");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw5", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[4] = 0;
-  }
-  private movePuzzle7() {
-    let head = document.querySelector("#jigsaw4");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw6");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw6", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[5] = 0;
-  }
-  private movePuzzle8() {
-    let head = document.querySelector("#jigsaw5");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw7");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw7", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[6] = 0;
-  }
-  private movePuzzle9() {
-    let head = document.querySelector("#jigsaw6");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw8");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw8", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[7] = 0;
-  }
-  private movePuzzle10() {
-    let head = document.querySelector("#jigsaw7");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw9");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw9", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[8] = 0;
-  }
-  private movePuzzle11() {
-    let head = document.querySelector("#jigsaw8");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#jigsaw10");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 0;
-    let p1ImagePlaceY = head.getBoundingClientRect().height;
-    gsap.timeline().to("#jigsaw10", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y });
-    this.isGrayOut[9] = 0;
-  }
-
-  private movePuzzle() {
-    let head = document.querySelector("#head");
-    let headX = head.getBoundingClientRect().x;
-    let headY = head.getBoundingClientRect().y;
-    let p1 = document.querySelector("#p1");
-    let p1X = p1.getBoundingClientRect().x;
-    let p1Y = p1.getBoundingClientRect().y;
-    let p1ImagePlaceX = 128;
-    let p1ImagePlaceY = 76;
-    console.log(window.innerHeight);
-    console.log(window.innerWidth);
-    console.log(headX);
-    console.log(headY);
-    gsap.timeline().to("#p1", 1, {x: (headX + p1ImagePlaceX) - p1X,
-      y: (headY + p1ImagePlaceY) - p1Y })
-  }
-
-  private startTransition(sender, options) : void {
-    let that = this;
-    let wrapper = gsap.timeline({onComplete: function (){
-        that.doAnimation = true;
-    }});
-    setTimeout(function () {
-      sender.currentPage = options.newCurrentPage;
-    }, 1700);
-    //let direction = options.isPrevPage ? -1 : 1;
-    let direction = 1;
-    wrapper.to("#surveyElement", {scale: .8, ease: Bounce.easeOut, duration: 1});
-    wrapper.to("#surveyElement", {delay: -.25, x: -2400*direction, ease: Power3.easeIn, duration: 1});
-    //wrapper.to("#surveyElement", {x: 2400*direction, duration: 0});
-    wrapper.to("#surveyElement", {delay: 1, x: 0, ease: Power3.easeOut, duration: 1});
-    wrapper.to("#surveyElement", {scale: 1, ease: Bounce.easeOut, duration: 1});
-
-  }
-
-
   surveyValidateQuestion(s, options) {
     if (options.name === 'ConsentForm') {
       if (options.value.length < 4) {
@@ -359,7 +161,6 @@ export default class SurveyCardComponent extends Vue {
   }
 
   userId() {
-    //TODO: remove it
     return this.$store.getters.account.id;
   }
 
@@ -369,6 +170,10 @@ export default class SurveyCardComponent extends Vue {
 
   public get blocks() {
     return this.$store.getters.survey.pages;
+  }
+
+  blockNames() {
+    return this.blocks.map(x => x["name"]);
   }
 
   pushCurrentSurveyData(surveyData: any, surveyFinished: boolean) {
@@ -383,32 +188,10 @@ export default class SurveyCardComponent extends Vue {
     (<any>this).$router.push('/');
   }
 
-  closeDialog(): void {
-    (<any>this.$refs.clearAndExitModal).hide();
-  }
-
-  prepareClearAndExitModal(): void {
-    if (<any>this.$refs.clearAndExitModal) {
-      (<any>this.$refs.clearAndExitModal).show();
-    }
-  }
-
   preparePreviewChartModal(): void {
     if (<any>this.$refs.previewChartModal) {
       (<any>this.$refs.previewChartModal).show();
     }
-  }
-
-  closeDialogAndOpenPreviousPage(): void {
-    (<any>this.$refs.previewChartModal).hide();
-    this.doAnimation = true;
-  }
-
-  closeDialogAndOpenNextPage(): void {
-    (<any>this.$refs.previewChartModal).hide();
-    //this.startTransition(this.currentSurveyModal, this.currentSurveyOptions);
-    this.currentSurveyModal['currentPage'] = this.currentSurveyOptions['newCurrentPage'];
-    this.doAnimation = true;
   }
 
   private convertSurveyDataToAnswer(surveyData: any, surveyFinished: boolean): Answers {

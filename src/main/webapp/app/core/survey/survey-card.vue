@@ -13,83 +13,14 @@
             </div>
             <div class="row align-content-start">
               <div id="sidebar-wrapper-div" class="col-3">
-                <div class="row">
-                  <div class="col-6">
-                    <div class="jigsaw1" :class="{ 'grayout' : isGrayOut[0] == 1}" id="jigsaw1">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{blocks[0].name}}</span>
-                    </div>
-                    <div class="jigsaw3" :class="{ 'grayout' : isGrayOut[2] === 1}" id="jigsaw3">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{blocks[2].name}}</span>
-                    </div>
-                    <div class="jigsaw5" :class="{ 'grayout' : isGrayOut[4] === 1}" id="jigsaw5">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{blocks[4].name}}</span>
-                    </div>
-
-                    <div class="jigsaw7" :class="{ 'grayout' : isGrayOut[6] === 1}" id="jigsaw7">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{blocks[6].name}}</span>
-                    </div>
-                    <div class="jigsaw9" :class="{ 'grayout' : isGrayOut[8] === 1}" id="jigsaw9">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{blocks[8].name}}</span>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="jigsaw2" :class="{ 'grayout' : isGrayOut[1] === 1}" id="jigsaw2">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{blocks[1].name}}</span>
-                    </div>
-                    <div class="jigsaw4" :class="{ 'grayout' : isGrayOut[3] === 1}" id="jigsaw4">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{ blocks[3].name }}</span>
-                    </div>
-                    <div class="jigsaw6" :class="{ 'grayout' : isGrayOut[5] === 1}" id="jigsaw6">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{ blocks[5].name }}</span>
-                    </div>
-                    <div class="jigsaw8" :class="{ 'grayout' : isGrayOut[7] === 1}" id="jigsaw8">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{ blocks[7].name }}</span>
-                    </div>
-                    <div class="jigsaw10" :class="{ 'grayout' : isGrayOut[9] === 1}" id="jigsaw10">
-                      <span class="t"></span>
-                      <span class="r"></span>
-                      <span class="b"></span>
-                      <span class="l"></span>
-                      <span class="text">{{ blocks[9].name }}</span>
-                    </div>
-                  </div>
-                </div>
+                <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+                  <ul class="nav sidebar-nav">
+                    <li v-for="(name, index) in blockNames()" v-bind:key="name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
+                      <!--<a @click="survey.currentPageNo = index">{{ name }}</a> -->
+                      <a>{{ name }}</a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
               <div id="survey-body" class="col-9">
                 <div id="surveyElement">
