@@ -15,9 +15,9 @@
               <div id="sidebar-wrapper-div" class="col-3">
                 <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
                   <ul class="nav sidebar-nav">
-                    <li v-for="(name, index) in blockNames()" v-bind:key="name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
+                    <li v-for="(block, index) in blocks" v-bind:key="block" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
                       <!--<a @click="survey.currentPageNo = index">{{ name }}</a> -->
-                      <a>{{ name }}</a>
+                      <a>{{ block.name }}</a>
                     </li>
                   </ul>
                 </nav>

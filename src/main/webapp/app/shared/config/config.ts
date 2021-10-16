@@ -46,6 +46,7 @@ import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt
 import { faCheck } from '@fortawesome/free-solid-svg-icons/faCheck';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons/faChevronDown';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { faSmile } from '@fortawesome/free-regular-svg-icons/faSmile';
 
 import VueCookie from 'vue-cookie';
 import Vuelidate from 'vuelidate';
@@ -137,7 +138,8 @@ export function initFortAwesome(vue) {
     faMapMarkerAlt,
     faCheck,
     faChevronDown,
-    faChevronRight
+    faChevronRight,
+    faSmile
   );
 }
 

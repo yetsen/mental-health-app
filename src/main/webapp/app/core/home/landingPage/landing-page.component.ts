@@ -1,8 +1,13 @@
 import Component from 'vue-class-component';
 import {Inject, Vue, Watch} from 'vue-property-decorator';
 import LoginService from "@/account/login.service";
+import ICountUp from 'vue-countup-v2';
 
-@Component
+@Component({
+    components: {
+        ICountUp
+    }
+})
 export default class LandingPageComponent extends Vue {
     @Inject('loginService')
     private loginService: () => LoginService;

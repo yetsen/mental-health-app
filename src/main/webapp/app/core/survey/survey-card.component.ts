@@ -172,10 +172,6 @@ export default class SurveyCardComponent extends Vue {
     return this.$store.getters.survey.pages;
   }
 
-  blockNames() {
-    return this.blocks.map(x => x["name"]);
-  }
-
   pushCurrentSurveyData(surveyData: any, surveyFinished: boolean) {
     let answers = this.convertSurveyDataToAnswer(surveyData, surveyFinished);
     return this.surveyService().push(answers)
