@@ -20,7 +20,7 @@
                       <div>
                         <p>Level</p>
                         <ICountUp
-                            :endVal="300"
+                            :endVal="times"
                         />
                       </div>
                     </div>
@@ -31,7 +31,7 @@
                       <div>
                         <p>Task</p>
                         <ICountUp
-                            :endVal="300"
+                            :endVal="taskNumber"
                         />
                       </div>
                     </div>

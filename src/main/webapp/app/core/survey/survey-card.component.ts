@@ -29,7 +29,8 @@ export default class SurveyCardComponent extends Vue {
   @Inject('chartService')
   private chartService: () => ChartService;
 
-  private times;
+  private times : number;
+  private taskNumber : number;
 
   public currentChart = {};
   public currentSurveyModal = {};
@@ -42,12 +43,15 @@ export default class SurveyCardComponent extends Vue {
     if (this.times === value['params'].times)
       return;
 
-    this.times = value['params'].times;
+    this.times = Number(value['params'].times);
+    this.taskNumber = 1;
     this.surveyId = this.isEmployer() ? 3 : 2;
+    let that = this;
     this.surveyService()
         .getAnswer(this.userId(), this.times, this.surveyId)
         .then(res => {
           let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
+          that.calculateTaskNumber(result);
           (window as any).survey.data = result;
         });
   }
@@ -174,7 +178,12 @@ export default class SurveyCardComponent extends Vue {
     return this.isEmployer() ? this.$store.getters.employerSurvey.pages : this.$store.getters.survey.pages;
   }
 
+  public get questionCounts() {
+    return  this.blocks.map(v => v['elements'].length);
+  }
+
   pushCurrentSurveyData(surveyData: any, surveyFinished: boolean) {
+    this.calculateTaskNumber(surveyData);
     let answers = this.convertSurveyDataToAnswer(surveyData, surveyFinished);
     return this.surveyService().push(answers)
 
@@ -230,5 +239,19 @@ export default class SurveyCardComponent extends Vue {
       }
     });
     return answers;
+  }
+
+  private calculateTaskNumber(result) {
+    console.log(result);
+    let currentAnsweredQuestion = Object.keys(result).length;
+    let counter = 0;
+    for (let c of this.questionCounts) {
+      counter++;
+      currentAnsweredQuestion -= c;
+      if (currentAnsweredQuestion <= 0) {
+        break;
+      }
+    }
+    this.taskNumber = counter;
   }
 }
