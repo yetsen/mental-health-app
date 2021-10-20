@@ -8,23 +8,8 @@
         <h2>Assessment Center</h2>
       </header>
       <div class="row">
-        <div class="col-lg-3 mt-5 mt-lg-0">
-          <ul class="list-group list-group-flush">
-            <li v-for="block in blocks" class="list-group-item">{{block.name}}</li>
-          </ul>
-        </div>
-
-        <div class="col-lg-9 mt-5 mt-lg-0">
+        <div class="col-lg-12 mt-5 mt-lg-0">
           <div class="row align-self-center gy-4">
-            <div v-if="!isEmployer" class="count-box">
-              <font-awesome-icon :icon="['far', 'smile']" />
-              <div>
-                <p>Your Score</p>
-                <ICountUp
-                    :endVal="300"
-                />
-              </div>
-            </div>
             <div v-for="index in 12" :key="index" class="col-md-4" data-aos="zoom-out" data-aos-delay="200">
               <div class="feature-box d-flex align-items-center">
                 <h3> <font-awesome-icon v-if="index < currentTime" icon="check" /> Month {{ index }}</h3>
@@ -33,7 +18,7 @@
           </div>
         </div>
       </div>
-      <div v-bind:style="[isEmployer ? {'margin-top': '5vh'} : {'margin-top': '-10vh'}]" class="row">
+      <div v-bind:style="[isEmployer ? {'margin-top': '10vh'} : {'margin-top': '10vh'}]" class="row">
         <div class="col-lg-5">
 
         </div>

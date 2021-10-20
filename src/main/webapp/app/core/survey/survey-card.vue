@@ -13,9 +13,45 @@
             </div>
             <div class="row align-content-start">
               <div id="sidebar-wrapper-div" class="col-3">
+                <div style="padding: 1rem" class="row align-content-center">
+                  <div class="col-md-4">
+                    <div v-if="!isEmployer()" class="count-box">
+                      <font-awesome-icon :icon="['fa', 'layer-group']" />
+                      <div>
+                        <p>Level</p>
+                        <ICountUp
+                            :endVal="300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div v-if="!isEmployer()" class="count-box">
+                      <font-awesome-icon :icon="['fa', 'tasks']" />
+                      <div>
+                        <p>Task</p>
+                        <ICountUp
+                            :endVal="300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div v-if="!isEmployer()" class="count-box">
+                      <font-awesome-icon :icon="['fa', 'medal']" />
+                      <div>
+                        <p>Point</p>
+                        <ICountUp
+                            :endVal="300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
                   <ul class="nav sidebar-nav">
-                    <li v-for="(block, index) in blocks" v-bind:key="block" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
+                    <li v-for="(block, index) in blocks" v-bind:key="block.name" v-bind:class="{ focusedOn: index === survey.currentPageNo }" >
                       <!--<a @click="survey.currentPageNo = index">{{ name }}</a> -->
                       <a>{{ block.name }}</a>
                     </li>

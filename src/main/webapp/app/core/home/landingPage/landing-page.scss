@@ -124,31 +124,3 @@
   color: #848484;
 }
 
-.count-box {
-  display: flex;
-  align-items: center;
-  padding: 30px;
-  width: 100%;
-  background: #fff;
-  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
-}
-
-.count-box svg {
-  font-size: 42px;
-  line-height: 0;
-  margin-right: 20px;
-  color: #012970;
-}
-
-.count-box span {
-  font-size: 36px;
-  display: block;
-  font-weight: 600;
-  color: #012970;
-}
-
-.count-box p {
-  padding: 0;
-  margin: 0;
-  font-size: 14px;
-}
