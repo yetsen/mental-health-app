@@ -171,7 +171,7 @@ export default class SurveyCardComponent extends Vue {
   }
 
   public get blocks() {
-    return this.$store.getters.survey.pages;
+    return this.isEmployer() ? this.$store.getters.employerSurvey.pages : this.$store.getters.survey.pages;
   }
 
   pushCurrentSurveyData(surveyData: any, surveyFinished: boolean) {
