@@ -53,6 +53,7 @@ export default class SurveyCardComponent extends Vue {
           let result = { ...res.data['singleNode'], ...res.data['parentNode'], ...res.data['singleNodeMultipleAnswer'], ...res.data['parentNodeMultipleAnswer'] };
           that.calculateTaskNumber(result);
           (window as any).survey.data = result;
+          (window as any).survey.currentPage = that.taskNumber;
         });
   }
 
@@ -242,7 +243,7 @@ export default class SurveyCardComponent extends Vue {
   }
 
   private calculateTaskNumber(result) {
-    console.log(result);
+    //console.log(result);
     let currentAnsweredQuestion = Object.keys(result).length;
     let counter = 0;
     for (let c of this.questionCounts) {

@@ -14,7 +14,7 @@
             <div class="row align-content-start">
               <div id="sidebar-wrapper-div" class="col-3">
                 <div style="padding: 1rem" class="row align-content-center">
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <div v-if="!isEmployer()" class="count-box">
                       <font-awesome-icon :icon="['fa', 'layer-group']" />
                       <div>
@@ -25,7 +25,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-6">
                     <div v-if="!isEmployer()" class="count-box">
                       <font-awesome-icon :icon="['fa', 'tasks']" />
                       <div>
@@ -36,7 +36,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div v-if="false" class="col-md-4">
                     <div v-if="!isEmployer()" class="count-box">
                       <font-awesome-icon :icon="['fa', 'medal']" />
                       <div>
