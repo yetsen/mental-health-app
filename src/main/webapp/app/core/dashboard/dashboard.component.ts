@@ -6,6 +6,8 @@ import DummyComponent from '@/core/dashboard/dummy/dummy.vue';
 import ChartService from "@/core/chart.service";
 import BubbleWithMhComponent from "@/core/dashboard/bubble-with-mh/bubble-with-mh.vue";
 import BubbleWithWbComponent from "@/core/dashboard/bubble-with-wb/bubble-with-wb.vue";
+import BubbleWithWbBurnoutPr from "@/core/dashboard/bubble-with-wb-burnout-pr/bubble-with-wb-burnout-pr.vue";
+import BubbleWithMhBurnoutPr from "@/core/dashboard/bubble-with-mh-burnout-pr/bubble-with-mh-burnout-pr.vue";
 import BoxPlotComponent from "@/core/dashboard/box-plot/box-plot.vue";
 import SyncWithEpComponent from "@/core/dashboard/sync-with-ep/sync-with-ep.vue";
 import SyncWithJsComponent from "@/core/dashboard/sync-with-js/sync-with-js.vue";
@@ -16,6 +18,7 @@ import EmployerCombination from "@/core/dashboard/employer-combination/employer-
 import GeneralLine from "@/core/dashboard/general-line-chart/general-line.vue";
 import SpeedometerWithMhComponent from "@/core/dashboard/speedometer-with-mh/speedometer-with-mh.vue";
 import SpeedometerWithWbComponent from "@/core/dashboard/speedometer-with-wb/speedometer-with-wb.vue";
+import SpeedometerWithBurnoutComponent from "@/core/dashboard/speedometer-with-burnout/speedometer-with-burnout.vue";
 import EmployeeCurrentHorizontalBar from "@/core/dashboard/employee-current-horizontal-bar-chart/employee-current-horizontal-bar-chart.vue";
 import EmployerSpeedometerWithMhComponent from "@/core/dashboard/employer-speedometer-with-mh/employer-speedometer-with-mh.vue";
 import EmployerSpeedometerWithWbComponent from "@/core/dashboard/employer-speedometer-with-wb/employer-speedometer-with-wb.vue";
@@ -250,7 +253,10 @@ Highcharts.setOptions(Highcharts['theme']);
     employeeCurrentHorizontalBar: EmployeeCurrentHorizontalBar,
     employerSpeedometerWithMh: EmployerSpeedometerWithMhComponent,
     employerSpeedometerWithWb: EmployerSpeedometerWithWbComponent,
-    employerBar: EmployerBar
+    employerBar: EmployerBar,
+    speedometerWithBurnoutComponent: SpeedometerWithBurnoutComponent,
+    bubbleWithWbBurnoutPr: BubbleWithWbBurnoutPr,
+    bubbleWithMhBurnoutPr: BubbleWithMhBurnoutPr
   },
 })
 export default class Dashboard extends Vue {
