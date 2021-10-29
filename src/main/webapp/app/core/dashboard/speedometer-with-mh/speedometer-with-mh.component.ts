@@ -69,8 +69,8 @@ export default class SpeedometerWithMhComponent extends Vue {
         "yAxis": [
           {
             "lineWidth": 0,
-            "min": 0,
-            "max": 28,
+            "min": 1,
+            "max": 5,
             "minorTickLength": 0,
             "tickLength": 0,
             "tickWidth": 0,
@@ -137,7 +137,7 @@ export default class SpeedometerWithMhComponent extends Vue {
           },
           {
             "type": "gauge",
-            "data": [this.currentAnxiety()],
+            "data": [this.currentMentalHealth()],
             "dial": {
               "rearLength": 0
             }
@@ -147,9 +147,9 @@ export default class SpeedometerWithMhComponent extends Vue {
     };
   }
 
-  currentAnxiety() {
-    let times = Object.keys(this.formulaResults['Anxiety']);
-    return this.formulaResults['Anxiety'][times[times.length - 1]];
+  currentMentalHealth() {
+    let times = Object.keys(this.formulaResults['Mental Health']);
+    return Number(this.formulaResults['Mental Health'][times[times.length - 1]].toFixed(2));
   }
 
 

@@ -90,13 +90,6 @@ export default class ScatterLineWithWbComponent extends Vue {
     }
     series.push(seri);
     seri = {};
-    seri['name'] = "Extremely Severe";
-    seri['data'] = [];
-    seri['tooltip'] = {
-      pointFormat: 'Employee Productivity: <strong>{point.y}<strong/><br/>'
-    }
-    series.push(seri);
-    seri = {};
     seri['name'] = "Business Productivity";
     seri['data'] = [];
     seri['type'] = 'spline'
@@ -106,7 +99,7 @@ export default class ScatterLineWithWbComponent extends Vue {
     allResults.forEach(results => {
       let wb = results["Well-Being"];
       let ep = results["Employee Productivity"];
-      let times = Object.keys(results["Anxiety"]);
+      let times = Object.keys(results["Mental Health"]);
       times.forEach(i => {
         if (wb[i] <= 2)
           series[0]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
@@ -123,7 +116,7 @@ export default class ScatterLineWithWbComponent extends Vue {
       times = Object.keys(this.formulaResults["Business Productivity"]);
       times.forEach(i => {
         //TODO it will change after questions are provided
-        series[5]["data"].push([Number(i), this.formulaResults["Business Productivity"][i]])
+        series[4]["data"].push([Number(i), this.formulaResults["Business Productivity"][i]])
       })
     });
 

@@ -32,7 +32,7 @@ export default class BoxPlotComponent extends Vue {
         },
 
         title: {
-          text: "All of The Company's Scores"
+          text: "COMPARE THE COMPANY’S MONTHLY SCORES"
         },
 
         xAxis: {
@@ -54,7 +54,7 @@ export default class BoxPlotComponent extends Vue {
           boxplot: {
             events: {
               legendItemClick: function (col) {
-                console.log(col);
+                //console.log(col);
                 if (col.target.index === 0) {
                   this.chart.series.forEach(function(val, index){
                     if (index !== 0 || index !== 1) {

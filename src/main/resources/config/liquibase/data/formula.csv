@@ -1,42 +1,43 @@
-id;name;formula;variables;created_by;last_modified_by;survey_id
-1;Extraversion;(6-?+?)/2;7,12;system;system;1
-2;Agreeableness;(?+6-?)/2;8,13;system;system;1
-3;Conscientiousness;(6-?+?)/2;9,14;system;system;1
-4;Neuroticism;(6-?+?)/2;10,15;system;system;1
-5;Openness to Experience;(6-?+?)/2;11,16;system;system;1
-6;Mental Health;(?+?+?+?+?+?+?);18,19,20,21,22,23,24;system;system;1
-7;Well-Being;(?+?+?+?+?+?+?+?+?+?+?+?+?+?);26,27,28,29,30,31,32,33,34,35,36,37,38,39;system;system;1
-8;Productivity;(((100-((?-?)/?)*100)/100)*((100-((?-?)/10)*100)/100)-1)*100;129,128,129,137,139;system;system;1
-9;Psychological Demand;(?+?+6-?+6-?+6-?+?+?+?+?)/9;41,42,43,44,45,46,47,48,49;system;system;1
-10;Physical Demand;?+0;51;system;system;1
-11;Job Insecurity;(?+?)/2;53,54;system;system;1
-12;Job Promotion;(6-?+?+?+?)/4;56,57,58,59;system;system;1
-13;Recognition;(?+?+?+6-?+?)/5;61,62,63,64,65;system;system;1
-14;Support from Supervisor;(?+?+?+?)/4;67,68,69,70;system;system;1
-15;Support from Coworkers;(?+?+?+?)/4;72,73,74,75;system;system;1
-16;Skill Utilization;(?+?+?+6-?+?+?)/6;77,78,79,80,81,82;system;system;1
-17;Decision Authority;(?+?+?)/3;84,85,86;system;system;1
-18;Work to Family Conflict;(?+?+?+?+?)/5;88,89,90,91,92;system;system;1
-19;Family to Work Conflict;(?+?+?+?+?)/5;94,95,96,97,98;system;system;1
-20;Techno-Overload;(?+?+?+?+?)/5;100,101,102,103,104;system;system;1
-21;Techno-Complexity;(?+?+?+?+?)/5;106,107,108,109,110;system;system;1
-22;Covid-19 Related Questions;(?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)/16;112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127;system;system;1
-23;Covid-19 Organization Ability;(?+?+?+?+?+?+?+?+?+?+?+?)/12;112,113,114,115,116,117,118,119,120,121,122,123;system;system;1
-24;Covid-19 Impact;(?+?+?+?)/4;124,125,126,127;system;system;1
-25;Well-Being;(?+?+?+?+?+?+?+?+?)/9;172,173,174,175,176,177,178,179,180;system;system;2
-26;Job Satisfaction;(?+?+?+?+?+?+?)/7;182,183,184,185,186,187,188;system;system;2
-27;Employee Productivity;(6-?+6-?+6-?+6-?+6-?+6-?+6-?+6-?+?+6-?+6-?+?+?)/13;190,191,192,193,194,195,196,294,295,296,297,298,299;system;system;2
-28;Job Characteristics;(?+?+?+?+?+?+?+?+?+(6-?)+?+?+?+?)/14;198,199,201,202,204,205,206,208,209,210,211,213,214,215;system;system;2
-29;Leadership;(?+?+?+?+?)/5;217,218,219,220,221;system;system;2
-30;Work-life Balance;((6-?)+(6-?)+(6-?))/3;223,224,225;system;system;2
-31;Communication Tech;(?+?+6-?+6-?+6-?)/5;227,228,229,230,231;system;system;2
-32;Organisational  Learning ;(?+?+?+?+?+?)/6;233,234,235,237,238,239;system;system;2
-33;Rewards/Pay;(?+?+?)/3;241,242,243;system;system;2
-34;Financial Wellbeing;(?+?+?+6-?)/4;245,246,247,248;system;system;2
-35;Organisational Commitment;(?+?+6-?+?+?)/5;250,251,252,253,254;system;system;2
-36;Organisational Identity ;(?+?+?)/3;256,257,258;system;system;2
-37;Burnout;(?+?+?+?+?)/5;260,261,262,263,264;system;system;2
-38;Depression;(?+?+?+?+?+?+?)*2;152,154,159,162,165,166,170;system;system;2
-39;Anxiety;(?+?+?+?+?+?+?)*2;151,153,156,158,164,168,169;system;system;2
-40;Stress;(?+?+?+?+?+?+?)*2;150,155,157,160,161,163,167;system;system;2
-41;Business Productivity;(?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)/20;274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293;system;system;3
+id;name;formula;variables;created_by;last_modified_by;survey_id;order
+1;Extraversion;(6-?+?)/2;7,12;system;system;1;
+2;Agreeableness;(?+6-?)/2;8,13;system;system;1;
+3;Conscientiousness;(6-?+?)/2;9,14;system;system;1;
+4;Neuroticism;(6-?+?)/2;10,15;system;system;1;
+5;Openness to Experience;(6-?+?)/2;11,16;system;system;1;
+6;Mental Health;(?+?+?+?+?+?+?);18,19,20,21,22,23,24;system;system;1;
+7;Well-Being;(?+?+?+?+?+?+?+?+?+?+?+?+?+?);26,27,28,29,30,31,32,33,34,35,36,37,38,39;system;system;1;
+8;Productivity;(((100-((?-?)/?)*100)/100)*((100-((?-?)/10)*100)/100)-1)*100;129,128,129,137,139;system;system;1;
+9;Psychological Demand;(?+?+6-?+6-?+6-?+?+?+?+?)/9;41,42,43,44,45,46,47,48,49;system;system;1;
+10;Physical Demand;?+0;51;system;system;1;
+11;Job Insecurity;(?+?)/2;53,54;system;system;1;
+12;Job Promotion;(6-?+?+?+?)/4;56,57,58,59;system;system;1;
+13;Recognition;(?+?+?+6-?+?)/5;61,62,63,64,65;system;system;1;
+14;Support from Supervisor;(?+?+?+?)/4;67,68,69,70;system;system;1;
+15;Support from Coworkers;(?+?+?+?)/4;72,73,74,75;system;system;1;
+16;Skill Utilization;(?+?+?+6-?+?+?)/6;77,78,79,80,81,82;system;system;1;
+17;Decision Authority;(?+?+?)/3;84,85,86;system;system;1;
+18;Work to Family Conflict;(?+?+?+?+?)/5;88,89,90,91,92;system;system;1;
+19;Family to Work Conflict;(?+?+?+?+?)/5;94,95,96,97,98;system;system;1;
+20;Techno-Overload;(?+?+?+?+?)/5;100,101,102,103,104;system;system;1;
+21;Techno-Complexity;(?+?+?+?+?)/5;106,107,108,109,110;system;system;1;
+22;Covid-19 Related Questions;(?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)/16;112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127;system;system;1;
+23;Covid-19 Organization Ability;(?+?+?+?+?+?+?+?+?+?+?+?)/12;112,113,114,115,116,117,118,119,120,121,122,123;system;system;1;
+24;Covid-19 Impact;(?+?+?+?)/4;124,125,126,127;system;system;1;
+25;Well-Being;(?+?+?+?+?+?+?+?+?)/9;172,173,174,175,176,177,178,179,180;system;system;2;
+26;Job Satisfaction;(?+?+?+?+?+?+?)/7;182,183,184,185,186,187,188;system;system;2;2
+27;Employee Productivity;(6-?+6-?+6-?+6-?+6-?+6-?+6-?+6-?+?+6-?+6-?+?+?)/13;190,191,192,193,194,195,196,294,295,296,297,298,299;system;system;2;1
+28;Job Characteristics;(?+?+?+?+?+?+?+?+?+(6-?)+?+?+?+?)/14;198,199,201,202,204,205,206,208,209,210,211,213,214,215;system;system;2;4
+29;Leadership;(?+?+?+?+?)/5;217,218,219,220,221;system;system;2;3
+30;Work-life Balance;((6-?)+(6-?)+(6-?))/3;223,224,225;system;system;2;5
+31;Communication Tech;(?+?+6-?+6-?+6-?)/5;227,228,229,230,231;system;system;2;6
+32;Organisational  Learning ;(?+?+?+?+?+?)/6;233,234,235,237,238,239;system;system;2;9
+33;Rewards/Pay;(?+?+?)/3;241,242,243;system;system;2;7
+34;Financial Wellbeing;(?+?+?+6-?)/4;245,246,247,248;system;system;2;8
+35;Organisational Commitment;(?+?+6-?+?+?)/5;250,251,252,253,254;system;system;2;10
+36;Organisational Identity ;(?+?+?)/3;256,257,258;system;system;2;11
+37;Burnout;(?+?+?+?+?)/5;260,261,262,263,264;system;system;2;
+38;Depression;(?+?+?+?+?+?+?)*2;152,154,159,162,165,166,170;system;system;2;
+39;Anxiety;(?+?+?+?+?+?+?)*2;151,153,156,158,164,168,169;system;system;2;
+40;Stress;(?+?+?+?+?+?+?)*2;150,155,157,160,161,163,167;system;system;2;
+41;Business Productivity;(?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)/20;274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293;system;system;3;
+42;Mental Health;1+((?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?+?)*(4/63));152,154,159,162,165,166,170,151,153,156,158,164,168,169,150,155,157,160,161,163,167;system;system;2;

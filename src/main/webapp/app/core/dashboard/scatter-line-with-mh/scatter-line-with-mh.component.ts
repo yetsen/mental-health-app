@@ -91,13 +91,6 @@ export default class ScatterLineWithMhComponent extends Vue {
     }
     series.push(seri);
     seri = {};
-    seri['name'] = "Extremely Severe";
-    seri['data'] = [];
-    seri['tooltip'] = {
-      pointFormat: 'Employee Productivity: <strong>{point.y}<strong/><br/>'
-    }
-    series.push(seri);
-    seri = {};
     seri['name'] = "Business Productivity";
     seri['data'] = [];
     seri['type'] = 'spline'
@@ -105,26 +98,24 @@ export default class ScatterLineWithMhComponent extends Vue {
 
     let allResults = this.companyFormulaResults;
     allResults.forEach(results => {
-      let mh = results["Anxiety"];
+      let mh = results["Mental Health"];
       let ep = results["Employee Productivity"];
-      let times = Object.keys(results["Anxiety"]);
+      let times = Object.keys(results["Mental Health"]);
       times.forEach(i => {
-        if (mh[i] < 8)
+        if (mh[i] <= 2)
           series[0]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
-        else if (mh[i] < 10)
+        else if (mh[i] <= 3)
           series[1]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
-        else if (mh[i] < 15)
+        else if (mh[i] <= 4)
           series[2]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
-        else if (mh[i] < 20)
+        else if (mh[i] <= 5)
           series[3]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
-        else
-          series[4]["data"].push([Number(i), Number(ep[i].toFixed(2))]);
       });
 
       times = Object.keys(this.formulaResults["Business Productivity"]);
       times.forEach(i => {
         //TODO it will change after questions are provided
-        series[5]["data"].push([Number(i), this.formulaResults["Business Productivity"][i]])
+        series[4]["data"].push([Number(i), this.formulaResults["Business Productivity"][i]])
       })
     });
 

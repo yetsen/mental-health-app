@@ -10,7 +10,7 @@
         <div class="row">
 
           <div class="col-md-4 col-sm-12 col-xs-12">
-            <speedometerWithMh v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></speedometerWithMh>
+            <speedometerWithMh v-if="formulaResults['Mental Health']" :formulaResults="formulaResults"></speedometerWithMh>
             <employerSpeedometerWithMh v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerSpeedometerWithMh>
           </div>
 
@@ -25,7 +25,7 @@
         </div>
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
-            <employeeCurrentHorizontalBar v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></employeeCurrentHorizontalBar>
+            <employeeCurrentHorizontalBar v-if="formulaResults['Mental Health']" :formulaResults="formulaResults"></employeeCurrentHorizontalBar>
             <employerBar v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerBar>
           </div>
         </div>

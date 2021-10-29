@@ -101,7 +101,7 @@ public class ChartService {
 	}
 
 	public Map<String, Double> getFormulaResults (SurveyInformation surveyInformation) {
-		List<Formula> formulas = formulaRepository.findBySurveyOrderById(surveyInformation.getSurvey());
+		List<Formula> formulas = formulaRepository.findBySurveyOrderByOrderAscIdAsc(surveyInformation.getSurvey());
 		Map<String, Double> resultMap = new LinkedHashMap<>();
 		formulas.forEach(formula -> {
 			List<Long> questionIds = Arrays.stream(formula.getVariables().split(",")).map(Long::parseLong).collect(Collectors.toList());

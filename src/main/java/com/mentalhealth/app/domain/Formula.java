@@ -35,4 +35,7 @@ public class Formula extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     @ManyToOne
     private Survey survey;
+
+    @Column(name = "order")
+    private Integer order;
 }

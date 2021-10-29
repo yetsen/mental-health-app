@@ -148,22 +148,22 @@ export default class SyncWithJsComponent extends Vue {
     chartData['name'] = 'Your Job Satisfaction'
     chartData['type'] = 'line'
     chartData['unit'] = ''
-    chartData['valueDecimals'] = 1
+    chartData['valueDecimals'] = 2
     chartData['max'] = 5
     dataset.push(chartData);
 
     chartData = {};
     chartData['data'] = []
-    times = Object.keys(results["Anxiety"]);
+    times = Object.keys(results["Mental Health"]);
     times.forEach(i => {
-      chartData['data'].push(Number(results["Anxiety"][i].toFixed(2)));
+      chartData['data'].push(Number(results["Mental Health"][i].toFixed(2)));
     });
     chartData['color'] = '#3399FF'
     chartData['name'] = 'Mental Health'
     chartData['type'] = 'line'
     chartData['unit'] = ''
-    chartData['valueDecimals'] = 1
-    chartData['max'] = 32
+    chartData['valueDecimals'] = 2
+    chartData['max'] = 5
     dataset.push(chartData);
 
     chartData = {};
@@ -176,7 +176,7 @@ export default class SyncWithJsComponent extends Vue {
     chartData['name'] = 'Well-Being'
     chartData['type'] = 'line'
     chartData['unit'] = ''
-    chartData['valueDecimals'] = 1
+    chartData['valueDecimals'] = 2
     chartData['max'] = 5
     dataset.push(chartData);
 

@@ -24,7 +24,7 @@ export default class GeneralLineComponent extends Vue {
       chartOptions: {
 
         title: {
-          text: 'All of Your Scores'
+          text: 'Compare Your Monthly Scores'
         },
 
         yAxis: {
@@ -84,6 +84,7 @@ export default class GeneralLineComponent extends Vue {
   seriesData() {
     let seriesData = [{name:"Select All", data:[], visible:false },{name:"Deselect All", data: [], visible:false }];
 
+    let exclude = ['Anxiety', 'Depression', 'Stress'];
 
     let results = this.formulaResults;
     let times = Object.keys(results["Well-Being"]);
@@ -91,14 +92,17 @@ export default class GeneralLineComponent extends Vue {
     keys.forEach(k => {
       let row = [];
       times.forEach(i => {
-        if (results[k][i] <= 5)
+        //console.log(k);
+        if (!exclude.includes(k))
           row.push(Number(results[k][i].toFixed(2)));
       })
-      seriesData.push({
-        name: k,
-        data: row,
-        visible: false
-      })
+      if (!exclude.includes(k)) {
+        seriesData.push({
+          name: k,
+          data: row,
+          visible: false
+        })
+      }
     })
     return seriesData;
 

@@ -66,7 +66,7 @@ export default class EmployerCurrentHorizontalBarChartComponent extends Vue {
   }
 
   categories() {
-    let exclude = ['Anxiety', 'Depression', 'Stress', 'Well-Being'];
+    let exclude = ['Anxiety', 'Depression', 'Stress', 'Well-Being', 'Burnout', 'Mental Health'];
     return Object.keys(this.companyFormulaResults[0]).filter(value => !exclude.includes(value));
   }
 

@@ -71,8 +71,8 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
         "yAxis": [
           {
             "lineWidth": 0,
-            "min": 0,
-            "max": 28,
+            "min": 1,
+            "max": 5,
             "minorTickLength": 0,
             "tickLength": 0,
             "tickWidth": 0,
@@ -121,19 +121,19 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
             "data": [
               [
                 "Minimal <br> Anxiety",
-                7
+                1
               ],
               [
                 "Mild <br> Anxiety",
-                7
+                1
               ],
               [
                 "Moderate <br> Anxiety",
-                7
+                1
               ],
               [
                 "Severe <br> Anxiety",
-                7
+                1
               ]
             ]
           },
@@ -153,7 +153,7 @@ export default class EmployerSpeedometerWithMhComponent extends Vue {
     let allResults = this.companyFormulaResults;
     let total = 0;
     allResults.forEach(results => {
-      let mh = results["Anxiety"];
+      let mh = results["Mental Health"];
       let times = Object.keys(mh);
       let currentTime = times[times.length - 1];
       total += mh[currentTime];

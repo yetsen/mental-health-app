@@ -64,12 +64,12 @@ export default class EmployeeCurrentHorizontalBarChartComponent extends Vue {
   }
 
   categories() {
-    let exclude = ['Anxiety', 'Depression', 'Stress', 'Well-Being'];
+    let exclude = ['Anxiety', 'Depression', 'Stress', 'Well-Being', 'Burnout', 'Mental Health'];
     return Object.keys(this.formulaResults).filter(value => !exclude.includes(value));
-  }
+  }fo
 
   currentOtherResults() {
-    let times = Object.keys(this.formulaResults['Anxiety']);
+    let times = Object.keys(this.formulaResults['Mental Health']);
     let currentTime = times[times.length - 1];
     let categories = this.categories();
     let result = [];

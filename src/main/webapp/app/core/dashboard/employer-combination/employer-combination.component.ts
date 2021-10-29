@@ -106,13 +106,13 @@ export default class EmployerCombinationComponent extends Vue {
 
     let allResults = this.companyFormulaResults;
     allResults.forEach(results => {
-      let mh = results["Anxiety"];
+      let mh = results["Mental Health"];
       let js = results["Job Satisfaction"];
       let wb = results["Well-Being"];
       let oc = results["Organisational Commitment"];
       let ep = results["Employee Productivity"];
       let bp = this.formulaResults["Business Productivity"]
-      let times = Object.keys(results["Anxiety"]);
+      let times = Object.keys(results["Mental Health"]);
 
       let keys = Object.keys(results);
       times.forEach(i => {

@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div class="card-body">
-            <div v-if="formulaResults['Anxiety']">
+            <div v-if="formulaResults['Mental Health']">
               <highcharts v-for="options in optionsList" :options="options" ref="highcharts" class="chart"></highcharts>
             </div>
         </div>

@@ -109,31 +109,25 @@ export default class BubbleWithMhBurnoutPrComponent extends Vue {
     seri['name'] = "Severe";
     seri['data'] = [];
     series.push(seri);
-    seri = {};
-    seri['name'] = "Extremely Severe";
-    seri['data'] = [];
-    series.push(seri);
 
     let results = this.formulaResults;
-    let mh = results["Anxiety"];
+    let mh = results["Mental Health"];
     let ep = results["Employee Productivity"];
     let js = results["Burnout"];
-    let times = Object.keys(results["Anxiety"]);
+    let times = Object.keys(results["Mental Health"]);
     times.forEach(i => {
       let coord = {};
       coord['x'] = Number(i);
       coord['y'] = Number(ep[i].toFixed(2));
       coord['z'] = Number(js[i].toFixed(2));
-      if (mh[i] < 8)
+      if (mh[i] <= 2)
         series[0]["data"].push(coord);
-      else if (mh[i] < 10)
+      else if (mh[i] <= 3)
         series[1]["data"].push(coord);
-      else if (mh[i] < 15)
+      else if (mh[i] <= 4)
         series[2]["data"].push(coord);
-      else if (mh[i] < 20)
+      else if (mh[i] <= 5)
         series[3]["data"].push(coord);
-      else
-        series[4]["data"].push(coord);
     });
     return series;
 

@@ -106,32 +106,26 @@ export default class EmployerBubbleComponent extends Vue {
     seri['name'] = "Severe";
     seri['data'] = [];
     series.push(seri);
-    seri = {};
-    seri['name'] = "Extremely Severe";
-    seri['data'] = [];
-    series.push(seri);
 
     let allResults = this.companyFormulaResults;
     allResults.forEach(results => {
-      let mh = results["Anxiety"];
+      let mh = results["Mental Health"];
       let js = results["Job Satisfaction"];
       let oc = results["Organisational Commitment"];
-      let times = Object.keys(results["Anxiety"]);
+      let times = Object.keys(results["Mental Health"]);
       times.forEach(i => {
         let coord = {};
         coord['x'] = Number(i);
         coord['y'] = Number(js[i].toFixed(2));
         coord['z'] = Number(oc[i].toFixed(2));
-        if (mh[i] < 8)
+        if (mh[i] <= 2)
           series[0]["data"].push(coord);
-        else if (mh[i] < 10)
+        else if (mh[i] <= 3)
           series[1]["data"].push(coord);
-        else if (mh[i] < 15)
+        else if (mh[i] <= 4)
           series[2]["data"].push(coord);
-        else if (mh[i] < 20)
+        else if (mh[i] <= 5)
           series[3]["data"].push(coord);
-        else
-          series[4]["data"].push(coord);
       });
     });
 
