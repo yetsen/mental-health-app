@@ -76,9 +76,16 @@ export default class BubbleWithMhComponent extends Vue {
           }
         },
         legend: {
-          enabled: true
+          enabled: true,
+          useHTML: true,
+          title: {
+            text: '<div style="width: 25rem; border: solid 0px red; text-align: center;">Mental Health</div><br/>',
+            style: {
+              fontStyle: 'italic'
+            }
+          },
+          padding: 15
         },
-
         series: this.series()
 
       }
