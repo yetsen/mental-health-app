@@ -20,12 +20,13 @@
           </div>
           <div class="col-md-4 col-sm-12 col-xs-12">
             <speedometerWithBurnoutComponent v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></speedometerWithBurnoutComponent>
-            <employerBar v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerBar>
+            <employerSpeedometerWithBurnoutComponent v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerSpeedometerWithBurnoutComponent>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <employeeCurrentHorizontalBar v-if="formulaResults['Anxiety']" :formulaResults="formulaResults"></employeeCurrentHorizontalBar>
+            <employerBar v-if="isEmployer() && companyFormulaResults[0]" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></employerBar>
           </div>
         </div>
 
@@ -33,27 +34,26 @@
         <div class="row">
           <div class="col-md-12 col-sm-12 col-xs-12">
             <generalLine v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></generalLine>
+            <boxPlot v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></boxPlot>
           </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithMhComponent  v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithMhComponent>
-              <boxPlot v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :companyFormulaResults="companyFormulaResults" :formulaResults="formulaResults"></boxPlot>
+              <scatterLineMh v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineMh>
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithWbComponent  v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithWbComponent>
-              <scatterLineMh v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineMh>
+              <scatterLineWb v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineWb>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithMhBurnoutPr v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithMhBurnoutPr>
-              <scatterLineWb v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></scatterLineWb>
+
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <bubbleWithWbBurnoutPr v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></bubbleWithWbBurnoutPr>
-
-              <employerBubble v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></employerBubble>
             </div>
         </div>
         <div class="row">
@@ -63,6 +63,7 @@
             </div>
             <div class="col-md-6 col-sm-12 col-xs-12">
               <syncWithEp v-if="formulaResults['Well-Being']" :formulaResults="formulaResults"></syncWithEp>
+              <employerBubble v-if="isEmployer() && companyFormulaResults[0] && formulaResults['Business Productivity']" :formulaResults="formulaResults" :companyFormulaResults="companyFormulaResults"></employerBubble>
             </div>
         </div>
     </div>

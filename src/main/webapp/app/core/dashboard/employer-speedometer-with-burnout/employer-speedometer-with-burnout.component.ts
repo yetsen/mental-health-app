@@ -14,7 +14,7 @@ More(Highcharts);
 heatmap(Highcharts);
 
 @Component
-export default class EmployerSpeedometerWithWbComponent extends Vue {
+export default class EmployerSpeedometerWithBurnoutComponent extends Vue {
 
   @Prop()
   formulaResults: string;
@@ -37,7 +37,7 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
           "plotShadow": false
         },
         "title": {
-          "text": "Well-Being",
+          "text": "Burnout",
           "align": "center",
           "verticalAlign": "top",
           "y": 40
@@ -116,7 +116,7 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
         "series": [
           {
             "type": "pie",
-            "name": "Well-Being",
+            "name": "Burnout",
             "innerSize": "30%",
             "data": [
               [
@@ -154,7 +154,7 @@ export default class EmployerSpeedometerWithWbComponent extends Vue {
     let allResults = this.companyFormulaResults;
     let total = 0;
     allResults.forEach(results => {
-      let mh = results["Well-Being"];
+      let mh = results["Burnout"];
       let times = Object.keys(mh);
       let currentTime = times[times.length - 1];
       total += mh[currentTime];

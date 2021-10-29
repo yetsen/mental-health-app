@@ -22,6 +22,7 @@ import SpeedometerWithBurnoutComponent from "@/core/dashboard/speedometer-with-b
 import EmployeeCurrentHorizontalBar from "@/core/dashboard/employee-current-horizontal-bar-chart/employee-current-horizontal-bar-chart.vue";
 import EmployerSpeedometerWithMhComponent from "@/core/dashboard/employer-speedometer-with-mh/employer-speedometer-with-mh.vue";
 import EmployerSpeedometerWithWbComponent from "@/core/dashboard/employer-speedometer-with-wb/employer-speedometer-with-wb.vue";
+import EmployerSpeedometerWithBurnoutComponent from "@/core/dashboard/employer-speedometer-with-burnout/employer-speedometer-with-burnout.vue";
 import EmployerBar from "@/core/dashboard/employer-current-horizontal-bar-chart/employer-current-horizontal-bar-chart.vue";
 import Highcharts from "highcharts";
 
@@ -256,7 +257,8 @@ Highcharts.setOptions(Highcharts['theme']);
     employerBar: EmployerBar,
     speedometerWithBurnoutComponent: SpeedometerWithBurnoutComponent,
     bubbleWithWbBurnoutPr: BubbleWithWbBurnoutPr,
-    bubbleWithMhBurnoutPr: BubbleWithMhBurnoutPr
+    bubbleWithMhBurnoutPr: BubbleWithMhBurnoutPr,
+    employerSpeedometerWithBurnoutComponent: EmployerSpeedometerWithBurnoutComponent
   },
 })
 export default class Dashboard extends Vue {
